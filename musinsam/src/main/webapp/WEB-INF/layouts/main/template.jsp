@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-	
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -23,7 +23,12 @@
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
-	<tiles:insertAttribute name="body" />
+
+	<main class="site-main">
+		<tiles:insertAttribute name="today" />
+		<tiles:insertAttribute name="best" />
+	</main>
+	
 	<tiles:insertAttribute name="footer" />
 
 	<script src="vendors/jquery/jquery-3.2.1.min.js"></script>

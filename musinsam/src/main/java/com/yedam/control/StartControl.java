@@ -12,7 +12,7 @@ public class StartControl implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("mmm/mai.tiles").forward(request, response);
+		request.getRequestDispatcher("main/best.tiles").forward(request, response);
 	}
 
 }

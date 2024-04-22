@@ -4,7 +4,11 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 	<display-name>musinsam</display-name>
-
+	
+	<listener>
+		<listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+	</listener>
+	
 	<servlet>
 		<servlet-name>DispatcherServlet</servlet-name>
 		<servlet-class>com.yedam.common.FrontControl</servlet-class>
