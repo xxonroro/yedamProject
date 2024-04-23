@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.control.StartControl;
-
+import com.yedam.product.GetProductControl;
 import com.yedam.common.Control;
 
 public class FrontControl extends HttpServlet {
@@ -23,6 +23,7 @@ public class FrontControl extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		map.put("/main.do", new StartControl());
+		map.put("/getProduct.do", new GetProductControl());
 	}
 	
 	@Override
