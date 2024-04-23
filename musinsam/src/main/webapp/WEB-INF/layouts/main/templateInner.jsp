@@ -44,5 +44,8 @@
 	<script src="vendors/jquery.ajaxchimp.min.js"></script>
 	<script src="vendors/mail-script.js"></script>
 	<script src="js/main.js"></script>
+	
+	<!-- 회원 가입 -->
+	<script src="js/member/register.js"></script>
 </body>
 </html>
