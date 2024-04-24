@@ -10,22 +10,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.board.todayCoodiControl;
-import com.yedam.control.StartControl;
-import com.yedam.category.CategoryList;
-import com.yedam.category.CategoryListPants;
 import com.yedam.category.CateList;
 import com.yedam.category.Cateform;
+import com.yedam.category.CategoryList;
+import com.yedam.category.CategoryListPants;
+import com.yedam.main.MainControl;
+import com.yedam.member.MemberRegisterForm;
+import com.yedam.member.MemberRegistration;
+import com.yedam.order.control.Cart;
+import com.yedam.order.control.CartList;
+import com.yedam.order.control.RemoveCart;
+import com.yedam.order.control.UpDownCount;
+import com.yedam.product.GetProductControl;
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
-	
+
 	public FrontControl() {
 		map = new HashMap<>();
 	}
-	
+
 	@Override
 	public void init() throws ServletException {
+
+		// 메인 페이지 (이거에요 지우지마세요. start 뭐시기 그거 지워주세요
 		map.put("/main.do", new MainControl());
+
+
+		// 회원 가입
+		map.put("/memberRegisterForm.do", new MemberRegisterForm());
+		map.put("/memberRegistration.do", new MemberRegistration());
+		
+		map.put("/cart.do",	new Cart());
+		map.put("/cartList.do", new CartList());
+		map.put("/updownCount.do", new UpDownCount());
+		map.put("/removeCart.do", new RemoveCart());
+
+
 
 		//카테고리
 		map.put("/catefrom.do", new Cateform());
@@ -35,17 +56,20 @@ public class FrontControl extends HttpServlet {
 		
 		map.put("/todayCoodi.do", new todayCoodiControl());
 
-		
-	}
 	
+	}
+
 	@Override
-	protected void service(HttpServletRequest reqeust, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest reqeust, HttpServletResponse response)
+			throws ServletException, IOException {
 		reqeust.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		
+
 		String uri = reqeust.getRequestURI();
 		String context = reqeust.getContextPath();
 		String path = uri.substring(context.length());
+		
+		System.out.println();
 		
 		Control control = map.get(path);
 		control.execute(reqeust, response);
