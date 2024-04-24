@@ -32,8 +32,8 @@
               <li class="common-filter">
                 <form action="#">
                   <ul>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="men" name="brand"><label for="men">Pants</label></li>
-                    <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">Women<span> (3600)</span></label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="men" name="brand"><label for="men">바지</label></li>
+                    <li class="filter-list"><input class="pixel-radio" type="radio" id="women" name="brand"><label for="women">신발</label></li>
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="accessories" name="brand"><label for="accessories">Accessories<span> (3600)</span></label></li>
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="footwear" name="brand"><label for="footwear">Footwear<span> (3600)</span></label></li>
                     <li class="filter-list"><input class="pixel-radio" type="radio" id="bayItem" name="brand"><label for="bayItem">Bay item<span> (3600)</span></label></li>
@@ -120,10 +120,10 @@
           
             <div class="row" id="div1">
             
-              <div class="col-md-6 col-lg-4" data-id="0" id="div2">
+              <div class="col-md-6 col-lg-4" data-id="0" id="div2" >
                 <div class="card text-center card-product">
                   <div class="card-product__img" id="img">
-                    <img class="card-img"  width="100px" height="150px"alt="">
+                    <img id="img1" class="card-img" src="upload/Short Sleeve Rugby T-Shirt.jpg"  width="100px" height="150px"alt="">
                     <ul class="card-product__imgOverlay">
                       <li><button><i class="ti-search"></i></button></li>
                       <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -131,9 +131,9 @@
                     </ul>
                   </div>
                   <div class="card-body">
-                    <p>smallCategory</p>
-                    <h4 class="card-product__title"><a href="#">vo.clothName</a></h4>
-                    <p class="card-product__price">원</p>
+                    <p id="p1">smallCategory</p>
+                    <h4 class="card-product__title"><a href="#" id="name1"></a></h4>
+                    <p id="p2" class="card-product__price">원</p>
                   </div>
                 </div>
               </div>
