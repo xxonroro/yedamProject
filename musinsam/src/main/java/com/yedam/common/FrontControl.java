@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yedam.board.todayCoodiControl;
+import com.yedam.board.TodayCoodiControl;
+import com.yedam.board.todayCoodiList;
 import com.yedam.category.CateList;
 import com.yedam.category.Cateform;
 import com.yedam.category.CategoryList;
@@ -23,6 +24,8 @@ import com.yedam.order.control.CartList;
 import com.yedam.order.control.RemoveCart;
 import com.yedam.order.control.UpDownCount;
 import com.yedam.product.GetProductControl;
+import com.yedam.question.QuestionControl;
+import com.yedam.question.QuestionList;
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -61,7 +64,12 @@ public class FrontControl extends HttpServlet {
 		
 		
 		//송재현
-		map.put("/todayCoodi.do", new todayCoodiControl());
+		map.put("/todayCoodi.do", new TodayCoodiControl());
+		map.put("/todayList.do", new todayCoodiList());
+		
+		map.put("/faq.do", new QuestionControl());
+		map.put("/faqList.do", new QuestionList());
+		
 
 	
 		//상지현
