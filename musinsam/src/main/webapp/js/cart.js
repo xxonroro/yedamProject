@@ -36,7 +36,13 @@ const basket = {
 				}
 				temp.find('td h5:eq(0)').text(Math.round((prc / 10) * 10).formatNumber() + '원');
 				temp.find('td h5:eq(0)').attr('class', 'price' + cart.BASKET_NO);
-				temp.find('.csize h4').text(cart.CSIZE);
+				temp.find('.current').text(cart.CSIZE);
+				for(let i = 0 ;  i < 3; i++){
+					temp.find('.list li:eq('+ i + ')').attr('class','option')
+					if(temp.find('.list li:eq('+ i + ')').attr('data-value') == cart.CSIZE){
+						temp.find('.list li:eq('+ i + ')').attr('class','option selected');
+					}
+				}
 				
 				temp.find('.product_count input').attr('value', cart.BASKET_CNT);
 				temp.find('.product_count input').attr('class', 'qty' + cart.BASKET_NO);
