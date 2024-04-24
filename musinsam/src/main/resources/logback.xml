@@ -8,10 +8,9 @@
     </encoder>
   </appender>
 
-  <logger name="co.yedam.mapper.BoardMapper">  <!-- 수정해야됨 -->
-    <level value="debug"/>
-  </logger>
-  <root level="error">
+  <logger name="com.yedam" level="DEBUG" />  <!-- 수정해야됨 -->
+
+  <root level="INFO">
     <appender-ref ref="stdout"/>
   </root>
 
