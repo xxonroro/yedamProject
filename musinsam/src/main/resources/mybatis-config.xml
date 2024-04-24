@@ -20,8 +20,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="co/yedam/mapper/BoardMapper.xml"/>  <!-- 수정해야됨 -->
-    <mapper resource="co/yedam/mapper/MemberMapper.xml"/>
-    <mapper resource="co/yedam/mapper/ReplyMapper.xml"/>
+	<package name="com.yedam"/>
   </mappers>
 </configuration>

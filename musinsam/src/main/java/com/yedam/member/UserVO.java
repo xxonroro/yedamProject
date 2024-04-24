@@ -11,7 +11,7 @@ public class UserVO {
 	private String uname;
 	private String address;
 	private String phone;
-	private String birthdate	;
+	private String birthdate;
 	private int authority;
 	
 }
