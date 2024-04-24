@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+  <mapper namespace="com.yedam.category.CategoryMapper">
+	  <select id="clothList" parameterType="com.yedam.category.ClothesVO">
+	    select *
+		from clothes
+	  </select>
+	  
+	  <select id="clothListpants" parameterType="com.yedam.category.ClothesVO">
+		select *
+		from clothes left outer join category
+		on clothes.small_category = category.small_category
+		where big_category = '바지'
+	  </select>
+	  
+	  <select id="categoryList" parameterType="com.yedam.category.ClothesVO">
+		select *
+		from clothes left outer join category
+		on clothes.small_category = category.small_category
+		where big_category = #{cate}
+	  </select>
+	  
+
+  
+  
+  
+  
+  </mapper>
