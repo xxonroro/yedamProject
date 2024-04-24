@@ -25,7 +25,7 @@ public class FrontControl extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		map.put("/main.do", new StartControl());
+		map.put("/main.do", new MainControl());
 
 		//카테고리
 		map.put("/catefrom.do", new Cateform());
