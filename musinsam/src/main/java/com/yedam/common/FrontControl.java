@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.board.todayCoodiControl;
 import com.yedam.control.StartControl;
-
-import com.yedam.common.Control;
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -23,6 +22,8 @@ public class FrontControl extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		map.put("/main.do", new StartControl());
+		map.put("/todayCoodi.do", new todayCoodiControl());
+		
 	}
 	
 	@Override
