@@ -20,6 +20,6 @@
     </environment>
   </environments>
   <mappers>
-    <mapper resource="com/yedam/board/todayCoodiMapper.xml"/>
+    <package name="com.yedam"/>
   </mappers>
 </configuration>
