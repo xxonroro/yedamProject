@@ -2,11 +2,7 @@
  *  category
  */
 
-function category_list(){
-	$.ajax({
-		url:""
-	})
-}
+
 
 //Ajax 호출`
 const xhtp = new XMLHttpRequest();
@@ -31,3 +27,9 @@ xhtp.onload = function(){
 	})
 	
 }
+
+
+
+
+
+
