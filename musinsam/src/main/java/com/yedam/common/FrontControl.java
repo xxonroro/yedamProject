@@ -31,13 +31,23 @@ public class FrontControl extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-		// 메인 페이지 (이거에요 지우지마세요. start 뭐시기 그거 지워주세요
+		// 메인 페이지
 		map.put("/main.do", new MainControl());
 
 
+		// 동한 (start)
 		// 회원 가입
 		map.put("/memberRegisterForm.do", new MemberRegisterForm());
 		map.put("/memberRegistration.do", new MemberRegistration());
+		
+		
+		
+		
+		
+		// 동한 (end)
+		
+		
+		
 		
 		map.put("/cart.do",	new Cart());
 		map.put("/cartList.do", new CartList());
