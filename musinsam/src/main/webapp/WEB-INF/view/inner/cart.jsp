@@ -57,9 +57,9 @@
                               <td align="center">
 								  <div class="csize">
                                   	<select class="shipping_select">
-                                          <option value="1">S</option>
-                                          <option value="2">M</option>
-                                          <option value="4">L</option>
+                                          <option value="S">S</option>
+                                          <option value="M">M</option>
+                                          <option value="L">L</option>
                                       </select>
                                   </div>
                               </td>
