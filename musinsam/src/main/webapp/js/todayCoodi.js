@@ -6,6 +6,7 @@
 console.log('hi')
 $(document).ready(function(){
 	$('#singleCoodi').css('display' , 'none');
+	$('h3:nth-child(1)').text('오늘의 상의')
 	let toprow1 = $('.toprow').clone();
 	let toprow2 = $('.toprow').clone();
 	toprow1.attr('class', 'bottomrow');
@@ -20,7 +21,7 @@ $(document).ready(function(){
 	
 	// 오늘의 코드 리스트
 	$.ajax({
-		url: 'todayCoodi.do',
+		url: 'todayList.do',
 		method: 'get',
 		dataType: 'json'
 	})

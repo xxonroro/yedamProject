@@ -17,14 +17,16 @@ public class CategoryList implements Control {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		response.setContentType("text/json;charset=utf-8");
+	
 		
 		CategoryService csv = new CategoryServiceImpl();
 		List<ClothesVO> list = csv.clothesList();
 		
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
-		
 		response.getWriter().print(json);
+		
+
 
 	}
 
