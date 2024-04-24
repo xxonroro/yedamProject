@@ -8,9 +8,15 @@
     </encoder>
   </appender>
 
+<<<<<<< HEAD
   <logger name="com.yedam" level ="DEBUG" />  <!-- 수정해야됨 -->
     
   <root level="INFO"> <!-- 마무리할떄 error로 변경 -->>
+=======
+  <logger name="com.yedam" level="DEBUG" />  <!-- 수정해야됨 -->
+
+  <root level="INFO">
+>>>>>>> branch 'main' of https://github.com/xxonroro/yedamProject.git
     <appender-ref ref="stdout"/>
   </root>
 

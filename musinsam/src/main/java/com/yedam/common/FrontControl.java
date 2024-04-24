@@ -22,6 +22,7 @@ import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
 import com.yedam.order.control.RemoveCart;
 import com.yedam.order.control.UpDownCount;
+import com.yedam.product.GetProductControl;
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -32,7 +33,10 @@ public class FrontControl extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-		// 메인 페이지
+
+
+		// 메인 페이지 (이거에요 지우지마세요. start 뭐시기 그거 지워주세요
+
 		map.put("/main.do", new MainControl());
 
 
@@ -46,6 +50,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/cartList.do", new CartList());
 		map.put("/updownCount.do", new UpDownCount());
 		map.put("/removeCart.do", new RemoveCart());
+
 
 
 		//한승민
