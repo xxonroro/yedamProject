@@ -43,6 +43,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryList());
 		map.put("/categorypants.do", new CategoryListPants());
 		map.put("/catelist.do", new CateList());
+		
 		map.put("/todayCoodi.do", new todayCoodiControl());
 
 		
