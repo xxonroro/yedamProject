@@ -12,7 +12,7 @@ public class MemberRegisterForm implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("inner/register.tiles").forward(request, response);
+		request.getRequestDispatcher("member/register.tiles").forward(request, response);
 	}
 
 }

@@ -12,17 +12,17 @@ public class MemberRegistration implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = request.getParameter("userId");
-		String userPass = request.getParameter("userPass");
-		String username = request.getParameter("username");
+		String id = request.getParameter("userId");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
 		String birthday = request.getParameter("birthday");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
-		
+
 		UserVO vo = new UserVO();
-		vo.setUserId(userId);
-		vo.setUpassword(userPass);
-		vo.setUname(username);
+		vo.setUserId(id);
+		vo.setUpassword(password);
+		vo.setUname(name);
 		vo.setBirthdate(birthday);
 		vo.setAddress(address);
 		vo.setPhone(phone);
@@ -30,14 +30,11 @@ public class MemberRegistration implements Control {
 		System.out.println(vo);
 		
 		MemberService service = new MemberServiceImpl();
-		if(service.memberInsert(vo)) {
-			response.getWriter().print("{\"retCode\": \"Success\"}");
+		if (service.memberInsert(vo)) {
+			response.sendRedirect("main.do");
+		} else {
+			request.getRequestDispatcher("memberRegisterForm.do").forward(request, response);
 		}
-		else {
-			response.getWriter().print("{\"retCode\": \"Fail\"}");
-		}
-		
-		
 
 	}
 
