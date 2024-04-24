@@ -23,7 +23,7 @@ public class FrontControl extends HttpServlet {
 
 	@Override
 	public void init() throws ServletException {
-		// 메인 페이지
+		// 메인 페이지 (이거에요 지우지마세요. start 뭐시기 그거 지워주세요
 		map.put("/main.do", new MainControl());
 
 		// 회원 가입
@@ -41,7 +41,7 @@ public class FrontControl extends HttpServlet {
 		String context = reqeust.getContextPath();
 		String path = uri.substring(context.length());
 		
-		System.out.println(path);
+		System.out.println();
 		
 		Control control = map.get(path);
 		control.execute(reqeust, response);

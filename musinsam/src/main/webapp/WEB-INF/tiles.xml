@@ -24,7 +24,6 @@
 	<definition name="WILDCARD:*/*" extends="other_page">
 		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}.jsp"></put-attribute>
 	</definition>
-
   
 </tiles-definitions>
 
