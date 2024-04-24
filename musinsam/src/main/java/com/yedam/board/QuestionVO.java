@@ -6,7 +6,7 @@ import lombok.Data;
 public class QuestionVO {
 	private String title;
 	private String content;
-	private String writer;
+	private int questionNum;
 	
 
 }
