@@ -30,12 +30,12 @@
                   <table class="table">
                       <thead>
                           <tr align="center">
-                              <th scope="col"><input type="checkbox" onclick="javascript:basket.changeChkAll();">&nbsp;</th>
+                              <th scope="col" width="65"><input type="checkbox" onclick="javascript:basket.changeChkAll();">&nbsp;</th>
                               <th scope="col"><b>상품명</b></th>
-                              <th scope="col"><b>판매가</b></th>
-                              <th scope="col" width="100"><b>사이즈</b></th>
+                              <th scope="col" ><b>판매가</b></th>
+                              <th scope="col" width="112"><b>사이즈</b></th>
                               <th scope="col" width="148"><b>수량</b></th>
-                              <th scope="col" width="150"><b>주문금액</b></th>
+                              <th scope="col" ><b>주문금액</b></th>
                           </tr>
                       </thead>
                       <tbody>
@@ -54,7 +54,7 @@
                               <td align="center">
                                   <h5>$360.00</h5>
                               </td>
-                              <td align="center">
+                              <td>
 								  <div class="csize">
                                   	<select class="shipping_select">
                                           <option value="S">S</option>
@@ -156,15 +156,32 @@
                                   </div>
                               </td>
                           </tr>
-                          <tr class="out_button_area">
-                              <td colspan="6" align="center">
-                                  <div >
-                                      <a class="button" href="#"><font size="4"><b>상품 주문하기</b></font></a>
-                                  </div>
-                              </td>
-                          </tr>
                       </tbody>
                   </table>
+                  <nav class="blog-pagination justify-content-center d-flex">
+                          <ul class="pagination">
+                              <li class="page-item">
+                                  <a href="#" class="page-link" aria-label="Previous">
+                                      <span aria-hidden="true">
+                                          <span class="lnr lnr-chevron-left"></span>
+                                      </span>
+                                  </a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link">01</a>
+                              </li>
+                              <li class="page-item">
+                                  <a href="#" class="page-link" aria-label="Next">
+                                      <span aria-hidden="true">
+                                          <span class="lnr lnr-chevron-right"></span>
+                                      </span>
+                                  </a>
+                              </li>
+                          </ul>
+                      </nav>
+                      <div align="center" class="orderBtn">
+                          <a class="button" href="#"><font size="4"><b>상품 주문하기</b></font></a>
+                      </div>
               </div>
           </div>
       </div>
