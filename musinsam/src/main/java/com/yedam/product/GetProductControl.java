@@ -13,11 +13,11 @@ public class GetProductControl implements Control {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String cno = "1";//req.getParameter("cno");
+		//String cno = "1";//req.getParameter("cno");
         
 		ProductService  svc = new ProductServiceImpl();
-		ClothesVO vo = svc.getProduct(Integer.parseInt(cno));
-		req.setAttribute("pinfo", vo);
+		//ClothesVO vo = svc.getProduct(Integer.parseInt(cno));
+		//req.setAttribute("pinfo", vo);
 		req.getRequestDispatcher("inner/singleProduct.tiles").forward(req, resp);
 	}
 
