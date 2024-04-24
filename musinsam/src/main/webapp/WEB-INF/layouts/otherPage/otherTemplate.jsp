@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
 <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
 <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Poor+Story&display=swap" rel="stylesheet">
