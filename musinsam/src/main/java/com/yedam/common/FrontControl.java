@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.control.StartControl;
+import com.yedam.category.CategoryList;
+import com.yedam.category.CategoryListPants;
+import com.yedam.category.CateList;
+import com.yedam.category.Cateform;
 
-import com.yedam.common.Control;
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -23,6 +26,12 @@ public class FrontControl extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		map.put("/main.do", new StartControl());
+		//카테고리
+		map.put("/catefrom.do", new Cateform());
+		map.put("/category.do", new CategoryList());
+		map.put("/categorypants.do", new CategoryListPants());
+		map.put("/catelist.do", new CateList());
+		
 	}
 	
 	@Override
