@@ -56,9 +56,11 @@
                               </td>
                               <td align="center">
 								  <div class="csize">
-                                  	<h4>S</h4>
-                                  	<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="javascript:void(0)" onclick=""><b>변경</b></a>
-                                  		
+                                  	<select class="shipping_select">
+                                          <option value="1">S</option>
+                                          <option value="2">M</option>
+                                          <option value="4">L</option>
+                                      </select>
                                   </div>
                               </td>
                               <td>
