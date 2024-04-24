@@ -13,7 +13,10 @@ import com.yedam.board.todayCoodiControl;
 import com.yedam.category.CateList;
 import com.yedam.category.Cateform;
 import com.yedam.category.CategoryList;
+import com.yedam.category.CategoryListOuter;
 import com.yedam.category.CategoryListPants;
+import com.yedam.category.CategoryListShirts;
+import com.yedam.category.CategoryListShoes;
 import com.yedam.main.MainControl;
 import com.yedam.member.MemberRegisterForm;
 import com.yedam.member.MemberRegistration;
@@ -52,6 +55,13 @@ public class FrontControl extends HttpServlet {
 		map.put("/catefrom.do", new Cateform());
 		map.put("/category.do", new CategoryList());
 		map.put("/categorypants.do", new CategoryListPants());
+		map.put("/categoryshirts.do", new CategoryListShirts());
+		map.put("/categoryouter.do", new CategoryListOuter());
+		map.put("/categoryshoes.do", new CategoryListShoes());
+		
+		
+		
+		
 		map.put("/catelist.do", new CateList());
 		
 		map.put("/todayCoodi.do", new todayCoodiControl());

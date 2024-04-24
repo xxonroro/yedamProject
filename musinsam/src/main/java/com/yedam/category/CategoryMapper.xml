@@ -5,9 +5,51 @@
   
   
   <mapper namespace="com.yedam.category.CategoryMapper">
+  <!-- 
+	  <sql id="searchCond">
+		<where>
+		    <choose>
+		    	<when test="searchCondition == 'T'.toString()">
+		    	title like '%'||#{keyword}||'%'
+		    	</when>
+		    	<when test="searchCondition == 'W'.toString()">
+		    	writer like '%'||#{keyword}||'%'
+		    	</when>
+		    	<when test="searchCondition == 'TW'.toString()">
+		    	(writer like '%'||#{keyword}||'%' or title like '%'||#{keyword}||'%')
+		    	</when>
+		    	<otherwise>
+		    	1 = 1
+		    	</otherwise> 
+		    </choose>
+		    </where>
+	</sql>
+	
+	
+	  <select id="clothList" parameterType="com.yedam.category.SearchVO" resultType="com.yedam.category.ClothesVO">
+		
+		select *
+		from(select rownum rn, b.*
+	    from clothes b
+	    <include refid="searchCond"></include>
+	    order by cloth_no desc) a
+		where rn > (#{page} - 1)* 12 
+		<![CDATA[
+		and rn <= (#{page} * 12)
+		]]>
+	  </select>
+	  
+	  	   <select id="selectCount" parameterType="com.yedam.category.SearchVO" resultType="int">
+		 select count(1)
+		 from clothes
+		<include refid="searchCond"></include>
+		 
+		</select>
+	   -->
 	  <select id="clothList" parameterType="com.yedam.category.ClothesVO">
-	    select *
-		from clothes
+	  select *
+	  from clothes
+	  order by cloth_no
 	  </select>
 	  
 	  <select id="clothListpants" parameterType="com.yedam.category.ClothesVO">
@@ -16,6 +58,24 @@
 		on clothes.small_category = category.small_category
 		where big_category = '바지'
 	  </select>
+	  <select id="clothListshirts" parameterType="com.yedam.category.ClothesVO">
+		select *
+		from clothes left outer join category
+		on clothes.small_category = category.small_category
+		where big_category = '상의'
+	  </select>
+	  <select id="clothListouter" parameterType="com.yedam.category.ClothesVO">
+		select *
+		from clothes left outer join category
+		on clothes.small_category = category.small_category
+		where big_category = '아우터'
+	  </select>
+	  	  <select id="clothListshoes" parameterType="com.yedam.category.ClothesVO">
+		select *
+		from clothes left outer join category
+		on clothes.small_category = category.small_category
+		where big_category = '신발'
+	  </select>
 	  
 	  <select id="categoryList" parameterType="com.yedam.category.ClothesVO">
 		select *
@@ -23,6 +83,13 @@
 		on clothes.small_category = category.small_category
 		where big_category = #{cate}
 	  </select>
+	  
+	  <select id="searchList" parameterType="com.yedam.category.ClothesVO">
+	  	select *
+		from clothes
+		where cloth_name like '%#{searchword}%'
+	  </select>
+
 	  
 
   
