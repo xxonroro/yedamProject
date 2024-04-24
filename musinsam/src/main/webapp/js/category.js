@@ -19,11 +19,11 @@ xhtp.onload = function(){
 	
 	members.forEach(member =>{
 		let temp = $('[data-id]:eq(0)').clone();
-		temp.css('display', 'block');
+		temp.css('display', 'inline-block');
 		temp.find('#div2.img img').attr('src', 'upload/' + member.clothName+'.jpg')
-		//let p = document.createElement('p');
-		//p.innerText = member.clothName;
-		//document.querySelector('.card-body').appendChild(p);
+		let p = document.createElement('p');
+		p.innerText = member.clothName;
+		document.querySelector('.card-body').appendChild(p);
 		
 		//temp.find('').text(member.price);
 		//let span = document.createElement('span');
