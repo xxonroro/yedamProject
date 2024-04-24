@@ -20,6 +20,6 @@
     </environment>
   </environments>
   <mappers>
-    <package name="com.yedam"/>
+	<package name="com.yedam"/>
   </mappers>
 </configuration>
