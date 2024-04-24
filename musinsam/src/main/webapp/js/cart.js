@@ -18,17 +18,19 @@ Number.prototype.formatNumber = function() {
 const basket = {
 	cartTotal : 0,
 	list : function(){
-		svc.cartList(function(result){
+		let page = 1;
+		svc.cartList(page, function(result){
 			console.log(result);
+			console.log();
 			
 			result.forEach(cart =>{
 				
 				let temp = $('tbody tr:eq(0)').clone();
 				let prc = cart.PRICE * (1 - cart.DISCOUNT_RATE);
 				
-				
 				temp.attr('basket_id', cart.BASKET_NO);
-				temp.find('.d-flex img').attr('src', 'img/cart/' + cart.CLOTH_NAME + '.jpg');
+				temp.attr('data-id', cart.CLOTH_NO);
+				temp.find('.d-flex img').attr('src', 'img/cloth/' + cart.CLOTH_NAME + '.jpg');
 				temp.find('.media-body p').text(cart.CLOTH_NAME);
 				
 				if(cart.DISCOUNT_RATE > 0){
@@ -36,13 +38,8 @@ const basket = {
 				}
 				temp.find('td h5:eq(0)').text(Math.round((prc / 10) * 10).formatNumber() + '원');
 				temp.find('td h5:eq(0)').attr('class', 'price' + cart.BASKET_NO);
-				temp.find('.current').text(cart.CSIZE);
-				for(let i = 0 ;  i < 3; i++){
-					temp.find('.list li:eq('+ i + ')').attr('class','option')
-					if(temp.find('.list li:eq('+ i + ')').attr('data-value') == cart.CSIZE){
-						temp.find('.list li:eq('+ i + ')').attr('class','option selected');
-					}
-				}
+				temp.find('.current').text(" ");
+				temp.find('.list li').attr('class','option')
 				
 				temp.find('.product_count input').attr('value', cart.BASKET_CNT);
 				temp.find('.product_count input').attr('class', 'qty' + cart.BASKET_NO);
@@ -53,6 +50,16 @@ const basket = {
 				temp.appendTo('tbody');
 				
 				basket.cartTotal += prc * cart.BASKET_CNT;
+				
+				let pg = $('.page-item:eq(1)').clone();
+				let next = $('.page-item:eq(2)').clone();
+				console.log(pg);
+				pg.find('.page-link').text(cart.RN);
+				pg.appendTo('.pagination');
+				let pCount = result.length / 5;
+				
+				
+				
 			
 			});
 
@@ -61,14 +68,14 @@ const basket = {
 			sub.find('td h4:eq(1)').attr('class', 's_price');
 			sub.appendTo('tbody');
 			
-			let outBtn = $('.out_button_area').clone();
-			outBtn.appendTo('tbody');
-			
 			$('tbody tr:eq(0)').remove();
 			$('.bottom_button:eq(0)').remove();
 			$('.subtotal:eq(0)').remove();
 			$('.shipping_area:eq(0)').remove();
 			$('.out_button_area:eq(0)').remove();
+			
+			$('nav:eq(2)').css('padding', '25px 0px 50px');
+			$('.orderBtn').css('padding', '0px 0px 50px');
 			
 			basket.reCalc();
 			
@@ -92,25 +99,24 @@ const basket = {
 			}
 		}
 		
-		let prc = $('.price' + no).text().replace(",","");
+		let prc = $('.price' + no).text().replaceAll(",","");
 		let t_prc = $('.t_price' + no);
-		let tprc = t_prc.text().replace(",","");
+		let tprc = t_prc.text().replaceAll(",","");
 		let qtyElem = $('.qty' + no);
 		
 		if (qtyElem.val() == 0 && qty == -1) {
 			return;
 		}
 
-		let cvo = { no, qty };
-		svc.cartUpdate(cvo, (result) => {
+		let bvo = { no, qty };
+		svc.cartUpdate(bvo, (result) => {
 			if (result.retCode == "Success") {
-				
+
 				t_prc.text((parseInt(tprc) + parseInt(prc) * qty).formatNumber() + '원');
 				qtyElem.val(parseInt(qtyElem.val()) + qty);
 				
 				basket.cartTotal += parseInt(prc) * qty;
 				basket.reCalc();
-				
 			}
 		},
 		(err) => {

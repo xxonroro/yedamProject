@@ -4,10 +4,17 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.yedam.order.mapper.Mapper">
-	<select id="cartList" resultType="map">
-		select b.basket_no, b.user_id, b.cloth_no, c.cloth_name, c.price, c.discount_rate, c.csize, b.basket_cnt
-		from basket b INNER JOIN clothes c
-		on b.cloth_no = c.cloth_no
+	<select id="cartList" resultType="map" parameterType="int">
+		select *
+		from(
+				select rownum rn, b.basket_no, b.user_id, b.cloth_no, c.cloth_name, c.price, c.discount_rate, b.basket_cnt
+				from basket b INNER JOIN clothes c
+				on b.cloth_no = c.cloth_no
+				order by b.basket_no)
+		<![CDATA[
+		where rn <= (#{page} * 5)
+		]]>
+		and rn > (#{page} - 1) * 5
 	</select>
 	
 	<update id="updownCount" parameterType="com.yedam.vo.BasketVO">

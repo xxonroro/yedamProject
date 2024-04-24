@@ -11,13 +11,12 @@
         </div>
         <div class="col-md-12 form-group">
           <input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" required/>
-          <i class="fa-solid fa-eye-slash"></i>
         </div>
         <div class="col-md-12 form-group">
           <input type="text" class="form-control" id="name" name="name" placeholder="이름" required/>
         </div>
         <div class="col-md-12 form-group">
-          <input type="text" class="form-control" id="birthday" name="birthday" placeholder="생년월일 6자리" maxlength="6" required/>
+          <input type="text" class="form-control" id="birthday" name="birthday" placeholder="생년월일 8자리" maxlength="6" required/>
         </div>
         <div class="col-md-12 form-group">
           <input type="text" class="form-control" id="address" name="address" placeholder="주소" required/>
