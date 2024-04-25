@@ -102,8 +102,8 @@ public class FrontControl extends HttpServlet {
 	
 
 		//송재현
-		map.put("/todayCoodi.do", new TodayCoodiControl());
-		map.put("/todayList.do", new TodayCoodiList());
+		//map.put("/todayCoodi.do", new TodayCoodiControl());
+		//map.put("/todayList.do", new TodayCoodiList());
 		map.put("/faq.do", new QuestionControl());
 		map.put("/faqList.do", new QuestionList());
 		map.put("/faqSearch.do", new QuestionSearch());
@@ -117,7 +117,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/getProduct.do", new GetProductControl());
 		map.put("/addReview.do", new AddReview());
 
-	}
+	
 
 
 	}
