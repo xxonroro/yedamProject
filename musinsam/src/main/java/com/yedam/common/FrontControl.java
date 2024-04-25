@@ -25,8 +25,14 @@ import com.yedam.member.MemberRegisterForm;
 import com.yedam.member.MemberRegistration;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
+import com.yedam.order.control.CsizeList;
+import com.yedam.order.control.Like;
+import com.yedam.order.control.LikeList;
 import com.yedam.order.control.RemoveCart;
 import com.yedam.order.control.UpDownCount;
+
+import com.yedam.product.AddReview;
+
 import com.yedam.product.GetProductControl;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
@@ -59,10 +65,12 @@ public class FrontControl extends HttpServlet {
 		map.put("/cartList.do", new CartList());
 		map.put("/updownCount.do", new UpDownCount());
 		map.put("/removeCart.do", new RemoveCart());
+		map.put("/csizeList.do", new CsizeList());
 		map.put("/catelist.do", new CateList());
-    
-    
-    
+
+
+		map.put("/like.do", new Like());
+		map.put("/likeList.do", new LikeList());
 
 
 		//한승민
@@ -70,9 +78,16 @@ public class FrontControl extends HttpServlet {
 		map.put("/category.do", new CategoryList());
 		map.put("/categorypants.do", new CategoryListPants());
 
+
 		map.put("/catelist.do", new CateList()); //검색
 		map.put("/searchcate.do", new SearchCate()); //검색   
 		map.put("/cateCount.do", new CateCount());
+
+
+		map.put("/catelist.do", new CateList());
+
+
+
 
 		//송재현
 
@@ -92,19 +107,11 @@ public class FrontControl extends HttpServlet {
 
 
 		
+	//상지현
+		
+	 map.put("/getProduct.do", new GetProductControl());  
+	 map.put("/addReview.do", new AddReview());
 
-		
-		//상지현
-			
-		map.put("/getProduct.do", new GetProductControl());  
-		
-		
-		
-		
-		
-		
-		//
-	}
 
 	@Override
 	protected void service(HttpServletRequest reqeust, HttpServletResponse response)

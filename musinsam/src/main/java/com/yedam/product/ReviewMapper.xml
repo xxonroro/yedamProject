@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.yedam.product.ReviewMapper">
+ 
+ <insert id="insertReview" parameterType="com.yedam.vo.ReviewVO">
+insert into review(review_no,cloth_no,user_id,detail)
+values(review_seq.nextval,#{clothNo},#{userId},#{detail})
+</insert>
+
+ </mapper>
+
