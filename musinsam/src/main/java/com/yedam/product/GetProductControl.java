@@ -19,7 +19,7 @@ public class GetProductControl implements Control {
 		ClothesVO vo = svc.getProduct(Integer.parseInt(clothNo));
 		req.setAttribute("pinfo", vo);  //
 		System.out.println(vo);
-		req.getRequestDispatcher("inner/singleProduct.tiles").forward(req, resp);
+		req.getRequestDispatcher("product/singleProduct.tiles").forward(req, resp);
 	}
 
 }
