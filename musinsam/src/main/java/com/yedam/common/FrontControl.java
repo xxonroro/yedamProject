@@ -30,7 +30,6 @@ import com.yedam.product.AddReview;
 import com.yedam.product.GetProductControl;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
-
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
 
@@ -60,14 +59,19 @@ public class FrontControl extends HttpServlet {
     
     
 
+
 		//한승민
-		map.put("/catefrom.do", new Cateform());
+	  map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());
 		map.put("/categorypants.do", new CategoryListPants());
 		map.put("/categoryshirts.do", new CategoryListShirts());
 		map.put("/categoryouter.do", new CategoryListOuter());
 		map.put("/categoryshoes.do", new CategoryListShoes());
-    
+
+
+		map.put("/catelist.do", new CateList());
+
+
     
 
 		//송재현
@@ -76,6 +80,7 @@ public class FrontControl extends HttpServlet {
 		
 		map.put("/faq.do", new QuestionControl());
 		map.put("/faqList.do", new QuestionList());
+
 		
 
 	
@@ -83,6 +88,9 @@ public class FrontControl extends HttpServlet {
 		
 	 map.put("/getProduct.do", new GetProductControl());  
 	 map.put("/addReview.do", new AddReview());
+
+		
+	
 	}
 
 	@Override
