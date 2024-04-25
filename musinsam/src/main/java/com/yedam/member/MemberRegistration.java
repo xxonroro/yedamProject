@@ -1,6 +1,7 @@
 package com.yedam.member;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -26,16 +27,14 @@ public class MemberRegistration implements Control {
 		vo.setBirthdate(birthday);
 		vo.setAddress(address);
 		vo.setPhone(phone);
-		
+
 		System.out.println(vo);
-		
+
 		MemberService service = new MemberServiceImpl();
+
 		if (service.memberInsert(vo)) {
 			response.sendRedirect("main.do");
-		} else {
-			request.getRequestDispatcher("memberRegisterForm.do").forward(request, response);
 		}
 
 	}
-
 }
