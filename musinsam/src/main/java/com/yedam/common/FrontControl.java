@@ -39,8 +39,6 @@ import com.yedam.question.QuestionList;
 import com.yedam.question.QuestionSearch;
 
 
-
-
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
 
@@ -53,27 +51,12 @@ public class FrontControl extends HttpServlet {
 		map.put("/main.do", new MainControl());
 
 
-
-		
 		// 동한 (start)
 		// 회원 가입
 		map.put("/memberRegisterForm.do", new MemberRegisterForm());
 		map.put("/memberRegistration.do", new MemberRegistration());
 
-
-
-
-
-
-		
-
-
-
-
-
-
-
-		
+	
 
 		//이영주
 		map.put("/cart.do",	new Cart());
@@ -87,17 +70,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/like.do", new Like());
 		map.put("/likeList.do", new LikeList());
 
-
-
-		
-
-
-
-
-
-
-
-		
+	
 
 		//한승민
 		map.put("/cateform.do", new Cateform());
@@ -112,20 +85,7 @@ public class FrontControl extends HttpServlet {
 
 		
 
-
-
-
-
-		
-
-
-
-
-
-
-
-
-		
+	
 
 		//송재현
 
@@ -143,19 +103,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/setProd.do", new SetProductControl());
 		map.put("/uptProd.do", new UptProduct());
 
-
-
-
-		
-
-
-
-
-
-
-
-
-		
+	
 		
 	//상지현
 		
@@ -163,21 +111,8 @@ public class FrontControl extends HttpServlet {
 	 map.put("/addReview.do", new AddReview());
 
 
+	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
 	@Override
 	protected void service(HttpServletRequest reqeust, HttpServletResponse response)
 			throws ServletException, IOException {
