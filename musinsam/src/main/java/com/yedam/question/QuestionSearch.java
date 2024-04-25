@@ -1,7 +1,6 @@
-package com.yedam.board;
+package com.yedam.question;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,28 +11,25 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
 
-public class todayCoodiList implements Control{
+public class QuestionSearch implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		todayCoodiService svc = new todayCoodiServiceImpl();
-		List<ClothesVO> list = svc.randomTop();
-		List<ClothesVO> listAll = new ArrayList<ClothesVO>();
-		listAll.addAll(list);
+		response.setContentType("text/json;charset=utf-8");
 		
-		list = svc.randomBottom();
-		listAll.addAll(list);
+		String search = request.getParameter("content");
 		
-		list = svc.randomShoes();
-		listAll.addAll(list);
+		QuestionService svc = new QuestionServiceImpl();
+		List<QuestionVO> list = svc.searchQa(search);
 		
 		Gson gson = new GsonBuilder().create();
-		String json = gson.toJson(listAll);
+		String json = gson.toJson(list);
 		
 		response.getWriter().print(json);
 		
 		
+		
 	}
-	
+
 }
