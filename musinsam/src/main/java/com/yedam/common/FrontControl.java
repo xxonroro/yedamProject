@@ -26,6 +26,7 @@ import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
 import com.yedam.order.control.RemoveCart;
 import com.yedam.order.control.UpDownCount;
+
 import com.yedam.product.GetProductControl;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
@@ -59,14 +60,18 @@ public class FrontControl extends HttpServlet {
     
     
 
+
+
 		//한승민
-		map.put("/catefrom.do", new Cateform());
+	  map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());
 		map.put("/categorypants.do", new CategoryListPants());
 		map.put("/categoryshirts.do", new CategoryListShirts());
 		map.put("/categoryouter.do", new CategoryListOuter());
 		map.put("/categoryshoes.do", new CategoryListShoes());
-    
+
+		map.put("/catelist.do", new CateList());
+
     
 
 		//송재현
@@ -75,6 +80,7 @@ public class FrontControl extends HttpServlet {
 		
 		map.put("/faq.do", new QuestionControl());
 		map.put("/faqList.do", new QuestionList());
+
 		
 
 	
