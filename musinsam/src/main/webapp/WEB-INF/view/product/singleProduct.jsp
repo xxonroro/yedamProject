@@ -20,7 +20,7 @@
 						<ul class="list">
 							<li><a class="active" href="#"><span>카테고리</span>${pinfo.smallCategory}</a></li>
 							<li><a href="#"><span>브랜드</span>${pinfo.brand}</a></li>
-							<li><a href="#"><span>의류번호</span>${pinfo.clothNo}</a></li>
+							<li><a href="#" style="display:none" ><span style="display:none">의류번호</span>${pinfo.clothNo}</a></li>
 							<li><a href="#"><span>사이즈</span>${pinfo.csize}</a></li>  <!-- 선택 기능으로 구현 -->
 							
 						</ul>
@@ -144,7 +144,7 @@
 							<div class="review_box">
 								<h4>리뷰 등록</h4>
 								<p>별점:</p>
-								<ul class="list">
+								<ul class="list" name="grade">  <!-- css에서 list에 속성값이 등록되어 있는 거 같음. 클래스명 list로 고정해두기  -->
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -153,19 +153,16 @@
 								</ul>
                 <form action="#/" class="form-contact form-review mt-3">
                   <div class="form-group">
-                    <input class="form-control" name="name" type="text" placeholder="이름" required>
+                    <input class="form-control" id="cNo"  type="text" placeholder="옷번호" required>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" name="uid" type="text" placeholder="아이디" required>
+                    <input class="form-control"id="uid"  type="text" placeholder="아이디">  <!--아이디는 로그인하면 고정으로 쓸 수 있도록-->
                   </div>
                   <div class="form-group">
-                    <input class="form-control" name="upwd" type="text" placeholder="비밀번호">
-                  </div>
-                  <div class="form-group">
-                    <textarea class="form-control different-control w-100" name="textarea" id="textarea" cols="30" rows="5" placeholder="리뷰내용"></textarea>
+                    <textarea class="form-control different-control w-100" name="detail" id="textarea" cols="30" rows="5" placeholder="리뷰내용"></textarea>
                   </div>
                   <div class="form-group text-center text-md-right mt-3">
-                    <button type="submit" class="button button--active button-review">리뷰 쓰기</button>
+                    <button type="button" class="button button--active button-review" id="addReview" >리뷰 쓰기</button>
                   </div>
                 </form>
 							</div>
@@ -178,6 +175,6 @@
 	</section>
 	<!--================End Product Description Area =================-->
 
-
+<<script src="js/reviewService.js"></script>
 </body>
 </html>
