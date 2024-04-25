@@ -28,7 +28,7 @@
 	      
 	      	<p><span>분류</span>제목</p>
 	      </div>
-          <div class= "arow" id="example">
+          <div  id="example" class="arow">
           	<div class="quest"><span style="display:inline-block">질문</span><p style="display:inline-block">뭐 먹을까요</p></div>
           	<div class="answer"><span style="display:inline-block">답변</span><p style="display:inline-block">국밥</p></div>
           </div>

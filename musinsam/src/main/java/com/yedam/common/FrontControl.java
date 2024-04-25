@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.admin.SetProductControl;
+import com.yedam.admin.UptProduct;
 import com.yedam.board.TodayCoodiControl;
+import com.yedam.board.TodayCoodiList;
 import com.yedam.board.todayCoodiList;
 import com.yedam.category.CateCount;
 import com.yedam.category.CateList;
@@ -25,10 +28,11 @@ import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
 import com.yedam.order.control.RemoveCart;
 import com.yedam.order.control.UpDownCount;
-
 import com.yedam.product.GetProductControl;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
+import com.yedam.question.QuestionSearch;
+
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -70,18 +74,29 @@ public class FrontControl extends HttpServlet {
 		map.put("/cateCount.do", new CateCount());
 
 		//송재현
+
 		//map.put("/todayCoodi.do", new TodayCoodiControl());
 		map.put("/todayList.do", new todayCoodiList());
+
+		map.put("/todayCoodi.do", new TodayCoodiControl());
+		map.put("/todayList.do", new TodayCoodiList());
+
 		
 		map.put("/faq.do", new QuestionControl());
 		map.put("/faqList.do", new QuestionList());
 
+		map.put("/faqSearch.do", new QuestionSearch());
+		
+		map.put("/setProd.do", new SetProductControl());
+		map.put("/uptProd.do", new UptProduct());
+
+
 		
 
-	
-	 //상지현
 		
-	 map.put("/getProduct.do", new GetProductControl());  
+		//상지현
+			
+		map.put("/getProduct.do", new GetProductControl());  
 		
 		
 		

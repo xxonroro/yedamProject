@@ -27,7 +27,11 @@
                   <div class="card-product__img">
                     <img class="card-img" src="img/product/product1.png" alt="">
                     <ul class="card-product__imgOverlay">
+<<<<<<< HEAD
                       <li><button><i class="ti-search"></i></button></li>
+=======
+                      <li><a target='_blank'><button><i class="ti-search" ></i></button></a></li>
+>>>>>>> branch 'main' of https://github.com/xxonroro/yedamProject.git
                       <li><button><i class="ti-shopping-cart"></i></button></li>
                       <li><button><i class="ti-heart"></i></button></li>
                     </ul>

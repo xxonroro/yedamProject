@@ -6,11 +6,11 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
 
-public class todayCoodiServiceImpl implements todayCoodiService{
+public class TodayCoodiServiceImpl implements TodayCoodiService{
 
 	SqlSession session = DataSource.getInstance().openSession(true);
 	
-	todayCoodiMapper mapper = session.getMapper(todayCoodiMapper.class);
+	TodayCoodiMapper mapper = session.getMapper(TodayCoodiMapper.class);
 	
 	
 	@Override
@@ -28,6 +28,12 @@ public class todayCoodiServiceImpl implements todayCoodiService{
 	@Override
 	public List<ClothesVO> randomShoes() {
 		return mapper.randomShoes();
+	}
+
+
+	@Override
+	public List<ClothesVO> randomAll(String clo) {
+		return mapper.randomAll(clo);
 	}
 
 
