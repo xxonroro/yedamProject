@@ -57,7 +57,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/memberRegistration.do", new MemberRegistration());
 
 	
-
 		//이영주
 		map.put("/cart.do",	new Cart());
 		map.put("/cartList.do", new CartList());
@@ -71,7 +70,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/likeList.do", new LikeList());
 
 	
-
 		//한승민
 		map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());
@@ -82,11 +80,9 @@ public class FrontControl extends HttpServlet {
 		map.put("/searchcate.do", new SearchCate()); //검색   
 		map.put("/cateCount.do", new CateCount());
 
-
 		map.put("/catelist.do", new CateList());
 
 	
-
 		//송재현
 
 		//map.put("/todayCoodi.do", new TodayCoodiControl());
@@ -103,7 +99,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/setProd.do", new SetProductControl());
 		map.put("/uptProd.do", new UptProduct());
 
-	
 		
 	//상지현
 		
