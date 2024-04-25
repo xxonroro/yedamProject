@@ -4,17 +4,13 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.yedam.order.mapper.Mapper">
-	<select id="cartList" resultType="map" parameterType="int">
-		select *
-		from(
-				select rownum rn, b.basket_no, b.user_id, b.cloth_no, c.cloth_name, c.price, c.discount_rate, b.basket_cnt
-				from basket b INNER JOIN clothes c
-				on b.cloth_no = c.cloth_no
-				order by b.basket_no)
-		<![CDATA[
-		where rn <= (#{page} * 5)
-		]]>
-		and rn > (#{page} - 1) * 5
+
+	<select id="cartList" resultType="map">
+		select b.basket_no, b.user_id, b.cloth_no, c.cloth_name, c.price, c.discount_rate, b.basket_cnt
+		from basket b INNER JOIN clothes c
+		on b.cloth_no = c.cloth_no
+		where b.user_id = #{userId}
+		order by b.basket_no
 	</select>
 	
 	<update id="updownCount" parameterType="com.yedam.vo.BasketVO">
@@ -27,5 +23,26 @@
   		delete from basket
   		where basket_no = #{basketNo}
   	</delete>
-
+  	
+  	<select id="csizeList" resultType="map" parameterType="int">
+		select b.cloth_no, s.quantity, s.csize
+		from basket b inner join stock s
+		on b.cloth_no = s.cloth_no
+		where b.cloth_no = #{clothNo}
+	</select>
+	
+	
+	<select id="likeList" resultType="map">
+		select *
+		from(
+				select rownum rn, l.user_id, c.*
+				from likegather l INNER JOIN clothes c
+				on l.cloth_no = c.cloth_no
+				where l.user_id = #{userId})
+		<![CDATA[
+		where rn <= (#{page} * 8)
+		]]>
+		and rn > (#{page} - 1) * 8
+	</select>
+	
 </mapper>

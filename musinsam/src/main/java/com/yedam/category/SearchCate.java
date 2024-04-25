@@ -1,8 +1,7 @@
-package com.yedam.order.control;
+package com.yedam.category;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,24 +10,24 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
-import com.yedam.order.service.Service;
-import com.yedam.order.service.ServiceImpl;
 
-public class CartList implements Control {
+public class SearchCate implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType("text/json;charset=utf-8");
 		
-		String uid = request.getParameter("uid");
+		String searchword = request.getParameter("searchword");
 		
-		Service svc = new ServiceImpl();
-		List<Map<String, Object>> list = svc.cartList(uid);
+		CategoryService csv = new CategoryServiceImpl();
+		List<ClothesVO> list = csv.searchList(searchword);
 		
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
 		
 		response.getWriter().print(json);
+
 	}
 
 }

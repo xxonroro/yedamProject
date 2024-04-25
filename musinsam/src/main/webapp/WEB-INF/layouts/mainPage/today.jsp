@@ -7,8 +7,8 @@
           <div class="col-xl-5">
             <div class="offer__content text-center">
               <h3>Up To 50% Off</h3>
-              <h4>Winter Sale</h4>
-              <p>Him she'd let them sixth saw light</p>
+              <h4>Spring Sale</h4>
+              <p>Yedam middle project</p>
               <a class="button button--active mt-3 mt-xl-4" href="#">Shop Now</a>
             </div>
           </div>
