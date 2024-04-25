@@ -110,7 +110,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/cateCount.do", new CateCount());
 
 
-		map.put("/catelist.do", new CateList());
+		
 
 
 
