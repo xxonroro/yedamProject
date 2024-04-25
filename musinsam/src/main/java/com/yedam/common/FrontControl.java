@@ -24,7 +24,6 @@ import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
 import com.yedam.order.control.RemoveCart;
 import com.yedam.order.control.UpDownCount;
-import com.yedam.product.GetProductControl;
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -52,7 +51,7 @@ public class FrontControl extends HttpServlet {
 
 
 		//카테고리
-		map.put("/catefrom.do", new Cateform());
+		map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());
 		map.put("/categorypants.do", new CategoryListPants());
 		map.put("/categoryshirts.do", new CategoryListShirts());
