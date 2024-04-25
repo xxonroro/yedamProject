@@ -11,8 +11,8 @@ public class ProductServiceImpl implements ProductService {
 	ProductMapper mapper = session.getMapper(ProductMapper.class);
 
 	@Override
-	public ClothesVO getProduct() {
-		return mapper.getCloth();
+	public ClothesVO getProduct(int clothNo) {
+		return mapper.getCloth(clothNo);
 	}
 
 

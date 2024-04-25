@@ -19,7 +19,11 @@ xhtp.onload = function() {
 		let temp = $('[data-id]:eq(0)').clone();
 		temp.css('display', 'block');
 		temp.css('display', 'inline-block');
+
 		temp.find('div #img1').attr('src', 'img/cloth/' + member.clothName + '.jpg')
+
+
+
 		temp.find('div #p1').text(member.smallCategory);
 		temp.find('div #name1').text(member.clothName);
 		temp.find('div #p2').text((member.price) + "원");
@@ -49,6 +53,7 @@ $(document).ready(function() {
 					temp.css('display', 'none');
 					temp2.css('display', 'block');
 					temp2.css('display', 'inline-block');
+
 					temp2.find('div #img1').attr('src', 'img/cloth/' + member.clothName + '.jpg')
 					temp2.find('div #p1').text(member.smallCategory);
 					temp2.find('div #name1').text(member.clothName);
@@ -76,7 +81,9 @@ $(document).ready(function() {
 					temp.css('display', 'none');
 					temp2.css('display', 'block');
 					temp2.css('display', 'inline-block');
+
 					temp2.find('div #img1').attr('src', 'img/cloth/' + member.clothName + '.jpg')
+
 					temp2.find('div #p1').text(member.smallCategory);
 					temp2.find('div #name1').text(member.clothName);
 					temp2.find('div #p2').text((member.price) + "원");
@@ -103,7 +110,9 @@ $(document).ready(function() {
 					temp.css('display', 'none');
 					temp2.css('display', 'block');
 					temp2.css('display', 'inline-block');
+
 					temp2.find('div #img1').attr('src', 'img/cloth/' + member.clothName + '.jpg')
+
 					temp2.find('div #p1').text(member.smallCategory);
 					temp2.find('div #name1').text(member.clothName);
 					temp2.find('div #p2').text((member.price) + "원");
@@ -130,7 +139,9 @@ $(document).ready(function() {
 					temp.css('display', 'none');
 					temp2.css('display', 'block');
 					temp2.css('display', 'inline-block');
+
 					temp2.find('div #img1').attr('src', 'img/cloth/' + member.clothName + '.jpg')
+
 					temp2.find('div #p1').text(member.smallCategory);
 					temp2.find('div #name1').text(member.clothName);
 					temp2.find('div #p2').text((member.price) + "원");

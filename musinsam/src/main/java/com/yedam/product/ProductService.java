@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ProductService {
 
-	ClothesVO getProduct();
+	ClothesVO getProduct(int clothNo);
 
 
 

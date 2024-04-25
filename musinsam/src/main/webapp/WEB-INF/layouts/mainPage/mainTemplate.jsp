@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Musinsam</title>
-<link rel="icon" href="img/Fevicon.png" type="image/png">
+<link rel="icon" href="img/무신삼.png" type="image/png">
 <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
 <link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
@@ -19,6 +19,8 @@
 	href="vendors/owl-carousel/owl.theme.default.min.css">
 <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
