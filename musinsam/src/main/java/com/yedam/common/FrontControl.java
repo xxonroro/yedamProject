@@ -84,8 +84,9 @@ public class FrontControl extends HttpServlet {
 		map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());
 		map.put("/categorypants.do", new CategoryListPants());
-		map.put("/catelist.do", new CateList()); // 검색
-		map.put("/searchcate.do", new SearchCate()); // 검색
+
+		map.put("/catelist.do", new CateList()); //검색
+		map.put("/searchcate.do", new SearchCate()); //검색   
 		map.put("/cateCount.do", new CateCount());
     
     
@@ -108,8 +109,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/faqSearch.do", new QuestionSearch());
 		map.put("/setProd.do", new SetProductControl());
 		map.put("/uptProd.do", new UptProduct());
-
-
 
 
 
