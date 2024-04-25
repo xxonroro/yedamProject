@@ -42,7 +42,6 @@ import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
 import com.yedam.question.QuestionSearch;
 
-
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
 
@@ -63,10 +62,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
 
-    
-    
-
-
 		// 이영주
 		map.put("/cart.do", new Cart());
 		map.put("/cartList.do", new CartList());
@@ -76,30 +71,17 @@ public class FrontControl extends HttpServlet {
 		map.put("/like.do", new Like());
 		map.put("/likeList.do", new LikeList());
 
-
-
-
-	
-		//한승민
+		// 한승민
 		map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());
 		map.put("/categorypants.do", new CategoryListPants());
 
-		map.put("/catelist.do", new CateList()); //검색
-		map.put("/searchcate.do", new SearchCate()); //검색   
+		map.put("/catelist.do", new CateList()); // 검색
+		map.put("/searchcate.do", new SearchCate()); // 검색
 		map.put("/cateCount.do", new CateCount());
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-		//송재현
-		map.put("/todayCoodi.do", new TodayCoodiControl());
+		// 송재현
+//		map.put("/todayCoodi.do", new TodayCoodiControl());
 		map.put("/todayList.do", new TodayCoodiList());
 		map.put("/faq.do", new QuestionControl());
 		map.put("/faqList.do", new QuestionList());
@@ -107,22 +89,10 @@ public class FrontControl extends HttpServlet {
 		map.put("/setProd.do", new SetProductControl());
 		map.put("/uptProd.do", new UptProduct());
 
+		// 상지현
 
-    
-    
-    
-    
-    
-	//상지현
-		
-	 map.put("/getProduct.do", new GetProductControl());  
-	 map.put("/addReview.do", new AddReview());
-    
-    
-    
-    
-    
-
+		map.put("/getProduct.do", new GetProductControl());
+		map.put("/addReview.do", new AddReview());
 
 	}
 
