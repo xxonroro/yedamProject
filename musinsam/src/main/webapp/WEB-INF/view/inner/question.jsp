@@ -20,7 +20,7 @@
   
   <!--================FAQ Box Area =================-->
   <div class="faqsearch">
- 	 <input type="text" id="faqSearch" ><button id="fapSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+ 	 <input type="text" id="faqSearch" placeholder="무엇을 도와드릴까요?"><button id="fapSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
   </div>
   <section class="tracking_box_area section-margin--small">
       <div class="container" id="faq">
@@ -28,7 +28,7 @@
 	      
 	      	<p><span>분류</span>제목</p>
 	      </div>
-          <div class= "arow" id="example">
+          <div  id="example" class="arow">
           	<div class="quest"><span style="display:inline-block">질문</span><p style="display:inline-block">뭐 먹을까요</p></div>
           	<div class="answer"><span style="display:inline-block">답변</span><p style="display:inline-block">국밥</p></div>
           </div>

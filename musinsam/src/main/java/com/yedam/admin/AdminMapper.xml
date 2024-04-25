@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.yedam.admin.AdminMapper">
+  	<update id="mergeProd" parameterType="com.yedam.admin.StockVO">
+  		merge
+		into stock a
+		using dual
+		on (a.cloth_no = #{clothNo} AND a.csize = #{csize})
+		when matched then 
+		    update set a.quantity = a.quantity + #{addQt}
+		when not matched then
+	    insert (a.cloth_no, a.quantity, a.csize)
+	    values (#{clothNo}, #{addQt} , #{csize}))
+  	</update>
+  	
+  	
+  </mapper>
+  
+  
