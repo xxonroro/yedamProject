@@ -16,4 +16,10 @@ public class QuestionServiceImpl implements QuestionService{
 		return mapper.selectQa();
 	}
 
+	@Override
+	public List<QuestionVO> searchQa(String content) {
+		return mapper.searchQa(content);
+	}
+	
+
 }

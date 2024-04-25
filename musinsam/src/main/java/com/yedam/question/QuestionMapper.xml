@@ -9,4 +9,10 @@
   		select *
   		from question
   	</select>
+  	<select id="searchQa" parameterType ="String" resultType="com.yedam.question.QuestionVO">
+  		select *
+  		from question
+  		where title like '%'||#{content}||'%'
+  		
+  	</select>
   </mapper>

@@ -2,7 +2,7 @@
  * 
  */
 
-$('.faqsearch').css('.')
+$('.faqsearch').css('margin', '50px 300px')
 
 
 
@@ -31,10 +31,70 @@ $('#faq').on('mouseover',function(e){
 })
 $('#faq').on('mouseout',function(e){
 	$(e.target).closest($('.quest')).css('background-color', '')
+})	
+
+$('#fapSearchBtn').click(function(e){
+	$.ajax({
+		url : 'faqSearch.do',
+		data : {content:$('#faqSearch').val()},
+		method : 'get',
+		dataType : 'json'
+	})
+	.done(function(result){
+		$('.written').remove();
+		result.forEach(elem =>{
+			let temp = $('#example').clone();
+			temp.attr('id',elem.questionNum);
+			temp.addClass('arow written')
+			temp.css('display' ,'block');
+			temp.find('.quest p').text(elem.title);
+			temp.find('.answer p').text(elem.content);
+			temp.appendTo('#faq');
+			
+		})
+		
+	})
+	.catch(function(err){
+		console.log(err)
+		
+	})
 })
 
+$('#faqSearch').keyup(function(e){
+	$.ajax({
+		url : 'faqSearch.do',
+		data : {content:$('#faqSearch').val()},
+		method : 'get',
+		dataType : 'json'
+	})
+	.done(function(result){
+		$('.written').remove();
+		result.forEach(elem =>{
+			let temp = $('#example').clone();
+			temp.attr('id',elem.questionNum);
+			temp.addClass('written arow')
+			temp.css('display' ,'block');
+			temp.find('.quest p').text(elem.title);
+			temp.find('.answer p').text(elem.content);
+			temp.appendTo('#faq');
+			
+		})
+		
+	})
+	.catch(function(err){
+		console.log(err)
+		
+	})
+})
+
+
+
+
+
+
+
 $(document).ready(function(){
-	$('.arow').css('display' , 'none');
+	$('#example').css('display' , 'none');
 	
 	
 	
@@ -47,6 +107,7 @@ $(document).ready(function(){
 		result.forEach(elem =>{
 			let temp = $('#example').clone();
 			temp.attr('id',elem.questionNum);
+			temp.addClass('arow written')
 			temp.css('display' ,'block');
 			temp.find('.quest p').text(elem.title);
 			temp.find('.answer p').text(elem.content);
