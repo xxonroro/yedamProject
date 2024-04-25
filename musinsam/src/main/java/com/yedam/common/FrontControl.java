@@ -20,8 +20,12 @@ import com.yedam.category.CategoryListPants;
 import com.yedam.category.CategoryListShirts;
 import com.yedam.category.CategoryListShoes;
 import com.yedam.main.MainControl;
+import com.yedam.member.IdCheck;
+import com.yedam.member.Login;
+import com.yedam.member.LoginForm;
 import com.yedam.member.MemberRegisterForm;
 import com.yedam.member.MemberRegistration;
+import com.yedam.member.PhoneCheck;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
 import com.yedam.order.control.RemoveCart;
@@ -41,52 +45,43 @@ public class FrontControl extends HttpServlet {
 	public void init() throws ServletException {
 		map.put("/main.do", new MainControl());
 
-
-		// 동한 (start)
-		// 회원 가입
+		
+		// 회원 가입 (동한)
 		map.put("/memberRegisterForm.do", new MemberRegisterForm());
 		map.put("/memberRegistration.do", new MemberRegistration());
+		map.put("/idCheck.do", new IdCheck());
+		map.put("/phoneCheck.do", new PhoneCheck());
+		
+		// 로그인 (동한)
+		map.put("/loginForm.do", new LoginForm());
+		map.put("/login.do", new Login());
+		
+		// 이영주
+//		map.put("/cart.do", new Cart());
+//		map.put("/cartList.do", new CartList());
+//		map.put("/updownCount.do", new UpDownCount());
+//		map.put("/removeCart.do", new RemoveCart());
+//		map.put("/catelist.do", new CateList());
+//
+//		// 한승민
+//		map.put("/catefrom.do", new Cateform());
+//		map.put("/category.do", new CategoryList());
+//		map.put("/categorypants.do", new CategoryListPants());
+//		map.put("/categoryshirts.do", new CategoryListShirts());
+//		map.put("/categoryouter.do", new CategoryListOuter());
+//		map.put("/categoryshoes.do", new CategoryListShoes());
+//
+//		// 송재현
+//		map.put("/todayCoodi.do", new TodayCoodiControl());
+//		map.put("/todayList.do", new todayCoodiList());
+//
+//		map.put("/faq.do", new QuestionControl());
+//		map.put("/faqList.do", new QuestionList());
+//
+//		// 상지현
+//
+//		map.put("/getProduct.do", new GetProductControl());
 
-		
-
-		//이영주
-		map.put("/cart.do",	new Cart());
-		map.put("/cartList.do", new CartList());
-		map.put("/updownCount.do", new UpDownCount());
-		map.put("/removeCart.do", new RemoveCart());
-    map.put("/catelist.do", new CateList());
-    
-    
-    
-
-		//한승민
-		map.put("/catefrom.do", new Cateform());
-		map.put("/category.do", new CategoryList());
-		map.put("/categorypants.do", new CategoryListPants());
-		map.put("/categoryshirts.do", new CategoryListShirts());
-		map.put("/categoryouter.do", new CategoryListOuter());
-		map.put("/categoryshoes.do", new CategoryListShoes());
-    
-    
-
-		//송재현
-		map.put("/todayCoodi.do", new TodayCoodiControl());
-		map.put("/todayList.do", new todayCoodiList());
-		
-		map.put("/faq.do", new QuestionControl());
-		map.put("/faqList.do", new QuestionList());
-		
-
-	
-	 //상지현
-		
-	 map.put("/getProduct.do", new GetProductControl());  
-		
-		
-		
-		
-		
-		
 		//
 	}
 
@@ -99,9 +94,9 @@ public class FrontControl extends HttpServlet {
 		String uri = reqeust.getRequestURI();
 		String context = reqeust.getContextPath();
 		String path = uri.substring(context.length());
-		
+
 		System.out.println();
-		
+
 		Control control = map.get(path);
 		control.execute(reqeust, response);
 	}
