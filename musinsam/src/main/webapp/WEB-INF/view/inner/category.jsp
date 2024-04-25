@@ -4,7 +4,9 @@
 <%@page import="com.yedam.category.ClothesVO"%>
 <%@page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+<script src ="//cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
 
 
 <% PageDTO dto = (PageDTO) request.getAttribute("paging"); %>
@@ -36,16 +38,20 @@
 					<ul class="main-categories">
 						<li class="common-filter">
 							<form action="#">
-								<ul>
+								<ul id="ul1">
 									<li class="filter-list">
-									<input class="pixel-radio" type="radio" id="men" name="cate" value="2"><label for="men">상의</label></li>
-									<li class="filter-list"><input class="pixel-radio"
-										type="radio" id="women" name="cate" value="1"><label
-										for="women">하의</label></li>
-									<li class="filter-list"><input class="pixel-radio"
+									<input class="pixel-radio" type="radio" id="men" name="cate" value="1"><label 
+									for="men">상의</label><span></span></li>
+									<li class="filter-list">
+									<input class="pixel-radio"
+										type="radio" id="women" name="cate" value="2"><label
+										for="women">하의</label><span></span></li>
+									<li class="filter-list">
+									<input class="pixel-radio"
 										type="radio" id="accessories" name="cate" value="3"><label
 										for="accessories">아우터<span></span></label></li>
-									<li class="filter-list"><input class="pixel-radio"
+									<li class="filter-list">
+									<input class="pixel-radio"
 										type="radio" id="footwear" name="cate" value="4"><label
 										for="footwear">신발<span></span></label></li>
 								<!--  		
@@ -134,8 +140,8 @@
 					<div class="sorting mr-auto">
 						<select>
 							<option value="1">show all</option>
-							<option value="1">Show 12</option>
-							<option value="1">Show 12</option>
+							<option value="1">show all</option>
+							<option value="1">show all</option>
 						</select>
 					</div>
 					<div>
@@ -164,9 +170,10 @@
 										src="upload/Short Sleeve Rugby T-Shirt.jpg" width="100px"
 										height="150px" alt="">
 									<ul class="card-product__imgOverlay">
-										<li><button>
-												<i class="ti-search"></i>
-											</button></li>
+										<li><a class="href1"><button>
+												<i class="ti-
+"></i>
+											</button></a></li>
 										<li><button>
 												<i class="ti-shopping-cart"></i>
 											</button></li>
