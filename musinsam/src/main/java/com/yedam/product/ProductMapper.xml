@@ -6,6 +6,7 @@
  <select id="getCloth" parameterType="int" resultType="com.yedam.product.ClothesVO">
  select * 
  from clothes
+ where cloth_no = #{clothNo}
  </select>
 
  </mapper>

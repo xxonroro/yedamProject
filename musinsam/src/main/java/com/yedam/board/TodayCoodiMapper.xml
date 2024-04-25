@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.board.TodayCoodiMapper">
+	<select id ="randomTop" parameterType="String" resultType="com.yedam.board.ClothesVO">
+		select *
+		from ( select clo.* ,
+		        ca.big_category
+		from clothes clo
+		join category ca on clo.small_category = ca.small_category
+		order by DBMS_RANDOM.RANDOM()
+		)
+		where rownum <![CDATA[<= 5]]> AND big_category = '상의' 
+	</select>
+	
+	<select id ="randomBottom" resultType="com.yedam.board.ClothesVO">
+		select *
+		from ( select clo.* ,
+		        ca.big_category
+		from clothes clo
+		join category ca on clo.small_category = ca.small_category
+		order by DBMS_RANDOM.RANDOM()
+		)
+		where rownum <![CDATA[<= 5]]> AND big_category = '바지' 
+	</select>
+	
+	<select id ="randomShoes" resultType="com.yedam.board.ClothesVO">
+		select *
+		from ( select clo.* ,
+		        ca.big_category
+		from clothes clo
+		join category ca on clo.small_category = ca.small_category
+		order by DBMS_RANDOM.RANDOM()
+		)
+		where rownum <![CDATA[<= 5]]> AND big_category = '신발' 
+	</select>
+	
+	<select id ="randomAll" parameterType="String" resultType="com.yedam.board.ClothesVO">
+		select *
+		from ( select clo.* ,
+		        ca.big_category
+		from clothes clo
+		join category ca on clo.small_category = ca.small_category
+		order by DBMS_RANDOM.RANDOM()
+		)
+		where rownum <![CDATA[<= 5]]> AND big_category = '${clo}'
+	</select>
+	
+	
+	
+</mapper>
