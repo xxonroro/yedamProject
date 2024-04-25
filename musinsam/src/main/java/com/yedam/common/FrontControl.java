@@ -14,7 +14,6 @@ import com.yedam.admin.SetProductControl;
 import com.yedam.admin.UptProduct;
 import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
-import com.yedam.board.todayCoodiList;
 import com.yedam.category.CateCount;
 import com.yedam.category.CateList;
 import com.yedam.category.Cateform;
@@ -32,6 +31,8 @@ import com.yedam.product.GetProductControl;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
 import com.yedam.question.QuestionSearch;
+
+
 
 
 public class FrontControl extends HttpServlet {
@@ -76,10 +77,9 @@ public class FrontControl extends HttpServlet {
 		//송재현
 
 		//map.put("/todayCoodi.do", new TodayCoodiControl());
-		map.put("/todayList.do", new todayCoodiList());
+		map.put("/todayList.do", new TodayCoodiList());
 
 		map.put("/todayCoodi.do", new TodayCoodiControl());
-		map.put("/todayList.do", new TodayCoodiList());
 
 		
 		map.put("/faq.do", new QuestionControl());
