@@ -53,10 +53,25 @@ public class FrontControl extends HttpServlet {
 		map.put("/main.do", new MainControl());
 
 
+
+		
 		// 동한 (start)
 		// 회원 가입
 		map.put("/memberRegisterForm.do", new MemberRegisterForm());
 		map.put("/memberRegistration.do", new MemberRegistration());
+
+
+
+
+
+
+		
+
+
+
+
+
+
 
 		
 
@@ -73,6 +88,17 @@ public class FrontControl extends HttpServlet {
 		map.put("/likeList.do", new LikeList());
 
 
+
+		
+
+
+
+
+
+
+
+		
+
 		//한승민
 		map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());
@@ -88,6 +114,18 @@ public class FrontControl extends HttpServlet {
 
 
 
+
+
+		
+
+
+
+
+
+
+
+
+		
 
 		//송재현
 
@@ -106,6 +144,18 @@ public class FrontControl extends HttpServlet {
 		map.put("/uptProd.do", new UptProduct());
 
 
+
+
+		
+
+
+
+
+
+
+
+
+		
 		
 	//상지현
 		
@@ -113,6 +163,21 @@ public class FrontControl extends HttpServlet {
 	 map.put("/addReview.do", new AddReview());
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
 	@Override
 	protected void service(HttpServletRequest reqeust, HttpServletResponse response)
 			throws ServletException, IOException {
