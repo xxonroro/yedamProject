@@ -82,6 +82,8 @@ a {
 }
 @media (min-width: 1100px) {
   .section-margin {
+    display: flex;
+    justify-content: center;
     margin: 120px 0;
   }
   .section-margin.calc-60px {
@@ -3093,11 +3095,11 @@ a {
   box-shadow: 0px 10px 40px 0px rgba(56, 74, 235, 0.1);
   height: 100%;
   text-align: center;
-  padding: 30px 0;
+  padding-top: 80px;
 }
 @media (min-width: 1000px) {
   .login_form_inner {
-    padding-top: 115px;
+    padding-top: 80px;
     padding-bottom: 0;
   }
 }
@@ -3120,6 +3122,16 @@ a {
 .login_form .form-group {
   position: relative;
   margin-bottom: 22px;
+}
+.login_form #idCheckBtn {
+  position: absolute;
+  top: 4px;
+  right: 20px;
+}
+.login_form #phoneCheckBtn {
+  position: absolute;
+  top: 4px;
+  right: 20px;
 }
 .login_form .fa-solid {
   cursor: pointer;
@@ -4021,6 +4033,38 @@ a {
 	display : none;
 }
 
+.account-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.account-links a {
+  color: rgba(0, 0, 0, 0.458);
+  margin-right: 20px;
+  margin-bottom: 80px;
+}
+
+.account-links a:nth-of-type(2) {
+  margin-left: 20px;
+}
+
+.account-links a:nth-of-type(2)::before {
+  content: "|";
+  position: absolute;
+  right: 525px;
+}
+
+.account-links a:nth-of-type(3)::after {
+  content: "|";
+  position: absolute;
+  left: 523px;
+}
+
+.account-links a:nth-of-type(3) {
+  margin-left: 20px;
+
 .effectbtn {
   margin: 1rem;
 }
@@ -4299,6 +4343,7 @@ a {
   transform: scaleX(1.2);
 }
 
+
 @keyframes jittery {
   5%, 50% {
     transform: scale(1);
@@ -4347,9 +4392,8 @@ a {
   }
 }
 
-.right-align{
+.right-align {
 	float : right;
 	margin-right : 300px;	
 }
-
-
+}

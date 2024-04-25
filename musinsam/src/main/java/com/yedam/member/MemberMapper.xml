@@ -9,6 +9,17 @@
 		VALUES (#{userId}, #{upassword}, #{uname}, #{address}, #{phone}, #{birthdate})
 	</insert>
 	
+	<select id="checkMemberId" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		FROM users
+		WHERE user_id = #{id}
+	</select>
+	
+	<select id="checkMemberPhone" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		FROM users
+		WHERE phone = #{phone}
+	</select>
 	
 	
 </mapper>
