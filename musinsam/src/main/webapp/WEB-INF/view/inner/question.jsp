@@ -20,7 +20,7 @@
   
   <!--================FAQ Box Area =================-->
   <div class="faqsearch">
- 	 <input type="text" id="faqSearch" ><button id="fapSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+ 	 <input type="text" id="faqSearch" placeholder="무엇을 도와드릴까요?"><button id="fapSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
   </div>
   <section class="tracking_box_area section-margin--small">
       <div class="container" id="faq">

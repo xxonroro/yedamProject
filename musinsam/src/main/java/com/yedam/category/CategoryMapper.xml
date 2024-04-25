@@ -58,24 +58,6 @@
 		on clothes.small_category = category.small_category
 		where big_category = '바지'
 	  </select>
-	  <select id="clothListshirts" parameterType="com.yedam.category.ClothesVO">
-		select *
-		from clothes left outer join category
-		on clothes.small_category = category.small_category
-		where big_category = '상의'
-	  </select>
-	  <select id="clothListouter" parameterType="com.yedam.category.ClothesVO">
-		select *
-		from clothes left outer join category
-		on clothes.small_category = category.small_category
-		where big_category = '아우터'
-	  </select>
-	  	  <select id="clothListshoes" parameterType="com.yedam.category.ClothesVO">
-		select *
-		from clothes left outer join category
-		on clothes.small_category = category.small_category
-		where big_category = '신발'
-	  </select>
 	  
 	  <select id="categoryList" parameterType="com.yedam.category.ClothesVO">
 		select *
@@ -87,11 +69,16 @@
 	  <select id="searchList" parameterType="com.yedam.category.ClothesVO">
 	  	select *
 		from clothes
-		where cloth_name like '%#{searchword}%'
+		where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%'
 	  </select>
 
 	  
-
+	 <select id="categoryCount" parameterType="string" resultType="int">
+		select count(*)
+		from clothes left outer join category
+		on clothes.small_category = category.small_category
+		where big_category = #{param}
+	  </select>
   
   
   

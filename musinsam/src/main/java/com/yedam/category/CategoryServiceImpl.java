@@ -23,11 +23,7 @@ public class CategoryServiceImpl implements CategoryService {
 		
 		return mapper.clothListpants();
 	}
-	@Override
-	public List<ClothesVO> clothListshirts() {
-		
-		return mapper.clothListshirts();
-	}
+
 
 	@Override
 	public List<ClothesVO> cateList(String cate) {
@@ -41,22 +37,18 @@ public class CategoryServiceImpl implements CategoryService {
 		return mapper.selectCount(search);
 	}
 
-	@Override
-	public List<ClothesVO> clothListouter() {
-		
-		return mapper.clothListouter();
-	}
 
-	@Override
-	public List<ClothesVO> clothListshoes() {
-		// TODO Auto-generated method stub
-		return mapper.clothListshoes();
-	}
 
 	@Override
 	public List<ClothesVO> searchList(String searchword) {
 		
 		return mapper.searchList(searchword);
+	}
+
+	@Override
+	public int categoryCount(String cate) {
+		
+		return mapper.categoryCount(cate);
 	}
 
 

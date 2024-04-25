@@ -12,13 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.todayCoodiList;
+import com.yedam.category.CateCount;
 import com.yedam.category.CateList;
 import com.yedam.category.Cateform;
 import com.yedam.category.CategoryList;
-import com.yedam.category.CategoryListOuter;
 import com.yedam.category.CategoryListPants;
-import com.yedam.category.CategoryListShirts;
-import com.yedam.category.CategoryListShoes;
+import com.yedam.category.SearchCate;
 import com.yedam.main.MainControl;
 import com.yedam.member.MemberRegisterForm;
 import com.yedam.member.MemberRegistration;
@@ -55,27 +54,23 @@ public class FrontControl extends HttpServlet {
 		map.put("/cartList.do", new CartList());
 		map.put("/updownCount.do", new UpDownCount());
 		map.put("/removeCart.do", new RemoveCart());
-    map.put("/catelist.do", new CateList());
+		map.put("/catelist.do", new CateList());
     
     
     
-
 
 
 		//한승민
-	  map.put("/cateform.do", new Cateform());
+		map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());
 		map.put("/categorypants.do", new CategoryListPants());
-		map.put("/categoryshirts.do", new CategoryListShirts());
-		map.put("/categoryouter.do", new CategoryListOuter());
-		map.put("/categoryshoes.do", new CategoryListShoes());
 
-		map.put("/catelist.do", new CateList());
-
-    
+		map.put("/catelist.do", new CateList()); //검색
+		map.put("/searchcate.do", new SearchCate()); //검색   
+		map.put("/cateCount.do", new CateCount());
 
 		//송재현
-		map.put("/todayCoodi.do", new TodayCoodiControl());
+		//map.put("/todayCoodi.do", new TodayCoodiControl());
 		map.put("/todayList.do", new todayCoodiList());
 		
 		map.put("/faq.do", new QuestionControl());
