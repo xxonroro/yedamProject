@@ -14,21 +14,22 @@ import com.yedam.common.Control;
 import com.yedam.order.service.Service;
 import com.yedam.order.service.ServiceImpl;
 
-public class CartList implements Control {
+public class CsizeList implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/json;charset=utf-8");
 		
-		String uid = request.getParameter("uid");
+		int no = Integer.parseInt(request.getParameter("no"));
 		
 		Service svc = new ServiceImpl();
-		List<Map<String, Object>> list = svc.cartList(uid);
+		List<Map<String, Object>> list = svc.csizeList(no);
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
 		
 		response.getWriter().print(json);
+
 	}
 
 }
