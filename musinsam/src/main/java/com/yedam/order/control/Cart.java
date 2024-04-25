@@ -12,7 +12,7 @@ public class Cart implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("inner/cart.tiles").forward(request, response);
+		request.getRequestDispatcher("order/cart.tiles").forward(request, response);
 	}
 
 }

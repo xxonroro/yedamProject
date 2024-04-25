@@ -19,6 +19,9 @@ import com.yedam.member.MemberRegisterForm;
 import com.yedam.member.MemberRegistration;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
+import com.yedam.order.control.CsizeList;
+import com.yedam.order.control.Like;
+import com.yedam.order.control.LikeList;
 import com.yedam.order.control.RemoveCart;
 import com.yedam.order.control.UpDownCount;
 import com.yedam.product.GetProductControl;
@@ -47,8 +50,11 @@ public class FrontControl extends HttpServlet {
 		map.put("/cartList.do", new CartList());
 		map.put("/updownCount.do", new UpDownCount());
 		map.put("/removeCart.do", new RemoveCart());
+		map.put("/csizeList.do", new CsizeList());
 
-
+		map.put("/like.do", new Like());
+		map.put("/likeList.do", new LikeList());
+		
 
 		//카테고리
 		map.put("/catefrom.do", new Cateform());

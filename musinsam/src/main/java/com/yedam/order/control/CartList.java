@@ -20,11 +20,10 @@ public class CartList implements Control {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/json;charset=utf-8");
 		
-		String page = request.getParameter("page");
-		page = page == null ? "1" : page;
+		String uid = request.getParameter("uid");
 		
 		Service svc = new ServiceImpl();
-		List<Map<String, Object>> list = svc.cartList(Integer.parseInt(page));
+		List<Map<String, Object>> list = svc.cartList(uid);
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);

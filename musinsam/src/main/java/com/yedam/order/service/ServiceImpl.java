@@ -11,8 +11,8 @@ import com.yedam.common.DataSource;
 public class ServiceImpl implements Service{
 	Mapper mapper = DataSource.getInstance().openSession(true).getMapper(Mapper.class);
 	@Override
-	public List<Map<String, Object>> cartList(int page) {
-		return mapper.cartList(page);
+	public List<Map<String, Object>> cartList(String uid) {
+		return mapper.cartList(uid);
 	}
 	
 	@Override
@@ -24,5 +24,14 @@ public class ServiceImpl implements Service{
 	public boolean removeCart(int no) {
 		return mapper.removeCart(no) == 1;
 	}
-
+	
+	@Override
+	public List<Map<String, Object>> csizeList(int no) {
+		return mapper.csizeList(no);
+	}
+	
+	@Override
+	public List<Map<String, Object>> likeList(String uid, int page) {
+		return mapper.likeList(uid, page);
+	}
 }
