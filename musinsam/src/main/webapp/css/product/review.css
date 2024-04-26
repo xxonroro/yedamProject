@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+.list .rating__star{
+  cursor:pointer;
+  color:#fbd600;
+ }
+ 

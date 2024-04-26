@@ -51,6 +51,12 @@ public class CategoryServiceImpl implements CategoryService {
 		return mapper.categoryCount(cate);
 	}
 
+	@Override
+	public List<ClothesVO> randomCloth() {
+		
+		return mapper.randomMain();
+	}
+
 
 
 }
