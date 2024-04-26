@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.admin.SetProductControl;
 import com.yedam.admin.UptProduct;
-import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
 import com.yedam.category.CateCount;
 import com.yedam.category.CateList;
@@ -81,7 +80,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/cateCount.do", new CateCount());
 
 		// 송재현
-//		map.put("/todayCoodi.do", new TodayCoodiControl());
 		map.put("/todayList.do", new TodayCoodiList());
 		map.put("/faq.do", new QuestionControl());
 		map.put("/faqList.do", new QuestionList());
@@ -90,7 +88,6 @@ public class FrontControl extends HttpServlet {
 		map.put("/uptProd.do", new UptProduct());
 
 		// 상지현
-
 		map.put("/getProduct.do", new GetProductControl());
 		map.put("/addReview.do", new AddReview());
 

@@ -19,18 +19,10 @@
 				<div class="collapse navbar-collapse offset"
 					id="navbarSupportedContent">
 					<ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-						<li class="nav-item active"><a class="nav-link"
-
-							href="main.do">Home</a></li>
-
-						<li class="nav-item submenu dropdown"><a href="#"
-							class="nav-link dropdown-toggle" data-toggle="dropdown"
-							role="button" aria-haspopup="true" aria-expanded="false">Shop
-								여기 카테고리 물품리스트</a>
+						<li class="nav-item active"><a class="nav-link" href="main.do">Home</a></li>
+						<li class="nav-item submenu dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop여기 카테고리 물품리스트</a>
 							<ul class="dropdown-menu">
-								<li class="nav-item"><a class="nav-link"
-
-									href="cateform.do">Shop Category</a></li>
+								<li class="nav-item"><a class="nav-link" href="cateform.do">Shop Category</a></li>
 
 								<li class="nav-item"><a class="nav-link"
 									href="single-product.html">Product Details</a></li>
