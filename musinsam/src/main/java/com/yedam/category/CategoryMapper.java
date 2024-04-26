@@ -3,6 +3,8 @@ package com.yedam.category;
 import java.util.List;
 
 
+
+
 public interface CategoryMapper {
 	
 	public List<ClothesVO> clothList();
@@ -14,5 +16,8 @@ public interface CategoryMapper {
 	public int categoryCount(String cate);
 	
 	public int selectCount(SearchVO search);
+	
+	public List<ClothesVO> randomMain();
+	
 
 }
