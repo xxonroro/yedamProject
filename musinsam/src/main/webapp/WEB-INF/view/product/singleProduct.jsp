@@ -28,7 +28,8 @@
 						<div class="product_count">
 							<div>
 							   <a class="button price-ptn" href="#">구매하기</a></li>
-							   <a class="button cart-btn" href="#">장바구니 담기</a></li>    
+							   <a class="button cart-btn" href="#">장바구니 담기</a></li>
+							   <a class="button cart-btn" href="#">관리자</a></li>       
 							</div>		          
 						</div>
 						<div class="card_area d-flex align-items-center">
