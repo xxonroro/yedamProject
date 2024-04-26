@@ -1,13 +1,13 @@
 /**
  * 
  */
-
+ //리뷰 등록
  const svc = {
 	 addReview(vo ={rNo,cNo,uid,detail},successCall, errorCall){
 		 fetch('addReview.do',{
 			 method:'post',
 			 headers:{'Content-Type':'application/x-www-form-urlencoded'},
-			 body: 'rNo=' + vo.rNo +'&cNo='+ vo.cNo + '&uid=' + vo.uid +'&detail=' + vo.detail
+			 body:'cNo='+ vo.cNo + '&uid=' + vo.uid +'&detail=' + vo.detail
 		 })
 		 .then(result => result.json())
 		 .then(successCall)
@@ -37,3 +37,34 @@
 	}
 });
  });
+ 
+ //별점 리뷰 -> 별 개수 띄우기
+ 
+ const ratingStars = [...document.getElementsByClassName("rating__star")];
+ 
+ function executeRating(stars){
+	 const starClassActive = "rating__star fas fa-star";
+	 const starClassInactive = "rating__star far fa-star";
+	 const starsLength = stars.length;
+	 let i;
+	 
+	 stars.map((star) => {    //map 메소드 : 루프
+		 star.onclick = ()  => {      //별에 클릭 이벤트 걸어주기 
+			i = stars.indexOf(star);   // i는 위에서 클릭된 별의 인덱스값을 가져옴  
+			
+			if (star.className === starClassInactive){
+				for(i; i >= 0; --i) stars[i].className = starClassActive;	
+			}else{
+				for(i; i < starsLength; ++i) stars[i].className = starClassInactive;
+			}
+		 };
+	 }); 
+ }
+
+executeRating(ratingStars);
+
+
+// 체크된 별 개수: fas.length    / QuerySelector  => grade 
+// 받아온 grade를 insert into로 삽입하기 
+
+
