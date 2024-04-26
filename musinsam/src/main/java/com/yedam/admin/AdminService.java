@@ -1,5 +1,11 @@
 package com.yedam.admin;
 
+import java.util.List;
+
 public interface AdminService {
 	public boolean mergeProd(StockVO vo);
+	public List<StockVO> selectStock(int clothNo);
+	public double selSale(int clothNo);
+	public ClothesVO selProd(int clothNo);
+	public boolean uptSale(ClothesVO cvo);
 }

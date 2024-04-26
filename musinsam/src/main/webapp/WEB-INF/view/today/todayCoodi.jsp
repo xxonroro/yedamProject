@@ -27,18 +27,14 @@
                   <div class="card-product__img">
                     <img class="card-img" src="img/product/product1.png" alt="">
                     <ul class="card-product__imgOverlay">
-<<<<<<< HEAD
-                      <li><button><i class="ti-search"></i></button></li>
-=======
                       <li><a target='_blank'><button><i class="ti-search" ></i></button></a></li>
->>>>>>> branch 'main' of https://github.com/xxonroro/yedamProject.git
                       <li><button><i class="ti-shopping-cart"></i></button></li>
                       <li><button><i class="ti-heart"></i></button></li>
                     </ul>
                   </div>
                   <div class="card-body">
                     <p>Accessories</p>
-                    <h4 class="card-product__title"><a href="#">Quartz Belt Watch</a></h4>
+                    <h6 class="card-product__title"><a href="#">Quartz Belt Watch</a></h6>
                     <p class="card-product__price">$150.00</p>
                   </div>
                 </div>
