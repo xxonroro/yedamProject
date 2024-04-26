@@ -10,8 +10,8 @@ function makeRow (cloth){
 	temp.find('.ti-search').closest('a').attr('href' , 'http://localhost:8080/musinsam/getProduct.do?clothNo=' + cloth.clothNo)
 	temp.find('img').attr('src', 'img/cloth/' + cloth.clothName +'.jpg')
 	temp.find('.card-body p:nth-of-type(1)').text(cloth.smallCategory);
-	temp.find('.card-body h4').text(cloth.clothName);
-	temp.find('.card-body p:nth-of-type(2)').text(cloth.price + '원');
+	temp.find('.card-body h6').text(cloth.clothName);
+	temp.find('.card-body p:nth-of-type(2)').text(cloth.price.toLocaleString() + '원');
 	
 	return temp;
 }
@@ -20,15 +20,15 @@ function makeRow (cloth){
 console.log('hi')
 $(document).ready(function(){
 	$('#singleCoodi').css('display' , 'none');
-	$('h3:nth-child(1)').text('오늘의 상의')
+	$('h3:nth-child(1)').text('TOP')
 	let toprow1 = $('.toprow').clone();
 	let toprow2 = $('.toprow').clone();
 	toprow1.attr('class', 'bottomrow');
-	toprow1.find('h3').text('오늘의 하의');
+	toprow1.find('h3').text('BOTTOM');
 	toprow1.appendTo('#tcoodi');
 	
 	toprow2.attr('class', 'shoesrow');
-	toprow2.find('h3').text('오늘의 신발');
+	toprow2.find('h3').text('SHOES');
 	toprow2.appendTo('#tcoodi');
 	
 	$('#tcoodi').css('text-align' , 'center')

@@ -24,4 +24,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.checkMemberPhone(phone) == 1;
 	}
 
+	@Override
+	public UserVO loginCheck(UserVO vo) {
+		return mapper.loginCheck(vo);
+	}
+
 }

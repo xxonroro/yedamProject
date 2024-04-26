@@ -21,7 +21,7 @@
   <section class="order_details section-margin--small">
     <div class="container">
       <div class="order_details_table">
-        <h2>상품이름</h2>
+        <h2>${param.clothName}</h2>
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -33,19 +33,19 @@
             <tbody class = "filter-bar-search">
               <tr>
                 <td>
-                  <p>S</p>
+                  <p>S<span class="smallSize"></span></p>
                 </td>
                 <td>
-                	<input type ="text" id="sQt" placeholder ="음수 값을 입력하면 수량이 감소합니다">
+                	<input type ="text" id="sQt" onKeyup="this.value=this.value.replace(/[^-0-9]/g,'')" placeholder ="음수 값을 입력하면 수량이 감소합니다" >
                 </td>
                 
               </tr>
               <tr>
                 <td>
-                  <p>M</p>
+                  <p>M<span class="mediumSize"></span></p>
                 </td>
                 <td>
-                	<input type ="text" id="mQt" placeholder ="음수 값을 입력하면 수량이 감소합니다">
+                	<input type ="text" id="mQt" onKeyup="this.value=this.value.replace(/[^-0-9]/g,'')" placeholder ="음수 값을 입력하면 수량이 감소합니다" >
                 		<div class="right-align">
 	                  	<button class="btn btn-round effectbtn-marquee">
 						   <span data-text="등록" class="qtBtn">등록</span>
@@ -56,10 +56,10 @@
               </tr>
               <tr>
                 <td>
-                  <p>L</p>
+                  <p>L<span class="largeSize"></span></p>
                 </td>
                 <td>
-                	<input type ="text" id="lQt" placeholder ="음수 값을 입력하면 수량이 감소합니다">
+                	<input type ="text" id="lQt" onKeyup="this.value=this.value.replace(/[^-0-9]/g,'')" placeholder ="음수 값을 입력하면 수량이 감소합니다" >
                 </td>
               </tr>
               <tr>
@@ -74,10 +74,10 @@
              <tbody class = "filter-bar-search">
               <tr>
                	<td>
-                  <p>할인율 (%) </p>
+                  <p>할인율 <span id="salePercent"></span> </p>
                 </td>
                 <td>
-                	<input type ="text" id="uptSale" placeholder ="0~100 값 넣으세요">
+                	<input type ="text" id="uptSale" onKeyup="this.value=this.value.replace(/[^-0-9]/g,'')" placeholder ="0~100 값 넣으세요">
                 	<div class="right-align">
 	                  	<button class="btn btn-round effectbtn-marquee">
 						   <span data-text="변경" class="saleBtn">변경</span>

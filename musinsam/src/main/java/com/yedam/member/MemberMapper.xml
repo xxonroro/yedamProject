@@ -4,21 +4,34 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yedam.member.MemberMapper">
+
+	<!--  회원 등록 -->
 	<insert id="memberInsert" parameterType="com.yedam.member.UserVO">
 		INSERT INTO users (user_id, password, name, address, phone, birthdate)
 		VALUES (#{userId}, #{upassword}, #{uname}, #{address}, #{phone}, #{birthdate})
 	</insert>
 	
+	<!-- 아이디 중복 체크  -->
 	<select id="checkMemberId" parameterType="String" resultType="int">
 		SELECT COUNT(*)
 		FROM users
 		WHERE user_id = #{id}
 	</select>
 	
+	<!-- 휴대폰 번호 중복 체크 -->
 	<select id="checkMemberPhone" parameterType="String" resultType="int">
 		SELECT COUNT(*)
 		FROM users
 		WHERE phone = #{phone}
+	</select>
+	
+	<!-- 로그인  -->
+
+	<select id="loginCheck" parameterType="com.yedam.member.UserVO" resultType="com.yedam.member.UserVO" >
+		SELECT *
+		FROM users
+		WHERE user_id = #{userId}
+			AND password = #{upassword}
 	</select>
 	
 	

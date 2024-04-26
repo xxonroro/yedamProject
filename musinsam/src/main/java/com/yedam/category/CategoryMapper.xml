@@ -79,7 +79,18 @@
 		on clothes.small_category = category.small_category
 		where big_category = #{param}
 	  </select>
-  
+  	
+  	
+  	<select id ="randomMain" parameterType="String" resultType="com.yedam.category.ClothesVO">
+		select *
+		from ( select clo.* ,
+		        ca.big_category
+		from clothes clo
+		join category ca on clo.small_category = ca.small_category
+		order by DBMS_RANDOM.RANDOM()
+		)
+		where rownum <![CDATA[<= 4]]> 
+	</select>
   
   
   
