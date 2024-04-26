@@ -28,16 +28,15 @@
         <div class="col">
           <!-- Start Filter Bar -->
           <div class="filter-bar d-flex flex-wrap align-items-center">
-            <div class="sorting">
-              <a class="button button-header" href="javascript:void(0)" onclick=""><b>전체 삭제</b></a>
-			  <a class="button button-header" href="javascript:void(0)" onclick=""><b>선택 삭제</b></a>
-              
+            <div class="sorting" >
+              <span class="like_chkAll" ><input type="checkbox" onclick="javascript:wish.changeChkAll();"><b>전체 선택</b></span>
+			  <a class="button button-header" href="javascript:void(0)" onclick="javascript:wish.delCart();"><b>선택 삭제</b></a>
             </div>
             <div class="sorting mr-auto" align="right">
               <select>
-                <option value="1">Show 12</option>
-                <option value="1">Show 12</option>
-                <option value="1">Show 12</option>
+                <option value="8">8개씩 보기</option>
+                <option value="12">12개씩 보기</option>
+                <option value="16">16개씩 보기</option>
               </select>
             </div>
             
@@ -57,11 +56,12 @@
           <!-- End Filter Bar -->
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
+          <div id="like_list">
             <div class="row">
               <div class="col-md-6 col-lg-3">
                 <div class="card text-center card-product">
                   <div class="card-product__img">
-                    <input type="checkbox" class="like_chk">
+                    <input type="checkbox" class="like_chk" onclick="javascript:wish.changeChk();">
                     <img class="card-img" src="img/product/product1.png" alt="" width="255" height="255">
                     <ul class="card-product__imgOverlay">
                       <li><button><i class="ti-search"></i></button></li>
@@ -76,6 +76,7 @@
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </section>
           <!-- End Best Seller -->
@@ -101,6 +102,7 @@
 				</nav>
 			</div>
       </div>
+      
     </div>
   </section>
 	<!-- ================ category section end ================= -->		  
