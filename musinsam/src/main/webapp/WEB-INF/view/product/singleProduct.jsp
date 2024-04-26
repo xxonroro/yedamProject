@@ -29,7 +29,8 @@
 							<div>
 							   <a class="button price-ptn" href="#">구매하기</a></li>
 							   <a class="button cart-btn" href="#">장바구니 담기</a></li>    
-							</div>		          
+							   <a class="button cart-btn" href="http://localhost:8080/musinsam/setProd.do?clothNo=${pinfo.clothNo}&clothName=${pinfo.clothName}" >상품 관리</a></li>   
+   							</div>		          
 						</div>
 						<div class="card_area d-flex align-items-center">
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a> 

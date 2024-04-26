@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500");
+.burrow{
+	display : none;
+}
+
+
+.effectbtn {
+  margin: 1rem;
+}
+.effectbtn-jittery {
+  animation: jittery 4s infinite;
+}
+.effectbtn-icon {
+  position: relative;
+  margin-left: 8px;
+  overflow: hidden;
+}
+.effectbtn-icon i {
+  position: absolute;
+  top: 41%;
+  left: 48%;
+  transform: scale(0.75) translate(-16%, 400%);
+  transition: 0.2s;
+}
+.effectbtn-icon span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+.effectbtn-icon:hover i {
+  transform: scale(0.75) translate(-16%, 0);
+}
+.effectbtn-icon:hover span {
+  transform: translateY(-400%);
+}
+.effectbtn-jelly:hover {
+  animation: jelly 0.5s;
+}
+.effectbtn-fill {
+  transition: 0.3s;
+}
+.effectbtn-fill:hover {
+  background: transparent;
+  box-shadow: inset 0 0 0 36px var(--btn-bg);
+}
+.effectbtn-open {
+  transition: 0.3s;
+}
+.effectbtn-open::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: var(--btn-bg);
+  transform: scaleX(0);
+  transition: 0.3s;
+}
+.effectbtn-open:hover {
+  background: transparent;
+}
+.effectbtn-open:hover::before {
+  transform: scaleX(1);
+}
+.effectbtn-pulse:hover {
+  box-shadow: 0 0 0 18px transparent;
+  animation: pulse 1s;
+}
+.effectbtn-close {
+  transition: 0.3s;
+}
+.effectbtn-close:hover {
+  background: transparent;
+  box-shadow: inset 54px 0 0 0 var(--btn-bg), inset -54px 0 0 0 var(--btn-bg);
+}
+.effectbtn-slash {
+  overflow: hidden;
+  transition: 0.3s;
+}
+.effectbtn-slash::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: 120%;
+  height: 210%;
+  background: var(--btn-bg);
+  transform: translate(-50%, -50%) rotate(-45deg) scaleX(0);
+  transition: 0.3s;
+}
+.effectbtn-slash:hover {
+  background: transparent;
+}
+.effectbtn-slash:hover::before {
+  transform: translate(-50%, -50%) rotate(-45deg) scaleX(1);
+}
+.effectbtn-fill-up {
+  transition: 0.3s;
+}
+.effectbtn-fill-up:hover {
+  background: transparent;
+  box-shadow: inset 0 -54px 0 0 var(--btn-bg);
+}
+.effectbtn-slide {
+  transition: 0.3s;
+}
+.effectbtn-slide:hover {
+  background: transparent;
+  box-shadow: inset 90px 0 0 0 var(--btn-bg);
+}
+.effectbtn-through {
+  transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.effectbtn-through::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: var(--btn-bg);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.effectbtn-through:hover {
+  color: white;
+  background: transparent;
+}
+.effectbtn-through:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.effectbtn-offset {
+  border-radius: 0;
+  box-shadow: 6px 6px 0 0 var(--btn-bg), inset 6px 6px 0 0 var(--btn-bg);
+  transition: 0.3s;
+}
+.effectbtn-offset:hover {
+  background: transparent;
+  box-shadow: 0 0 0 0 var(--btn-bg), inset 108px 72px 0 0 var(--btn-bg);
+}
+.effectbtn-flip-down {
+  --flip-button-height: 40px;
+  height: var(--flip-button-height);
+  color: transparent;
+  border: none;
+  border-radius: 0;
+  perspective: 500px;
+  transition: 0.3s;
+}
+.effectbtn-flip-down:hover {
+  color: transparent;
+  background: transparent;
+}
+.effectbtn-flip-down .front,
+.effectbtn-flip-down .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.effectbtn-flip-down .front {
+  background: var(--btn-bg);
+  color: white;
+  transition: 0.3s;
+  transform-origin: center center calc(var(--flip-button-height) / -2);
+}
+.effectbtn-flip-down .back {
+  color: white;
+  background: var(--btn-bg);
+  transform: rotateX(88deg);
+  transform-origin: center center calc(var(--flip-button-height) / -2);
+  transition: 0.3s;
+}
+.effectbtn-flip-down:hover .front {
+  transform: rotateX(-90deg);
+}
+.effectbtn-flip-down:hover .back {
+  transform: rotateX(0deg);
+}
+.effectbtn-marquee {
+  font-weight: 600;
+  border: none;
+  overflow: hidden;
+  transition: 0.3s;
+  text-align: right;
+}
+.effectbtn-marquee:hover {
+  transform: scale(1.1);
+}
+.effectbtn-marquee span {
+  display: block;
+  padding: 0 20px;
+  animation: move-left 2s linear infinite;
+  color: white;
+}
+.effectbtn-marquee span::after {
+  position: absolute;
+  content: attr(data-text);
+  top: 0;
+  left: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.effectbtn-cross {
+  transform: rotate(0);
+  overflow: hidden;
+  transition: 0.3s;
+}
+.effectbtn-cross::before, .effectbtn-cross::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 50%;
+  background: var(--btn-bg);
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+.effectbtn-cross::before {
+  top: 0;
+  transform-origin: left;
+}
+.effectbtn-cross::after {
+  top: 50%;
+  transform-origin: right;
+}
+.effectbtn-cross:hover {
+  background: transparent;
+}
+.effectbtn-cross:hover::before, .effectbtn-cross:hover::after {
+  transform: scaleX(1);
+}
+.effectbtn-cross:hover::before {
+  transform-origin: right;
+}
+.effectbtn-cross:hover::after {
+  transform-origin: left;
+}
+.effectbtn-open-line {
+  border: none;
+  transition: 0.3s;
+}
+.effectbtn-open-line::before, .effectbtn-open-line::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--btn-bg);
+  opacity: 0;
+  transform: scaleX(0);
+  transition: 0.4s ease-in-out;
+}
+.effectbtn-open-line::before {
+  top: 0;
+}
+.effectbtn-open-line::after {
+  bottom: 0;
+}
+.effectbtn-open-line:hover {
+  letter-spacing: 5px;
+  color: var(--btn-bg);
+  background: transparent;
+}
+.effectbtn-open-line:hover::before, .effectbtn-open-line:hover::after {
+  opacity: 1;
+  transform: scaleX(1.2);
+}
+
+
+@keyframes jittery {
+  5%, 50% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.9);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  20% {
+    transform: scale(1.15) rotate(-5deg);
+  }
+  25% {
+    transform: scale(1.15) rotate(5deg);
+  }
+  30% {
+    transform: scale(1.15) rotate(-3deg);
+  }
+  35% {
+    transform: scale(1.15) rotate(2deg);
+  }
+  40% {
+    transform: scale(1.15) rotate(0);
+  }
+}
+@keyframes jelly {
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 var(--btn-bg);
+  }
+}
+@keyframes move-left {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.right-align {
+	float : right;
+	margin-right : 300px;	
+}

@@ -14,9 +14,32 @@
 		    update set a.quantity = a.quantity + #{addQt}
 		when not matched then
 	    insert (a.cloth_no, a.quantity, a.csize)
-	    values (#{clothNo}, #{addQt} , #{csize}))
+	    values (#{clothNo}, #{addQt} , #{csize})
   	</update>
   	
+  	<select id="selectStock" parameterType="int" resultType="com.yedam.admin.StockVO">
+  		select *
+  		from stock
+  		where cloth_no = ${clothNo}
+  	</select>
+  	
+  	<select id="selSale" parameterType="int" resultType ="double">
+  		select discount_rate
+  		from clothes
+  		where cloth_no = ${clothNo}
+  	</select>
+  	
+  	<select id="selProd" parameterType="int" resultType ="com.yedam.admin.ClothesVO">
+  		select *
+  		from clothes
+  		where cloth_no = ${clothNo}
+  	</select>
+  	
+  	<update id="uptSale" parameterType="com.yedam.admin.ClothesVO">
+  		update clothes
+		set discount_rate = ${discountRate}
+		where cloth_no = ${clothNo}
+  	</update>
   	
   </mapper>
   

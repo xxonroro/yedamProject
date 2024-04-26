@@ -10,14 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.admin.SelProduct;
 import com.yedam.admin.SetProductControl;
 import com.yedam.admin.UptProduct;
+import com.yedam.admin.UptSale;
+import com.yedam.admin.selSale;
+import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
 import com.yedam.category.CateCount;
 import com.yedam.category.CateList;
 import com.yedam.category.Cateform;
 import com.yedam.category.CategoryList;
 import com.yedam.category.CategoryListPants;
+import com.yedam.category.RandomMain;
 import com.yedam.category.SearchCate;
 import com.yedam.main.MainControl;
 import com.yedam.member.IdCheck;
@@ -61,6 +66,17 @@ public class FrontControl extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// 이영주
 		map.put("/cart.do", new Cart());
 		map.put("/cartList.do", new CartList());
@@ -70,6 +86,16 @@ public class FrontControl extends HttpServlet {
 		map.put("/like.do", new Like());
 		map.put("/likeList.do", new LikeList());
 
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// 한승민
 		map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());
@@ -79,6 +105,18 @@ public class FrontControl extends HttpServlet {
 		map.put("/searchcate.do", new SearchCate()); // 검색
 		map.put("/cateCount.do", new CateCount());
 
+    
+		map.put("/randomMain.do", new RandomMain());
+    
+    
+    
+    
+    
+    
+    
+		
+
+
 		// 송재현
 		map.put("/todayList.do", new TodayCoodiList());
 		map.put("/faq.do", new QuestionControl());
@@ -86,12 +124,29 @@ public class FrontControl extends HttpServlet {
 		map.put("/faqSearch.do", new QuestionSearch());
 		map.put("/setProd.do", new SetProductControl());
 		map.put("/uptProd.do", new UptProduct());
+		map.put("/selProd.do", new SelProduct());
+		map.put("/selSale.do", new selSale());
+		map.put("/uptSale.do", new UptSale());
+		
 
-		// 상지현
-		map.put("/getProduct.do", new GetProductControl());
+    
+    
+		
+		
+		
+		
+		//상지현
+		
+		map.put("/getProduct.do", new GetProductControl());  
 		map.put("/addReview.do", new AddReview());
+    
+    
+    
+    
+    
 
-	}
+
+}
 
 	@Override
 	protected void service(HttpServletRequest reqeust, HttpServletResponse response)

@@ -17,7 +17,7 @@ public class GetProductControl implements Control {
         
 		ProductService  svc = new ProductServiceImpl();
 		ClothesVO vo = svc.getProduct(Integer.parseInt(clothNo));
-		req.setAttribute("pinfo", vo);  //
+		req.setAttribute("pinfo", vo); 
 		System.out.println(vo);
 		req.getRequestDispatcher("product/singleProduct.tiles").forward(req, resp);
 	}

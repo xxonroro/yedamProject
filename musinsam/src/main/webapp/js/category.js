@@ -30,7 +30,7 @@ xhtp.onload = function() {
 
 		temp.find('div #p1').text(member.brand);
 		temp.find('div #name1').text(member.clothName);
-		temp.find('div #p2').text((member.price) + "원");
+		temp.find('div #p2').text((member.price.toLocaleString()) + "원");
 
 		temp.appendTo('#section1');
 	})
@@ -85,7 +85,7 @@ $(document).ready(function() {
 					temp2.find('div #img1').attr('src', 'img/cloth/' + member.clothName + '.jpg')
 					temp2.find('div #p1').text(member.brand);
 					temp2.find('div #name1').text(member.clothName);
-					temp2.find('div #p2').text((member.price) + "원");
+					temp2.find('div #p2').text((member.price.toLocaleString()) + "원");
 
 					temp2.appendTo('#section1');
 				})
@@ -111,7 +111,7 @@ $(document).ready(function() {
 					temp2.find('div #img1').attr('src', 'img/cloth/' + member.clothName + '.jpg')
 					temp2.find('div #p1').text(member.brand);
 					temp2.find('div #name1').text(member.clothName);
-					temp2.find('div #p2').text((member.price) + "원");
+					temp2.find('div #p2').text((member.price.toLocaleString()) + "원");
 
 					temp2.appendTo('#section1');
 				})
@@ -140,7 +140,7 @@ $(document).ready(function() {
 
 					temp2.find('div #p1').text(member.brand);
 					temp2.find('div #name1').text(member.clothName);
-					temp2.find('div #p2').text((member.price) + "원");
+					temp2.find('div #p2').text((member.price.toLocaleString()) + "원");
 
 					temp2.appendTo('#section1');
 				})
@@ -169,7 +169,7 @@ $(document).ready(function() {
 
 					temp2.find('div #p1').text(member.brand);
 					temp2.find('div #name1').text(member.clothName);
-					temp2.find('div #p2').text((member.price) + "원");
+					temp2.find('div #p2').text((member.price.toLocaleString()) + "원");
 
 					temp2.appendTo('#section1');
 				})
@@ -209,7 +209,7 @@ document.querySelector('#searchbutton').addEventListener('click', function(e){
 
 				temp2.find('div #p1').text(member.brand);
 				temp2.find('div #name1').text(member.clothName);
-				temp2.find('div #p2').text((member.price) + "원");
+				temp2.find('div #p2').text((member.price.toLocaleString()) + "원");
 
 				temp2.appendTo('#section1');
 			})
