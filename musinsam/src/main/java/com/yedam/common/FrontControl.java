@@ -19,6 +19,7 @@ import com.yedam.category.CateList;
 import com.yedam.category.Cateform;
 import com.yedam.category.CategoryList;
 import com.yedam.category.CategoryListPants;
+import com.yedam.category.RandomMain;
 import com.yedam.category.SearchCate;
 import com.yedam.main.MainControl;
 import com.yedam.member.IdCheck;
@@ -89,7 +90,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/searchcate.do", new SearchCate()); //검색   
 		map.put("/cateCount.do", new CateCount());
     
-    
+		map.put("/randomMain.do", new RandomMain());
     
     
 
@@ -102,8 +103,8 @@ public class FrontControl extends HttpServlet {
 	
 
 		//송재현
-		//map.put("/todayCoodi.do", new TodayCoodiControl());
-		//map.put("/todayList.do", new TodayCoodiList());
+		map.put("/todayCoodi.do", new TodayCoodiControl());
+		map.put("/todayList.do", new TodayCoodiList());
 		map.put("/faq.do", new QuestionControl());
 		map.put("/faqList.do", new QuestionList());
 		map.put("/faqSearch.do", new QuestionSearch());

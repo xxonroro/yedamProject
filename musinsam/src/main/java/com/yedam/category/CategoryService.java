@@ -3,6 +3,7 @@ package com.yedam.category;
 import java.util.List;
 
 
+
 public interface CategoryService {
 	
 	List<ClothesVO> clothesList();
@@ -16,5 +17,6 @@ public interface CategoryService {
 	
 	int getCount(SearchVO search); //전체 건수 가져오기
 	
+	public List<ClothesVO> randomCloth();
 
 }
