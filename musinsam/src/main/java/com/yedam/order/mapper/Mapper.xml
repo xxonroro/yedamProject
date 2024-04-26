@@ -40,9 +40,14 @@
 				on l.cloth_no = c.cloth_no
 				where l.user_id = #{userId})
 		<![CDATA[
-		where rn <= (#{page} * 8)
+		where rn <= (#{page} * #{maxPg})
 		]]>
-		and rn > (#{page} - 1) * 8
+		and rn > (#{page} - 1) * #{maxPg}
 	</select>
+	
+	<delete id="removeLike" parameterType="int">
+  		delete from likegather
+  		where cloth_no = #{cloth_no}
+  	</delete>
 	
 </mapper>

@@ -1,9 +1,25 @@
+.like_chkAll{
+	padding-right:15px;
+}
+.like_chkAll b{
+	padding-left:10px;
+}
+.like_chkAll [type="checkbox"]{
+	width:15px;
+	height:15px;
+	position:relative;
+	top:1.5px;
+}
+
+.card-product__img{
+	position:relative;
+}
 
 .like_chk{
 	
-	position:relative;
-	left:110px;
-	bottom:-35px;
+	position:absolute;
+	right:10px;
+	top:10px;
 	width:20px;
 	height:20px;
     

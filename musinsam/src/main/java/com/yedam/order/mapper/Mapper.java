@@ -14,5 +14,6 @@ public interface Mapper {
 	public int removeCart(int no);
 	public List<Map<String, Object>> csizeList(int no);
 	
-	public List<Map<String, Object>> likeList(@Param("userId") String uid, @Param("page") int page);
+	public List<Map<String, Object>> likeList(@Param("userId") String uid, @Param("page") int page, @Param("maxPg") int maxPg);
+	public int removeLike(int no);
 }

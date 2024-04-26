@@ -14,5 +14,6 @@ public interface Service {
 	public boolean removeCart(int no);
 	public List<Map<String, Object>> csizeList(int no);
 	
-	public List<Map<String, Object>> likeList(String uid, int page);
+	public List<Map<String, Object>> likeList(String uid, int page, int maxPg);
+	public boolean removeLike(int no);
 }
