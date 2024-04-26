@@ -27,10 +27,8 @@ public class UpDownCount implements Control {
 		Service svc = new ServiceImpl();
 		
 		if(svc.updownCount(bvo)) {
-			//"{"retCode":"Success"}
 			response.getWriter().print("{\"retCode\":\"Success\"}");
 		}else {
-			//"{"retCode":"Fail"}
 			response.getWriter().print("{\"retCode\":\"Fail\"}");
 		}
 	}

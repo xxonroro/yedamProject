@@ -30,8 +30,14 @@ public class ServiceImpl implements Service{
 		return mapper.csizeList(no);
 	}
 	
+	
 	@Override
-	public List<Map<String, Object>> likeList(String uid, int page) {
-		return mapper.likeList(uid, page);
+	public List<Map<String, Object>> likeList(String uid, int page, int maxPg) {
+		return mapper.likeList(uid, page, maxPg);
+	}
+	
+	@Override
+	public boolean removeLike(int no) {
+		return mapper.removeLike(no) == 1;
 	}
 }
