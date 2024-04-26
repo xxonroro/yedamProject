@@ -22,6 +22,7 @@ import com.yedam.category.CateList;
 import com.yedam.category.Cateform;
 import com.yedam.category.CategoryList;
 import com.yedam.category.CategoryListPants;
+import com.yedam.category.RandomMain;
 import com.yedam.category.SearchCate;
 import com.yedam.main.MainControl;
 import com.yedam.member.IdCheck;
