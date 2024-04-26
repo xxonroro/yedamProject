@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
+   
+<link rel="stylesheet" href="css/product/review.css"> 
   <!--================Single Product Area =================-->
 	<div class="product_image_area">
 		<div class="container">
@@ -72,23 +74,6 @@
 										<h6>(nn개의 리뷰)</h6>
 									</div>
 								</div>
-								<div class="col-6">
-									<div class="rating_list">
-										<h3>리뷰 별점</h3>
-										<ul class="list">
-											<li><a href="#">5.0<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-													 class="fa fa-star"></i><i class="fa fa-star"></i> </a></li>
-											<li><a href="#">4.0<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-													 class="fa fa-star"></i><i class="fa fa-star"></i> </a></li>
-											<li><a href="#">3.0<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-													 class="fa fa-star"></i><i class="fa fa-star"></i> </a></li>
-											<li><a href="#">2.0<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-													 class="fa fa-star"></i><i class="fa fa-star"></i> </a></li>
-											<li><a href="#">1.0<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-													 class="fa fa-star"></i><i class="fa fa-star"></i> </a></li>
-										</ul>
-									</div>
-								</div>
 							</div>
 							<div class="review_list">
 								<div class="review_item">
@@ -145,19 +130,19 @@
 							<div class="review_box">
 								<h4>리뷰 등록</h4>
 								<p>별점:</p>
-								<ul class="list" name="grade">  <!-- css에서 list에 속성값이 등록되어 있는 거 같음. 클래스명 list로 고정해두기  -->
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
+								<ul class="list">  <!-- css에서 list에 속성값이 등록되어 있는 거 같음. 클래스명 list로 고정해두기  -->
+									<li><i class="rating__star far fa-star"></i></li>
+									<li><i class="rating__star far fa-star"></i></li>
+									<li><i class="rating__star far fa-star"></i></li>
+									<li><i class="rating__star far fa-star"></i></li>
+									<li><i class="rating__star far fa-star"></i></li>
 								</ul>
                 <form action="#/" class="form-contact form-review mt-3">
                   <div class="form-group">
-                    <input class="form-control" id="cNo"  type="text" placeholder="옷번호" required>
+                    <input class="form-control" id="cNo"  type="hidden" placeholder="옷번호" value="${param.clothNo }" required>
                   </div>
                   <div class="form-group">
-                    <input class="form-control"id="uid"  type="text" placeholder="아이디">  <!--아이디는 로그인하면 고정으로 쓸 수 있도록-->
+                    <input class="form-control"id="uid"  type="text" placeholder="아이디" value="user01" readonly >  <!--아이디는 로그인하면 고정으로 쓸 수 있도록-->
                   </div>
                   <div class="form-group">
                     <textarea class="form-control different-control w-100" name="detail" id="textarea" cols="30" rows="5" placeholder="리뷰내용"></textarea>
@@ -176,6 +161,4 @@
 	</section>
 	<!--================End Product Description Area =================-->
 
-<<script src="js/reviewService.js"></script>
-</body>
-</html>
+<script src="js/reviewService.js"></script>
