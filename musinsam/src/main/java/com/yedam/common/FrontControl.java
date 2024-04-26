@@ -93,8 +93,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/catelist.do", new CateList()); //검색
 		map.put("/searchcate.do", new SearchCate()); //검색   
 		map.put("/cateCount.do", new CateCount());
-    
-    
+    		
+		map.put("/randomMain.do", new RandomMain());
     
     
     
