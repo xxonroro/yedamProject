@@ -22,6 +22,7 @@ import com.yedam.category.CateList;
 import com.yedam.category.Cateform;
 import com.yedam.category.CategoryList;
 import com.yedam.category.CategoryListPants;
+import com.yedam.category.RandomMain;
 import com.yedam.category.SearchCate;
 import com.yedam.main.MainControl;
 import com.yedam.member.IdCheck;
@@ -36,10 +37,9 @@ import com.yedam.order.control.CsizeList;
 import com.yedam.order.control.Like;
 import com.yedam.order.control.LikeList;
 import com.yedam.order.control.RemoveCart;
+import com.yedam.order.control.RemoveLike;
 import com.yedam.order.control.UpDownCount;
-
 import com.yedam.product.AddReview;
-
 import com.yedam.product.GetProductControl;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
@@ -78,6 +78,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/csizeList.do", new CsizeList());
 		map.put("/like.do", new Like());
 		map.put("/likeList.do", new LikeList());
+		map.put("/removeLike.do", new RemoveLike());
 
 
 
