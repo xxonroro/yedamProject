@@ -10,7 +10,7 @@
 						<input type="text" class="form-control" id="name" name="userId" placeholder="아이디">
 					</div>
 					<div class="col-md-12 form-group">
-						<input type="text" class="form-control" id="name" name="userPass" placeholder="비밀번호">
+						<input type="password" class="form-control" id="name" name="userPass" placeholder="비밀번호">
 					</div>
 					<div class="col-md-12 form-group">
 						<div class="creat_account">
@@ -23,9 +23,11 @@
 					</div>
 				</form>
 				<div class="account-links">
-					<a href="#">아이디 찾기</a> 
-					<a href="#">비밀번호 찾기</a> 
-					<a href="memberRegisterForm.do">회원가입</a>
+					<a href="findUserIdForm.do">아이디 찾기 </a>
+					<span>|</span> 
+					<a href="findUserPassForm.do">비밀번호 찾기</a> 
+					<span>|</span>
+					<a href="memberRegisterForm.do"> 회원가입</a>
 				</div>
 			</div>
 		</div>

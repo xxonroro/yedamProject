@@ -1,5 +1,7 @@
 package com.yedam.member;
 
+import java.util.Map;
+
 import com.yedam.common.DataSource;
 
 public class MemberServiceImpl implements MemberService {
@@ -27,6 +29,21 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public UserVO loginCheck(UserVO vo) {
 		return mapper.loginCheck(vo);
+	}
+
+	@Override
+	public String findUserId(UserVO vo) {
+		return mapper.findUserId(vo);
+	}
+
+	@Override
+	public String findUserPass(Map<String, String> map) {
+		return mapper.findUserPass(map);
+	}
+
+	@Override
+	public boolean updateMemberInfo(UserVO vo) {
+		return mapper.updateMemberInfo(vo) == 1;
 	}
 
 }
