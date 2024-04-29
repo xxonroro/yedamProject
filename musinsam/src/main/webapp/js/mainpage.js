@@ -162,6 +162,7 @@ $(document).ready(function() {
 		ttry.forEach(pro =>{
 			let bestseller = $('#this').clone();
 			//temp.css('display', 'flex');
+			//temp.css('display', 'flex');
 			bestseller.find('div img').attr('src', 'img/cloth/' + pro.clothName + '.jpg')
 			bestseller.find('div p').text(pro.clothName);
 			$('#bestSellerCarousel').trigger('add.owl.carousel', bestseller);
