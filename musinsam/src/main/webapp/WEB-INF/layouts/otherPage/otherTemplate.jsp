@@ -52,5 +52,6 @@
 	
 	<!-- 회원 가입 -->
 	<script src="js/member/register.js"></script>
+	<script src="js/member/modifyValidation.js"></script>
 </body>
 </html>
