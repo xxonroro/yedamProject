@@ -16,35 +16,39 @@ public class Login implements Control {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userId = request.getParameter("userId");
 		String userPass = request.getParameter("userPass");
-		String check = request.getParameter("selector");
-		
+		String selector = request.getParameter("selector");
+
 		UserVO vo = new UserVO();
 		vo.setUserId(userId);
-		vo.setUpassword(userPass);
-		
+		vo.setPassword(userPass);
+
+		System.out.println(vo);
+
 		MemberService service = new MemberServiceImpl();
 		vo = service.loginCheck(vo);
 		
-		if(vo != null) {
+		System.out.println(vo);
+
+		if (vo != null) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("userId", vo.getUserId());
+			session.setAttribute("userPass", vo.getPassword());
+			session.setAttribute("username", vo.getName());
+			session.setAttribute("address", vo.getAddress());
+			session.setAttribute("phone", vo.getPhone());
+			session.setAttribute("birthday", vo.getBirthdate());
 			session.setAttribute("authority", vo.getAuthority());
-			
-			
-			if(check != null) {
+
+			if (selector != null) {
 				Cookie cookie = new Cookie("JSESSIONID", session.getId());
 				cookie.setMaxAge(3600);
 				response.addCookie(cookie);
 			}
-			
-			if(vo.getAuthority() == 1) {
-				response.sendRedirect("main.do"); // 관리자
-			}
-			else {
-				response.sendRedirect("main.do"); // 일반 사용자.
-			}
+			response.sendRedirect("main.do");
+
+		} else {
+			response.getWriter().print("<script>alert('아이디 또는 비밀번호가 맞지 않습니다.'); location.href='loginForm.do';</script>");
 		}
 
 	}
-
 }

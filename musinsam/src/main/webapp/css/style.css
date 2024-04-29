@@ -3095,7 +3095,7 @@ a {
   box-shadow: 0px 10px 40px 0px rgba(56, 74, 235, 0.1);
   height: 100%;
   text-align: center;
-  padding-top: 80px;
+  padding-top: 40px;
 }
 @media (min-width: 1000px) {
   .login_form_inner {
@@ -4032,9 +4032,7 @@ a {
 
 
 .account-links {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   position: relative;
 }
 
@@ -4042,26 +4040,23 @@ a {
   color: rgba(0, 0, 0, 0.458);
   margin-right: 20px;
   margin-bottom: 80px;
+  
 }
 
 .account-links a:nth-of-type(2) {
   margin-left: 20px;
 }
 
-.account-links a:nth-of-type(2)::before {
-  content: "|";
-  position: absolute;
-  right: 525px;
-}
-
-.account-links a:nth-of-type(3)::after {
-  content: "|";
-  position: absolute;
-  left: 523px;
-}
-
 .account-links a:nth-of-type(3) {
   margin-left: 20px;
 }
 
+.ml-auto, .mx-auto, .mr-auto {
+  margin-right: 0 !important;
+  margin-left: 180px !important;
+}
 
+.nav-item a {
+  text-decoration: none;
+  color: black;
+}
