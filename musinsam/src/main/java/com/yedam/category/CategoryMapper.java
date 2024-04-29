@@ -18,6 +18,10 @@ public interface CategoryMapper {
 	public int selectCount(SearchVO search);
 	
 	public List<ClothesVO> randomMain();
+	public List<ClothesVO> randomMain8();
+	
+	public List<ClothesVO> clothListsort(String cate);
+
 	
 
 }
