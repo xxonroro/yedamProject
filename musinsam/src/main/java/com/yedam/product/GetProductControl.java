@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.context.request.SessionScope;
+
 import com.yedam.common.Control;
 
 public class GetProductControl implements Control {
@@ -19,6 +21,7 @@ public class GetProductControl implements Control {
 		ClothesVO vo = svc.getProduct(Integer.parseInt(clothNo));
 		req.setAttribute("pinfo", vo); 
 		System.out.println(vo);
+		
 		req.getRequestDispatcher("product/singleProduct.tiles").forward(req, resp);
 	}
 
