@@ -58,66 +58,98 @@ xhtp.onload = function() {
 
 */
 
+$(document).ready(function() {
+	//Ajax 호출`
+	const addhtp = new XMLHttpRequest();
+	addhtp.open('get', 'randomMain.do');
+	addhtp.send();
 
-//Ajax 호출`
-const addhtp = new XMLHttpRequest();
-addhtp.open('get', 'randomMain.do');
-addhtp.send();
+	addhtp.onload = function() {
+		let members = JSON.parse(addhtp.response);
+		console.log(members);
 
-addhtp.onload = function() {
-	let members = JSON.parse(addhtp.response);
-	console.log(members);
-
-	//temp.css('display', 'block');
-	//temp.css('display', 'inline-block');
-	//temp.appendTo('#sectionMain1');
-	console.log(members[0].clothName);
-	$('#divimg1 img').attr('src', 'img/cloth/' + members[0].clothName + '.jpg');
-	//$('#divimg1 img').attr('height', '300px');
-	$('#divimg1 h3').text(members[0].clothName);
-	$('#divimg1 p').text(members[0].smallCategory);
-	$('#divimg1 a').attr('href','getProduct.do?clothNo='+members[0].clothNo);
-	
-	$('#divimg2 img').attr('src', 'img/cloth/' + members[1].clothName + '.jpg');
-	//$('#divimg2 img').attr('height', '300px');
-	$('#divimg2 h3').text(members[1].clothName);
-	$('#divimg2 p').text(members[1].smallCategory);
-	$('#divimg2 a').attr('href','getProduct.do?clothNo='+members[1].clothNo);
-	
-	$('#divimg3 img').attr('src', 'img/cloth/' + members[2].clothName + '.jpg');
-	//$('#divimg3 img').attr('height', '300px');
-	$('#divimg3 h3').text(members[2].clothName);
-	$('#divimg3 p').text(members[2].smallCategory);
-	$('#divimg3 a').attr('href','getProduct.do?clothNo='+members[2].clothNo);
-	
-	$('#divimg4 img').attr('src', 'img/cloth/' + members[3].clothName + '.jpg');
-	//$('#divimg4 img').attr('height', '300px');
-	$('#divimg4 h3').text(members[3].clothName);
-	$('#divimg4 p').text(members[3].smallCategory);
-	$('#divimg4 a').attr('href','getProduct.do?clothNo='+members[3].clothNo);
-	/*
-	members.forEach(member => {
-		
-		//$('#divimg').css('display', 'none');
-		let temp =$('#divimg div:eq('+i+')' );
 		//temp.css('display', 'block');
-		
 		//temp.css('display', 'inline-block');
-		temp.find('img').attr('src', 'img/cloth/' + member.clothName + '.jpg')
-		temp.find('h3').text(member.clothName);
-		i++;
-		//temp.find('#divimg li a').attr('href','getProduct.do?clothNo='+member.clothNo);
-		//temp.find('div #img1').attr('src', 'img/cloth/' + member.clothName + '.jpg')
-		//$('#divimg').find('div img').attr('src', 'img/cloth/' + member.clothName + '.jpg')
-		//$('#divimg').find('div h3').text(member.clothName);
-		//temp.find('div #name1').text(member.clothName);
-		//temp.find('div #p2').text((member.price) + "원");
-
 		//temp.appendTo('#sectionMain1');
-		*/
+		console.log(members[0].clothName);
+		$('#divimg1 img').attr('src', 'img/cloth/' + members[0].clothName + '.jpg');
+		//$('#divimg1 img').attr('height', '300px');
+		$('#divimg1 h3').text(members[0].clothName);
+		$('#divimg1 p').text(members[0].smallCategory);
+		$('#divimg1 a').attr('href', 'getProduct.do?clothNo=' + members[0].clothNo);
 
-}
+		$('#divimg2 img').attr('src', 'img/cloth/' + members[1].clothName + '.jpg');
+		//$('#divimg2 img').attr('height', '300px');
+		$('#divimg2 h3').text(members[1].clothName);
+		$('#divimg2 p').text(members[1].smallCategory);
+		$('#divimg2 a').attr('href', 'getProduct.do?clothNo=' + members[1].clothNo);
 
+		$('#divimg3 img').attr('src', 'img/cloth/' + members[2].clothName + '.jpg');
+		//$('#divimg3 img').attr('height', '300px');
+		$('#divimg3 h3').text(members[2].clothName);
+		$('#divimg3 p').text(members[2].smallCategory);
+		$('#divimg3 a').attr('href', 'getProduct.do?clothNo=' + members[2].clothNo);
+
+		$('#divimg4 img').attr('src', 'img/cloth/' + members[3].clothName + '.jpg');
+		//$('#divimg4 img').attr('height', '300px');
+		$('#divimg4 h3').text(members[3].clothName);
+		$('#divimg4 p').text(members[3].smallCategory);
+		$('#divimg4 a').attr('href', 'getProduct.do?clothNo=' + members[3].clothNo);
+		/*
+		members.forEach(member => {
+			
+			//$('#divimg').css('display', 'none');
+			let temp =$('#divimg div:eq('+i+')' );
+			//temp.css('display', 'block');
+			
+			//temp.css('display', 'inline-block');
+			temp.find('img').attr('src', 'img/cloth/' + member.clothName + '.jpg')
+			temp.find('h3').text(member.clothName);
+			i++;
+			//temp.find('#divimg li a').attr('href','getProduct.do?clothNo='+member.clothNo);
+			//temp.find('div #img1').attr('src', 'img/cloth/' + member.clothName + '.jpg')
+			//$('#divimg').find('div img').attr('src', 'img/cloth/' + member.clothName + '.jpg')
+			//$('#divimg').find('div h3').text(member.clothName);
+			//temp.find('div #name1').text(member.clothName);
+			//temp.find('div #p2').text((member.price) + "원");
+	
+			//temp.appendTo('#sectionMain1');
+			*/
+
+	};
+	
+	
+	
+	
+
+	let xhtp = new XMLHttpRequest(); //첫화면 출력
+	xhtp.open('get', 'randomMain8.do');
+	xhtp.send();
+
+	xhtp.onload = function() {
+		let clothes = JSON.parse(xhtp.response);
+		console.log(clothes);
+		$('#prod').css('display', 'none');
+		clothes.forEach(cloth =>{
+			let temp = $('#prod').clone();
+			//temp.css('display', 'block');
+			temp.css('display', 'inline-block');
+			temp.find('div img').attr('src', 'img/cloth/' + cloth.clothName + '.jpg')
+			temp.find('div li a').attr('href', 'getProduct.do?clothNo=' + cloth.clothNo);
+			temp.find('div h4').text(cloth.clothName);
+			temp.find('div p:eq(0)').text(cloth.smallCategory);
+			temp.find('div p:eq(1)').text((cloth.price).toLocaleString()+ "원");
+			temp.appendTo('#divbody');
+		})
+		
+
+
+	}
+
+
+
+
+})
 
 
 

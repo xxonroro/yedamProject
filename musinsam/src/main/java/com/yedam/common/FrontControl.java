@@ -19,10 +19,12 @@ import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
 import com.yedam.category.CateCount;
 import com.yedam.category.CateList;
+import com.yedam.category.CateSort;
 import com.yedam.category.Cateform;
 import com.yedam.category.CategoryList;
 import com.yedam.category.CategoryListPants;
 import com.yedam.category.RandomMain;
+import com.yedam.category.RandomMain8;
 import com.yedam.category.SearchCate;
 import com.yedam.main.MainControl;
 import com.yedam.member.IdCheck;
@@ -96,8 +98,11 @@ public class FrontControl extends HttpServlet {
 		map.put("/catelist.do", new CateList()); //검색
 		map.put("/searchcate.do", new SearchCate()); //검색   
 		map.put("/cateCount.do", new CateCount());
+		map.put("/cateSort.do", new CateSort()); //정렬		
+	
     		
 		map.put("/randomMain.do", new RandomMain());
+		map.put("/randomMain8.do", new RandomMain8());
     
     
     
