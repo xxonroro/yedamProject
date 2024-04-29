@@ -77,8 +77,8 @@
 								<div class="col-6">
 									<div class="box_total">
 										<h5>별점 평균</h5>
-										<h4>4.0</h4>
-										<h6>(nn개의 리뷰)</h6>
+										<h4>4.0</h4>  <!-- 평균 입력 -->
+										<h6>(nn개의 리뷰)</h6>  <!-- 리뷰 개수 입력 -->
 									</div>
 								</div>
 							</div>
@@ -155,7 +155,7 @@
                     <textarea class="form-control different-control w-100" name="detail" id="textarea" cols="30" rows="5" placeholder="리뷰내용"></textarea>
                   </div>
                   <div class="form-group text-center text-md-right mt-3">
-                    <button type="button" class="button button--active button-review" id="addReview" >리뷰 쓰기</button>
+                    <button type="button" class="button button--active button-review" id="addReview">리뷰 쓰기</button>
                   </div>
                 </form>
 							</div>
