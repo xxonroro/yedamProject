@@ -117,10 +117,10 @@ $(document).ready(function() {
 			*/
 
 	};
-	
-	
-	
-	
+
+
+
+
 
 	let xhtp = new XMLHttpRequest(); //첫화면 출력
 	xhtp.open('get', 'randomMain8.do');
@@ -130,20 +130,92 @@ $(document).ready(function() {
 		let clothes = JSON.parse(xhtp.response);
 		console.log(clothes);
 		$('#prod').css('display', 'none');
-		clothes.forEach(cloth =>{
+		clothes.forEach(cloth => {
 			let temp = $('#prod').clone();
-			//temp.css('display', 'block');
+			temp.css('display', 'block');
 			temp.css('display', 'inline-block');
 			temp.find('div img').attr('src', 'img/cloth/' + cloth.clothName + '.jpg')
-			temp.find('div li a').attr('href', 'getProduct.do?clothNo=' + cloth.clothNo);
+			temp.find('div img').attr('height', '200px')
+			temp.find('li a').attr('href', 'getProduct.do?clothNo=' + cloth.clothNo);
 			temp.find('div h4').text(cloth.clothName);
 			temp.find('div p:eq(0)').text(cloth.smallCategory);
-			temp.find('div p:eq(1)').text((cloth.price).toLocaleString()+ "원");
+			temp.find('div p:eq(1)').text((cloth.price).toLocaleString() + "원");
 			temp.appendTo('#divbody');
-		
+
 		})
+
+	};
 		
 
+
+
+	//$('#bestSellerCarousel').css('display', 'none');
+
+	let ahtp = new XMLHttpRequest();
+	ahtp.open('get', 'randomMain.do');
+	ahtp.send();
+
+	ahtp.onload = function() {
+		let ttry = JSON.parse(ahtp.response);
+		console.log(ttry);
+		$('#this').css('display', 'none');
+		ttry.forEach(pro =>{
+			let bestseller = $('#this').clone();
+			//temp.css('display', 'flex');
+			bestseller.find('div img').attr('src', 'img/cloth/' + pro.clothName + '.jpg')
+			bestseller.find('div p').text(pro.clothName);
+			$('#bestSellerCarousel').trigger('add.owl.carousel', bestseller);
+			$('#bestSellerCarousel').trigger('refresh.owl.carousel'); //api 새로고침
+		})
+		/*
+		let bestseller = $('#this').clone();
+		bestseller.find('div p').text('되라');
+		$('#bestSellerCarousel').trigger('add.owl.carousel', bestseller);
+		
+		let bestseller2 = $('#this').clone();
+		bestseller2.find('div p').text('되라제발');
+		//bestseller2.appendTo('#bestSellerCarousel');
+		$('#bestSellerCarousel').trigger('add.owl.carousel', bestseller2);
+		$('#bestSellerCarousel').trigger('refresh.owl.carousel');
+		
+		*/
+		//let bestseller = $('#this').clone();
+		//$('#this').css('display', 'none');
+		//bestseller.css('display', 'flex');
+		//bestseller.find('div img').attr('src', 'img/cloth/' + ttry.clothName + '.jpg')
+
+		//bestseller.appendTo('#bestSellerCarousel');
+
+
+
+
+		//temp2.appendTo(temp1);
+		//temp1.appendTo('#contain');
+		//members.forEach(member => {
+
+		//let temp = $('#bestSellerCarousel #maind').clone();
+		//temp.find('#content p').text(member.price);
+		//temp.find('#imgsection img').attr('src', 'img/cloth/' + member.clothName + '.jpg')
+		//temp.appendTo('#bestSellerCarousel');
+		//$('[data-id]:eq(1)').css('display', 'none');
+		/*
+		let temp = $('#divContain').clone();
+		temp.css('display', 'block');
+		temp.css('display', 'inline-block');
+		temp.find('#ul1 li a').attr('href','getProduct.do?clothNo='+member.clothNo);
+		temp.find('#content img').attr('src', 'img/cloth/' + member.clothName + '.jpg')
+		
+		temp.find('#content p:eq(0)').text(member.brand);
+		temp.find('#content h4').text(member.clothName);
+		temp.find('#content p:eq(1)').text((member.price) + "원");
+		
+		temp.appendTo('#section1');
+		///
+		
+	
+	
+})
+*/
 
 	}
 
