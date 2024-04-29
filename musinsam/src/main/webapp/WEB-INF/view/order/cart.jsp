@@ -39,7 +39,7 @@
                           </tr>
                       </thead>
                       <tbody>
-                          <tr>
+                          <tr style="display:none">
                           	  <td align="center"><input type="checkbox" onchange="javascript:basket.changeChk();">&nbsp;</td>
                               <td>
                                   <div class="media">
@@ -107,7 +107,7 @@
                               <td>
                               </td>
                               <td>
-                                  <a class="gray_btn" href="javascript:void(0)" onclick="javascript:basket.delCartAll();"><b>전체 삭제</b></a>
+                                  <a class="gray_btn" href="javascript:void(0)" onclick="javascript:basket.delCart();"><b>전체 삭제</b></a>
 								  <a class="gray_btn" href="javascript:void(0)" onclick="javascript:basket.delCart();"><b>선택 삭제</b></a>
                               </td>
                               <td colspan="2" align="right">
