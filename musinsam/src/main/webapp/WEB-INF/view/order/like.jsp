@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script type="text/javascript" src="js/order/likeService.js"></script>
+<script type="text/javascript" src="js/order/cartService.js"></script>
 <script type="text/javascript" src="js/order/like.js"></script>
   <link rel="stylesheet" href="css/order/like.css">
     <!-- ================ start banner area ================= -->	
@@ -32,7 +33,7 @@
               <span class="like_chkAll" ><input type="checkbox" onclick="javascript:wish.changeChkAll();"><b>전체 선택</b></span>
 			  <a class="button button-header" href="javascript:void(0)" onclick="javascript:wish.delCart();"><b>선택 삭제</b></a>
             </div>
-            <div class="sorting mr-auto" align="right">
+            <div class="sorting mr-auto" align="right" onchange="javascript:wish.changeMaxPg();">
               <select>
                 <option value="8">8개씩 보기</option>
                 <option value="12">12개씩 보기</option>
@@ -58,15 +59,15 @@
           <section class="lattest-product-area pb-40 category-list">
           <div id="like_list">
             <div class="row">
-              <div class="col-md-6 col-lg-3">
+              <div class="col-md-6 col-lg-3" style="display:none">
                 <div class="card text-center card-product">
                   <div class="card-product__img">
                     <input type="checkbox" class="like_chk" onclick="javascript:wish.changeChk();">
                     <img class="card-img" src="img/product/product1.png" alt="" width="255" height="255">
                     <ul class="card-product__imgOverlay">
                       <li><button><i class="ti-search"></i></button></li>
-                      <li><button ><i class="ti-shopping-cart"></i></button></li>
-                      <li><button onclick=""><i class="ti-heart"></i></button></li>
+                      <li><button><i class="ti-shopping-cart"></i></button></li>
+                      <li><button><i class="ti-heart"></i></button></li>
                     </ul>
                   </div>
                   <div class="card-body">
@@ -88,11 +89,6 @@
 						</span>
 					</a></li>
 					<li class="page-item"><a href="#" class="page-link">01</a></li>
-					<li class="page-item"><a href="#" class="page-link">02</a>
-					</li>
-					<li class="page-item"><a href="#" class="page-link">03</a></li>
-					<li class="page-item"><a href="#" class="page-link">04</a></li>
-					<li class="page-item"><a href="#" class="page-link">05</a></li>
 					<li class="page-item"><a href="#" class="page-link"
 						aria-label="Next"> <span aria-hidden="true"> <span
 								class="lnr lnr-chevron-right"></span>

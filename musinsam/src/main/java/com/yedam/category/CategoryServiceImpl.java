@@ -57,6 +57,19 @@ public class CategoryServiceImpl implements CategoryService {
 		return mapper.randomMain();
 	}
 
+	@Override
+	public List<ClothesVO> clothesListSort(String cate) {
+
+		return mapper.clothListsort(cate);
+	}
+
+
+	@Override
+	public List<ClothesVO> randomCloth8() {
+		
+		return mapper.randomMain8();
+	}
+
 
 
 }
