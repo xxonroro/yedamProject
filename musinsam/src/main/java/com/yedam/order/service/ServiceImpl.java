@@ -3,10 +3,10 @@ package com.yedam.order.service;
 import java.util.List;
 import java.util.Map;
 
-import com.yedam.vo.BasketVO;
-import com.yedam.vo.ClothesVO;
-import com.yedam.order.mapper.Mapper;
 import com.yedam.common.DataSource;
+import com.yedam.order.mapper.Mapper;
+import com.yedam.vo.BasketVO;
+import com.yedam.vo.LikeVO;
 
 public class ServiceImpl implements Service{
 	Mapper mapper = DataSource.getInstance().openSession(true).getMapper(Mapper.class);
@@ -31,6 +31,7 @@ public class ServiceImpl implements Service{
 	}
 	
 	
+	
 	@Override
 	public List<Map<String, Object>> likeList(String uid, int page, int maxPg) {
 		return mapper.likeList(uid, page, maxPg);
@@ -40,4 +41,25 @@ public class ServiceImpl implements Service{
 	public boolean removeLike(int no) {
 		return mapper.removeLike(no) == 1;
 	}
+	
+	@Override
+	public boolean insertLike(LikeVO lvo) {
+		return mapper.insertLike(lvo) == 1;
+	}
+	
+	@Override
+	public boolean insertCartIcon(BasketVO bvo) {
+		return mapper.insertCartIcon(bvo) == 1;
+	}
+	
+	@Override
+	public boolean removeCartIcon(BasketVO bvo) {
+		return mapper.removeCartIcon(bvo) == 1;
+	}
+	
+	@Override
+	public int CountLike(String uid) {
+		return mapper.CountLike(uid);
+	}
+	
 }

@@ -9,32 +9,31 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.common.Control;
 import com.yedam.order.service.Service;
 import com.yedam.order.service.ServiceImpl;
+import com.yedam.vo.BasketVO;
 
-public class RemoveCart implements Control {
+public class InsertCartIcon implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/json;charset=utf-8");
 		
-		String st = request.getParameter("no");
+		String uid = request.getParameter("uid");
+		int no = Integer.parseInt(request.getParameter("no"));
+		int cnt = Integer.parseInt(request.getParameter("cnt"));
+		
+		BasketVO bvo = new BasketVO();
+		bvo.setBasketCnt(cnt);
+		bvo.setUserId(uid);
+		bvo.setClothNo(no);
+		
 		Service svc = new ServiceImpl();
 		
-		boolean ret = false;
-
-		String[] num = st.split(",");
-		for (String num_ : num) {
-			int no_ = Integer.parseInt(num_);
-
-			if (svc.removeCart(no_)) {
-				ret = true;
-			}
-		}
-		
-		if(ret == true) {
+		if(svc.insertCartIcon(bvo)) {
 			response.getWriter().print("{\"retCode\": \"Success\"}");
 		}else {
 			response.getWriter().print("{\"retCode\": \"Fail\"}");
 		}
-		
+
 	}
 
 }

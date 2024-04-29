@@ -19,60 +19,26 @@ const basket = {
 	cartTotal : 0,
 	list : function(){
 		let uid='user001';
+		
 		svc.cartList(uid, function(result){
 			console.log(result);
 			
-			result.forEach(cart =>{
-				
-				let temp = $('tbody tr:eq(0)').clone();
-				let prc = cart.PRICE * (1 - cart.DISCOUNT_RATE);
-				
-				temp.attr('basket_id', cart.BASKET_NO);
-				temp.attr('data-id', cart.CLOTH_NO);
-				temp.find('.d-flex img').attr('src', 'img/cloth/' + cart.CLOTH_NAME + '.jpg');
-				temp.find('.media-body p').text(cart.CLOTH_NAME);
-				
-				if(cart.DISCOUNT_RATE > 0){
-					temp.find('td h5:eq(0)').before('<s><i>' + cart.PRICE +'원 </i></s>');
-				}
-				temp.find('td h5:eq(0)').text(Math.round((prc / 10) * 10).formatNumber() + '원');
-				temp.find('td h5:eq(0)').attr('class', 'price' + cart.BASKET_NO);
-				
-				temp.find('.current').text(" ");
-				temp.find('.list li').attr('class','option');
-
-				temp.find('.product_count input').attr('value', cart.BASKET_CNT);
-				temp.find('.product_count input').attr('class', 'qty' + cart.BASKET_NO);
-				temp.find('div.product_count button').click(() => basket.changePNum(cart.BASKET_NO));
-				temp.find('td h5:eq(1)').text(Math.round((prc * cart.BASKET_CNT / 10) * 10).formatNumber() + '원');
-				temp.find('td h5:eq(1)').attr('class', 't_price' + cart.BASKET_NO);
-				
+			//cartList
+			result.forEach(cart =>{				
+				let temp = basket.makeCart(cart);				
 				temp.appendTo('tbody');
-
-				svc.csizeList(cart.CLOTH_NO, function(result) {
-					console.log(result);
-					result.forEach(size => {
-
-						if(size.QUANTITY == 0){
-							for (let i = 0; i < 3; i++) {
-								if ($('[data-id=' + cart.CLOTH_NO + '] .list li:eq(' + i + ')').text() == size.CSIZE) {
-		
-									$('[data-id=' + cart.CLOTH_NO + '] .list li:eq(' + i + ')').remove();
-								}
-							}
-						}
-					});
+				//svc.csizeList(cart.CLOTH_NO, basket.makeSize);  //fetch
+				basket.makeSize(cart.sizeList)
 				}, function(err) {
 					console.log(err);
-				})
-			});
+			})				
 
+			//total
 			let sub = $('.subtotal').clone();
 			
 			sub.find('td h4:eq(1)').attr('class', 's_price');
 			sub.appendTo('tbody');
 			
-			$('tbody tr:eq(0)').remove();
 			$('.bottom_button:eq(0)').remove();
 			$('.subtotal:eq(0)').remove();
 			
@@ -81,15 +47,59 @@ const basket = {
 			
 			basket.reCalc();
 			
-			},function(err){
+			}, function(err){
 				console.log(err);
 		})
+		}, 
 		
-	},
-	reCalc() {
+	makeSize : function(result) {
+					//console.log(result);
+					result.forEach(size => {
+
+					if(size.QUANTITY == 0){
+						for (let i = 0; i < 3; i++) {
+							if ($('[data-id=' + size.CLOTH_NO + '] .list li:eq(' + i + ')').text() == size.CSIZE) {
+	
+								$('[data-id=' + size.CLOTH_NO + '] .list li:eq(' + i + ')').remove();
+							}
+						}
+					}
+				})
+			}	
+		,
+	makeCart : function(cart){ //본문
+		let temp = $('tbody tr:eq(0)').clone();
+		let prc = cart.PRICE * (1 - cart.DISCOUNT_RATE);
+		
+		temp.attr('basket_id', cart.BASKET_NO);
+		temp.attr('data-id', cart.CLOTH_NO);
+		temp.css('display', '');
+		temp.find('.d-flex img').attr('src', 'img/cloth/' + cart.CLOTH_NAME + '.jpg');
+		temp.find('.media-body p').text(cart.CLOTH_NAME);
+		temp.find('.media-body a').attr('onclick','javascript:basket.clickProduct('+cart.CLOTH_NO+');');
+		
+		if(cart.DISCOUNT_RATE > 0){
+			temp.find('td h5:eq(0)').before('<s><i>' + cart.PRICE +'원 </i></s>');
+		}
+		temp.find('td h5:eq(0)').text(Math.round((prc / 10) * 10).formatNumber() + '원');
+		temp.find('td h5:eq(0)').attr('class', 'price' + cart.BASKET_NO);
+		
+		temp.find('.current').text(" ");
+		temp.find('.list li').attr('class','option');
+
+		temp.find('.product_count input').attr('value', cart.BASKET_CNT);
+		temp.find('.product_count input').attr('class', 'qty' + cart.BASKET_NO);
+		temp.find('div.product_count button').click(() => basket.changePNum(cart.BASKET_NO));
+		temp.find('td h5:eq(1)').text(Math.round((prc * cart.BASKET_CNT / 10) * 10).formatNumber() + '원');
+		temp.find('td h5:eq(1)').attr('class', 't_price' + cart.BASKET_NO);
+		return temp;
+	}
+	,
+	reCalc() { //총 결제 예상금액 계산
 		$('.s_price').text(Math.round((basket.cartTotal / 10) * 10).formatNumber() + '원');
 	},
-	changePNum(no) {
+	
+	changePNum(no) { //수량
 
 		if (!no) {
 			return;
@@ -128,7 +138,8 @@ const basket = {
 		});
 
 	},
-	changeChkAll(){
+	
+	changeChkAll(){ //전체 선택
 		if($('thead input').is(':checked') == true){
 			basket.cartTotal = 0;
 			$('[basket_id] input:checkbox').prop('checked', true);
@@ -144,7 +155,8 @@ const basket = {
 			basket.reCalc();
 		}
 	},
-	changeChk(){
+	
+	changeChk(){ //단건 선택
 		basket.cartTotal = 0;
 		if($('[basket_id] input:checked').length == $('[basket_id] input:checkbox').length){
 			$('thead input').prop('checked', true);
@@ -166,38 +178,36 @@ const basket = {
 			basket.reCalc();
 		}
 	},
-	delCart(){
+	
+	delCart(){ //삭제
+		
+		var delNo = new Array();
+		
 		for(let i = 0; i < $('[basket_id]').length ; i++){
-			if ($('tbody tr:eq("' + i +'") input').is(':checked') == true) {
-				let delNo = $('tbody tr:eq("' + i +'")').attr('basket_id');
+			if ($('[basket_id]:eq(' + i +') input:even').is(':checked') == true) {
+				delNo.push($('[basket_id]:eq(' + i +')').attr('basket_id'));
 				
-				svc.cartRemove(delNo,
-					(result) => {
-						if (result.retCode == "Success") {
-							basket.cartTotal = 0;
-							basket.reCalc();
-							$('[basket_id="' + delNo + '"]').remove();
-						}
-					},
-					(err) => { })
 			}
 		}
+		svc.cartRemove(delNo,
+			(result) => {
+				if (result.retCode == "Success") {
+					basket.cartTotal = 0;
+					basket.reCalc();
+					delNo.forEach(no =>{
+						$('[basket_id="' + no + '"]').remove();
+					})
+					$('thead input').prop('checked', false);
+				}
+			},
+			(err) => { })
 	},
-	delCartAll(){
-		for(let i = 0; i < $('[basket_id]').length ; i++){
-			let delNo = $('tbody tr:eq("' + i + '")').attr('basket_id');
-
-			svc.cartRemove(delNo,
-				(result) => {
-					if (result.retCode == "Success") {
-
-						basket.cartTotal = 0;
-						basket.reCalc();
-						$('[basket_id="' + delNo + '"]').remove();
-					}
-				},
-				(err) => { })
-		}
+	
+	clickProduct(no){ //상세페이지
+		$("<a>").prop({
+            target: "_blank",
+            href: "http://localhost:8080/musinsam/getProduct.do?clothNo=" + no
+        })[0].click();
 	}
 }
 basket.list();

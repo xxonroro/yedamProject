@@ -10,31 +10,17 @@ import com.yedam.common.Control;
 import com.yedam.order.service.Service;
 import com.yedam.order.service.ServiceImpl;
 
-public class RemoveCart implements Control {
+
+public class CountLike implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String uid = request.getParameter("uid");
 		
-		String st = request.getParameter("no");
 		Service svc = new ServiceImpl();
+		int totalCount = svc.CountLike(uid);
 		
-		boolean ret = false;
-
-		String[] num = st.split(",");
-		for (String num_ : num) {
-			int no_ = Integer.parseInt(num_);
-
-			if (svc.removeCart(no_)) {
-				ret = true;
-			}
-		}
-		
-		if(ret == true) {
-			response.getWriter().print("{\"retCode\": \"Success\"}");
-		}else {
-			response.getWriter().print("{\"retCode\": \"Fail\"}");
-		}
-		
+		response.getWriter().print("{\"totalCount\" : " + totalCount + "}");
 	}
 
 }

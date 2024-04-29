@@ -9,32 +9,28 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.common.Control;
 import com.yedam.order.service.Service;
 import com.yedam.order.service.ServiceImpl;
+import com.yedam.vo.LikeVO;
 
-public class RemoveCart implements Control {
+public class InsertLike implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/json;charset=utf-8");
 		
-		String st = request.getParameter("no");
+		String uid = request.getParameter("uid");
+		int no = Integer.parseInt(request.getParameter("no"));
+		
+		LikeVO lvo = new LikeVO();
+		lvo.setClothNo(no);
+		lvo.setUserId(uid);
+		
 		Service svc = new ServiceImpl();
 		
-		boolean ret = false;
-
-		String[] num = st.split(",");
-		for (String num_ : num) {
-			int no_ = Integer.parseInt(num_);
-
-			if (svc.removeCart(no_)) {
-				ret = true;
-			}
-		}
-		
-		if(ret == true) {
+		if(svc.insertLike(lvo)) {
 			response.getWriter().print("{\"retCode\": \"Success\"}");
 		}else {
 			response.getWriter().print("{\"retCode\": \"Fail\"}");
 		}
-		
 	}
 
 }

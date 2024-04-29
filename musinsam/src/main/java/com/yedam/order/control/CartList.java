@@ -1,6 +1,8 @@
 package com.yedam.order.control;
 
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +26,11 @@ public class CartList implements Control {
 		
 		Service svc = new ServiceImpl();
 		List<Map<String, Object>> list = svc.cartList(uid);
+		
+		for(Map map : list) {
+			List<Map<String, Object>> sizeList = svc.csizeList(((BigDecimal)map.get("CLOTH_NO")).intValue());
+			map.put("sizeList", sizeList);
+		}
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);

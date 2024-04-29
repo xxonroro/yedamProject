@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.admin.InsertProduct;
+import com.yedam.admin.SelCate;
 import com.yedam.admin.SelProduct;
 import com.yedam.admin.SetProductControl;
 import com.yedam.admin.UptProduct;
@@ -43,10 +44,13 @@ import com.yedam.member.ModifyMemberInfoForm;
 import com.yedam.member.PhoneCheck;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
-import com.yedam.order.control.CsizeList;
+import com.yedam.order.control.InsertCartIcon;
+import com.yedam.order.control.InsertLike;
 import com.yedam.order.control.Like;
+import com.yedam.order.control.CountLike;
 import com.yedam.order.control.LikeList;
 import com.yedam.order.control.RemoveCart;
+import com.yedam.order.control.RemoveCartIcon;
 import com.yedam.order.control.RemoveLike;
 import com.yedam.order.control.UpDownCount;
 import com.yedam.product.AddReview;
@@ -93,16 +97,21 @@ public class FrontControl extends HttpServlet {
 
 
 		// 이영주
+		//장바구니
 		map.put("/cart.do", new Cart());
 		map.put("/cartList.do", new CartList());
 		map.put("/updownCount.do", new UpDownCount());
 		map.put("/removeCart.do", new RemoveCart());
-		map.put("/csizeList.do", new CsizeList());
+
+		
+		//찜목록
 		map.put("/like.do", new Like());
 		map.put("/likeList.do", new LikeList());
 		map.put("/removeLike.do", new RemoveLike());
-
-
+		map.put("/insertLike.do", new InsertLike());
+		map.put("/insertCartIcon.do", new InsertCartIcon());
+		map.put("/removeCartIcon.do", new RemoveCartIcon());
+		map.put("/countLike.do", new CountLike());
 
 
 	
@@ -142,6 +151,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/selSale.do", new selSale());
 		map.put("/uptSale.do", new UptSale());
 		map.put("/insertProd.do", new InsertProduct());
+		map.put("/selCate.do", new SelCate());
 
 
 
