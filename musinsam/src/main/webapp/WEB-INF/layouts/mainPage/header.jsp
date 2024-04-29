@@ -20,10 +20,11 @@
 				<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 					<ul class="nav navbar-nav menu_nav ml-auto mr-auto">
 						<li class="nav-item submenu dropdown">
-							<a href="cateform.do" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">카테고리</a>
+
+						  <a href="cateform.do" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">카테고리</a>
 							<ul class="dropdown-menu">
 								<li class="nav-item">
-									<a class="nav-link" href="cateform.do">상의</a>
+									<a class="nav-link" href="single-product.html">상의</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="checkout.html">아우터</a>
@@ -41,6 +42,7 @@
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">내 쇼핑</a>
 							<ul class="dropdown-menu">
 								<li class="nav-item">
+
 								<c:choose>
 									<c:when test="${sessionScope.userId == null}">
 											<a class="nav-link" href="loginForm.do">찜</a>
@@ -63,6 +65,7 @@
 								</li>
 							</ul>
 						</li>
+
 
 						<li class="nav-item submenu dropdown">
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">마이페이지</a>
@@ -112,7 +115,8 @@
 						 </c:otherwise> 
 						</c:choose>
 						<li class="nav-item">
-							<a class="nav-link" href="main.do">문의게시판</a>
+							<a class="nav-link" href="faq.do">문의게시판</a>
+
 						</li>
 					</ul>
 				</div>
@@ -120,4 +124,6 @@
 		</nav>
 	</div>
 </header>
+
 <!—================ End Header Menu Area =================—>
+

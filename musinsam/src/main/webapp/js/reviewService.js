@@ -68,3 +68,6 @@ executeRating(ratingStars);
 // 받아온 grade를 insert into로 삽입하기 
 
 
+
+
+
