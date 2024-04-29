@@ -5,8 +5,8 @@
  <mapper namespace="com.yedam.product.ReviewMapper">
  
  <insert id="insertReview" parameterType="com.yedam.vo.ReviewVO">
-insert into review(review_no,cloth_no,user_id,detail)
-values(review_seq.nextval,#{clothNo},#{userId},#{detail})
+insert into review(review_no,cloth_no,user_id,detail,grade)
+values(review_seq.nextval,#{clothNo},#{userId},#{detail},#{grade})
 </insert>
 
  </mapper>
