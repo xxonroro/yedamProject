@@ -15,19 +15,17 @@ public class RemoveCart implements Control {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String no[] = request.getParameterValues("no");
+		String st = request.getParameter("no");
 		Service svc = new ServiceImpl();
 		
 		boolean ret = false;
-		
-		for(String st : no) {
-			String[] num = st.split(",");
-			for(String num_ : num) {
-				int no_ = Integer.parseInt(num_);
 
-				if(svc.removeCart(no_)) {
-					ret = true;
-				}
+		String[] num = st.split(",");
+		for (String num_ : num) {
+			int no_ = Integer.parseInt(num_);
+
+			if (svc.removeCart(no_)) {
+				ret = true;
 			}
 		}
 		

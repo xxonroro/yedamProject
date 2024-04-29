@@ -98,6 +98,7 @@ const basket = {
 	reCalc() { //총 결제 예상금액 계산
 		$('.s_price').text(Math.round((basket.cartTotal / 10) * 10).formatNumber() + '원');
 	},
+	
 	changePNum(no) { //수량
 
 		if (!no) {
@@ -137,6 +138,7 @@ const basket = {
 		});
 
 	},
+	
 	changeChkAll(){ //전체 선택
 		if($('thead input').is(':checked') == true){
 			basket.cartTotal = 0;
@@ -153,6 +155,7 @@ const basket = {
 			basket.reCalc();
 		}
 	},
+	
 	changeChk(){ //단건 선택
 		basket.cartTotal = 0;
 		if($('[basket_id] input:checked').length == $('[basket_id] input:checkbox').length){
@@ -175,6 +178,7 @@ const basket = {
 			basket.reCalc();
 		}
 	},
+	
 	delCart(){ //삭제
 		
 		var delNo = new Array();
@@ -198,7 +202,8 @@ const basket = {
 			},
 			(err) => { })
 	},
-	clickProduct(no){
+	
+	clickProduct(no){ //상세페이지
 		$("<a>").prop({
             target: "_blank",
             href: "http://localhost:8080/musinsam/getProduct.do?clothNo=" + no
