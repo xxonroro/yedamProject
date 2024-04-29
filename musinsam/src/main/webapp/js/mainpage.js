@@ -140,6 +140,7 @@ $(document).ready(function() {
 			temp.find('div p:eq(0)').text(cloth.smallCategory);
 			temp.find('div p:eq(1)').text((cloth.price).toLocaleString()+ "원");
 			temp.appendTo('#divbody');
+			temp.appendTo('#divbody');
 		})
 		
 
