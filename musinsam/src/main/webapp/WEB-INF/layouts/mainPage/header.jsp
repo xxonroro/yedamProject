@@ -73,7 +73,6 @@
 											<a class="nav-link" href="loginForm.do">정보 수정</a>
 										</c:when>
 										<c:otherwise>
-<<<<<<< HEAD
 											<a class="nav-link" href="#">정보 수정</a>
 										</c:otherwise>
 									</c:choose>			
