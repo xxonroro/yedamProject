@@ -149,7 +149,7 @@
                     <input class="form-control" id="cNo"  type="hidden" placeholder="옷번호" value="${param.clothNo }" required>
                   </div>
                   <div class="form-group">
-                    <input class="form-control"id="uid"  type="text" placeholder="아이디" value="user01" readonly >  <!--아이디는 로그인하면 고정으로 쓸 수 있도록-->
+                    <input class="form-control"id="uid"  type="text" placeholder="아이디" value="${userId}" readonly >  <!--아이디는 로그인하면 고정으로 쓸 수 있도록-->
                   </div>
                   <div class="form-group">
                     <textarea class="form-control different-control w-100" name="detail" id="textarea" cols="30" rows="5" placeholder="리뷰내용"></textarea>

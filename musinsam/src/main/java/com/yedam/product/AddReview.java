@@ -18,12 +18,12 @@ public class AddReview implements Control {
 		String cNo = req.getParameter("cNo");
 		String uid = req.getParameter("uid");
 		String detail = req.getParameter("detail");
-		//String grade = req.getParameter("grade");
+		String grade = req.getParameter("grade");
 		
 		vo.setClothNo(Integer.parseInt(cNo));
 		vo.setUserId(uid);
 		vo.setDetail(detail);
-		//vo.setGrade(Integer.parseInt(grade));
+		vo.setGrade(Integer.parseInt(grade));
 		
 		ReviewService svc = new ReviewServiceImpl();
 		if(svc.insertReview(vo)) {

@@ -3,11 +3,11 @@
  */
  //리뷰 등록
  const svc = {
-	 addReview(vo ={rNo,cNo,uid,detail},successCall, errorCall){
+	 addReview(vo ={cNo,uid,detail,grade},successCall, errorCall){
 		 fetch('addReview.do',{
 			 method:'post',
 			 headers:{'Content-Type':'application/x-www-form-urlencoded'},
-			 body:'cNo='+ vo.cNo + '&uid=' + vo.uid +'&detail=' + vo.detail
+			 body:'cNo='+ vo.cNo + '&uid=' + vo.uid +'&detail=' + vo.detail + '&grade=' + vo.grade
 		 })
 		 .then(result => result.json())
 		 .then(successCall)
@@ -68,5 +68,8 @@
  }
 
 executeRating(ratingStars);
+
+
+
 
 
