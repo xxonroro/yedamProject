@@ -131,12 +131,17 @@
 				<!-- Start Filter Bar -->
 				<div class="filter-bar d-flex flex-wrap align-items-center">
 					<div class="sorting">
-						<select>
-							<option value="1">Default sorting</option>
-							<option value="1">Default sorting</option>
-							<option value="1">Default sorting</option>
+						<select id="selectsort">
+							<option value="cloth_no">정렬</option>
+							<option value="price desc">가격높은순</option>
+							<option value="price">가격낮은순</option>
+							<option value="discount_rate desc">할인율높은순</option>
+							<option value="discount_rate">할인율낮은순</option>
+							<option value="cnt desc">구매많은순</option>
+							<option value="cnt">구매적은순</option>
 						</select>
 					</div>
+					<!-- 
 					<div class="sorting mr-auto">
 						<select>
 							<option value="1">show all</option>
@@ -144,6 +149,7 @@
 							<option value="1">show all</option>
 						</select>
 					</div>
+					 -->
 					<div>
 						<div class="input-group filter-bar-search">
 							<input type="text" placeholder="Search" id="searchdo">
@@ -168,7 +174,7 @@
 								<div class="card-product__img" id="img">
 									<img id="img1" class="card-img"
 										src="upload/Short Sleeve Rugby T-Shirt.jpg" width="100px"
-										height="150px" alt="">
+										height="200px" alt="">
 									<ul class="card-product__imgOverlay">
 										<li><a class="href1"><button>
 												<i class="ti-"></i>

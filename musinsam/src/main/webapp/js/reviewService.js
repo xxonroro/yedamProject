@@ -23,11 +23,17 @@
 	  console.log(uid);
 	 let detail = document.getElementById('textarea').value;
 	  console.log(detail);
-	 
+// 평점 -> 체크된 별 개수: fas.length    / QuerySelector  => grade 	
+ // 받아온 grade를 mapper에서 insert into로 삽입하기 	 
+	 let starCount = document.querySelectorAll(".fas.fa-star").length;    //querySelector는 1개만 출력, 여러개를 출력하고 싶으면 All을 사용 
+	  console.log(starCount);
+
 	 let vo = {
 		 cNo:cNo,
 		 uid:uid,
-		 detail:detail	 
+		 detail:detail,
+		 grade:starCount
+		 	 
 	 }
 	 svc.addReview(vo, function(result){
 	if(result.retCode == 'Success'){
@@ -62,9 +68,5 @@
  }
 
 executeRating(ratingStars);
-
-
-// 체크된 별 개수: fas.length    / QuerySelector  => grade 
-// 받아온 grade를 insert into로 삽입하기 
 
 
