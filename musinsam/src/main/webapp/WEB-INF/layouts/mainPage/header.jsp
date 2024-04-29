@@ -73,7 +73,6 @@
 											<a class="nav-link" href="loginForm.do">정보 수정</a>
 										</c:when>
 										<c:otherwise>
-<<<<<<< HEAD
 											<a class="nav-link" href="#">정보 수정</a>
 										</c:otherwise>
 									</c:choose>			
@@ -114,48 +113,6 @@
 						</c:choose>
 						<li class="nav-item">
 							<a class="nav-link" href="faq.do">문의게시판</a>
-=======
-											<a class="nav-link" href="modifyMemberInfoForm.do">정보 수정</a>
-										</c:otherwise>
-									</c:choose>			
-									</li>
-									<li class="nav-item">
-									<c:choose>
-										<c:when test="${sessionScope.userId == null}">
-											<a class="nav-link" href="loginForm.do">주문 조회</a>
-										</c:when>
-										<c:otherwise>
-											<a class="nav-link" href="single-blog.html">주문 조회</a>
-										</c:otherwise>
-									</c:choose>			
-									</li>
-									<li class="nav-item">
-									<c:choose>
-										<c:when test="${sessionScope.userId == null}">
-											<a class="nav-link" href="loginForm.do">상품 리뷰</a>
-										</c:when>
-										<c:otherwise>
-											<a class="nav-link" href="index.html">상품 리뷰</a>
-										</c:otherwise>
-									</c:choose>			
-									</li>
-								</ul>
-							</li>
-						<c:choose>
-						 <c:when test="${sessionScope.userId == null}">
-							<li class="nav-item">
-								<a class="nav-link" href="loginForm.do">로그인</a>
-							</li> 
-						 </c:when>
-						 <c:otherwise>
-						 	<li class="nav-item">
-						 		<a class="nav-link" href="logout.do">로그아웃</a>
-						 	</li> 
-						 </c:otherwise> 
-						</c:choose>
-						<li class="nav-item">
-							<a class="nav-link" href="main.do">문의게시판</a>
->>>>>>> branch 'main' of https://github.com/xxonroro/yedamProject.git
 						</li>
 					</ul>
 				</div>
