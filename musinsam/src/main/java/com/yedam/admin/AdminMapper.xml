@@ -41,6 +41,12 @@
 		where cloth_no = ${clothNo}
   	</update>
   	
+  	<select id="selCate" parameterType="String" resultType ="String">
+  		select *
+  		from category
+  		where big_category = #{category}
+  	</select>
+  	
   </mapper>
   
   

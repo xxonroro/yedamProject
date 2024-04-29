@@ -3,13 +3,14 @@
  */
 
  
- $('.adCol	').css({'font-size':'18px'})
+ $('.adCol').css({'font-size':'18px'})
  
 	var url_href = window.location.href;
 
 	var url = new URL(url_href);
 	var clothNo = url.searchParams.get("clothNo");
 	
+	 
  
  $('.qtBtn').click(function(e){
 	 
@@ -85,48 +86,72 @@ $('.saleBtn').click(function(e){
 	 })
 }) 
  
+$('#bigCate').change(function(e){
+	console.log($('#bigCate').val())
+	$('#warnCate').remove();
+	
+	
+	$.ajax({
+		url: 'selCate.do' , 
+		data: {category:$('#bigCate').val()},
+		method : 'get',
+		dataType : 'json'
+	})
+	.done(function(result){
+		result.forEach(function(e){
+			
+		})
+	})
+	
+})
  
  
  $(document).ready(function(){
-	 $.ajax({
-		 url : 'selProd.do',
-		 data : {clothNo:clothNo},
-		 method : 'get',
-		 dataType : 'json'
-	 })
-	 .done(function(result){
-		 console.log(result)
-		result.forEach(elem =>{
-			if(elem.csize == 'S'){
-				$('.smallSize').text(' (' + elem.quantity + '개)')
-			}else if(elem.csize == 'M'){
-				$('.mediumSize').text(' (' + elem.quantity + '개)')
-			}else if(elem.csize == 'L'){
-				$('.largeSize').text(' (' + elem.quantity + '개)')
-			}
-		})
+	 if(clothNo != null){
+		 $.ajax({
+			 url : 'selProd.do',
+			 data : {clothNo:clothNo},
+			 method : 'get',
+			 dataType : 'json'
+		 })
+		 .done(function(result){
+			 console.log(result)
+			result.forEach(elem =>{
+				if(elem.csize == 'S'){
+					$('.smallSize').text(' (' + elem.quantity + '개)')
+				}else if(elem.csize == 'M'){
+					$('.mediumSize').text(' (' + elem.quantity + '개)')
+				}else if(elem.csize == 'L'){
+					$('.largeSize').text(' (' + elem.quantity + '개)')
+				}
+			})
+			 
+		 })
+		 .fail(function(err){
+			 console.log(err)
+			 alert('사이즈수량 에러')
+		 })
 		 
-	 })
-	 .fail(function(err){
-		 console.log(err)
-		 alert('사이즈수량 에러')
-	 })
-	 
-	 $.ajax({
-		 url : 'selSale.do',
-		 data : {clothNo:clothNo},
-		 method : 'get',
-		 dataType : 'json'
-	 })
-	 .done(function(result){
-		$('#salePercent').text(' ('+ (result.sale * 100) + '%)')
-	 })
-	 .fail(function(err){
-		 console.log(err)
-		 alert('할인율에러')
-	 })
+		 $.ajax({
+			 url : 'selSale.do',
+			 data : {clothNo:clothNo},
+			 method : 'get',
+			 dataType : 'json'
+		 })
+		 .done(function(result){
+			$('#salePercent').text(' ('+ (result.sale * 100) + '%)')
+		 })
+		 .fail(function(err){
+			 console.log(err)
+			 alert('할인율에러')
+			 
+		 })
+	 }
 	 
 	 
+	 setTimeout(function(){
+		 $('select').niceSelect('destroy')
+	 }, 600)
 	 
 	 
 	 

@@ -130,6 +130,9 @@
       background-color: transparent;
       color: #999;
       cursor: default; }
+    .nice-select .option.hidden {
+    	display : none;
+    }
 
 .no-csspointerevents .nice-select .list {
   display: none; }
