@@ -243,6 +243,7 @@ const wish = {
 		if($('[cloth_id="'+no+'"] .ti-shopping-cart').parent().attr('style') != 'background: red;'){
 			let cnt = 1;
 			let bvo = {cnt, userId, no}
+
 			lvc.cartInsertIcon(bvo, (result) => {
 				if (result.retCode == "Success") {
 				}
@@ -284,7 +285,7 @@ const wish = {
 	clickProduct(no){ //상세페이지
 		$("<a>").prop({
             target: "_blank",
-            href: "http://localhost:8080/musinsam/getProduct.do?clothNo=" + no
+            href: "/musinsam/getProduct.do?clothNo=" + no
         })[0].click();
 	}
 }

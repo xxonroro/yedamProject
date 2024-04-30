@@ -207,7 +207,7 @@ const basket = {
 	clickProduct(no){ //상세페이지
 		$("<a>").prop({
             target: "_blank",
-            href: "http://localhost:8080/musinsam/getProduct.do?clothNo=" + no
+            href: "/musinsam/getProduct.do?clothNo=" + no
         })[0].click();
 	},
 	
@@ -215,32 +215,34 @@ const basket = {
 		
 		var bkId = new Array();
 		var csize = new Array();
+		var cnt = new Array();
 		
 		for(let i=0; i < $('[basket_id]').length ; i++){
 			if ($('[basket_id]:eq(' + i +') input:even').is(':checked') == true) {
 				bkId.push($('[basket_id]:eq(' + i +')').attr('basket_id'));
 				csize.push($('[basket_id]:eq(' + i +') .current').text());
+				cnt.push($('[basket_id]:eq(' + i +') .product_count input').val());
 			}
 		}
 		
-
-		if(bkId.length > 0 && csize.indexOf(' ') == -1){
+		if(bkId.length > 0 && csize.indexOf(' ') == -1 && cnt.indexOf('0') == -1){
 			
 			localStorage.setItem("bkId", JSON.stringify(bkId));
 			localStorage.setItem("csize", JSON.stringify(csize));
 			
 			$("<a>").prop({
             target: "_self",
-            href: "http://localhost:8080/musinsam/pay.do"
+            href: "/musinsam/pay.do"
         	})[0].click();
 		}else if(bkId.length <= 0){
 			alert('주문할 상품을 선택해 주세요');
 		}else if(csize.indexOf(' ') >= 0){
 			alert('상품의 사이즈를 선택해 주세요');
+		}else if(cnt.indexOf('0') >= 0){
+			alert('수량을 다시 선택해 주세요');
 		}else{
 			alert('상품을 다시 확인해 주세요');
 		}
-		
 	}
 }
 basket.list();

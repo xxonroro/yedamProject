@@ -2,8 +2,8 @@
  * 
  */
 const lvc = {
-	likeList(uid='user001', page=1, maxPg=8, successCall, errorCall) {
-		fetch('likeList.do?uid=' + uid + '&page=' + page + '&maxPg=' + maxPg)
+	likeList(userId, page=1, maxPg=8, successCall, errorCall) {
+		fetch('likeList.do?uid=' + userId + '&page=' + page + '&maxPg=' + maxPg)
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
@@ -18,38 +18,38 @@ const lvc = {
 			.then(successCall)
 			.catch(errorCall);
 	},
-	likeInsert(lvo = {uid, no}, successCall, errorCall) {
+	likeInsert(lvo = {userId, no}, successCall, errorCall) {
 		fetch('insertLike.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'uid=' + lvo.uid + '&no=' + lvo.no
+			body: 'uid=' + lvo.userId + '&no=' + lvo.no
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
 	},
-	cartInsertIcon(bvo={cnt, uid, no} , successCall, errorCall) {
+	cartInsertIcon(bvo={cnt, userId, no} , successCall, errorCall) {
 		fetch('insertCartIcon.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'cnt=' + bvo.cnt + '&uid=' + bvo.uid + '&no=' + bvo.no
+			body: 'cnt=' + bvo.cnt + '&uid=' + bvo.userId + '&no=' + bvo.no
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
 	},
-	cartRemoveIcon(bvo={uid, no} , successCall, errorCall) {
+	cartRemoveIcon(bvo={userId, no} , successCall, errorCall) {
 		fetch('removeCartIcon.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'uid=' + bvo.uid + '&no=' + bvo.no
+			body: 'uid=' + bvo.userId + '&no=' + bvo.no
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
 	},
-	likeCount(uid='user001', successCall, errorCall) {
-		fetch('countLike.do?uid=' + uid )
+	likeCount(userId, successCall, errorCall) {
+		fetch('countLike.do?uid=' + userId )
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
