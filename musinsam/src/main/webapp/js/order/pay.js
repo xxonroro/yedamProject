@@ -17,7 +17,7 @@
  
  
  const payment = {
-	list : function(){
+	list : function(){ //값 받기
 		 JSON.parse(localStorage.getItem("bkId"));
 		 JSON.parse(localStorage.getItem("csize"));
 		 var no = JSON.parse(localStorage.getItem("bkId"));
@@ -26,7 +26,7 @@
 		 let pay = 0;
 		 let dis = 0;
 		 
-		 pvc.cartList(no, function(result){
+		 pvc.cartList(no, function(result){ //본문
 			 console.log(result);
 			 
 			 result.forEach(pay =>{				
@@ -36,7 +36,7 @@
 				}, function(err) {
 					console.log(err);
 			})	
-			 for (let i = 0; i < no.length; i++) {
+			 for (let i = 0; i < no.length; i++) { //결제 계산
 
 				 $('.csize:eq(' + (i + 1) + ') h4').text(sz[i]);
 				 
@@ -50,13 +50,21 @@
 			 $('.pay_discount span').text('-' +  dis + '원');
 			 $('.pay_order span').text(pay - dis + '원');
 			 
-			 pvc.userInfo(userId, function(result){
+			 
+			 pvc.userInfo(userId, function(result){ //주문자 정보
 				 console.log(result);
-			 })
+				 
+				 result.forEach(user => {
+					 $('#name').val(user.name);
+					 $('#number').val(user.phone);
 
+				 }, function(err) {
+					 console.log(err);
+				 })
+			 })
 		 })
 	},
-	makeList : function(pay){
+	makeList : function(pay){ //본문
 		let temp = $('tbody tr:eq(0)').clone();
 		let prc = pay.PRICE * (1 - pay.DISCOUNT_RATE);
 		
@@ -83,8 +91,41 @@
 	clickProduct(no){ //상세페이지
 		$("<a>").prop({
             target: "_blank",
-            href: "http://localhost:8080/musinsam/getProduct.do?clothNo=" + no
+            href: "/musinsam/getProduct.do?clothNo=" + no
         })[0].click();
+	},
+	userChk(){ //배송지 정보
+		if($('#user_chk').is(':checked') == true){
+		pvc.userInfo(userId, function(result){
+				 result.forEach(user => {
+					 $('#order_name').val(user.name);
+					 $('#order_name').attr('readonly','')
+					 $('#order_number').val(user.phone);
+					 $('#order_number').attr('readonly','')
+					 $('#address').val(user.address);
+					 $('#address').attr('readonly','')
+
+				 }, function(err) {
+					 console.log(err);
+				 })
+			 })
+		}else{
+			$('#order_name').val('');
+			$('#order_name').removeAttr('readonly')
+			$('#order_number').val('');
+			$('#order_number').removeAttr('readonly')
+			$('#address').val('');
+			$('#address').removeAttr('readonly')
+		}
+	},
+	reset(){
+		$("<a>").prop({
+            target: "_self",
+            href: "/musinsam/cart.do"
+        	})[0].click();
+	},
+	pay(){
+		console.log('결제');
 	}
 }
 

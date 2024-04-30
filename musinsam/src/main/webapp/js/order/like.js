@@ -27,13 +27,13 @@ const wish = {
 			result.forEach(like =>{				
 				let temp = wish.makeLike(like);				
 				temp.appendTo('.row:eq(1)');
-				
+
 				}, function(err) {
 					console.log(err);
 			})		
 		})
 		
-		svc.cartList(uid, function(result) { //장바구니 아이콘 활성화
+		svc.cartList(userId, function(result) { //장바구니 아이콘 활성화
 			result.forEach(basket => {
 				for (let i = 0; i < $('[cloth_id]').length; i++) {
 					if ($('[cloth_id]:eq(' + i + ')').attr('cloth_id') == basket.CLOTH_NO) {
@@ -43,7 +43,7 @@ const wish = {
 			})
 		})
 		
-		lvc.likeCount(uid, function(result){ //페이징
+		lvc.likeCount(userId, function(result){ //페이징
 			wish.makePage(result);
 		})
 		
@@ -147,11 +147,10 @@ const wish = {
 		$('.like_chkAll :checkbox').prop('checked', false);
 		
 		let page = no;
-		let uid = 'user001';
 		let maxPg = parseInt($('span.current:eq(0)').text());
 		
 		
-		lvc.likeList(uid, page, maxPg, function(result) {
+		lvc.likeList(userId, page, maxPg, function(result) {
 			//likeList
 			result.forEach(like => {
 				let temp = wish.makeLike(like);
@@ -199,10 +198,9 @@ const wish = {
 				}
 				$('.like_chkAll :checkbox').prop('checked', false);
 				
-				let uid = 'user001';
 				let page = 1;
 				let maxPg = parseInt($('span.current:eq(0)').text());
-				lvc.likeList(uid, page, maxPg, function(result) {
+				lvc.likeList(userId, page, maxPg, function(result) {
 					//likeList
 					result.forEach(like => {
 						let temp = wish.makeLike(like);
@@ -218,7 +216,6 @@ const wish = {
 	},
 	
 	changeMaxPg(){ //한 페이지 목록 건수
-		let uid = 'user001';
 		let page = 1;
 		let maxPg = parseInt($('span.current:eq(0)').text());
 		let lng = $('[cloth_id]').length
@@ -229,7 +226,7 @@ const wish = {
 			for(let i =0; i < lng ; i++){
 			$('.row:eq(1) [cloth_id]:eq(0)').remove();}
 			
-			lvc.likeList(uid, page, maxPg, function(result) {
+			lvc.likeList(userId, page, maxPg, function(result) {
 				//likeList
 				result.forEach(like => {
 					let temp = wish.makeLike(like);
@@ -244,9 +241,9 @@ const wish = {
 	
 	clickCart(no){ // 장바구니 아이콘 클릭
 		if($('[cloth_id="'+no+'"] .ti-shopping-cart').parent().attr('style') != 'background: red;'){
-			let uid ='user001';
 			let cnt = 1;
-			let bvo = {cnt, uid, no}
+			let bvo = {cnt, userId, no}
+
 			lvc.cartInsertIcon(bvo, (result) => {
 				if (result.retCode == "Success") {
 				}
@@ -254,8 +251,7 @@ const wish = {
 			
 			$('[cloth_id="'+no+'"] .ti-shopping-cart').parent().css('background','red');
 		}else{
-			let uid ='user001';
-			let bvo = {uid, no}
+			let bvo = {userId, no}
 			lvc.cartRemoveIcon(bvo, (result) => {
 				if (result.retCode == "Success") {
 				}
@@ -267,8 +263,7 @@ const wish = {
 	clickLike(no){ // 찜목록 아이콘 클릭
 		if($('[cloth_id="'+no+'"] .ti-heart').parent().attr('style') != 'background: red;'){
 			
-			let uid ='user001';
-			let lvo={uid, no};
+			let lvo={userId, no};
 
 			lvc.likeInsert(lvo, (result) => {
 				if (result.retCode == "Success") {
@@ -290,7 +285,7 @@ const wish = {
 	clickProduct(no){ //상세페이지
 		$("<a>").prop({
             target: "_blank",
-            href: "http://localhost:8080/musinsam/getProduct.do?clothNo=" + no
+            href: "/musinsam/getProduct.do?clothNo=" + no
         })[0].click();
 	}
 }

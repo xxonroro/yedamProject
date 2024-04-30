@@ -40,9 +40,9 @@ public class CategoryServiceImpl implements CategoryService {
 
 
 	@Override
-	public List<ClothesVO> searchList(String searchword) {
+	public List<ClothesVO> searchList(String searchword, String orderby) {
 		
-		return mapper.searchList(searchword);
+		return mapper.searchList(searchword, orderby);
 	}
 
 	@Override
@@ -68,6 +68,18 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<ClothesVO> randomCloth8() {
 		
 		return mapper.randomMain8();
+	}
+
+	@Override
+	public List<ClothesVO> bestSeller() {
+		
+		return mapper.bestSeller7();
+	}
+
+	@Override
+	public List<ClothesVO> clothesListSort2(String bigCategory, String orderby, String searchword) {
+		
+		return mapper.clothListsort2(bigCategory, orderby, searchword);
 	}
 
 

@@ -12,5 +12,9 @@ public class ClothesVO {
 	private int discountRate;
 	private String csize;
 	private int cnt;
+	private String bigCategory;
+	private String orderby;
+	private String searchword;
+	
 	
 }

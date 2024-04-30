@@ -40,19 +40,19 @@
 							<form action="#">
 								<ul id="ul1">
 									<li class="filter-list">
-									<input class="pixel-radio" type="radio" id="men" name="cate" value="1"><label 
+									<input class="pixel-radio" type="radio" id="men" name="cate" value="상의"><label 
 									for="men">상의</label><span></span></li>
 									<li class="filter-list">
 									<input class="pixel-radio"
-										type="radio" id="women" name="cate" value="2"><label
+										type="radio" id="women" name="cate" value="바지"><label
 										for="women">하의</label><span></span></li>
 									<li class="filter-list">
 									<input class="pixel-radio"
-										type="radio" id="accessories" name="cate" value="3"><label
+										type="radio" id="accessories" name="cate" value="아우터"><label
 										for="accessories">아우터<span></span></label></li>
 									<li class="filter-list">
 									<input class="pixel-radio"
-										type="radio" id="footwear" name="cate" value="4"><label
+										type="radio" id="footwear" name="cate" value="신발"><label
 										for="footwear">신발<span></span></label></li>
 								<!--  		
 									<li class="filter-list"><input class="pixel-radio"
@@ -132,7 +132,7 @@
 				<div class="filter-bar d-flex flex-wrap align-items-center">
 					<div class="sorting">
 						<select id="selectsort">
-							<option value="cloth_no">정렬</option>
+							<option value="">정렬</option>
 							<option value="price desc">가격높은순</option>
 							<option value="price">가격낮은순</option>
 							<option value="discount_rate desc">할인율높은순</option>
@@ -177,7 +177,7 @@
 										height="200px" alt="">
 									<ul class="card-product__imgOverlay">
 										<li><a class="href1"><button>
-												<i class="ti-"></i>
+												<i class="ti-search"></i>
 											</button></a></li>
 										<li><button>
 												<i class="ti-shopping-cart"></i>
