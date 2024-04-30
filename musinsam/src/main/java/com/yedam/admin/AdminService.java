@@ -8,4 +8,6 @@ public interface AdminService {
 	public double selSale(int clothNo);
 	public ClothesVO selProd(int clothNo);
 	public boolean uptSale(ClothesVO cvo);
+	public List<String> selCate(String cate);
+	public boolean insertProd(ClothesVO cvo);
 }

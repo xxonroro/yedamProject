@@ -48,7 +48,7 @@
 											<a class="nav-link" href="loginForm.do">찜</a>
 									</c:when>
 									<c:otherwise>
-											<a class="nav-link" href="#">찜</a>
+											<a class="nav-link" href="like.do">찜</a>
 									</c:otherwise>
 								</c:choose>
 								</li>
@@ -58,7 +58,7 @@
 											<a class="nav-link" href="loginForm.do">장바구니</a>
 									</c:when>
 									<c:otherwise>
-											<a class="nav-link" href="#">장바구니</a>
+											<a class="nav-link" href="cart.do">장바구니</a>
 									</c:otherwise>
 								</c:choose>
 									
@@ -76,7 +76,7 @@
 											<a class="nav-link" href="loginForm.do">정보 수정</a>
 										</c:when>
 										<c:otherwise>
-											<a class="nav-link" href="#">정보 수정</a>
+											<a class="nav-link" href="modifyMemberInfoForm.do">정보 수정</a>
 										</c:otherwise>
 									</c:choose>			
 									</li>
@@ -86,17 +86,7 @@
 											<a class="nav-link" href="loginForm.do">주문 조회</a>
 										</c:when>
 										<c:otherwise>
-											<a class="nav-link" href="single-blog.html">주문 조회</a>
-										</c:otherwise>
-									</c:choose>			
-									</li>
-									<li class="nav-item">
-									<c:choose>
-										<c:when test="${sessionScope.userId == null}">
-											<a class="nav-link" href="loginForm.do">상품 리뷰</a>
-										</c:when>
-										<c:otherwise>
-											<a class="nav-link" href="index.html">상품 리뷰</a>
+											<a class="nav-link" href="orderInqueryForm.do">주문 조회</a>
 										</c:otherwise>
 									</c:choose>			
 									</li>
@@ -116,6 +106,19 @@
 						</c:choose>
 						<li class="nav-item">
 							<a class="nav-link" href="faq.do">문의게시판</a>
+						<c:if test ="${sessionScope.authority == 1 }">
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">관리자 페이지</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+									 		<a class="nav-link" href="insertProd.do">제품 등록</a>
+								 		</li> 
+							 		</ul>
+							 </li>
+							 
+						</c:if>
+
+
 
 						</li>
 					</ul>

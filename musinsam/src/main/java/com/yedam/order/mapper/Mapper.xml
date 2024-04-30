@@ -32,6 +32,7 @@
 	</select>
 	
 	
+	
 	<select id="likeList" resultType="map">
 		select *
 		from(
@@ -49,5 +50,41 @@
   		delete from likegather
   		where cloth_no = #{cloth_no}
   	</delete>
+  	
+	<insert id="insertLike" parameterType="com.yedam.vo.LikeVO">
+  		insert into likegather
+		values(#{userId}, #{clothNo})
+  	</insert>
+	
+	<insert id="insertCartIcon" parameterType="com.yedam.vo.BasketVO">
+  		insert into basket
+		values(basket_seq.nextval, #{basketCnt}, #{userId}, #{clothNo})
+  	</insert>
+  	
+	<delete id="removeCartIcon" parameterType="com.yedam.vo.BasketVO">
+  		delete from basket
+  		where user_id = #{userId} and cloth_no = #{clothNo}
+  	</delete>
+	
+	<select id="CountLike" parameterType="String" resultType="int">
+		select count(1)
+		from likegather
+		where user_id = #{userId}
+	</select>
+	
+	
+	<select id="payList" resultType="map">
+		select b.basket_no, b.user_id, b.cloth_no, c.cloth_name, c.price, c.discount_rate, b.basket_cnt
+		from basket b INNER JOIN clothes c
+		on b.cloth_no = c.cloth_no
+		where b.basket_no = #{basketNo}
+		order by b.basket_no
+	</select>
+	
+	<select id="userInfo" parameterType="com.yedam.vo.UserVO" resultType="com.yedam.vo.UserVO">
+		select *
+		from users
+		where user_id = #{userId}
+	</select>
 	
 </mapper>

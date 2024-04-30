@@ -14,23 +14,22 @@ public class Login implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userId = request.getParameter("userId");
-		String userPass = request.getParameter("userPass");
+		String userId = request.getParameter("loginId");
+		String userPass = request.getParameter("loginPass");
 		String selector = request.getParameter("selector");
-
+		
 		UserVO vo = new UserVO();
 		vo.setUserId(userId);
 		vo.setPassword(userPass);
 
-		System.out.println(vo);
 
 		MemberService service = new MemberServiceImpl();
 		vo = service.loginCheck(vo);
-		
-		System.out.println(vo);
+
 
 		if (vo != null) {
 			HttpSession session = request.getSession(true);
+
 			session.setAttribute("userId", vo.getUserId());
 			session.setAttribute("userPass", vo.getPassword());
 			session.setAttribute("username", vo.getName());
@@ -44,11 +43,11 @@ public class Login implements Control {
 				cookie.setMaxAge(3600);
 				response.addCookie(cookie);
 			}
-			response.sendRedirect("main.do");
-
+		    response.setContentType("application/json;charset=UTF-8");
+		    
+		    response.getWriter().print("{\"login\": \"Success\", \"redirectUrl\": \"main.do\" }");
 		} else {
-			response.getWriter().print("<script>alert('아이디 또는 비밀번호가 맞지 않습니다.'); location.href='loginForm.do';</script>");
+			response.getWriter().print("{\"login\": \"Fail\" }");
 		}
-
 	}
 }

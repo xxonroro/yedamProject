@@ -14,11 +14,22 @@ public class RemoveCart implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int no = Integer.parseInt(request.getParameter("no"));
 		
+		String st = request.getParameter("no");
 		Service svc = new ServiceImpl();
 		
-		if(svc.removeCart(no)) {
+		boolean ret = false;
+
+		String[] num = st.split(",");
+		for (String num_ : num) {
+			int no_ = Integer.parseInt(num_);
+
+			if (svc.removeCart(no_)) {
+				ret = true;
+			}
+		}
+		
+		if(ret == true) {
 			response.getWriter().print("{\"retCode\": \"Success\"}");
 		}else {
 			response.getWriter().print("{\"retCode\": \"Fail\"}");

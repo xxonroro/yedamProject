@@ -18,18 +18,12 @@ const svc = {
 			.then(successCall)
 			.catch(errorCall);
 	},
-	cartRemove(no = 1, successCall, errorCall) {
+	cartRemove(no = [], successCall, errorCall) {
 		fetch('removeCart.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 			body: 'no=' + no
 		})
-			.then(resolve => resolve.json())
-			.then(successCall)
-			.catch(errorCall);
-	},
-	csizeList(no=1, successCall, errorCall) {
-		fetch('csizeList.do?no=' + no)
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);

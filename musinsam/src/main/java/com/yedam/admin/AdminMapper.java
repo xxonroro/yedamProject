@@ -8,4 +8,7 @@ public interface AdminMapper {
 	public double selSale(int clothNo);
 	public ClothesVO selProd(int clothNo);
 	public int uptSale(ClothesVO cvo);
+	public List<String> selCate(String cate);
+	public int insertProd(ClothesVO cvo);
 }
+

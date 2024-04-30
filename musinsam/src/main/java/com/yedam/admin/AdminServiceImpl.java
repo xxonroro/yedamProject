@@ -38,6 +38,16 @@ SqlSession session = DataSource.getInstance().openSession(true);
 		return mapper.uptSale(cvo) == 1;
 	}
 
+	@Override
+	public List<String> selCate(String cate) {
+		return mapper.selCate(cate);
+	}
+
+	@Override
+	public boolean insertProd(ClothesVO cvo) {
+		return mapper.insertProd(cvo) == 1;
+	}
+
 	
 
 }
