@@ -109,6 +109,7 @@ svc.reviewList(cNo,function(result){
 	})
 
 })
+
 /*let starSum =[...document.getElementBy]
 
 function starAvg(){
