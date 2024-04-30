@@ -106,6 +106,17 @@
 						</c:choose>
 						<li class="nav-item">
 							<a class="nav-link" href="faq.do">문의게시판</a>
+						<c:if test ="${sessionScope.authority == 1 }">
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">관리자 페이지</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+									 		<a class="nav-link" href="insertProd.do">제품 등록</a>
+								 		</li> 
+							 		</ul>
+							 </li>
+							 
+						</c:if>
 
 
 

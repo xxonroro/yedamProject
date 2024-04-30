@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.admin.InsProTable;
 import com.yedam.admin.InsertProduct;
 import com.yedam.admin.SelCate;
 import com.yedam.admin.SelProduct;
@@ -164,7 +165,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/uptSale.do", new UptSale());
 		map.put("/insertProd.do", new InsertProduct());
 		map.put("/selCate.do", new SelCate());
-
+		map.put("/insProd.do", new InsProTable());
 
 
 
