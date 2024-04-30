@@ -147,76 +147,28 @@ $(document).ready(function() {
 	};
 		
 
-
-
-	//$('#bestSellerCarousel').css('display', 'none');
-
 	let ahtp = new XMLHttpRequest();
-	ahtp.open('get', 'randomMain.do');
+	ahtp.open('get', 'bestproduct.do');
 	ahtp.send();
 
 	ahtp.onload = function() {
 		let ttry = JSON.parse(ahtp.response);
 		console.log(ttry);
-		$('#this').css('display', 'none');
+		$('#this').hide();
 		ttry.forEach(pro =>{
-			let bestseller = $('#this').clone();
-			//temp.css('display', 'flex');
-			//temp.css('display', 'flex');
+			let bestseller =  $('#this').clone();
+			bestseller.css('display', 'flex');
+	
 			bestseller.find('div img').attr('src', 'img/cloth/' + pro.clothName + '.jpg')
-			bestseller.find('div p').text(pro.clothName);
+			bestseller.find('div li a').attr('href', 'getProduct.do?clothNo=' + pro.clothNo)
+			bestseller.find('div p:eq(0)').text(pro.smallCategory);
+			bestseller.find('div p:eq(1)').text(pro.price.toLocaleString() + "원");
+			bestseller.find('div h4').text(pro.clothName);
+			
 			$('#bestSellerCarousel').trigger('add.owl.carousel', bestseller);
 			$('#bestSellerCarousel').trigger('refresh.owl.carousel'); //api 새로고침
 		})
-		/*
-		let bestseller = $('#this').clone();
-		bestseller.find('div p').text('되라');
-		$('#bestSellerCarousel').trigger('add.owl.carousel', bestseller);
-		
-		let bestseller2 = $('#this').clone();
-		bestseller2.find('div p').text('되라제발');
-		//bestseller2.appendTo('#bestSellerCarousel');
-		$('#bestSellerCarousel').trigger('add.owl.carousel', bestseller2);
-		$('#bestSellerCarousel').trigger('refresh.owl.carousel');
-		
-		*/
-		//let bestseller = $('#this').clone();
-		//$('#this').css('display', 'none');
-		//bestseller.css('display', 'flex');
-		//bestseller.find('div img').attr('src', 'img/cloth/' + ttry.clothName + '.jpg')
 
-		//bestseller.appendTo('#bestSellerCarousel');
-
-
-
-
-		//temp2.appendTo(temp1);
-		//temp1.appendTo('#contain');
-		//members.forEach(member => {
-
-		//let temp = $('#bestSellerCarousel #maind').clone();
-		//temp.find('#content p').text(member.price);
-		//temp.find('#imgsection img').attr('src', 'img/cloth/' + member.clothName + '.jpg')
-		//temp.appendTo('#bestSellerCarousel');
-		//$('[data-id]:eq(1)').css('display', 'none');
-		/*
-		let temp = $('#divContain').clone();
-		temp.css('display', 'block');
-		temp.css('display', 'inline-block');
-		temp.find('#ul1 li a').attr('href','getProduct.do?clothNo='+member.clothNo);
-		temp.find('#content img').attr('src', 'img/cloth/' + member.clothName + '.jpg')
-		
-		temp.find('#content p:eq(0)').text(member.brand);
-		temp.find('#content h4').text(member.clothName);
-		temp.find('#content p:eq(1)').text((member.price) + "원");
-		
-		temp.appendTo('#section1');
-		///
-		
-	
-	
-})
-*/
 
 	}
 

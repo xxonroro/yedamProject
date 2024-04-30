@@ -86,25 +86,11 @@
       </div>
     </section>
     <!-- ================ trending product section end ================= -->    
-
-
-	    <!-- ================ Best Selling item  carousel ================= --> 
-    <section class="section-margin calc-60px" >
-      <div class="container" id="contain">
-      
-        <div class="section-intro pb-60px">
-          <p>Popular Item in the market</p>
-          <h2>Best <span class="section-intro__style">Sellers</span></h2>
-        </div>
-        <!-- -->
-        
-        <div  class="owl-carousel owl-theme" id="bestSellerCarousel" >
-
-          <div class="card text-center card-product" id="this" >
+          <div class="card text-center card-product" id="this" style="display:none;">
             <div class="card-product__img" id="imgsection">
               <img  src="img/product/product1.png" alt="사진없음" height="200px">
               <ul class="card-product__imgOverlay" id="ul1">
-                <li><button><i class="ti-search"><a></a></i></button></li>
+                <li><a><button><i class="ti-search"></i></button></a></li>
                 <li><button><i class="ti-shopping-cart"></i></button></li>
                 <li><button><i class="ti-heart"></i></button></li>
               </ul>
@@ -116,6 +102,20 @@
             </div>
      
         </div>
+
+	    <!-- ================ Best Selling item  carousel ================= --> 
+    <section class="section-margin calc-60px" >
+      <div class="container" id="contain">
+      
+        <div class="section-intro pb-60px">
+          <p>Popular Item in the market</p>
+          <h2>Best Sellers<span class="section-intro__style"> TOP 7</span></h2>
+        </div>
+        <!-- -->
+        
+        <div  class="owl-carousel owl-theme" id="bestSellerCarousel" >
+
+
           
           <!--          <div class="card text-center card-product" data-id="1">
             <div class="card-product__img">
