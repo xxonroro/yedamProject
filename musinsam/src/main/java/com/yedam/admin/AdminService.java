@@ -9,4 +9,5 @@ public interface AdminService {
 	public ClothesVO selProd(int clothNo);
 	public boolean uptSale(ClothesVO cvo);
 	public List<String> selCate(String cate);
+	public boolean insertProd(ClothesVO cvo);
 }

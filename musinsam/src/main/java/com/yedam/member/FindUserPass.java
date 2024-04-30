@@ -18,7 +18,7 @@ public class FindUserPass implements Control {
 		String userId = request.getParameter("userId");
 		
 		Map<String, String> map = new HashMap<>();
-		map.put("uname", name);
+		map.put("name", name);
 		map.put("userId", userId);
 		
 		MemberService service = new MemberServiceImpl();
