@@ -18,17 +18,18 @@ public class FindUserPass implements Control {
 		String userId = request.getParameter("userId");
 		
 		Map<String, String> map = new HashMap<>();
-		map.put("uname", name);
+		map.put("name", name);
 		map.put("userId", userId);
 		
 		MemberService service = new MemberServiceImpl();
 		String userPass = service.findUserPass(map);
 		
+		
 		if(userPass == null) {
-			response.getWriter().print("<script>alert('입력하신 정보에 대한 비밀번호가 없습니다.'); location.href='findUserPassForm.do';</script>");
+			response.getWriter().print("{\"userInfo\": \"x\"}");
 		}
 		else {
-			response.getWriter().print("<script>alert('입력하신 정보에 대한 비밀번호는 \"" + userPass + "\" 입니다.'); location.href='loginForm.do';</script>");
+			response.getWriter().print("{\"userInfo\": \"o\", \"redirectUrl\": \"loginForm.do\", \"id\": \"" + userPass + "\" }");
 		}
 	
 		

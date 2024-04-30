@@ -1,4 +1,4 @@
-package com.yedam.vo;
+package com.yedam.member;
 
 import java.util.Date;
 

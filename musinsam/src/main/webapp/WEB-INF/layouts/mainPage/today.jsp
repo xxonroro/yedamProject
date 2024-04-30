@@ -1,18 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <!-- ================ today section start ================= --> 
-    <section class="offer" id="parallax-1" data-anchor-target="#parallax-1" data-300-top="background-position: 20px 30px" data-top-bottom="background-position: 0 20px">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-5">
-            <div class="offer__content text-center">
-              <h3>Up To 50% Off</h3>
-              <h4>Spring Sale</h4>
-              <p>Yedam middle project</p>
-              <a class="button button--active mt-3 mt-xl-4" href="#">Shop Now</a>
+      <div  style ="width:100%">
+            <div class="text-center" style="width:100%;text-align:center">
+            <a href = "todayCoodi.do">
+              <img src="img/옷마카세 배너.jpg" style ="width:100%">
+            </a>
             </div>
-          </div>
-        </div>
       </div>
-    </section>
     <!-- ================ today section end ================= --> 

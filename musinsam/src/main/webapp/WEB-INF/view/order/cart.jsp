@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <script type="text/javascript" src="js/order/cartService.js"></script>
-  <script type="text/javascript" src="js/order/cart.js"></script>
+ 
     <!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
 		<div class="container h-100">
@@ -33,9 +32,9 @@
                               <th scope="col" width="65"><input type="checkbox" onclick="javascript:basket.changeChkAll();">&nbsp;</th>
                               <th scope="col"><b>상품명</b></th>
                               <th scope="col" ><b>판매가</b></th>
-                              <th scope="col" width="112"><b>사이즈</b></th>
+                              <th scope="col" width="98"><b>사이즈</b></th>
                               <th scope="col" width="148"><b>수량</b></th>
-                              <th scope="col" ><b>주문금액</b></th>
+                              <th scope="col" width="130"><b>주문금액</b></th>
                           </tr>
                       </thead>
                       <tbody>
@@ -44,7 +43,7 @@
                               <td>
                                   <div class="media">
                                       <div class="d-flex">
-                                          <img src="img/cart/cart1.png" alt="" width="150" height="100">
+                                          <img src="img/cart/cart1.png" alt="" width="120" height="120">
                                       </div>
                                       <div class="media-body">
                                           <p>Minimalistic shop for multipurpose use</p>
@@ -121,10 +120,17 @@
                   </table>
                   
                       <div align="center" class="orderBtn">
-                          <a class="button" href="#"><font size="4"><b>상품 주문하기</b></font></a>
+                          <a class="button" href="#" onclick="javascript:basket.Order();"><font size="4"><b>상품 주문하기</b></font></a>
                       </div>
               </div>
           </div>
       </div>
   </section>
   <!--================End Cart Area =================-->
+
+
+<script>
+	let userId = "${sessionScope.userId}"
+</script>
+<script type="text/javascript" src="js/order/cartService.js"></script>
+<script type="text/javascript" src="js/order/cart.js"></script>
