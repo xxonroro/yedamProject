@@ -7,6 +7,7 @@ import com.yedam.common.DataSource;
 import com.yedam.order.mapper.Mapper;
 import com.yedam.vo.BasketVO;
 import com.yedam.vo.LikeVO;
+import com.yedam.vo.UserVO;
 
 public class ServiceImpl implements Service{
 	Mapper mapper = DataSource.getInstance().openSession(true).getMapper(Mapper.class);
@@ -60,6 +61,18 @@ public class ServiceImpl implements Service{
 	@Override
 	public int CountLike(String uid) {
 		return mapper.CountLike(uid);
+	}
+	
+	
+	
+	@Override
+	public List<Map<String, Object>> payList(int no) {
+		return mapper.payList(no);
+	}
+	
+	@Override
+	public List<UserVO> userInfo(String uid) {
+		return mapper.userInfo(uid);
 	}
 	
 }

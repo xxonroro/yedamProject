@@ -72,4 +72,19 @@
 		where user_id = #{userId}
 	</select>
 	
+	
+	<select id="payList" resultType="map">
+		select b.basket_no, b.user_id, b.cloth_no, c.cloth_name, c.price, c.discount_rate, b.basket_cnt
+		from basket b INNER JOIN clothes c
+		on b.cloth_no = c.cloth_no
+		where b.basket_no = #{basketNo}
+		order by b.basket_no
+	</select>
+	
+	<select id="userInfo" parameterType="com.yedam.vo.UserVO" resultType="com.yedam.vo.UserVO">
+		select *
+		from users
+		where user_id = #{userId}
+	</select>
+	
 </mapper>

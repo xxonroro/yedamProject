@@ -48,7 +48,7 @@
 											<a class="nav-link" href="loginForm.do">찜</a>
 									</c:when>
 									<c:otherwise>
-											<a class="nav-link" href="#">찜</a>
+											<a class="nav-link" href="like.do">찜</a>
 									</c:otherwise>
 								</c:choose>
 								</li>
@@ -58,7 +58,7 @@
 											<a class="nav-link" href="loginForm.do">장바구니</a>
 									</c:when>
 									<c:otherwise>
-											<a class="nav-link" href="#">장바구니</a>
+											<a class="nav-link" href="cart.do">장바구니</a>
 									</c:otherwise>
 								</c:choose>
 									

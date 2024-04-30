@@ -27,11 +27,5 @@ const svc = {
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
-	},
-	csizeList(no=1, successCall, errorCall) {
-		fetch('csizeList.do?no=' + no)
-			.then(resolve => resolve.json())
-			.then(successCall)
-			.catch(errorCall);
 	}
 }
