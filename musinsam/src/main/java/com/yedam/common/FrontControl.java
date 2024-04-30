@@ -55,6 +55,7 @@ import com.yedam.order.control.RemoveLike;
 import com.yedam.order.control.UpDownCount;
 import com.yedam.product.AddReview;
 import com.yedam.product.GetProductControl;
+import com.yedam.product.ReviewList;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
 import com.yedam.question.QuestionSearch;
@@ -169,7 +170,7 @@ public class FrontControl extends HttpServlet {
 		
 		map.put("/getProduct.do", new GetProductControl());  
 		map.put("/addReview.do", new AddReview());	
-    
+		map.put("/reviewList.do", new ReviewList());  
     
     
     
