@@ -20,7 +20,22 @@
 				<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 					<ul class="nav navbar-nav menu_nav ml-auto mr-auto">
 						<li class="nav-item submenu dropdown">
-							<a href="cateform.do" class="nav-link" role="button" aria-haspopup="true" aria-expanded="false">상품리스트</a>
+
+						  <a href="cateform.do" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">카테고리</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item">
+									<a class="nav-link" href="single-product.html">상의</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="checkout.html">아우터</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="confirmation.html">하의</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="cart.html">신발</a>
+								</li>
+							</ul>
 						</li>
 						
 						<li class="nav-item submenu dropdown">
