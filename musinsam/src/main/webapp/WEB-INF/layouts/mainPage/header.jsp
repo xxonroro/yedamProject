@@ -76,7 +76,7 @@
 											<a class="nav-link" href="loginForm.do">정보 수정</a>
 										</c:when>
 										<c:otherwise>
-											<a class="nav-link" href="#">정보 수정</a>
+											<a class="nav-link" href="modifyMemberInfoForm.do">정보 수정</a>
 										</c:otherwise>
 									</c:choose>			
 									</li>
@@ -86,17 +86,7 @@
 											<a class="nav-link" href="loginForm.do">주문 조회</a>
 										</c:when>
 										<c:otherwise>
-											<a class="nav-link" href="single-blog.html">주문 조회</a>
-										</c:otherwise>
-									</c:choose>			
-									</li>
-									<li class="nav-item">
-									<c:choose>
-										<c:when test="${sessionScope.userId == null}">
-											<a class="nav-link" href="loginForm.do">상품 리뷰</a>
-										</c:when>
-										<c:otherwise>
-											<a class="nav-link" href="index.html">상품 리뷰</a>
+											<a class="nav-link" href="orderInqueryForm.do">주문 조회</a>
 										</c:otherwise>
 									</c:choose>			
 									</li>
