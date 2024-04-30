@@ -33,19 +33,23 @@
               <span class="like_chkAll" ><input type="checkbox" onclick="javascript:wish.changeChkAll();"><b>전체 선택</b></span>
 			  <a class="button button-header" href="javascript:void(0)" onclick="javascript:wish.delCart();"><b>선택 삭제</b></a>
             </div>
-            <div class="sorting mr-auto" align="right" onchange="javascript:wish.changeMaxPg();">
-              <select>
-                <option value="8">8개씩 보기</option>
-                <option value="12">12개씩 보기</option>
-                <option value="16">16개씩 보기</option>
-              </select>
-            </div>
-            
             <div>
+            	<div class="sorting mr-auto" onchange="javascript:wish.changeMaxPg();">
+              	<select>
+                	<option value="8">8개씩 보기</option>
+                	<option value="12">12개씩 보기</option>
+                	<option value="16">16개씩 보기</option>
+              	</select>
+            	</div>
             </div>
+           
             <div>
               <div class="input-group filter-bar-search">
-              	
+              	<select>
+                <option value="1">Default sorting</option>
+                <option value="1">Default sorting</option>
+                <option value="1">Default sorting</option>
+              	</select>
                 <select>
                 <option value="1">Default sorting</option>
                 <option value="1">Default sorting</option>
@@ -53,6 +57,7 @@
               	</select>
               </div>
             </div>
+            
           </div>
           <!-- End Filter Bar -->
           <!-- Start Best Seller -->
@@ -83,13 +88,13 @@
           <!-- End Best Seller -->
           <nav class="blog-pagination justify-content-center d-flex">
 				<ul class="pagination">
-					<li class="page-item"><a href="#" class="page-link"
+					<li class="page-item" style="display:none"><a href="#" class="page-link"
 						aria-label="Previous"> <span aria-hidden="true"> <span
 								class="lnr lnr-chevron-left"></span>
 						</span>
 					</a></li>
-					<li class="page-item"><a href="#" class="page-link">01</a></li>
-					<li class="page-item"><a href="#" class="page-link"
+					<li class="page-item" style="display:none"><a href="#" class="page-link" aria-label="Num">01</a></li>
+					<li class="page-item" style="display:none"><a href="#" class="page-link"
 						aria-label="Next"> <span aria-hidden="true"> <span
 								class="lnr lnr-chevron-right"></span>
 						</span>

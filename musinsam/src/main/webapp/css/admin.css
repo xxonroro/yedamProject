@@ -203,7 +203,7 @@
   display: block;
   padding: 0 20px;
   animation: move-left 2s linear infinite;
-  color: white;
+  color: black;
 }
 .effectbtn-marquee span::after {
   position: absolute;
@@ -336,3 +336,10 @@
 	float : right;
 	margin-right : 300px;	
 }
+
+.center-align{
+	text-align : center;
+	color : #000000;
+	font-size : 100px;
+
+	}
