@@ -29,6 +29,11 @@
 
 <link rel="stylesheet" href="css/member/modal.css">
 
+
+<script src="vendors/jquery/jquery-3.2.1.min.js"></script>
+
+
+
 </head>
 <body>
 
