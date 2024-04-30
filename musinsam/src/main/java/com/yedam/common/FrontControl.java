@@ -192,6 +192,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/getProduct.do", new GetProductControl());  
 		map.put("/addReview.do", new AddReview());	
 		map.put("/reviewList.do", new ReviewList());  
+
     
     
     
