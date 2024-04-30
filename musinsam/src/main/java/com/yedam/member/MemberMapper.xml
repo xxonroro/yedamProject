@@ -59,5 +59,14 @@
 		WHERE user_id = #{userId}
 	</update>
 	
+	<!-- 주문 조회 -->
+	<select id="selectOrderList" parameterType="String" resultType="com.yedam.member.ClothOrderVO">
+		SELECT order_no, order_date, order_price, user_id, cloth_name
+		FROM orders
+			LEFT OUTER JOIN clothes
+				ON orders.cloth_no = clothes.cloth_no
+		WHERE user_id = #{userId}
+	</select>
+	
 	
 </mapper>

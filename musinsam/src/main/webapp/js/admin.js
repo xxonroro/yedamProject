@@ -85,12 +85,34 @@ $('.saleBtn').click(function(e){
 		 alert('할인율변경에러')
 	 })
 }) 
+
+$('.insBtn').click(function(e){
+	if($('.insertProd input:eq(0)').val() == '' ||
+		$('.insertProd input:eq(1)').val() == ''||
+		$('.insertProd input:eq(2)').val() == ''||
+		$('.insertProd input:eq(3)').val() == ''||
+		$('#smallCate option:selected').val() == ""){
+			alert('데이터를 입력하세요');
+	}else{
+		$('#insertForm').submit();
+		alert('등록완료')
+	}
+})
+
+$('.resetBtn').click(function(e){
+	$('.insertProd').find('input').val('');
+	$('#bigCate').find('option').remove();
+	$('#bigCate').append($('<option />').val('').text('대분류').attr('hidden', 'hidden'))
+	$('#bigCate').append($('<option />').val('상의').text('상의'))
+	$('#bigCate').append($('<option />').val('바지').text('하의'))
+	$('#bigCate').append($('<option />').val('아우터').text('아우터'))
+	$('#bigCate').append($('<option />').val('신발').text('신발'))
+	$('#smallCate').find('option').remove();
+	$('#smallCate').append($('<option />').val('').text('중분류').attr('hidden', 'hidden'))
+	$('#smallCate').append($('<option />').val('').text('대분류를 선택해주세요').attr('disabled', 'disabled'))
+})	
  
 $('#bigCate').change(function(e){
-	console.log($('#bigCate').val())
-	$('#warnCate').remove();
-	
-	
 	$.ajax({
 		url: 'selCate.do' , 
 		data: {category:$('#bigCate').val()},
@@ -98,8 +120,10 @@ $('#bigCate').change(function(e){
 		dataType : 'json'
 	})
 	.done(function(result){
+		$('#smallCate').find($('option')).remove();
 		result.forEach(function(e){
-			
+			let opt = $('<option />').val(e).text(e)
+			$('#smallCate').append(opt)
 		})
 	})
 	

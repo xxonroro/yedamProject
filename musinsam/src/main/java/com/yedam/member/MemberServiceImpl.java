@@ -1,5 +1,6 @@
 package com.yedam.member;
 
+import java.util.List;
 import java.util.Map;
 
 import com.yedam.common.DataSource;
@@ -44,6 +45,11 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean updateMemberInfo(UserVO vo) {
 		return mapper.updateMemberInfo(vo) == 1;
+	}
+
+	@Override
+	public List<OrderVO> selectOrderList(String id) {
+		return mapper.selectOrderList(id);
 	}
 
 }

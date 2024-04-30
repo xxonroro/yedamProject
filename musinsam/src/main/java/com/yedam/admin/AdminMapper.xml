@@ -47,6 +47,14 @@
   		where big_category = #{category}
   	</select>
   	
+  	<insert id="insertProd" parameterType="com.yedam.admin.ClothesVO">
+  		insert into clothes
+		values(cloth_seq.nextval , #{clothName}, #{price}, #{brand} , 0 , 'S' , 0 , #{smallCategory} )
+
+
+  		
+  	</insert>
+  	
   </mapper>
   
   

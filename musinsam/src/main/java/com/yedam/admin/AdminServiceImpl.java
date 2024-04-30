@@ -43,6 +43,11 @@ SqlSession session = DataSource.getInstance().openSession(true);
 		return mapper.selCate(cate);
 	}
 
+	@Override
+	public boolean insertProd(ClothesVO cvo) {
+		return mapper.insertProd(cvo) == 1;
+	}
+
 	
 
 }
