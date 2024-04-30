@@ -199,7 +199,7 @@ $(document).ready(function() {
 					temp2.find('div #p2').text((member.price.toLocaleString()) + "원");
 					temp2.find('#div3 li a').attr('href', 'getProduct.do?clothNo=' + member.clothNo);
 
-					temp2.appendTo('#section1');
+					temp2.appendTo('#section1'); //
 				})
 
 
