@@ -36,5 +36,6 @@ public class MemberRegistration implements Control {
 			response.sendRedirect("main.do");
 		}
 
+		
 	}
 }

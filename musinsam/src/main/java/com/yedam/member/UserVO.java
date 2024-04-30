@@ -13,5 +13,4 @@ public class UserVO {
 	private String phone;
 	private String birthdate;
 	private int authority;
-	
 }

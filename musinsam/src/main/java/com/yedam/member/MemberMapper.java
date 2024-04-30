@@ -1,5 +1,6 @@
 package com.yedam.member;
 
+import java.util.List;
 import java.util.Map;
 
 public interface MemberMapper {
@@ -10,4 +11,5 @@ public interface MemberMapper {
 	public String findUserId(UserVO vo);
 	public String findUserPass(Map<String, String> map);
 	public int updateMemberInfo(UserVO vo);
+	public List<OrderVO> selectOrderList(String id);
 }
