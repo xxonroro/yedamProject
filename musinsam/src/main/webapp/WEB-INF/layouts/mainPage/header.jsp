@@ -42,6 +42,7 @@
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">내 쇼핑</a>
 							<ul class="dropdown-menu">
 								<li class="nav-item">
+
 								<c:choose>
 									<c:when test="${sessionScope.userId == null}">
 											<a class="nav-link" href="loginForm.do">찜</a>
@@ -64,6 +65,7 @@
 								</li>
 							</ul>
 						</li>
+
 
 						<li class="nav-item submenu dropdown">
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">마이페이지</a>
@@ -113,7 +115,8 @@
 						 </c:otherwise> 
 						</c:choose>
 						<li class="nav-item">
-							<a class="nav-link" href="main.do">문의게시판</a>
+							<a class="nav-link" href="faq.do">문의게시판</a>
+
 						</li>
 					</ul>
 				</div>
@@ -121,4 +124,6 @@
 		</nav>
 	</div>
 </header>
+
 <!—================ End Header Menu Area =================—>
+

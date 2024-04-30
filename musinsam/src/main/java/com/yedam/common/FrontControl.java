@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.yedam.admin.InsertProduct;
 
 import com.yedam.admin.SelProduct;
 import com.yedam.admin.SetProductControl;
@@ -30,11 +31,18 @@ import com.yedam.category.RandomMain;
 import com.yedam.category.RandomMain8;
 import com.yedam.category.SearchCate;
 import com.yedam.main.MainControl;
+import com.yedam.member.FindUserId;
+import com.yedam.member.FindUserIdForm;
+import com.yedam.member.FindUserPass;
+import com.yedam.member.FindUserPassForm;
 import com.yedam.member.IdCheck;
 import com.yedam.member.Login;
 import com.yedam.member.LoginForm;
+import com.yedam.member.Logout;
 import com.yedam.member.MemberRegisterForm;
 import com.yedam.member.MemberRegistration;
+import com.yedam.member.ModifyMemberInfo;
+import com.yedam.member.ModifyMemberInfoForm;
 import com.yedam.member.PhoneCheck;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
@@ -44,9 +52,7 @@ import com.yedam.order.control.LikeList;
 import com.yedam.order.control.RemoveCart;
 import com.yedam.order.control.RemoveLike;
 import com.yedam.order.control.UpDownCount;
-
 import com.yedam.product.AddReview;
-
 import com.yedam.product.GetProductControl;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
@@ -73,7 +79,19 @@ public class FrontControl extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
 
-	
+		// 로그아웃 (동한)
+		map.put("/logout.do", new Logout());
+		// 아이디 찾기(동한)
+		map.put("/findUserIdForm.do", new FindUserIdForm());
+		map.put("/findUserId.do", new FindUserId());
+		// 비밀번호 찾기(동한)
+		map.put("/findUserPassForm.do", new FindUserPassForm());
+		map.put("/findUserPass.do", new FindUserPass());
+		// 회원 정보 수정(동한)
+		map.put("/modifyMemberInfoForm.do", new ModifyMemberInfoForm());
+		map.put("/modifyMemberInfo.do", new ModifyMemberInfo());
+		
+
 		
     
     
@@ -128,6 +146,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/selProd.do", new SelProduct());
 		map.put("/selSale.do", new selSale());
 		map.put("/uptSale.do", new UptSale());
+		map.put("/insertProd.do", new InsertProduct());
 
 
 
@@ -141,10 +160,10 @@ public class FrontControl extends HttpServlet {
 
     
     
-	//상지현
+		//상지현
 		
-	 map.put("/getProduct.do", new GetProductControl());  
-	 map.put("/addReview.do", new AddReview());
+		map.put("/getProduct.do", new GetProductControl());  
+		map.put("/addReview.do", new AddReview());	
     
     
     
