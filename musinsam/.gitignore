@@ -4,3 +4,4 @@
 .project
 .settings/
 .codetogether.ignore
+/pom.xml
