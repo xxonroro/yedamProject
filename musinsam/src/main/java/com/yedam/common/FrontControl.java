@@ -20,9 +20,11 @@ import com.yedam.admin.UptSale;
 import com.yedam.admin.selSale;
 import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
+import com.yedam.category.BestSeller;
 import com.yedam.category.CateCount;
 import com.yedam.category.CateList;
 import com.yedam.category.CateSort;
+import com.yedam.category.CateSort2;
 import com.yedam.category.Cateform;
 import com.yedam.category.CategoryList;
 import com.yedam.category.CategoryListPants;
@@ -87,6 +89,7 @@ public class FrontControl extends HttpServlet {
 		// 로그인 (동한)
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
+
 		// 로그아웃 (동한)
 		map.put("/logout.do", new Logout());
 		// 아이디 찾기(동한)
@@ -100,9 +103,11 @@ public class FrontControl extends HttpServlet {
 		// 회원 정보 수정
 		map.put("/modifyMemberInfoForm.do", new ModifyMemberInfoForm());
 		map.put("/modifyMemberInfo.do", new ModifyMemberInfo());
+
 		// 주문 조회
 		map.put("/orderInqueryForm.do", new OrderInquery());
 		map.put("/orderInqueryList.do", new OrderInqueryList());
+
     
     
 
@@ -142,12 +147,12 @@ public class FrontControl extends HttpServlet {
 		map.put("/searchcate.do", new SearchCate()); //검색   
 		map.put("/cateCount.do", new CateCount());
 		map.put("/cateSort.do", new CateSort()); //정렬		
+		map.put("/cateSort2.do", new CateSort2()); //정렬		
 	
     		
 		map.put("/randomMain.do", new RandomMain());
 		map.put("/randomMain8.do", new RandomMain8());
-    
-    
+		map.put("/bestproduct.do", new BestSeller());    
     
     
     

@@ -49,7 +49,7 @@
 	  <select id="clothList" parameterType="com.yedam.category.ClothesVO">
 	  select *
 	  from clothes
-	  order by cloth_no
+	  order by cloth_no desc
 	  </select>
 	  
 	  <select id="clothListpants" parameterType="com.yedam.category.ClothesVO">
@@ -70,6 +70,7 @@
 	  	select *
 		from clothes
 		where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%'
+		order by ${orderby}
 	  </select>
 
 	  
@@ -108,7 +109,33 @@
 		from clothes
 		order by ${cate}
 	 </select>
-  
+	 
+	 <select id="clothListsort2" parameterType="com.yedam.category.ClothesVO">
+		select *
+		from clothes join category
+		               on clothes.small_category = category.small_category
+        <if test="bigCategory != null  and bigCategory !=''">               
+		where big_category = #{bigCategory}
+		</if>
+		<if test="searchword != null  and searchword !=''">               
+			where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%'
+		</if>
+		<choose>
+			<when test = "orderby != null and orderby != ''">
+				order by ${orderby}
+			</when>
+			
+			<otherwise>
+				order by cloth_no desc
+			</otherwise>
+		</choose>
+	 </select>
+	 
+  	<select id="bestSeller7" parameterType="com.yedam.category.ClothesVO">
+		select *
+		from (select * from clothes order by cnt desc)
+		where rownum  <![CDATA[<= 7]]> 
+	 </select>
 
   
   
