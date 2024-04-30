@@ -48,15 +48,18 @@ import com.yedam.member.OrderInqueryList;
 import com.yedam.member.PhoneCheck;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
+import com.yedam.order.control.CountLike;
 import com.yedam.order.control.InsertCartIcon;
 import com.yedam.order.control.InsertLike;
 import com.yedam.order.control.Like;
-import com.yedam.order.control.CountLike;
 import com.yedam.order.control.LikeList;
+import com.yedam.order.control.Pay;
+import com.yedam.order.control.PayList;
 import com.yedam.order.control.RemoveCart;
 import com.yedam.order.control.RemoveCartIcon;
 import com.yedam.order.control.RemoveLike;
 import com.yedam.order.control.UpDownCount;
+import com.yedam.order.control.UserInfo;
 import com.yedam.product.AddReview;
 import com.yedam.product.GetProductControl;
 import com.yedam.question.QuestionControl;
@@ -120,13 +123,15 @@ public class FrontControl extends HttpServlet {
 		map.put("/removeCartIcon.do", new RemoveCartIcon());
 		map.put("/countLike.do", new CountLike());
 
-
+		//결제페이지
+		map.put("/pay.do", new Pay());
+		map.put("/payList.do", new PayList());
+		map.put("/userInfo.do", new UserInfo());
 	
 		
 		
 		
-		
-		
+
 		//한승민
 		map.put("/cateform.do", new Cateform());
 		map.put("/category.do", new CategoryList());

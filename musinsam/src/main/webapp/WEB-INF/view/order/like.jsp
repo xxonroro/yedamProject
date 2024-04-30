@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script type="text/javascript" src="js/order/likeService.js"></script>
-<script type="text/javascript" src="js/order/cartService.js"></script>
-<script type="text/javascript" src="js/order/like.js"></script>
+
   <link rel="stylesheet" href="css/order/like.css">
     <!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
@@ -106,4 +104,13 @@
       
     </div>
   </section>
+  
+  
+  
+  <script>
+   let userId = "${sessionScope.userId}"
+  </script>
+<script type="text/javascript" src="js/order/likeService.js"></script>
+<script type="text/javascript" src="js/order/cartService.js"></script>
+<script type="text/javascript" src="js/order/like.js"></script>
 	<!-- ================ category section end ================= -->		  

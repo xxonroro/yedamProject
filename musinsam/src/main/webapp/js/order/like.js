@@ -17,11 +17,10 @@ Number.prototype.formatNumber = function() {
 const wish = {
 
 	list : function(){
-		let uid = 'user001';
 		let page = 1;
 		let maxPg = 8;
 
-		lvc.likeList(uid, page, maxPg, function(result){
+		lvc.likeList(userId, page, maxPg, function(result){
 			console.log(result);
 			
 			//likeList

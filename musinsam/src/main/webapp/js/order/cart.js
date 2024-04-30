@@ -18,9 +18,8 @@ Number.prototype.formatNumber = function() {
 const basket = {
 	cartTotal : 0,
 	list : function(){
-		let uid='user001';
-		
-		svc.cartList(uid, function(result){
+
+		svc.cartList(userId, function(result){
 			console.log(result);
 			
 			//cartList
@@ -29,6 +28,7 @@ const basket = {
 				temp.appendTo('tbody');
 				//svc.csizeList(cart.CLOTH_NO, basket.makeSize);  //fetch
 				basket.makeSize(cart.sizeList)
+
 				}, function(err) {
 					console.log(err);
 			})				
@@ -88,6 +88,7 @@ const basket = {
 		temp.find('.list li').attr('class','option');
 
 		temp.find('.product_count input').attr('value', cart.BASKET_CNT);
+		
 		temp.find('.product_count input').attr('class', 'qty' + cart.BASKET_NO);
 		temp.find('div.product_count button').click(() => basket.changePNum(cart.BASKET_NO));
 		temp.find('td h5:eq(1)').text(Math.round((prc * cart.BASKET_CNT / 10) * 10).formatNumber() + '원');
@@ -208,6 +209,38 @@ const basket = {
             target: "_blank",
             href: "http://localhost:8080/musinsam/getProduct.do?clothNo=" + no
         })[0].click();
+	},
+	
+	Order(){ //결제페이지 이동
+		
+		var bkId = new Array();
+		var csize = new Array();
+		
+		for(let i=0; i < $('[basket_id]').length ; i++){
+			if ($('[basket_id]:eq(' + i +') input:even').is(':checked') == true) {
+				bkId.push($('[basket_id]:eq(' + i +')').attr('basket_id'));
+				csize.push($('[basket_id]:eq(' + i +') .current').text());
+			}
+		}
+		
+
+		if(bkId.length > 0 && csize.indexOf(' ') == -1){
+			
+			localStorage.setItem("bkId", JSON.stringify(bkId));
+			localStorage.setItem("csize", JSON.stringify(csize));
+			
+			$("<a>").prop({
+            target: "_self",
+            href: "http://localhost:8080/musinsam/pay.do"
+        	})[0].click();
+		}else if(bkId.length <= 0){
+			alert('주문할 상품을 선택해 주세요');
+		}else if(csize.indexOf(' ') >= 0){
+			alert('상품의 사이즈를 선택해 주세요');
+		}else{
+			alert('상품을 다시 확인해 주세요');
+		}
+		
 	}
 }
 basket.list();
