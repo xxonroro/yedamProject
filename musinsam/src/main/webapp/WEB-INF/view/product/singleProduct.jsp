@@ -77,62 +77,12 @@
 								<div class="col-6">
 									<div class="box_total">
 										<h5>별점 평균</h5>
-										<h4>4.0</h4>  <!-- 평균 입력 -->
+										<h4><span class = "avg"></span></h4>  <!-- 평균 입력 -->
 										<h6>(nn개의 리뷰)</h6>  <!-- 리뷰 개수 입력 -->
 									</div>
 								</div>
+								<div class="review_list"></div>
 							</div>
-							<div class="review_list">
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/review-1.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>회원이름</h4>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-									</div>
-									<p>예시리뷰1</p>
-								</div>
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/review-2.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>회원이름</h4>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-									</div>
-									<p>예시리뷰2</p>
-								</div>
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/review-3.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>회원이름</h4>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-									</div>
-									<p>예시리뷰3</p>
-								</div>
-							</div>
-						</div>
 						<div class="col-lg-6">
 							<div class="review_box">
 								<h4>리뷰 등록</h4>
@@ -149,7 +99,7 @@
                     <input class="form-control" id="cNo"  type="hidden" placeholder="옷번호" value="${param.clothNo }" required>
                   </div>
                   <div class="form-group">
-                    <input class="form-control"id="uid"  type="text" placeholder="아이디" value="user01" readonly >  <!--아이디는 로그인하면 고정으로 쓸 수 있도록-->
+                    <input class="form-control"id="uid"  type="text" placeholder="아이디" value="${sessionScope.userId}" readonly >  <!--아이디는 로그인하면 고정으로 쓸 수 있도록-->
                   </div>
                   <div class="form-group">
                     <textarea class="form-control different-control w-100" name="detail" id="textarea" cols="30" rows="5" placeholder="리뷰내용"></textarea>
@@ -167,7 +117,9 @@
 		</div>
 	</section>
 	<!--================End Product Description Area =================-->
-	
-
+	<!--  <script src="js/reviewService.js">
+		let id = "${sessionScope.userId}"
+		console.log();
+	</script>-->
 	
 <script src="js/reviewService.js"></script>
