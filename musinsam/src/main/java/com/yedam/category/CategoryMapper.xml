@@ -114,10 +114,10 @@
 		select *
 		from clothes join category
 		               on clothes.small_category = category.small_category
-        <if test="bigCategory != null  or bigCategory !=''.toString()">               
+        <if test="bigCategory != null  and bigCategory !=''.toString()">               
 			where big_category = #{bigCategory}
 		</if>
-		<if test="searchword != null  or searchword !=''">               
+		<if test="searchword != null  and searchword !=''">               
 			where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%'
 		</if>
 		<choose>
