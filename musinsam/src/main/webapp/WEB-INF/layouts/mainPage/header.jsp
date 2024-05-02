@@ -100,6 +100,9 @@
 										<li class="nav-item">
 									 		<a class="nav-link" href="insertProd.do">제품 등록</a>
 								 		</li> 
+								 		<li class="nav-item">
+									 		<a class="nav-link" href="manageProd.do?page=1">상품 관리</a>
+								 		</li> 
 							 		</ul>
 							 </li>
 							 
