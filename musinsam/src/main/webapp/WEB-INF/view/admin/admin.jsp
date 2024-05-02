@@ -21,7 +21,7 @@
   <section class="order_details section-margin--small">
     <div class="container">
       <div class="order_details_table">
-        <h2>${param.clothName}</h2>
+        <a href="getProduct.do?clothNo=${param.clothNo }"><h2> 《 ${param.clothName}</h2></a>
         <div class="table-responsive">
           <table class="table">
             <thead>

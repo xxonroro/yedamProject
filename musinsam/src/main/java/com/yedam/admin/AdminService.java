@@ -10,4 +10,7 @@ public interface AdminService {
 	public boolean uptSale(ClothesVO cvo);
 	public List<String> selCate(String cate);
 	public boolean insertProd(ClothesVO cvo);
+	public int checkNo(String clothName);
+	public List<ClothesVO> prodList(int page);
+	public int listCount();
 }
