@@ -87,7 +87,6 @@ const wish = {
 		let next, prev;
 		let realEnd = Math.ceil(totalCnt / maxPg);
 		
-		
 
 		endPage = Math.ceil(page / 5) * 5;
 		startPage = endPage - 4;
@@ -118,13 +117,13 @@ const wish = {
 			nx.css('display', '');
 			nx.appendTo('.pagination');
 
-		console.log(maxPg);
-		console.log(totalCnt);
-		console.log(next);
-		console.log(prev);
-		console.log(realEnd);
-		console.log(endPage);
-		console.log(startPage);
+		console.log('maxPg :' + maxPg);
+		console.log('totalCnt :' + totalCnt);
+		console.log('next :' + next);
+		console.log('prev :' + prev);
+		console.log('realEnd :' + realEnd);
+		console.log('endPage :' + endPage);
+		console.log('startPage :' + startPage);
 
 		//pagination 이동
 		//document.querySelectorAll('.pagination>a').forEach(item => {
@@ -189,7 +188,7 @@ const wish = {
 			}
 		}
 			
-		lvc.likeRemove(delNo, (result) => {
+		lvc.likeRemove(userId, delNo, (result) => {
 			if (result.retCode == "Success") {
 				
 				let lng = $('[cloth_id]').length;
@@ -222,6 +221,8 @@ const wish = {
 		
 		$('.like_chkAll :checkbox').prop('checked', false);
 		
+		$('[data-page]').remove();
+		
 		if(maxPg != lng){
 			for(let i =0; i < lng ; i++){
 			$('.row:eq(1) [cloth_id]:eq(0)').remove();}
@@ -235,6 +236,10 @@ const wish = {
 				}, function(err) {
 					console.log(err);
 				})
+			})
+			
+			lvc.likeCount(userId, function(result) { //페이징
+				wish.makePage(result);
 			})
 		}
 	},
@@ -273,7 +278,10 @@ const wish = {
 			$('[cloth_id="'+no+'"] .ti-heart').parent().css('background','red');
 		
 		}else{
-			lvc.likeRemove(no, (result) => {
+			let num = new Array();
+			num.push(no);
+			
+			lvc.likeRemove(userId, no, (result) => {
 			if (result.retCode == "Success") {
 			}
 			},(err) => { })

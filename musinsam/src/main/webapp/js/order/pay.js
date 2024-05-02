@@ -69,7 +69,7 @@
 		let prc = pay.PRICE * (1 - pay.DISCOUNT_RATE);
 		
 		temp.attr('basket_id', pay.BASKET_NO);
-		temp.attr('data-id', pay.CLOTH_NO);
+		temp.attr('cloth_id', pay.CLOTH_NO);
 		temp.css('display', '');
 		temp.find('.d-flex img').attr('src', 'img/cloth/' + pay.CLOTH_NAME + '.jpg');
 		temp.find('.media-body p').text(pay.CLOTH_NAME);
@@ -118,14 +118,105 @@
 			$('#address').removeAttr('readonly')
 		}
 	},
-	reset(){
+	reset(){ //취소버튼
 		$("<a>").prop({
             target: "_self",
             href: "/musinsam/cart.do"
         	})[0].click();
 	},
-	pay(){
-		console.log('결제');
+	pay(){ //결제버튼
+		
+        let today = new Date();   
+        let hours = today.getHours(); // 시
+        let minutes = today.getMinutes();  // 분
+        let seconds = today.getSeconds();  // 초
+        let milliseconds = today.getMilliseconds();
+        let makeMerchantUid = hours +''+  minutes +''+ seconds +''+ milliseconds;
+        
+        let buyer_name = $('#order_name').val();
+        let buyer_tel = $('#order_number').val();
+        let del_addr = $('#address').val();
+        if(del_addr == '' || buyer_name == '' || buyer_tel == ''){
+			alert('배송지 정보를 입력해주세요.');
+			return;
+		}
+        let buyer_pay = parseInt($('.pay_order span').text());
+		
+		if(userId != ''){
+			
+			IMP.init("imp87235074"); 
+			
+			IMP.request_pay(
+				{
+					pg: "kakaopay.TC0ONETIME",
+					pay_method: "card", // 생략가능
+					merchant_uid: "IMP" + makeMerchantUid, // 상점에서 생성한 고유 주문번호
+					name: userId,
+					amount: buyer_pay,
+					//buyer_email: "test@portone.io",
+					buyer_name: buyer_name,
+					buyer_tel: buyer_tel,
+					buyer_addr: del_addr,
+					//buyer_postcode: "123-456",
+					//m_redirect_url: "{모바일에서 결제 완료 후 리디렉션 될 URL}",
+				},
+				function(rsp) {
+					if (rsp.success) { //결제 성공시
+                    	console.log(rsp);
+						var cno = new Array();
+						var cnt = new Array();
+						var prc = new Array();
+						var csz = new Array();
+						var no = new Array();
+						
+						for(let i =0; i < $('[cloth_id]').length; i++){
+							cno.push($('[cloth_id]:eq("' + i +'")').attr('cloth_id'));
+							cnt.push($('[cloth_id]:eq("' + i +'") td:eq(3) h4').text());
+							prc.push(parseInt($('[cloth_id]:eq("' + i +'") td:eq(4) h5').text()));
+							csz.push($('[cloth_id]:eq("' + i +'") td:eq(2) h4').text());
+							no.push($('[cloth_id]:eq("' + i +'")').attr('basket_id'));
+						}
+						
+						let del = 1;
+						let rec = $('#order_name').val();
+						let phn = $('#order_number').val();
+						let adr = $('#address').val();
+						let bvo ={del, userId, adr, rec, phn};
+						
+						pvc.orderInsert(bvo, cnt, cno, prc, (result) => {
+							if (result.retCode == "Success") {
+								alert("결제 완료 되었습니다.");
+								$("<a>").prop({
+									target: "_self",
+									href: "/musinsam/orderInqueryForm.do"
+								})[0].click();
+							}
+						},(err) => { })
+						
+						pvc.stockDown(cnt, cno, csz, (result) => {
+							if (result.retCode == "Success") {
+							}
+						},(err) => { })
+						
+						svc.cartRemove(no, (result) => {
+							if (result.retCode == "Success") {
+							}
+						},(err) => { })
+						
+						lvc.likeRemove(userId, cno, (result) => {
+						if (result.retCode == "Success") {
+						}
+			},(err) => { })
+						
+                	} else if (rsp.success == false) { // 결제 실패시
+                    	alert(rsp.error_msg)
+                	}
+				}
+			);
+			
+		}else{
+			alert('로그인 필요!');
+		}
 	}
 }
 

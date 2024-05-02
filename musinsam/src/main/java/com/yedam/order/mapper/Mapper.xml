@@ -46,9 +46,9 @@
 		and rn > (#{page} - 1) * #{maxPg}
 	</select>
 	
-	<delete id="removeLike" parameterType="int">
+	<delete id="removeLike" parameterType="com.yedam.vo.LikeVO">
   		delete from likegather
-  		where cloth_no = #{cloth_no}
+  		where cloth_no = #{clothNo} and user_id = #{userId}
   	</delete>
   	
 	<insert id="insertLike" parameterType="com.yedam.vo.LikeVO">
@@ -86,5 +86,16 @@
 		from users
 		where user_id = #{userId}
 	</select>
+	
+	<insert id="insertOrder" parameterType="com.yedam.vo.OrderVO">
+  		insert into orders (order_no, order_cnt, order_price, delivery_state, user_id, cloth_no, address, recipient, phone)
+		values(order_seq.nextval, #{orderCnt}, #{ordPirce}, #{deliveryState}, #{userId}, #{clothNo}, #{address}, #{recipient}, #{phone})
+  	</insert>
+  	
+  	<update id="downStock" parameterType="com.yedam.vo.StockVO">
+  		update stock
+  		set quantity = quantity - #{quantity}
+  		where cloth_no = #{clothNo} and csize = #{csize}
+  	</update>
 	
 </mapper>
