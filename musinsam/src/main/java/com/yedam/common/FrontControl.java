@@ -210,21 +210,10 @@ public class FrontControl extends HttpServlet {
 
 
 
-
 		
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-
-    
 		
 		
 		
