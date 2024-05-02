@@ -48,7 +48,7 @@
                                       </div>
                                       <div class="media-body">
                                           <p>Minimalistic shop for multipurpose use</p>
-                                          <a href="#">상세 보기</a>
+                                          <a href="javascript:void(0)">상세 보기</a>
                                       </div>
                                   </div>
                               </td>
@@ -121,7 +121,7 @@
                   </table>
                   
                       <div align="center" class="orderBtn">
-                          <a class="button" href="#" onclick="javascript:basket.Order();"><font size="4"><b>상품 주문하기</b></font></a>
+                          <a class="button" href="javascript:void(0)" onclick="javascript:basket.Order();"><font size="4"><b>상품 주문하기</b></font></a>
                       </div>
               </div>
           </div>

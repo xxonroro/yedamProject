@@ -26,4 +26,7 @@ public interface Service {
 	public List<UserVO> userInfo(String uid);
 	public boolean insertOrder(OrderVO ovo);
 	public boolean downStock(StockVO svo);
+	
+	public List<BasketVO> cartProduct(BasketVO bvo);
+	public List<LikeVO> likeProduct(LikeVO lvo);
 }

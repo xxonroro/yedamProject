@@ -97,26 +97,33 @@ const wish = {
 
 
 			let pv = $('[aria-label=Previous]').parent().clone();
-			pv.attr('data-page', (startPage - 1));
+			pv.attr('data-page', 'Previous');
 			pv.css('display', '');
+			pv.attr('onclick', 'javascript:wish.changePrev()');
 			pv.appendTo('.pagination');
 
 		for (let pg = startPage; pg <= endPage; pg++) {
+			let liTag = $('.page-item:eq(1)').clone();
 			let aTag = $('.page-item:eq(1)').children().clone();
-			console.log(pg);
 			aTag.text(pg);
 			aTag.attr('data-page', pg);
 			aTag.attr('onclick', 'javascript:wish.changePg('+pg+')');
-			aTag.css('display', '');
-			aTag.appendTo('.pagination');
-			
+			liTag.css('display', '');
+			liTag.find('a:first').remove();
+			liTag.attr('class', 'page-item');
+			liTag.appendTo('.pagination');
+			aTag.appendTo(liTag);
 		}
 
 			let nx = $('[aria-label=Next]').parent().clone();
-			nx.attr('data-page', (endPage + 1));
+			nx.attr('data-page', 'Next');
 			nx.css('display', '');
+			nx.attr('onclick', 'javascript:wish.changeNext()');
 			nx.appendTo('.pagination');
 
+			$('[data-page=1]').parent().attr('class', 'page-item active');
+			
+			
 		console.log('maxPg :' + maxPg);
 		console.log('totalCnt :' + totalCnt);
 		console.log('next :' + next);
@@ -144,6 +151,8 @@ const wish = {
 			$('.row:eq(1) [cloth_id]:eq(0)').remove();
 		}
 		$('.like_chkAll :checkbox').prop('checked', false);
+		$('[aria-label=Num]').parent().attr('class', 'page-item');
+		$('[data-page='+no+']').parent().attr('class', 'page-item active');
 		
 		let page = no;
 		let maxPg = parseInt($('span.current:eq(0)').text());
@@ -222,6 +231,7 @@ const wish = {
 		$('.like_chkAll :checkbox').prop('checked', false);
 		
 		$('[data-page]').remove();
+
 		
 		if(maxPg != lng){
 			for(let i =0; i < lng ; i++){
@@ -243,6 +253,37 @@ const wish = {
 			})
 		}
 	},
+	changePrev(){
+		let pgNo = parseInt($('.page-item.active [data-page]').text());
+		if(pgNo == 1){
+			wish.changePg(1);
+		}else{
+			wish.changePg(pgNo - 1);
+		}
+	},
+	changeNext(){
+		let pgNo = parseInt($('.page-item.active [data-page]').text());
+		
+		lvc.likeCount(userId, function(result){ //페이징
+			let maxPg = parseInt($('span.current:eq(0)').text());
+			let page = 1;
+
+			let totalCnt = result.totalCount;
+			let endPage;
+			let realEnd = Math.ceil(totalCnt / maxPg);
+
+
+			endPage = Math.ceil(page / 5) * 5;
+			endPage = endPage > realEnd ? realEnd : endPage;
+			
+			if (pgNo == endPage) {
+				wish.changePg(endPage);
+			} else {
+				wish.changePg(pgNo + 1);
+			}
+		})
+		
+	},
 	
 	clickCart(no){ // 장바구니 아이콘 클릭
 		if($('[cloth_id="'+no+'"] .ti-shopping-cart').parent().attr('style') != 'background: red;'){
@@ -251,17 +292,17 @@ const wish = {
 
 			lvc.cartInsertIcon(bvo, (result) => {
 				if (result.retCode == "Success") {
+					$('[cloth_id="'+no+'"] .ti-shopping-cart').parent().css('background','red');
 				}
 			},(err) => { })
 			
-			$('[cloth_id="'+no+'"] .ti-shopping-cart').parent().css('background','red');
 		}else{
 			let bvo = {userId, no}
 			lvc.cartRemoveIcon(bvo, (result) => {
 				if (result.retCode == "Success") {
+					$('[cloth_id="'+no+'"] .ti-shopping-cart').parent().removeAttr('style');
 				}
 			},(err) => { })
-			$('[cloth_id="'+no+'"] .ti-shopping-cart').parent().removeAttr('style');
 		}
 	},
 	

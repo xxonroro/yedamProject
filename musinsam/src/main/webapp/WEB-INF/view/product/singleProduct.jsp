@@ -17,9 +17,10 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
-						<h3>${pinfo.clothName}</h3>   
-						<h2>${pinfo.price}</h2>
-						<ul class="list">
+						<h3>${pinfo.clothName}</h3>
+							<s style="font-size: 20px"><i>${pinfo.price}</i></s>
+							<h2>${pinfo.price* (1-pinfo.discountRate)}</h2>
+					<ul class="list">
 							<li><a class="active" href="#"><span>카테고리</span>${pinfo.smallCategory}</a></li>
 							<li><a href="#"><span>브랜드</span>${pinfo.brand}</a></li>
 							<li><a href="#" style="display:none" ><span style="display:none">의류번호</span>${pinfo.clothNo}</a></li>
@@ -121,5 +122,11 @@
 		let id = "${sessionScope.userId}"
 		console.log();
 	</script>-->
-	
+<script>
+	let userId = "${sessionScope.userId}"
+</script>	
 <script src="js/reviewService.js"></script>
+
+<script type="text/javascript" src="js/order/prodBtn.js"></script>
+<script type="text/javascript" src="js/order/likeService.js"></script>
+<script type="text/javascript" src="js/order/productBtn.js"></script>

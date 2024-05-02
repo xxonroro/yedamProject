@@ -183,7 +183,7 @@
 						let adr = $('#address').val();
 						let bvo ={del, userId, adr, rec, phn};
 						
-						pvc.orderInsert(bvo, cnt, cno, prc, (result) => {
+						pvc.orderInsert(bvo, cnt, cno, prc, csz, (result) => {
 							if (result.retCode == "Success") {
 								alert("결제 완료 되었습니다.");
 								$("<a>").prop({

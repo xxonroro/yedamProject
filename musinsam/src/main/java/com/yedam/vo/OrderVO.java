@@ -16,6 +16,6 @@ public class OrderVO {
 	private String address; //주문주소
 	private String recipient; //받는이 이름
 	private String phone; //받는이 전화번호
-	
+	private String csize; //구입한 옷사이즈
 
 }
