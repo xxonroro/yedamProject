@@ -16,6 +16,12 @@ list : function(){ //값 받기
 				$('.button.cart-btn').attr('style', 'background: #DC143C; border: white;');
 			}
 		}, (err) => { })
+		
+		prd.likeProduct(userId, no, (result) => {
+			if (result.retCode == "Success") {
+				$('.icon_btn:eq(1)').attr('style', 'background: red; color:white;');
+			}
+		}, (err) => { })
 		 
 	},
 	clickProductCart(no){
