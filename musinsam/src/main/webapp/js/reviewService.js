@@ -110,13 +110,17 @@ svc.reviewList(cNo,function(result){
 
 })
 
-/*let starSum =[...document.getElementBy]
 
-function starAvg(){
-  
-	
-}
-*/
+/*let btnOpenModal = document.querySelector('.btn-open-modal');
+
+let modal = document.getElementById('#modal');
+btn-open-modal.onclick = function(){
+	modal.style.display="block";
+}*/
+/*btnOpenModal.addEventListener("click", ()=>{
+	modal.style.display="flex";
+	console.log('1');
+});*/
 
 
 
