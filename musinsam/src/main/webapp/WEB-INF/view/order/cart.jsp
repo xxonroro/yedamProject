@@ -9,8 +9,9 @@
 					<h1>장바구니</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+              <li class="breadcrumb-item"><a href="#">찜목록</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="#">장바구니</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="#">주문/배송조회</a></li>
             </ol>
           </nav>
 				</div>
@@ -47,7 +48,7 @@
                                       </div>
                                       <div class="media-body">
                                           <p>Minimalistic shop for multipurpose use</p>
-                                          <a href="#" target="_blank">상세 보기</a>
+                                          <a href="#">상세 보기</a>
                                       </div>
                                   </div>
                               </td>
@@ -78,7 +79,7 @@
                               </td>
                           </tr>
                          
-                          <tr class="bottom_button">
+                          <tr class="bottom_button" style="display:none">
                           	  <td>
 
                               </td>

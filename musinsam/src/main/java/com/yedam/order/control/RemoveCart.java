@@ -18,16 +18,7 @@ public class RemoveCart implements Control {
 		String st = request.getParameter("no");
 		Service svc = new ServiceImpl();
 		
-		boolean ret = false;
-
-		String[] num = st.split(",");
-		for (String num_ : num) {
-			int no_ = Integer.parseInt(num_);
-
-			if (svc.removeCart(no_)) {
-				ret = true;
-			}
-		}
+		boolean ret = svc.removeCart(st);
 		
 		if(ret == true) {
 			response.getWriter().print("{\"retCode\": \"Success\"}");

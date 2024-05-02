@@ -52,8 +52,10 @@ import com.yedam.member.PhoneCheck;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
 import com.yedam.order.control.CountLike;
+import com.yedam.order.control.DownStock;
 import com.yedam.order.control.InsertCartIcon;
 import com.yedam.order.control.InsertLike;
+import com.yedam.order.control.InsertOrder;
 import com.yedam.order.control.Like;
 import com.yedam.order.control.LikeList;
 import com.yedam.order.control.Pay;
@@ -109,6 +111,13 @@ public class FrontControl extends HttpServlet {
 
     
     
+		
+		
+		
+		
+		
+		
+		
 
 
 		// 이영주
@@ -128,11 +137,21 @@ public class FrontControl extends HttpServlet {
 		map.put("/removeCartIcon.do", new RemoveCartIcon());
 		map.put("/countLike.do", new CountLike());
 
+		
 		//결제페이지
 		map.put("/pay.do", new Pay());
 		map.put("/payList.do", new PayList());
 		map.put("/userInfo.do", new UserInfo());
+		map.put("/insertOrder.do", new InsertOrder());
+		map.put("/downStock.do", new DownStock());
 	
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -158,6 +177,13 @@ public class FrontControl extends HttpServlet {
     
     
 		
+		
+		
+		
+		
+		
+		
+		
 
 		
 		
@@ -180,6 +206,13 @@ public class FrontControl extends HttpServlet {
 
 
 
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
