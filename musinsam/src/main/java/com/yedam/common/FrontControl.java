@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.admin.InsProTable;
 import com.yedam.admin.InsertProduct;
+import com.yedam.admin.ProdList;
 import com.yedam.admin.SelCate;
 import com.yedam.admin.SelProduct;
 import com.yedam.admin.SetProductControl;
 import com.yedam.admin.UptProduct;
 import com.yedam.admin.UptSale;
+import com.yedam.admin.manageProd;
 import com.yedam.admin.selSale;
 import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
@@ -45,7 +47,6 @@ import com.yedam.member.MemberRegistration;
 import com.yedam.member.ModifyMemberInfo;
 import com.yedam.member.ModifyMemberInfoForm;
 import com.yedam.member.ModifyUserPass;
-import com.yedam.member.MypageForm;
 import com.yedam.member.OrderInquery;
 import com.yedam.member.OrderInqueryList;
 import com.yedam.member.PhoneCheck;
@@ -71,7 +72,6 @@ import com.yedam.product.ReviewList;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
 import com.yedam.question.QuestionSearch;
-
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -202,6 +202,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/insertProd.do", new InsertProduct());
 		map.put("/selCate.do", new SelCate());
 		map.put("/insProd.do", new InsProTable());
+		map.put("/manageProd.do", new manageProd());
+		map.put("/prodList.do", new ProdList());
 
 
 

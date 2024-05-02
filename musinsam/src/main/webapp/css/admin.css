@@ -343,3 +343,41 @@
 	font-size : 100px;
 
 	}
+	
+.prodImg{
+	width : 15%;
+	display : inline-block;
+}
+
+.prodNm{
+	width: 40%;
+	display : inline-block;
+}
+
+.prodPr{
+	width: 10%;
+	display : inline-block;
+}
+
+.prodBr{
+	width : 20%;
+	display : inline-block;
+}
+
+.headQa{
+	border-top : 1px black solid;
+	border-bottom : 2px black solid;
+}
+
+.prodList{
+	margin : 10px 0px;
+}
+
+#listNum{
+	text-align : center;
+}
+
+#listNum a{
+	margin : 5px 10px
+}
+
