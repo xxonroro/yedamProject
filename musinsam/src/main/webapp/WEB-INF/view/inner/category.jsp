@@ -177,7 +177,7 @@
 										height="200px" alt="">
 									<ul class="card-product__imgOverlay">
 										<li><a class="href1"><button>
-												<i class="ti-"></i>
+												<i class="ti-search"></i>
 											</button></a></li>
 										<li><button>
 												<i class="ti-shopping-cart"></i>
