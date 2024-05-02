@@ -77,9 +77,15 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public List<ClothesVO> clothesListSort2(String bigCategory, String orderby, String searchword) {
+	public List<ClothesVO> clothesListSort2(String bigCategory, String orderby, String searchword, int page) {
 		
-		return mapper.clothListsort2(bigCategory, orderby, searchword);
+		return mapper.clothListsort2(bigCategory, orderby, searchword, page);
+	}
+
+	@Override
+	public int productCount() {
+		
+		return mapper.productCount();
 	}
 
 
