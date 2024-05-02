@@ -149,12 +149,15 @@
                     fetch("modifyUserPass.do", {
                         method: "post",
                         headers: {"Content-Type": "application/x-www-form-urlencoded"},
-                        body: "newPass=" + input.value + "&id=" + result.id
+                        body: "newPass=" + input.value + "&pass=" + result.pass + "&id=" + findId.value
                     })
                     .then(response => response.json())
                     .then(result => {
-                       if(result.change == "o") {
+                       if(result.change == "x") {
 
+					   }
+					   else {
+							location.href = result.redirectUrl;
 					   }
                     })
                     .catch(error => {
