@@ -91,7 +91,7 @@
 								class="lnr lnr-chevron-left"></span>
 						</span>
 					</a></li>
-					<li class="page-item" style="display:none"><a href="#" class="page-link" aria-label="Num">01</a></li>
+					<li class="page-item active" style="display:none"><a href="#" class="page-link" aria-label="Num">01</a></li>
 					<li class="page-item" style="display:none"><a href="#" class="page-link"
 						aria-label="Next"> <span aria-hidden="true"> <span
 								class="lnr lnr-chevron-right"></span>

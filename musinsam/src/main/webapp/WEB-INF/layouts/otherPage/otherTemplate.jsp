@@ -19,7 +19,6 @@
 <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
 <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
 <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Poor+Story&display=swap" rel="stylesheet">
@@ -28,12 +27,15 @@
 <link rel="stylesheet" href="css/admin.css">
 
 <link rel="stylesheet" href="css/member/modal.css">
+	<script src="vendors/jquery/jquery-3.2.1.min.js"></script>
 
-
-<script src="vendors/jquery/jquery-3.2.1.min.js"></script>
-
-
-
+	<script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="vendors/skrollr.min.js"></script>
+	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="vendors/nice-select/jquery.nice-select.min.js"></script>
+	<script src="vendors/jquery.ajaxchimp.min.js"></script>
+	<script src="vendors/mail-script.js"></script>
+	<script src="js/main.js"></script>
 </head>
 <body>
 
@@ -47,21 +49,11 @@
 
 
 
-
-	<script src="vendors/jquery/jquery-3.2.1.min.js"></script>
-
-	<script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
-	<script src="vendors/skrollr.min.js"></script>
-	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="vendors/nice-select/jquery.nice-select.min.js"></script>
-	<script src="vendors/jquery.ajaxchimp.min.js"></script>
-	<script src="vendors/mail-script.js"></script>
-	<script src="js/main.js"></script>
 	
 	<!-- 회원 가입 -->
-	<script src="js/member/register.js"></script>
+	<!-- <script src="js/member/register.js"></script> -->
 	<!-- 로그인 -->
-    <script src="js/member/login.js"></script>
+<!--     <script src="js/member/login.js"></script> -->
 	<!-- <script src="js/member/modifyValidation.js"></script> -->
 </body>
 </html>

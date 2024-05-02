@@ -9,7 +9,7 @@
 						<input type="text" class="form-control findIdName" id="name" name="name" placeholder="이름">
 					</div>
 					<div class="col-md-12 form-group">
-						<input type="text" class="form-control findIdPhone" id="name" name="phone" placeholder="연락처">
+						<input type="text" class="form-control findIdPhone" id="phone" name="phone" placeholder="연락처" maxlength="13">
 					</div>
 					<div class="col-md-12 form-group">
 						<button type="submit" value="submit" class="button button-login w-100 findId">아이디 찾기</button>
@@ -43,6 +43,22 @@ const findIdBtn = document.querySelector(".form-group .findId");
 const modal = document.querySelector(".myModal");
 const xBtn = document.querySelector(".myModal_content button");
 const text = document.querySelector(".myModal_content strong");
+
+let inputs = document.querySelectorAll(".form-group input");
+
+inputs.forEach(input => {
+  const originPlaceholder = input.getAttribute("placeholder");
+
+  // input 요소로 포커스가 들어왔을 때,
+  input.addEventListener("focus", function (event) {
+    this.setAttribute("placeholder", "");
+  })
+
+  // 포커스를 받았던 input 요소가 포커스를 잃었을 때
+  input.addEventListener("blur", function (event) {
+    this.setAttribute("placeholder", originPlaceholder);
+  })
+});
 
 findIdBtn.addEventListener("click", function(event) {
     event.preventDefault();
@@ -119,5 +135,26 @@ findIdBtn.addEventListener("click", function(event) {
 	
 	    return true;
 	};
+	
+	let phone = document.querySelector(".form-group #phone");
 
+	phone.addEventListener("input", function(event) {
+	  let input = this.value;
+	  input = input.replace(/[^0-9]/g, ''); // ^(not), /g(global(전체)), 정규표현식은 /로 시작한다.  0부터 9 사이의 숫자인 문자열을 제외한 모든 문자열을 빈 문자열로 대체한다.
+
+	  let formatted = '';
+
+	  if (input.length > 3) {
+	    formatted = input.substring(0, 3) + '-';
+	    if (input.length > 7) {
+	      formatted += input.substring(3, 7) + '-' + input.substring(7);
+	    } else {
+	      formatted += input.substring(3);
+	    }
+	  } else {
+	    formatted = input;
+	  }
+	  
+	  this.value = formatted;
+	});
 </script>

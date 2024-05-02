@@ -35,7 +35,7 @@
 	  console.log(detail);
 // 평점 -> 체크된 별 개수: fas.length    / QuerySelector  => grade 	
  // 받아온 grade를 mapper에서 insert into로 삽입하기 	 
-	 let starCount = document.querySelectorAll(".fas.fa-star").length;    //querySelector는 1개만 출력, 여러개를 출력하고 싶으면 All을 사용 
+	 let starCount = document.querySelectorAll(".review_box .fas.fa-star").length;    //querySelector는 1개만 출력, 여러개를 출력하고 싶으면 All을 사용 
 	  console.log(starCount);
 
 	 let vo = {
@@ -83,13 +83,14 @@ let cNo = document.getElementById('cNo').value;
 svc.reviewList(cNo,function(result){
 	result.forEach(elem =>{
 		let grade = "";
+		console.log(elem.grade);
 		for (i=0; i<elem.grade; i++){
 			grade+='<i class="fas fa-star"></i>';
 		}
 		for (i=0; i<5-elem.grade; i++){
 			grade+='<i class="far fa-star"></i>';
 		}
-		
+	
 		let temp =`	<div class="review_item">
 						<div class="media">
 							<div class="d-flex">
@@ -102,9 +103,11 @@ svc.reviewList(cNo,function(result){
 						<p>${elem.detail}</p>
 					</div>`
 					
-					$('.review_list').append(temp);
+					$('.review_list').append(temp);	
+		 grade ="";			
+					
 	})
-	
+
 })
 /*let starSum =[...document.getElementBy]
 
@@ -113,6 +116,8 @@ function starAvg(){
 	
 }
 */
+
+
 
 
 

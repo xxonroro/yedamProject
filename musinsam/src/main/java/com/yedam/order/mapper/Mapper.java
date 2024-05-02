@@ -5,8 +5,10 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.yedam.vo.OrderVO;
 import com.yedam.vo.BasketVO;
 import com.yedam.vo.LikeVO;
+import com.yedam.vo.StockVO;
 import com.yedam.vo.UserVO;
 
 public interface Mapper {
@@ -16,7 +18,7 @@ public interface Mapper {
 	public List<Map<String, Object>> csizeList(int no);
 	
 	public List<Map<String, Object>> likeList(@Param("userId") String uid, @Param("page") int page, @Param("maxPg") int maxPg);
-	public int removeLike(int no);
+	public int removeLike(LikeVO lvo);
 	public int insertLike(LikeVO lvo);
 	public int insertCartIcon(BasketVO bvo);
 	public int removeCartIcon(BasketVO bvo);
@@ -24,4 +26,6 @@ public interface Mapper {
 	
 	public List<Map<String, Object>> payList(@Param("basketNo") int no);
 	public List<UserVO> userInfo(String uid);
+	public int insertOrder(OrderVO ovo);
+	public int downStock(StockVO svo);
 }

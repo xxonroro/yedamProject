@@ -1,6 +1,7 @@
 package com.yedam.admin;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,8 +33,11 @@ public class InsProTable implements Control {
 		cvo.setSmallCategory(cate);
 		cvo.setBrand(brand);
 		
+		String encodeName = URLEncoder.encode(cName, "UTF-8");
+		
 		if(svc.insertProd(cvo)) {
-			response.sendRedirect("insertProd.do");
+			int cno = svc.checkNo(cName);
+			response.sendRedirect("setProd.do?clothNo=" + cno + "&clothName=" + encodeName);
 		}else {
 			request.setAttribute("msg", "등록중 에러가 발생.");
 		}

@@ -7,7 +7,9 @@ function makeRow (cloth){
 	temp.css('display' ,'inline-block');
 			
 	temp.attr('id' , cloth.clothNo)
-	temp.find('.ti-search').closest('a').attr('href' , 'http://localhost:8080/musinsam/getProduct.do?clothNo=' + cloth.clothNo)
+	temp.find('.ti-search').closest('i').attr('href' , 'getProduct.do?clothNo=' + cloth.clothNo)
+	temp.find('.ti-heart').closest('i').attr('href', 'like.do')
+	temp.find('.ti-shopping-cart').closest('a').attr('href', 'cart.do')
 	temp.find('img').attr('src', 'img/cloth/' + cloth.clothName +'.jpg')
 	temp.find('.card-body p:nth-of-type(1)').text(cloth.smallCategory);
 	temp.find('.card-body h6').text(cloth.clothName);

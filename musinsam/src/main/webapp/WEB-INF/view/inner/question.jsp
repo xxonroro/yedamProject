@@ -1,7 +1,7 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
 	    pageEncoding="UTF-8"%>
 	<!-- ================ start banner area ================= -->	
-	<section class="blog-banner-area" id="category">
+	<section class="blog-banner-area" id="category" style = "height:100px">
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">

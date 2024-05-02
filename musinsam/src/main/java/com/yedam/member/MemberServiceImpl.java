@@ -52,4 +52,9 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.selectOrderList(id);
 	}
 
+	@Override
+	public boolean userPassChange(UserVO vo) {
+		return mapper.userPassChange(vo) == 1;
+	}
+
 }

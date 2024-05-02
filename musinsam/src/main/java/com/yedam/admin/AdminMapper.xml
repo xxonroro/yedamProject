@@ -50,10 +50,29 @@
   	<insert id="insertProd" parameterType="com.yedam.admin.ClothesVO">
   		insert into clothes
 		values(cloth_seq.nextval , #{clothName}, #{price}, #{brand} , 0 , 'S' , 0 , #{smallCategory} )
-
-
-  		
   	</insert>
+  	
+  	<select id="checkNo" parameterType="String" resultType="int">
+  		select cloth_no
+  		from clothes
+  		where cloth_name = #{clothName}
+  	</select>
+  	
+  	<select id="prodList" parameterType="int" resultType="com.yedam.admin.ClothesVO">
+ 	select *
+	from (select rownum rn, b.* 
+  	  from clothes b
+  	  order by cloth_no desc) 
+	where rn > (#{page} - 1) * 10 
+	<![CDATA[
+	and rn <= (#{page} * 10)
+	]]>
+  	</select>
+  	
+  	<select id="listCount" resultType ="int">
+  		select count(1)
+  		from clothes
+  	</select>
   	
   </mapper>
   

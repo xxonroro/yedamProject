@@ -86,16 +86,22 @@ $('.saleBtn').click(function(e){
 	 })
 }) 
 
+$('#insertForm').on('submit', function(e){
+	alert("제품 등록 완료")
+})
+
 $('.insBtn').click(function(e){
 	if($('.insertProd input:eq(0)').val() == '' ||
 		$('.insertProd input:eq(1)').val() == ''||
 		$('.insertProd input:eq(2)').val() == ''||
 		$('.insertProd input:eq(3)').val() == ''||
-		$('#smallCate option:selected').val() == ""){
+		$('.insertProd input:eq(4)').val() == ''||
+		$('#smallCate option:selected').val() == ''){
 			alert('데이터를 입력하세요');
 	}else{
 		$('#insertForm').submit();
-		alert('등록완료')
+		
+		
 	}
 })
 
@@ -139,7 +145,6 @@ $('#bigCate').change(function(e){
 			 dataType : 'json'
 		 })
 		 .done(function(result){
-			 console.log(result)
 			result.forEach(elem =>{
 				if(elem.csize == 'S'){
 					$('.smallSize').text(' (' + elem.quantity + '개)')

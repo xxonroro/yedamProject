@@ -12,4 +12,5 @@ public interface MemberMapper {
 	public String findUserPass(Map<String, String> map);
 	public int updateMemberInfo(UserVO vo);
 	public List<OrderVO> selectOrderList(String id);
+	public int userPassChange(UserVO vo);
 }
