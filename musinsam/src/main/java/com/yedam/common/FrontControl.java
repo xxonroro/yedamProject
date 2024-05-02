@@ -44,6 +44,8 @@ import com.yedam.member.MemberRegisterForm;
 import com.yedam.member.MemberRegistration;
 import com.yedam.member.ModifyMemberInfo;
 import com.yedam.member.ModifyMemberInfoForm;
+import com.yedam.member.ModifyUserPass;
+import com.yedam.member.MypageForm;
 import com.yedam.member.OrderInquery;
 import com.yedam.member.OrderInqueryList;
 import com.yedam.member.PhoneCheck;
@@ -90,7 +92,6 @@ public class FrontControl extends HttpServlet {
 		// 로그인 (동한)
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
-
 		// 로그아웃 (동한)
 		map.put("/logout.do", new Logout());
 		// 아이디 찾기(동한)
@@ -99,18 +100,24 @@ public class FrontControl extends HttpServlet {
 		// 비밀번호 찾기(동한)
 		map.put("/findUserPassForm.do", new FindUserPassForm());
 		map.put("/findUserPass.do", new FindUserPass());
-
+		map.put("/modifyUserPass.do", new ModifyUserPass());
 		// 마이페이지 (동한)
 		// 회원 정보 수정
 		map.put("/modifyMemberInfoForm.do", new ModifyMemberInfoForm());
 		map.put("/modifyMemberInfo.do", new ModifyMemberInfo());
-
 		// 주문 조회
 		map.put("/orderInqueryForm.do", new OrderInquery());
 		map.put("/orderInqueryList.do", new OrderInqueryList());
 
     
     
+		
+		
+		
+		
+		
+		
+		
 
 
 		// 이영주
@@ -141,6 +148,13 @@ public class FrontControl extends HttpServlet {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
 
 		//한승민
 		map.put("/cateform.do", new Cateform());
@@ -162,6 +176,13 @@ public class FrontControl extends HttpServlet {
     
     
     
+		
+		
+		
+		
+		
+		
+		
 		
 
 		
@@ -190,6 +211,13 @@ public class FrontControl extends HttpServlet {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
 
     
 		
@@ -197,7 +225,6 @@ public class FrontControl extends HttpServlet {
 		
     
 		//상지현
-		
 		map.put("/getProduct.do", new GetProductControl());  
 		map.put("/addReview.do", new AddReview());	
 		map.put("/reviewList.do", new ReviewList());  
