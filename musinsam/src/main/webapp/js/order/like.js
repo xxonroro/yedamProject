@@ -87,7 +87,6 @@ const wish = {
 		let next, prev;
 		let realEnd = Math.ceil(totalCnt / maxPg);
 		
-		
 
 		endPage = Math.ceil(page / 5) * 5;
 		startPage = endPage - 4;
@@ -98,33 +97,40 @@ const wish = {
 
 
 			let pv = $('[aria-label=Previous]').parent().clone();
-			pv.attr('data-page', (startPage - 1));
+			pv.attr('data-page', 'Previous');
 			pv.css('display', '');
+			pv.attr('onclick', 'javascript:wish.changePrev()');
 			pv.appendTo('.pagination');
 
 		for (let pg = startPage; pg <= endPage; pg++) {
+			let liTag = $('.page-item:eq(1)').clone();
 			let aTag = $('.page-item:eq(1)').children().clone();
-			console.log(pg);
 			aTag.text(pg);
 			aTag.attr('data-page', pg);
 			aTag.attr('onclick', 'javascript:wish.changePg('+pg+')');
-			aTag.css('display', '');
-			aTag.appendTo('.pagination');
-			
+			liTag.css('display', '');
+			liTag.find('a:first').remove();
+			liTag.attr('class', 'page-item');
+			liTag.appendTo('.pagination');
+			aTag.appendTo(liTag);
 		}
 
 			let nx = $('[aria-label=Next]').parent().clone();
-			nx.attr('data-page', (endPage + 1));
+			nx.attr('data-page', 'Next');
 			nx.css('display', '');
+			nx.attr('onclick', 'javascript:wish.changeNext()');
 			nx.appendTo('.pagination');
 
-		console.log(maxPg);
-		console.log(totalCnt);
-		console.log(next);
-		console.log(prev);
-		console.log(realEnd);
-		console.log(endPage);
-		console.log(startPage);
+			$('[data-page=1]').parent().attr('class', 'page-item active');
+			
+			
+		console.log('maxPg :' + maxPg);
+		console.log('totalCnt :' + totalCnt);
+		console.log('next :' + next);
+		console.log('prev :' + prev);
+		console.log('realEnd :' + realEnd);
+		console.log('endPage :' + endPage);
+		console.log('startPage :' + startPage);
 
 		//pagination 이동
 		//document.querySelectorAll('.pagination>a').forEach(item => {
@@ -145,6 +151,8 @@ const wish = {
 			$('.row:eq(1) [cloth_id]:eq(0)').remove();
 		}
 		$('.like_chkAll :checkbox').prop('checked', false);
+		$('[aria-label=Num]').parent().attr('class', 'page-item');
+		$('[data-page='+no+']').parent().attr('class', 'page-item active');
 		
 		let page = no;
 		let maxPg = parseInt($('span.current:eq(0)').text());
@@ -189,7 +197,7 @@ const wish = {
 			}
 		}
 			
-		lvc.likeRemove(delNo, (result) => {
+		lvc.likeRemove(userId, delNo, (result) => {
 			if (result.retCode == "Success") {
 				
 				let lng = $('[cloth_id]').length;
@@ -222,6 +230,9 @@ const wish = {
 		
 		$('.like_chkAll :checkbox').prop('checked', false);
 		
+		$('[data-page]').remove();
+
+		
 		if(maxPg != lng){
 			for(let i =0; i < lng ; i++){
 			$('.row:eq(1) [cloth_id]:eq(0)').remove();}
@@ -236,7 +247,42 @@ const wish = {
 					console.log(err);
 				})
 			})
+			
+			lvc.likeCount(userId, function(result) { //페이징
+				wish.makePage(result);
+			})
 		}
+	},
+	changePrev(){
+		let pgNo = parseInt($('.page-item.active [data-page]').text());
+		if(pgNo == 1){
+			wish.changePg(1);
+		}else{
+			wish.changePg(pgNo - 1);
+		}
+	},
+	changeNext(){
+		let pgNo = parseInt($('.page-item.active [data-page]').text());
+		
+		lvc.likeCount(userId, function(result){ //페이징
+			let maxPg = parseInt($('span.current:eq(0)').text());
+			let page = 1;
+
+			let totalCnt = result.totalCount;
+			let endPage;
+			let realEnd = Math.ceil(totalCnt / maxPg);
+
+
+			endPage = Math.ceil(page / 5) * 5;
+			endPage = endPage > realEnd ? realEnd : endPage;
+			
+			if (pgNo == endPage) {
+				wish.changePg(endPage);
+			} else {
+				wish.changePg(pgNo + 1);
+			}
+		})
+		
 	},
 	
 	clickCart(no){ // 장바구니 아이콘 클릭
@@ -246,17 +292,17 @@ const wish = {
 
 			lvc.cartInsertIcon(bvo, (result) => {
 				if (result.retCode == "Success") {
+					$('[cloth_id="'+no+'"] .ti-shopping-cart').parent().css('background','red');
 				}
 			},(err) => { })
 			
-			$('[cloth_id="'+no+'"] .ti-shopping-cart').parent().css('background','red');
 		}else{
 			let bvo = {userId, no}
 			lvc.cartRemoveIcon(bvo, (result) => {
 				if (result.retCode == "Success") {
+					$('[cloth_id="'+no+'"] .ti-shopping-cart').parent().removeAttr('style');
 				}
 			},(err) => { })
-			$('[cloth_id="'+no+'"] .ti-shopping-cart').parent().removeAttr('style');
 		}
 	},
 	
@@ -273,7 +319,10 @@ const wish = {
 			$('[cloth_id="'+no+'"] .ti-heart').parent().css('background','red');
 		
 		}else{
-			lvc.likeRemove(no, (result) => {
+			let num = new Array();
+			num.push(no);
+			
+			lvc.likeRemove(userId, no, (result) => {
 			if (result.retCode == "Success") {
 			}
 			},(err) => { })

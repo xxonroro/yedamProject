@@ -29,7 +29,7 @@ public class FindUserPass implements Control {
 			response.getWriter().print("{\"userInfo\": \"x\"}");
 		}
 		else {
-			response.getWriter().print("{\"userInfo\": \"o\", \"redirectUrl\": \"loginForm.do\", \"id\": \"" + userPass + "\" }");
+			response.getWriter().print("{\"userInfo\": \"o\", \"redirectUrl\": \"loginForm.do\", \"pass\": \"" + userPass + "\" }");
 		}
 	
 		

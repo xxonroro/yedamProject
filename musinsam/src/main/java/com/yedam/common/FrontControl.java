@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.admin.InsProTable;
 import com.yedam.admin.InsertProduct;
+import com.yedam.admin.ProdList;
 import com.yedam.admin.SelCate;
 import com.yedam.admin.SelProduct;
 import com.yedam.admin.SetProductControl;
 import com.yedam.admin.UptProduct;
 import com.yedam.admin.UptSale;
+import com.yedam.admin.manageProd;
 import com.yedam.admin.selSale;
 import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
@@ -31,6 +33,7 @@ import com.yedam.category.CategoryListPants;
 import com.yedam.category.RandomMain;
 import com.yedam.category.RandomMain8;
 import com.yedam.category.SearchCate;
+import com.yedam.category.UserinfoForm;
 import com.yedam.main.MainControl;
 import com.yedam.member.FindUserId;
 import com.yedam.member.FindUserIdForm;
@@ -44,17 +47,21 @@ import com.yedam.member.MemberRegisterForm;
 import com.yedam.member.MemberRegistration;
 import com.yedam.member.ModifyMemberInfo;
 import com.yedam.member.ModifyMemberInfoForm;
-import com.yedam.member.MypageForm;
+import com.yedam.member.ModifyUserPass;
 import com.yedam.member.OrderInquery;
 import com.yedam.member.OrderInqueryList;
 import com.yedam.member.PhoneCheck;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
+import com.yedam.order.control.CartProduct;
 import com.yedam.order.control.CountLike;
+import com.yedam.order.control.DownStock;
 import com.yedam.order.control.InsertCartIcon;
 import com.yedam.order.control.InsertLike;
+import com.yedam.order.control.InsertOrder;
 import com.yedam.order.control.Like;
 import com.yedam.order.control.LikeList;
+import com.yedam.order.control.LikeProduect;
 import com.yedam.order.control.Pay;
 import com.yedam.order.control.PayList;
 import com.yedam.order.control.RemoveCart;
@@ -68,7 +75,6 @@ import com.yedam.product.ReviewList;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
 import com.yedam.question.QuestionSearch;
-
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -89,7 +95,6 @@ public class FrontControl extends HttpServlet {
 		// 로그인 (동한)
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
-
 		// 로그아웃 (동한)
 		map.put("/logout.do", new Logout());
 		// 아이디 찾기(동한)
@@ -98,18 +103,24 @@ public class FrontControl extends HttpServlet {
 		// 비밀번호 찾기(동한)
 		map.put("/findUserPassForm.do", new FindUserPassForm());
 		map.put("/findUserPass.do", new FindUserPass());
-
+		map.put("/modifyUserPass.do", new ModifyUserPass());
 		// 마이페이지 (동한)
 		// 회원 정보 수정
 		map.put("/modifyMemberInfoForm.do", new ModifyMemberInfoForm());
 		map.put("/modifyMemberInfo.do", new ModifyMemberInfo());
-
 		// 주문 조회
 		map.put("/orderInqueryForm.do", new OrderInquery());
 		map.put("/orderInqueryList.do", new OrderInqueryList());
 
     
     
+		
+		
+		
+		
+		
+		
+		
 
 
 		// 이영주
@@ -129,35 +140,52 @@ public class FrontControl extends HttpServlet {
 		map.put("/removeCartIcon.do", new RemoveCartIcon());
 		map.put("/countLike.do", new CountLike());
 
+		
 		//결제페이지
 		map.put("/pay.do", new Pay());
 		map.put("/payList.do", new PayList());
 		map.put("/userInfo.do", new UserInfo());
+		map.put("/insertOrder.do", new InsertOrder());
+		map.put("/downStock.do", new DownStock());
 	
+		
+		//단건조회
+		map.put("/cartProduct.do", new CartProduct());
+		map.put("/likeProduct.do", new LikeProduect());
+		
+		
+		
 		
 		
 		
 
 		//한승민
-		map.put("/cateform.do", new Cateform());
+		map.put("/cateform.do", new Cateform()); //페이지 이동
 		map.put("/category.do", new CategoryList());
-		map.put("/categorypants.do", new CategoryListPants());
+		map.put("/categorypants.do", new CategoryListPants());// x
 
-		map.put("/catelist.do", new CateList()); //검색
+		map.put("/catelist.do", new CateList());
 		map.put("/searchcate.do", new SearchCate()); //검색   
-		map.put("/cateCount.do", new CateCount());
+		map.put("/cateCount.do", new CateCount()); //항목별 개수
 		map.put("/cateSort.do", new CateSort()); //정렬		
-		map.put("/cateSort2.do", new CateSort2()); //정렬		
+		map.put("/cateSort2.do", new CateSort2()); //정렬	main	
 	
     		
 		map.put("/randomMain.do", new RandomMain());
 		map.put("/randomMain8.do", new RandomMain8());
 		map.put("/bestproduct.do", new BestSeller());    
+		map.put("/userinfoForm.do", new UserinfoForm());// 페이지이동
     
     
     
     
-    
+		
+		
+		
+		
+		
+		
+		
 		
 
 		
@@ -177,12 +205,34 @@ public class FrontControl extends HttpServlet {
 		map.put("/insertProd.do", new InsertProduct());
 		map.put("/selCate.do", new SelCate());
 		map.put("/insProd.do", new InsProTable());
+		map.put("/manageProd.do", new manageProd());
+		map.put("/prodList.do", new ProdList());
 
 
+
+<<<<<<< HEAD
+=======
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
     
-		//상지현
 		
+		
+		
+>>>>>>> branch 'main' of https://github.com/xxonroro/yedamProject.git
+    
+		//상지현
 		map.put("/getProduct.do", new GetProductControl());  
 		map.put("/addReview.do", new AddReview());	
 		map.put("/reviewList.do", new ReviewList());  

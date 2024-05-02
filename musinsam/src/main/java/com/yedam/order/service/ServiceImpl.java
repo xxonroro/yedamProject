@@ -7,6 +7,8 @@ import com.yedam.common.DataSource;
 import com.yedam.order.mapper.Mapper;
 import com.yedam.vo.BasketVO;
 import com.yedam.vo.LikeVO;
+import com.yedam.vo.OrderVO;
+import com.yedam.vo.StockVO;
 import com.yedam.vo.UserVO;
 
 public class ServiceImpl implements Service{
@@ -22,8 +24,14 @@ public class ServiceImpl implements Service{
 	}
 	
 	@Override
-	public boolean removeCart(int no) {
-		return mapper.removeCart(no) == 1;
+	public boolean removeCart(String st) {
+		String[] num = st.split(",");
+		int cnt = 0;
+		for (String num_ : num) {
+			int no_ = Integer.parseInt(num_);
+			cnt += mapper.removeCart(no_);
+		}
+		return cnt == num.length;
 	}
 	
 	@Override
@@ -39,8 +47,8 @@ public class ServiceImpl implements Service{
 	}
 	
 	@Override
-	public boolean removeLike(int no) {
-		return mapper.removeLike(no) == 1;
+	public boolean removeLike(LikeVO lvo) {
+		return mapper.removeLike(lvo) == 1;
 	}
 	
 	@Override
@@ -75,4 +83,23 @@ public class ServiceImpl implements Service{
 		return mapper.userInfo(uid);
 	}
 	
+	@Override
+	public boolean insertOrder(OrderVO ovo) {
+		return mapper.insertOrder(ovo) == 1;
+	}
+	
+	@Override
+	public boolean downStock(StockVO svo) {
+		return mapper.downStock(svo) == 1;
+	}
+	
+	@Override
+	public List<BasketVO> cartProduct(BasketVO bvo) {
+		return mapper.cartProduct(bvo);
+	}
+	
+	@Override
+	public List<LikeVO> likeProduct(LikeVO lvo) {
+		return mapper.likeProduct(lvo);
+	}
 }

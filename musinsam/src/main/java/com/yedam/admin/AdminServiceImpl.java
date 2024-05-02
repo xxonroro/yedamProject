@@ -48,6 +48,21 @@ SqlSession session = DataSource.getInstance().openSession(true);
 		return mapper.insertProd(cvo) == 1;
 	}
 
+	@Override
+	public int checkNo(String clothName) {
+		return mapper.checkNo(clothName);
+	}
+
+	@Override
+	public List<ClothesVO> prodList(int page) {
+		return mapper.prodList(page);
+	}
+
+	@Override
+	public int listCount() {
+		return mapper.listCount();
+	}
+
 	
 
 }

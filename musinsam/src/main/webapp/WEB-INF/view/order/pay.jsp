@@ -49,7 +49,7 @@
                                       </div>
                                       <div class="media-body">
                                           <p>Minimalistic shop for multipurpose use</p>
-                                          <a href="#" target="_blank">상세 보기</a>
+                                          <a href="javascript:void(0)">상세 보기</a>
                                       </div>
                                   </div>
                               </td>
@@ -109,7 +109,7 @@
                             <span class="placeholder" data-placeholder="name"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                             <input type="text" class="form-control" id="number" name="number" placeholder="전화번호" readonly>
+                             <input type="tel" class="form-control" id="number" name="number" placeholder="전화번호" readonly>
                             <span class="placeholder" data-placeholder="Phone number"></span>
                         </div>
                         <div class="col-md-12 form-group" >
@@ -123,9 +123,12 @@
                             <span class="placeholder" data-placeholder="order_name"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="order_number" name="order_number" placeholder="전화번호" >
-                            <span class="placeholder" data-placeholder="order_number"></span>
-                        </div>
+							<input type="text" class="form-control" id="order_number"
+								name="order_number" placeholder="전화번호"
+								oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(^02.{0}|^01.{1}|[0-9]{2,3})([0-9]{3,4})([0-9]{4})/g, '$1-$2-$3');"
+								maxlength="13"> 
+								<span class="placeholder" data-placeholder="order_number"></span>
+						</div>
                        
                         <div class="col-md-6 form-group p_star">
                             <select class="country_select">
@@ -165,8 +168,8 @@
                         </ul>
                         
                         <div class="text-center" style="padding-top:50px">
-                          <a class="button button-paypal" href="#" onclick="javascript:payment.pay();">결제하기</a>
-                          <a class="gray_btn" href="#" style="margin-top:10px; padding-right:113.9px; padding-left:113.9px" onclick="javascript:payment.reset();">취소하기</a>
+                          <a class="button button-paypal" href="javascript:void(0)" onclick="javascript:payment.pay();">결제하기</a>
+                          <a class="gray_btn" href="javascript:void(0)" style="margin-top:10px; padding-right:113.9px; padding-left:113.9px" onclick="javascript:payment.reset();">취소하기</a>
                         </div>
                     </div>
                 </div>
@@ -175,9 +178,11 @@
     </div>
   </section>
   <!--================End Checkout Area =================-->
-
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <script>
 	let userId = "${sessionScope.userId}"
 </script>
 <script type="text/javascript" src="js/order/payService.js"></script>
+<script type="text/javascript" src="js/order/likeService.js"></script>
+<script type="text/javascript" src="js/order/cartService.js"></script>
 <script type="text/javascript" src="js/order/pay.js"></script>
