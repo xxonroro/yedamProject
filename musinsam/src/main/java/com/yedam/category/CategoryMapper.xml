@@ -66,6 +66,7 @@
 		where big_category = #{cate}
 	  </select>
 	  
+	  
 	  <select id="searchList" parameterType="com.yedam.category.ClothesVO">
 	  	select *
 		from clothes
@@ -80,7 +81,11 @@
 		on clothes.small_category = category.small_category
 		where big_category = #{param}
 	  </select>
-  	
+	  
+  	<select id="productCount" parameterType="int" resultType="int">
+		select count(*)
+		from clothes 
+	  </select>
   	
   	<select id ="randomMain" parameterType="String" resultType="com.yedam.category.ClothesVO">
 		select *
@@ -111,14 +116,14 @@
 	 </select>
 	 
 	 <select id="clothListsort2" parameterType="com.yedam.category.ClothesVO">
-		select *
-		from clothes join category
+		select * from(select rownum rs, a.* from
+		(select * from clothes  join category
 		               on clothes.small_category = category.small_category
         <if test="bigCategory != null  and bigCategory !=''.toString()">               
-			where big_category = #{bigCategory}
+			where big_category = #{bigCategory} 
 		</if>
 		<if test="searchword != null  and searchword !=''">               
-			where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%'
+			where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%' 
 		</if>
 		<choose>
 			<when test = "orderby != null and orderby != ''">
@@ -129,6 +134,10 @@
 				order by cloth_no desc
 			</otherwise>
 		</choose>
+		) a  where rownum <![CDATA[<= ]]> (#{page}) * 12 <!-- (#{page}-1) * 12 -->
+
+		)where rs > (#{page}-1) * 12<!-- (#{page} * 12) -->
+
 	 </select>
 	 
   	<select id="bestSeller7" parameterType="com.yedam.category.ClothesVO">

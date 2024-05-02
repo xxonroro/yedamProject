@@ -33,6 +33,7 @@ import com.yedam.category.CategoryListPants;
 import com.yedam.category.RandomMain;
 import com.yedam.category.RandomMain8;
 import com.yedam.category.SearchCate;
+import com.yedam.category.UserinfoForm;
 import com.yedam.main.MainControl;
 import com.yedam.member.FindUserId;
 import com.yedam.member.FindUserIdForm;
@@ -157,21 +158,21 @@ public class FrontControl extends HttpServlet {
 		
 
 		//한승민
-		map.put("/cateform.do", new Cateform());
+		map.put("/cateform.do", new Cateform()); //페이지 이동
 		map.put("/category.do", new CategoryList());
-		map.put("/categorypants.do", new CategoryListPants());
+		map.put("/categorypants.do", new CategoryListPants());// x
 
-		map.put("/catelist.do", new CateList()); //검색
+		map.put("/catelist.do", new CateList());
 		map.put("/searchcate.do", new SearchCate()); //검색   
-		map.put("/cateCount.do", new CateCount());
+		map.put("/cateCount.do", new CateCount()); //항목별 개수
 		map.put("/cateSort.do", new CateSort()); //정렬		
-		map.put("/cateSort2.do", new CateSort2()); //정렬		
+		map.put("/cateSort2.do", new CateSort2()); //정렬	main	
 	
     		
 		map.put("/randomMain.do", new RandomMain());
 		map.put("/randomMain8.do", new RandomMain8());
 		map.put("/bestproduct.do", new BestSeller());    
-    
+		map.put("/userinfoForm.do", new UserinfoForm());// 페이지이동
     
     
     
