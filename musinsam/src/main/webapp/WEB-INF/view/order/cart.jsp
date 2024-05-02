@@ -48,7 +48,7 @@
                                       </div>
                                       <div class="media-body">
                                           <p>Minimalistic shop for multipurpose use</p>
-                                          <a href="#" target="_blank">상세 보기</a>
+                                          <a href="#">상세 보기</a>
                                       </div>
                                   </div>
                               </td>
@@ -79,7 +79,7 @@
                               </td>
                           </tr>
                          
-                          <tr class="bottom_button">
+                          <tr class="bottom_button" style="display:none">
                           	  <td>
 
                               </td>

@@ -8,11 +8,11 @@ const lvc = {
 			.then(successCall)
 			.catch(errorCall);
 	},
-	likeRemove(no = [], successCall, errorCall) {
+	likeRemove(userId, no = [], successCall, errorCall) {
 		fetch('removeLike.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: 'no=' + no
+			body: 'uid=' + userId + '&no=' + no
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)
