@@ -2,8 +2,8 @@
  * 
  */
 const svc = {
-	cartList(uid='user001', successCall, errorCall) {
-		fetch('cartList.do?uid='+ uid )
+	cartList(userId, successCall, errorCall) {
+		fetch('cartList.do?uid='+ userId )
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);

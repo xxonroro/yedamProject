@@ -44,6 +44,22 @@ const modal = document.querySelector(".myModal");
 const xBtn = document.querySelector(".myModal_content button");
 const text = document.querySelector(".myModal_content strong");
 
+let inputs = document.querySelectorAll(".form-group input");
+
+inputs.forEach(input => {
+  const originPlaceholder = input.getAttribute("placeholder");
+
+  // input 요소로 포커스가 들어왔을 때,
+  input.addEventListener("focus", function (event) {
+    this.setAttribute("placeholder", "");
+  })
+
+  // 포커스를 받았던 input 요소가 포커스를 잃었을 때
+  input.addEventListener("blur", function (event) {
+    this.setAttribute("placeholder", originPlaceholder);
+  })
+});
+
 findIdBtn.addEventListener("click", function(event) {
     event.preventDefault();
 	if(ValidationLogin()) {

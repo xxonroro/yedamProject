@@ -49,7 +49,7 @@
                                       </div>
                                       <div class="media-body">
                                           <p>Minimalistic shop for multipurpose use</p>
-                                          <a href="#" target="_blank">상세 보기</a>
+                                          <a href="#">상세 보기</a>
                                       </div>
                                   </div>
                               </td>
@@ -105,27 +105,30 @@
 							<b>주문자 정보</b>
 						</div>
 						<div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="name" name="name" placeholder="이름">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="이름" readonly>
                             <span class="placeholder" data-placeholder="name"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                             <input type="text" class="form-control" id="number" name="number" placeholder="전화번호">
+                             <input type="tel" class="form-control" id="number" name="number" placeholder="전화번호" readonly>
                             <span class="placeholder" data-placeholder="Phone number"></span>
                         </div>
                         <div class="col-md-12 form-group" >
                             <b style="font-size:large; padding-right:15px">배송지 정보</b>
-                             <input type="checkbox" id="f-option2" name="selector">
-                             <label for="f-option2">주문인 정보와 동일</label>
+                             <input type="checkbox" id="user_chk" name="user_chk" onclick="javascript:payment.userChk();">
+                             <label for="f-option">주문인 정보와 동일</label>
                         </div>
                         
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="number" name="number" placeholder="이름">
-                            <span class="placeholder" data-placeholder="Phone number"></span>
+                            <input type="text" class="form-control" id="order_name" name="order_name" placeholder="이름" >
+                            <span class="placeholder" data-placeholder="order_name"></span>
                         </div>
                         <div class="col-md-6 form-group p_star">
-                            <input type="text" class="form-control" id="email" name="compemailany" placeholder="전화번호">
-                            <span class="placeholder" data-placeholder="Email Address"></span>
-                        </div>
+							<input type="text" class="form-control" id="order_number"
+								name="order_number" placeholder="전화번호"
+								oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(^02.{0}|^01.{1}|[0-9]{2,3})([0-9]{3,4})([0-9]{4})/g, '$1-$2-$3');"
+								maxlength="13"> 
+								<span class="placeholder" data-placeholder="order_number"></span>
+						</div>
                        
                         <div class="col-md-6 form-group p_star">
                             <select class="country_select">
@@ -142,8 +145,8 @@
                             </select>
                         </div>
                         <div class="col-md-12 form-group p_star">
-                            <input type="text" class="form-control" id="add1" name="add1" placeholder="상세 주소">
-                            <span class="placeholder" data-placeholder="Address line 01"></span>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="상세 주소">
+                            <span class="placeholder" data-placeholder="Address"></span>
                         </div>
                        
                         <div class="col-md-12 form-group mb-0">
@@ -161,12 +164,12 @@
                             <li><a href="#" class="pay_sum">총 상품금액 <span>$2160.00</span></a></li>
                             <li><a href="#" class="pay_discount">총 할인금액 <span>Flat rate: $50.00</span></a></li>
                             <hr>
-                            <li><a href="#" class="pay_order"><b style="font-size:19px">총 주문금액</b><span style="font-size:large">$2210.00</span></a></li>
+                            <li><a href="#" class="pay_order"><b style="font-size:19px">총 주문금액</b><span style="font-size:20px">$2210.00</span></a></li>
                         </ul>
                         
                         <div class="text-center" style="padding-top:50px">
-                          <a class="button button-paypal" href="#">결제하기</a>
-                          <a class="gray_btn" href="#" style="margin-top:10px; padding-right:113.9px; padding-left:113.9px">취소하기</a>
+                          <a class="button button-paypal" href="#" onclick="javascript:payment.pay();">결제하기</a>
+                          <a class="gray_btn" href="#" style="margin-top:10px; padding-right:113.9px; padding-left:113.9px" onclick="javascript:payment.reset();">취소하기</a>
                         </div>
                     </div>
                 </div>
@@ -175,9 +178,11 @@
     </div>
   </section>
   <!--================End Checkout Area =================-->
-
+<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 <script>
 	let userId = "${sessionScope.userId}"
 </script>
 <script type="text/javascript" src="js/order/payService.js"></script>
+<script type="text/javascript" src="js/order/likeService.js"></script>
+<script type="text/javascript" src="js/order/cartService.js"></script>
 <script type="text/javascript" src="js/order/pay.js"></script>

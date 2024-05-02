@@ -12,4 +12,5 @@ public interface MemberService {
 	public String findUserPass(Map<String, String> map);
 	public boolean updateMemberInfo(UserVO vo);
 	public List<OrderVO> selectOrderList(String id);
+	public boolean userPassChange(UserVO vo);
 }
