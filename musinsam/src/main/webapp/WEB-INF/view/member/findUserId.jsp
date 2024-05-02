@@ -9,7 +9,7 @@
 						<input type="text" class="form-control findIdName" id="name" name="name" placeholder="이름">
 					</div>
 					<div class="col-md-12 form-group">
-						<input type="text" class="form-control findIdPhone" id="name" name="phone" placeholder="연락처">
+						<input type="text" class="form-control findIdPhone" id="phone" name="phone" placeholder="연락처" maxlength="13">
 					</div>
 					<div class="col-md-12 form-group">
 						<button type="submit" value="submit" class="button button-login w-100 findId">아이디 찾기</button>
@@ -135,5 +135,26 @@ findIdBtn.addEventListener("click", function(event) {
 	
 	    return true;
 	};
+	
+	let phone = document.querySelector(".form-group #phone");
 
+	phone.addEventListener("input", function(event) {
+	  let input = this.value;
+	  input = input.replace(/[^0-9]/g, ''); // ^(not), /g(global(전체)), 정규표현식은 /로 시작한다.  0부터 9 사이의 숫자인 문자열을 제외한 모든 문자열을 빈 문자열로 대체한다.
+
+	  let formatted = '';
+
+	  if (input.length > 3) {
+	    formatted = input.substring(0, 3) + '-';
+	    if (input.length > 7) {
+	      formatted += input.substring(3, 7) + '-' + input.substring(7);
+	    } else {
+	      formatted += input.substring(3);
+	    }
+	  } else {
+	    formatted = input;
+	  }
+	  
+	  this.value = formatted;
+	});
 </script>
