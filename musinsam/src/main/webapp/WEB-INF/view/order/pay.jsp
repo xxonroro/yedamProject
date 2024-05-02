@@ -49,7 +49,7 @@
                                       </div>
                                       <div class="media-body">
                                           <p>Minimalistic shop for multipurpose use</p>
-                                          <a href="#">상세 보기</a>
+                                          <a href="javascript:void(0)">상세 보기</a>
                                       </div>
                                   </div>
                               </td>
@@ -168,8 +168,8 @@
                         </ul>
                         
                         <div class="text-center" style="padding-top:50px">
-                          <a class="button button-paypal" href="#" onclick="javascript:payment.pay();">결제하기</a>
-                          <a class="gray_btn" href="#" style="margin-top:10px; padding-right:113.9px; padding-left:113.9px" onclick="javascript:payment.reset();">취소하기</a>
+                          <a class="button button-paypal" href="javascript:void(0)" onclick="javascript:payment.pay();">결제하기</a>
+                          <a class="gray_btn" href="javascript:void(0)" style="margin-top:10px; padding-right:113.9px; padding-left:113.9px" onclick="javascript:payment.reset();">취소하기</a>
                         </div>
                     </div>
                 </div>

@@ -20,6 +20,7 @@ public class InsertOrder implements Control {
 		String cnt = request.getParameter("cnt");
 		String prc = request.getParameter("prc");
 		String cno = request.getParameter("cno");
+		String csz= request.getParameter("csz");
 		
 		
 		String del = request.getParameter("del");
@@ -34,6 +35,7 @@ public class InsertOrder implements Control {
 		String[] count = cnt.split(",");
 		String[] price = prc.split(",");
 		String[] cloNo = cno.split(",");
+		String[] csize = csz.split(",");
 		
 		boolean ret = false;
 		
@@ -47,10 +49,12 @@ public class InsertOrder implements Control {
 			int cno_ = Integer.parseInt(cloNo[i]);
 			int prc_ = Integer.parseInt(price[i]);
 			int cnt_ = Integer.parseInt(count[i]);
+			String csz_ = csize[i];
 
 			ovo.setClothNo(cno_);
 			ovo.setOrdPirce(prc_);
 			ovo.setOrderCnt(cnt_);
+			ovo.setCsize(csz_);
 
 			if (svc.insertOrder(ovo)) {
 				ret = true;

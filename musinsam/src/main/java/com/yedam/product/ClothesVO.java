@@ -9,7 +9,7 @@ public class ClothesVO {
 	private String clothName;
 	private int price;
 	private String brand;
-	private int discountRate;
+	private double discountRate;
 	private String csize;
 	private int cnt;
 	

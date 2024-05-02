@@ -88,8 +88,8 @@
 	</select>
 	
 	<insert id="insertOrder" parameterType="com.yedam.vo.OrderVO">
-  		insert into orders (order_no, order_cnt, order_price, delivery_state, user_id, cloth_no, address, recipient, phone)
-		values(order_seq.nextval, #{orderCnt}, #{ordPirce}, #{deliveryState}, #{userId}, #{clothNo}, #{address}, #{recipient}, #{phone})
+  		insert into orders (order_no, order_cnt, order_price, delivery_state, user_id, cloth_no, address, recipient, phone, csize)
+		values(order_seq.nextval, #{orderCnt}, #{ordPirce}, #{deliveryState}, #{userId}, #{clothNo}, #{address}, #{recipient}, #{phone}, #{csize})
   	</insert>
   	
   	<update id="downStock" parameterType="com.yedam.vo.StockVO">
@@ -98,4 +98,16 @@
   		where cloth_no = #{clothNo} and csize = #{csize}
   	</update>
 	
+	
+	<select id="cartProduct" parameterType="com.yedam.vo.BasketVO">
+		select *
+		from basket
+		where cloth_no = #{clothNo} and user_id = #{userId}
+	</select>
+	
+	<select id="likeProduct" parameterType="com.yedam.vo.LikeVO">
+		select *
+		from likegather
+		where cloth_no = #{clothNo} and user_id = #{userId}
+	</select>
 </mapper>

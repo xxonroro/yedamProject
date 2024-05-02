@@ -14,12 +14,12 @@ const pvc = {
 			.then(successCall)
 			.catch(errorCall);
 	},
-	orderInsert(bvo={del, userId, adr, rec, phn}, cnt=[], cno=[], prc=[], successCall, errorCall){
+	orderInsert(bvo={del, userId, adr, rec, phn}, cnt=[], cno=[], prc=[], csz=[], successCall, errorCall){
 		fetch('insertOrder.do', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 			body: 'del=' + bvo.del + '&uid=' + bvo.userId + '&adr=' + bvo.adr + '&rec='+ bvo.rec + '&phn=' + bvo.phn
-				 + '&cnt=' + cnt + '&cno=' + cno + '&prc=' + prc 
+				 + '&cnt=' + cnt + '&cno=' + cno + '&prc=' + prc + '&csz=' + csz
 		})
 			.then(resolve => resolve.json())
 			.then(successCall)
