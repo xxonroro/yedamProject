@@ -21,21 +21,8 @@
 					<ul class="nav navbar-nav menu_nav ml-auto mr-auto">
 						<li class="nav-item submenu dropdown">
 
-						  <a href="cateform.do" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">카테고리</a>
-							<ul class="dropdown-menu">
-								<li class="nav-item">
-									<a class="nav-link" href="single-product.html">상의</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="checkout.html">아우터</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="confirmation.html">하의</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="cart.html">신발</a>
-								</li>
-							</ul>
+						  <a href="cateform.do" class="nav-link " role="button" aria-haspopup="true" aria-expanded="false">상품리스트</a>
+
 						</li>
 						
 						<li class="nav-item submenu dropdown">
@@ -48,7 +35,7 @@
 											<a class="nav-link" href="loginForm.do">찜</a>
 									</c:when>
 									<c:otherwise>
-											<a class="nav-link" href="#">찜</a>
+											<a class="nav-link" href="like.do">찜</a>
 									</c:otherwise>
 								</c:choose>
 								</li>
@@ -58,7 +45,7 @@
 											<a class="nav-link" href="loginForm.do">장바구니</a>
 									</c:when>
 									<c:otherwise>
-											<a class="nav-link" href="#">장바구니</a>
+											<a class="nav-link" href="cart.do">장바구니</a>
 									</c:otherwise>
 								</c:choose>
 									
@@ -106,6 +93,17 @@
 						</c:choose>
 						<li class="nav-item">
 							<a class="nav-link" href="faq.do">문의게시판</a>
+						<c:if test ="${sessionScope.authority == 1 }">
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">관리자 페이지</a>
+									<ul class="dropdown-menu">
+										<li class="nav-item">
+									 		<a class="nav-link" href="insertProd.do">제품 등록</a>
+								 		</li> 
+							 		</ul>
+							 </li>
+							 
+						</c:if>
 
 
 

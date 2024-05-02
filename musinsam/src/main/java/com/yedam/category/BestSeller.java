@@ -11,22 +11,17 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
 
-public class SearchCate implements Control {
+public class BestSeller implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("text/json;charset=utf-8");
-		
-		String searchword = request.getParameter("searchword");
-		String orderby = request.getParameter("orderby");
-		
 		CategoryService csv = new CategoryServiceImpl();
-		List<ClothesVO> list = csv.searchList(searchword, orderby);
+		
+		List<ClothesVO> list = csv.bestSeller();
 		
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);
-		
 		response.getWriter().print(json);
 
 	}

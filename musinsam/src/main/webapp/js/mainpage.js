@@ -117,10 +117,10 @@ $(document).ready(function() {
 			*/
 
 	};
-	
-	
-	
-	
+
+
+
+
 
 	let xhtp = new XMLHttpRequest(); //첫화면 출력
 	xhtp.open('get', 'randomMain8.do');
@@ -130,19 +130,44 @@ $(document).ready(function() {
 		let clothes = JSON.parse(xhtp.response);
 		console.log(clothes);
 		$('#prod').css('display', 'none');
-		clothes.forEach(cloth =>{
+		clothes.forEach(cloth => {
 			let temp = $('#prod').clone();
-			//temp.css('display', 'block');
+			temp.css('display', 'block');
 			temp.css('display', 'inline-block');
 			temp.find('div img').attr('src', 'img/cloth/' + cloth.clothName + '.jpg')
-			temp.find('div li a').attr('href', 'getProduct.do?clothNo=' + cloth.clothNo);
+			temp.find('div img').attr('height', '200px')
+			temp.find('li a').attr('href', 'getProduct.do?clothNo=' + cloth.clothNo);
 			temp.find('div h4').text(cloth.clothName);
 			temp.find('div p:eq(0)').text(cloth.smallCategory);
-			temp.find('div p:eq(1)').text((cloth.price).toLocaleString()+ "원");
+			temp.find('div p:eq(1)').text((cloth.price).toLocaleString() + "원");
 			temp.appendTo('#divbody');
-		
+
 		})
+
+	};
 		
+
+	let ahtp = new XMLHttpRequest();
+	ahtp.open('get', 'bestproduct.do');
+	ahtp.send();
+
+	ahtp.onload = function() {
+		let ttry = JSON.parse(ahtp.response);
+		console.log(ttry);
+		$('#this').hide();
+		ttry.forEach(pro =>{
+			let bestseller =  $('#this').clone();
+			bestseller.css('display', 'flex');
+	
+			bestseller.find('div img').attr('src', 'img/cloth/' + pro.clothName + '.jpg')
+			bestseller.find('div li a').attr('href', 'getProduct.do?clothNo=' + pro.clothNo)
+			bestseller.find('div p:eq(0)').text(pro.smallCategory);
+			bestseller.find('div p:eq(1)').text(pro.price.toLocaleString() + "원");
+			bestseller.find('div h4').text(pro.clothName);
+			
+			$('#bestSellerCarousel').trigger('add.owl.carousel', bestseller);
+			$('#bestSellerCarousel').trigger('refresh.owl.carousel'); //api 새로고침
+		})
 
 
 	}
