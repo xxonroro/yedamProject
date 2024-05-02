@@ -15,5 +15,11 @@ from review
 where cloth_no = ${clothNo}
 </select>
 
+<select id="selectGrade" parameterType="int" resultType="double">
+select grade
+from review
+where cloth_no = ${clothNo}
+</select>
+
  </mapper>
 

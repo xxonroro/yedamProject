@@ -78,8 +78,8 @@
 								<div class="col-6">
 									<div class="box_total">
 										<h5>별점 평균</h5>
-										<h4><span class = "avg"></span></h4>  <!-- 평균 입력 -->
-										<h6>(nn개의 리뷰)</h6>  <!-- 리뷰 개수 입력 -->
+										<h4><span class = "avg" id="gradeAvg"></span></h4>  <!-- 평균 입력 -->
+										<h6><span class = "reviewnn" id="reviewCount"></span>개의 리뷰</h6>  <!-- 리뷰 개수 입력 -->
 									</div>
 								</div>
 								<div class="review_list"></div>

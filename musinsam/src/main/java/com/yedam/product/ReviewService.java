@@ -6,4 +6,6 @@ import com.yedam.vo.ReviewVO;
 
 public interface ReviewService {
   boolean insertReview (ReviewVO vo);
-  List<ReviewVO> reviewList(int clothNo);}
+  List<ReviewVO> reviewList(int clothNo);
+  double getGrade(int cNo);
+ }

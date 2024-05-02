@@ -18,5 +18,9 @@ public class ReviewServiceImpl implements ReviewService {
 	public List<ReviewVO> reviewList(int clothNo) {
 		return mapper.reviewList(clothNo);
 	}
+	@Override
+	public double getGrade(int cNo) {
+		return mapper.selectGrade(cNo);
+	}
 
 }

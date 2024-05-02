@@ -9,4 +9,5 @@ public interface ReviewMapper {
 	public int insertReview(ReviewVO vo);
 
 	public List<ReviewVO> reviewList(int clothNo);
+	public double selectGrade(int cNo);
 }

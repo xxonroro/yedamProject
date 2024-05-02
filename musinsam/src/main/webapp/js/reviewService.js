@@ -109,14 +109,10 @@ svc.reviewList(cNo,function(result){
 	})
 
 })
-/*let starSum =[...document.getElementBy]
-
-function starAvg(){
-  
+function gradeAvgCal(){ 
+	let rating= [1,2,3,4,5];
 	
 }
-*/
-
 
 
 
