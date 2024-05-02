@@ -210,9 +210,6 @@ public class FrontControl extends HttpServlet {
 
 
 
-<<<<<<< HEAD
-=======
-
 		
 		
 		
@@ -220,17 +217,6 @@ public class FrontControl extends HttpServlet {
 		
 		
 		
-		
-		
-		
-		
-		
-
-    
-		
-		
-		
->>>>>>> branch 'main' of https://github.com/xxonroro/yedamProject.git
     
 		//상지현
 		map.put("/getProduct.do", new GetProductControl());  
