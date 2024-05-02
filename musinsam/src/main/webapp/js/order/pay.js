@@ -140,7 +140,7 @@
 			alert('배송지 정보를 입력해주세요.');
 			return;
 		}
-        let buyer_pay = parseInt($('.pay_order span').text());
+        let buyer_cnt = parseInt($('.pay_order span').text());
 		
 		if(userId != ''){
 			
@@ -152,7 +152,7 @@
 					pay_method: "card", // 생략가능
 					merchant_uid: "IMP" + makeMerchantUid, // 상점에서 생성한 고유 주문번호
 					name: userId,
-					amount: buyer_pay,
+					amount: buyer_cnt,
 					//buyer_email: "test@portone.io",
 					buyer_name: buyer_name,
 					buyer_tel: buyer_tel,
@@ -172,7 +172,7 @@
 						for(let i =0; i < $('[cloth_id]').length; i++){
 							cno.push($('[cloth_id]:eq("' + i +'")').attr('cloth_id'));
 							cnt.push($('[cloth_id]:eq("' + i +'") td:eq(3) h4').text());
-							prc.push(parseInt($('[cloth_id]:eq("' + i +'") td:eq(4) h5').text()));
+							prc.push(parseInt($('[cloth_id]:eq("' + i +'") td:eq(4) h5').text().replaceAll(",","")));
 							csz.push($('[cloth_id]:eq("' + i +'") td:eq(2) h4').text());
 							no.push($('[cloth_id]:eq("' + i +'")').attr('basket_id'));
 						}
