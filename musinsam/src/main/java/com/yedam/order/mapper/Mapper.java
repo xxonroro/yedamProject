@@ -28,4 +28,7 @@ public interface Mapper {
 	public List<UserVO> userInfo(String uid);
 	public int insertOrder(OrderVO ovo);
 	public int downStock(StockVO svo);
+	
+	public List<BasketVO> cartProduct(BasketVO bvo);
+	public List<LikeVO> likeProduct(LikeVO lvo);
 }

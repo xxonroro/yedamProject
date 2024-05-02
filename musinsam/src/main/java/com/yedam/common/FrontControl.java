@@ -53,6 +53,7 @@ import com.yedam.member.OrderInqueryList;
 import com.yedam.member.PhoneCheck;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
+import com.yedam.order.control.CartProduct;
 import com.yedam.order.control.CountLike;
 import com.yedam.order.control.DownStock;
 import com.yedam.order.control.InsertCartIcon;
@@ -60,6 +61,7 @@ import com.yedam.order.control.InsertLike;
 import com.yedam.order.control.InsertOrder;
 import com.yedam.order.control.Like;
 import com.yedam.order.control.LikeList;
+import com.yedam.order.control.LikeProduect;
 import com.yedam.order.control.Pay;
 import com.yedam.order.control.PayList;
 import com.yedam.order.control.RemoveCart;
@@ -147,9 +149,9 @@ public class FrontControl extends HttpServlet {
 		map.put("/downStock.do", new DownStock());
 	
 		
-		
-		
-		
+		//단건조회
+		map.put("/cartProduct.do", new CartProduct());
+		map.put("/likeProduct.do", new LikeProduect());
 		
 		
 		

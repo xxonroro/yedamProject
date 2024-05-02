@@ -93,4 +93,13 @@ public class ServiceImpl implements Service{
 		return mapper.downStock(svo) == 1;
 	}
 	
+	@Override
+	public List<BasketVO> cartProduct(BasketVO bvo) {
+		return mapper.cartProduct(bvo);
+	}
+	
+	@Override
+	public List<LikeVO> likeProduct(LikeVO lvo) {
+		return mapper.likeProduct(lvo);
+	}
 }
