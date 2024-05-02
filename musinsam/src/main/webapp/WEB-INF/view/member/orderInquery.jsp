@@ -1148,7 +1148,11 @@ a {
         let img = document.createElement("img");
         img.setAttribute("src", "img/cloth/" + order[field] + ".jpg");
         img.style.height = "100px";
+
         img.style.width = "100px";
+
+
+
         img.style.margin = "0 20px 0 50px";
         td.appendChild(img);
 

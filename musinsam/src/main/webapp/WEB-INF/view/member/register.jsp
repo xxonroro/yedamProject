@@ -24,7 +24,7 @@
           <input type="text" class="form-control" id="address" name="address" placeholder="주소" required/>
         </div>
         <div class="col-md-12 form-group">
-          <input type="text" class="form-control" id="phone" name="phone" placeholder="휴대폰 번호" required/>
+          <input type="text" class="form-control" id="phone" name="phone" placeholder="휴대폰 번호" required maxlength="13"/>
           <button type="submit" id="phoneCheckBtn">중복 체크</button>
         </div>
         <div class="col-md-12 form-group">
@@ -177,6 +177,29 @@ submitBtn.addEventListener("click", function(event) {
   }
 })
 
+
+// 폰
+let phone = document.querySelector(".form-group #phone");
+
+phone.addEventListener("input", function(event) {
+  let input = this.value;
+  input = input.replace(/[^0-9]/g, ''); // ^(not), /g(global(전체)), 정규표현식은 /로 시작한다.  0부터 9 사이의 숫자인 문자열을 제외한 모든 문자열을 빈 문자열로 대체한다.
+
+  let formatted = '';
+
+  if (input.length > 3) {
+    formatted = input.substring(0, 3) + '-';
+    if (input.length > 7) {
+      formatted += input.substring(3, 7) + '-' + input.substring(7);
+    } else {
+      formatted += input.substring(3);
+    }
+  } else {
+    formatted = input;
+  }
+  
+  this.value = formatted;
+});
 
 </script>
 

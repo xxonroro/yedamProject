@@ -59,6 +59,7 @@
 		<strong></strong>
 	</div>
 </div>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 	  <div class="modal-content">
@@ -83,9 +84,10 @@
 
 <script>
 	
-	var myModal = new bootstrap.Modal(document.getElementById('exampleModalLabel'), {
-        keyboard: false
-    });
+	var exampleModal = $('#exampleModal').modal({
+  keyboard: false,
+  show: false,
+});
 	
 	// 모달 관련 요소
 	const modalFooter = document.querySelector(".modal-footer");
@@ -144,17 +146,30 @@
                     modal.classList.add("hidden");
                 });
             } else {
-                myModal.show();
+                $('#exampleModal').modal('show');
                 changeBtn.addEventListener("click", function(event) {
                     fetch("modifyUserPass.do", {
                         method: "post",
                         headers: {"Content-Type": "application/x-www-form-urlencoded"},
-                        body: "newPass=" + input.value + "&id=" + result.id
+                        body: "newPass=" + input.value + "&pass=" + result.pass + "&id=" + findId.value
                     })
                     .then(response => response.json())
                     .then(result => {
-                       if(result.change == "o") {
+                       if(result.change == "x") {
+							const parent = modalFooter.parentNode;
+							const existingSpan = parent.querySelector("span");
 
+							if(existingSpan) {
+								existingSpan.remove();
+							}
+							const span = document.createElement("span");
+							span.innerText = "새로운 비밀번호를 입력하세요";
+							span.style.color = "red";
+							span.style.textAlign = "center";
+							modalFooter.parentNode.insertBefore(span, modalFooter);
+					   }
+					   else {
+							location.href = result.redirectUrl;
 					   }
                     })
                     .catch(error => {

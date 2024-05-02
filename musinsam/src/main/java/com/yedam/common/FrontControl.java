@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.admin.InsProTable;
 import com.yedam.admin.InsertProduct;
+import com.yedam.admin.ProdList;
 import com.yedam.admin.SelCate;
 import com.yedam.admin.SelProduct;
 import com.yedam.admin.SetProductControl;
 import com.yedam.admin.UptProduct;
 import com.yedam.admin.UptSale;
+import com.yedam.admin.manageProd;
 import com.yedam.admin.selSale;
 import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
@@ -31,6 +33,7 @@ import com.yedam.category.CategoryListPants;
 import com.yedam.category.RandomMain;
 import com.yedam.category.RandomMain8;
 import com.yedam.category.SearchCate;
+import com.yedam.category.UserinfoForm;
 import com.yedam.main.MainControl;
 import com.yedam.member.FindUserId;
 import com.yedam.member.FindUserIdForm;
@@ -45,7 +48,6 @@ import com.yedam.member.MemberRegistration;
 import com.yedam.member.ModifyMemberInfo;
 import com.yedam.member.ModifyMemberInfoForm;
 import com.yedam.member.ModifyUserPass;
-import com.yedam.member.MypageForm;
 import com.yedam.member.OrderInquery;
 import com.yedam.member.OrderInqueryList;
 import com.yedam.member.PhoneCheck;
@@ -73,7 +75,6 @@ import com.yedam.product.ReviewList;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
 import com.yedam.question.QuestionSearch;
-
 
 public class FrontControl extends HttpServlet {
 	Map<String, Control> map;
@@ -159,21 +160,21 @@ public class FrontControl extends HttpServlet {
 		
 
 		//한승민
-		map.put("/cateform.do", new Cateform());
+		map.put("/cateform.do", new Cateform()); //페이지 이동
 		map.put("/category.do", new CategoryList());
-		map.put("/categorypants.do", new CategoryListPants());
+		map.put("/categorypants.do", new CategoryListPants());// x
 
-		map.put("/catelist.do", new CateList()); //검색
+		map.put("/catelist.do", new CateList());
 		map.put("/searchcate.do", new SearchCate()); //검색   
-		map.put("/cateCount.do", new CateCount());
+		map.put("/cateCount.do", new CateCount()); //항목별 개수
 		map.put("/cateSort.do", new CateSort()); //정렬		
-		map.put("/cateSort2.do", new CateSort2()); //정렬		
+		map.put("/cateSort2.do", new CateSort2()); //정렬	main	
 	
     		
 		map.put("/randomMain.do", new RandomMain());
 		map.put("/randomMain8.do", new RandomMain8());
 		map.put("/bestproduct.do", new BestSeller());    
-    
+		map.put("/userinfoForm.do", new UserinfoForm());// 페이지이동
     
     
     
@@ -204,6 +205,8 @@ public class FrontControl extends HttpServlet {
 		map.put("/insertProd.do", new InsertProduct());
 		map.put("/selCate.do", new SelCate());
 		map.put("/insProd.do", new InsProTable());
+		map.put("/manageProd.do", new manageProd());
+		map.put("/prodList.do", new ProdList());
 
 
 

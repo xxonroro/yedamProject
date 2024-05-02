@@ -16,6 +16,7 @@ public interface CategoryMapper {
 	public List<ClothesVO> categoryList(String cate);
 	
 	public int categoryCount(String cate);
+	public int productCount();
 	
 	public int selectCount(SearchVO search);
 	
@@ -25,7 +26,8 @@ public interface CategoryMapper {
 	
 	
 	public List<ClothesVO> clothListsort(String cate);
-	public List<ClothesVO> clothListsort2(@Param("bigCategory")String bigCategory, @Param("orderby")String orderby, @Param("searchword")String searchword);
+	public List<ClothesVO> clothListsort2(@Param("bigCategory")String bigCategory, @Param("orderby")String orderby, 
+									@Param("searchword")String searchword, @Param("page")int page);
 
 	
 

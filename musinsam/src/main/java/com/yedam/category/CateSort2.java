@@ -1,7 +1,9 @@
 package com.yedam.category;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,14 +24,26 @@ public class CateSort2 implements Control {
 		String orderby = request.getParameter("orderby"); // order by ()에 들어가는
 		String searchword = request.getParameter("searchword"); // 검색어
 		
-		
+		String page = request.getParameter("page");
+		page = page == null ? "1" : page;
+		int page2 = Integer.parseInt(page);
 		
 		CategoryService csv = new CategoryServiceImpl();
 		
-		List<ClothesVO> list = csv.clothesListSort2(bigCategory, orderby, searchword);
+		List<ClothesVO> list = csv.clothesListSort2(bigCategory, orderby, searchword, page2);
+		
+		int a = csv.productCount();
+		
+		PageDTO pg = new PageDTO(page2, a);
+		
+		//map형태로 변환해서 pagedto 같이 넣어줘야됨
+		Map<String, Object> map = new HashMap<>();
+		map.put("list", list);
+		map.put("pg", pg);
+		
 		
 		Gson gson = new GsonBuilder().create();
-		String json = gson.toJson(list);
+		String json = gson.toJson(map);
 		
 		response.getWriter().print(json);
 
