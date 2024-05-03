@@ -13,7 +13,7 @@ $('.headQa').find('p').css({"padding":"20px", "border-top":"3px solid black"
 
 
 $('.arow').css({'font-family':'Nanum Gothic Coding' ,"display":"block"})
-$('.arow').find('p').css({"font-size": "25px", "padding":"20px"});
+$('.arow').find('p').css({"font-size": "18px", "padding":"20px"});
 $('.answer').find('p').css({"font-size": "15px"});
 $('.arow').find('span').css({"padding-right":"60px", "font-size":"15px" ,"padding-left":"20px" });
 
