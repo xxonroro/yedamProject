@@ -24,18 +24,19 @@
             <h3 style="margin:100px 0px;text-align:center">ha</h3>
               <div class="col-md-3 col-lg-2" id = "singleCoodi">
                 <div class="card text-center card-product">
-                  <div class="card-product__img">
+                  <div class="card-product__img" >
                     <img class="card-img" src="img/product/product1.png" alt="">
-                    <ul class="card-product__imgOverlay">
+                    <ul class="card-product__imgOverlay" style ="width:200px">
                       <li><a target='_blank'><button><i class="ti-search" ></i></button></a></li>
-                      <li><button><i class="ti-shopping-cart"></i></button></li>
-                      <li><button><i class="ti-heart"></i></button></li>
+                      <li><a target='_blank'><button><i class="ti-shopping-cart"></i></button></a></li>
+                      <li><a target='_blank'><button><i class="ti-heart"></i></button></a></li>
                     </ul>
                   </div>
                   <div class="card-body">
                     <p>Accessories</p>
-                    <h6 class="card-product__title"><a href="#">Quartz Belt Watch</a></h6>
-                    <p class="card-product__price">$150.00</p>
+                    <a href="#"><h6 class="card-product__title">Quartz Belt Watch</h6></a>	
+                    <p class="card-product__price">$150.00<span></span></p>
+                    <p class="card-product__price"></p>
                   </div>
                 </div>
               </div>
@@ -44,21 +45,16 @@
              
               
             </section>
-  <!--================todayCoodi Area =================-->
-
-  <!--================Blog Area =================-->
-  
-  <!--================Blog Area =================-->
-
-
-  
-
-  <!--================ Start footer Area  =================-->	
-	
-	<!--================ End footer Area  =================-->
+            
+            <script>
+			   let userId = "${sessionScope.userId}"
+			</script>
 
 
 
+  <script type="text/javascript" src="js/order/likeService.js"></script>
+  <script type="text/javascript" src="js/order/cartService.js"></script>
+  <script type="text/javascript" src="js/order/like.js"></script>
   <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="vendors/skrollr.min.js"></script>

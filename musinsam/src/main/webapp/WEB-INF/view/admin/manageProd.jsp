@@ -45,7 +45,7 @@
 				</div>
 			</div>
 		</div>
-		<div id ="listNum">
+		<div id ="listNum" style = "font-size:1.2rem">
 			
 		</div>
 		
