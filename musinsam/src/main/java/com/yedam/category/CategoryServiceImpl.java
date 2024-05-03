@@ -12,24 +12,7 @@ public class CategoryServiceImpl implements CategoryService {
 	SqlSession session = DataSource.getInstance().openSession(true);
 	CategoryMapper mapper = session.getMapper(CategoryMapper.class);
 	
-	@Override
-	public List<ClothesVO> clothesList() {
-		
-		return mapper.clothList();
-	}
 
-	@Override
-	public List<ClothesVO> clothesListPants() {
-		
-		return mapper.clothListpants();
-	}
-
-
-	@Override
-	public List<ClothesVO> cateList(String cate) {
-		
-		return mapper.categoryList(cate);
-	}
 
 	@Override
 	public int getCount(SearchVO search) {
@@ -40,9 +23,9 @@ public class CategoryServiceImpl implements CategoryService {
 
 
 	@Override
-	public List<ClothesVO> searchList(String searchword, String orderby) {
+	public List<ClothesVO> searchList(String searchword, String orderby, int page, int prod) {
 		
-		return mapper.searchList(searchword, orderby);
+		return mapper.searchList(searchword, orderby, page, prod);
 	}
 
 	@Override
@@ -77,15 +60,21 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public List<ClothesVO> clothesListSort2(String bigCategory, String orderby, String searchword, int page) {
+	public List<ClothesVO> clothesListSort2(String bigCategory, String orderby, String searchword, int page, int prod) {
 		
-		return mapper.clothListsort2(bigCategory, orderby, searchword, page);
+		return mapper.clothListsort2(bigCategory, orderby, searchword, page, prod);
 	}
 
 	@Override
 	public int productCount() {
 		
 		return mapper.productCount();
+	}
+
+	@Override
+	public int searchCount(String searchword) {
+		
+		return mapper.searchCount(searchword);
 	}
 
 
