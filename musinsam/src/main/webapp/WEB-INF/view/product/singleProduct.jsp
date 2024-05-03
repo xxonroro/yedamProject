@@ -17,43 +17,20 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-5 offset-lg-1">
-				<div class="s_product_text">
-					<h3>${pinfo.clothName}</h3>
-					<h2>${pinfo.price}</h2>
-					<ul class="list">
-						<li><a class="active" href="#"><span>카테고리</span>${pinfo.smallCategory}</a></li>
-						<li><a href="#"><span>브랜드</span>${pinfo.brand}</a></li>
-						<li><a href="#" style="display: none"><span
-								style="display: none">의류번호</span>${pinfo.clothNo}</a></li>
-						<li><a href="#"><span>사이즈</span>${pinfo.csize}</a></li>
-						<!-- 선택 기능으로 구현 -->
-
-					</ul>
-					<!--<p>상품 설명</p> : 이미지로 대체-->
-					<div class="product_count">
-						<div>
-
-							<c:choose>
-								<c:when test="${sessionScope.authority == 1 }">
-									<a class="button cart-btn"
-										href="http://localhost:8080/musinsam/setProd.do?clothNo=${pinfo.clothNo}&clothName=${pinfo.clothName}">상품
-										관리</a>
-									</li>
-								</c:when>
-								<c:otherwise>
-									<a class="button price-ptn" href="#">구매하기</a>
-									</li>
-									<a class="button cart-btn" href="#">장바구니 담기 </a>
-									</li>
-								</c:otherwise>
-							</c:choose>
+			
 
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
 						<h3>${pinfo.clothName}</h3>
+					<c:choose>
+						<c:when test="${pinfo.discountRate == 0 }">
+							<h2>${pinfo.price}</h2>
+						</c:when>
+						<c:otherwise>
 							<s style="font-size: 20px"><i>${pinfo.price}</i></s>
-							<h2>${pinfo.price* (1-pinfo.discountRate)}</h2>
+							<h2>${Math.round((pinfo.price* (1-pinfo.discountRate))/100).intValue() * 100}</h2>
+						</c:otherwise>
+					</c:choose>
 					<ul class="list">
 							<li><a class="active" href="#"><span>카테고리</span>${pinfo.smallCategory}</a></li>
 							<li><a href="#"><span>브랜드</span>${pinfo.brand}</a></li>
@@ -74,7 +51,7 @@
 							  		<a class="button cart-btn" href="#">장바구니 담기 </a></li>
 								   </c:otherwise>
 							   </c:choose>
-   							</div>		          
+	          
 
 						</div>
 					</div>

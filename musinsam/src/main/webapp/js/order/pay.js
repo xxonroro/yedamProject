@@ -76,14 +76,14 @@
 		temp.find('.media-body a').attr('onclick','javascript:payment.clickProduct('+pay.CLOTH_NO+');');
 		
 		temp.find('td h5:eq(0)').before('<s><i>' + pay.PRICE +'원 </i></s>');
-		temp.find('td h5:eq(0)').text(Math.round((prc / 10) * 10).formatNumber() + '원');
+		temp.find('td h5:eq(0)').text(Math.round((prc / 100)).formatNumber() * 100 + '원');
 		temp.find('td h5:eq(0)').attr('class', 'price' + pay.BASKET_NO);
 		if(pay.DISCOUNT_RATE == 0){
 			temp.find('td s').css('display', 'none');
 		}
 		
 		temp.find('.product_count h4').text(pay.BASKET_CNT);
-		temp.find('td h5:eq(1)').text(Math.round((prc * pay.BASKET_CNT / 10) * 10).formatNumber() + '원');
+		temp.find('td h5:eq(1)').text(Math.round((prc * pay.BASKET_CNT / 100)).formatNumber() * 100 + '원');
 		temp.find('td h5:eq(1)').attr('class', 't_price' + pay.BASKET_NO);
 		return temp;
 	},

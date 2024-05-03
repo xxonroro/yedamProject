@@ -1,10 +1,26 @@
 /**
  * 
  */
+
+Number.prototype.formatNumber = function() {
+	if (this == 0)
+		return 0;
+	let regex = /(^[+-]?\d+)(\d{3})/;
+	let nstr = (this + '');
+	while (regex.test(nstr)) {
+		nstr = nstr.replace(regex, '$1' + ',' + '$2');
+	}
+	return nstr;
+}; 
  
 const prod = {
 
 list : function(){ //값 받기
+
+		let prc = parseInt($('.s_product_text h2').text());
+		$('.s_product_text h2').text(prc.formatNumber() + ' 원');
+		$('.s_product_text h2').css('margin-bottom', '20px');
+		$('.product_count').css('margin-top', '30px');
 		 
 		let no = parseInt($('[style="display:none"] span').parent().text().replace('의류번호',''));
 		 $('.button.cart-btn').attr('onclick', 'javascript:prod.clickProductCart(' + no + ');');
@@ -61,9 +77,7 @@ list : function(){ //값 받기
 		}
 	},
 	clickOneOrder(no){
-		var bkId = new Array();
-		var csize = new Array();
-		var cnt = new Array();
+		
 	}
 
 }
