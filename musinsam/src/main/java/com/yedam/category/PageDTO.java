@@ -11,7 +11,7 @@ public class PageDTO {
 	private int pgnum = 5; // 페이지를 몇개표시
 	
 	
-	public PageDTO(int page, int totalCnt) {
+	public PageDTO(int page, int totalCnt, int prod) {
 		this.page = page;
 		realEnd = (int) Math.ceil(totalCnt/(double)prod);
 		this.endPage = (int) Math.ceil(page/(double)pgnum) * pgnum;

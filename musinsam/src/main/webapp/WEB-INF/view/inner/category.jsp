@@ -15,14 +15,19 @@ let userId = "${sessionScope.userId}"
 <script type="text/javascript" src="js/order/like.js"></script>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <style>
+#page{
+	text-align:center;
+}
 
 .pagination {
   display: inline-block;
+  text-align:center;
+  padding-left :50%;
 }
 
 .pagination a {
   color: black;
-  float: left;
+
   padding: 8px 16px;
   text-decoration: none;
   transition: background-color .3s;
@@ -171,15 +176,15 @@ let userId = "${sessionScope.userId}"
 							<option value="cnt">구매적은순</option>
 						</select>
 					</div>
-					<!-- 
-					<div class="sorting mr-auto">
-						<select>
-							<option value="1">show all</option>
-							<option value="1">show all</option>
-							<option value="1">show all</option>
+				
+					<div class="sorting">
+						<select id="selectsort2">
+							<option value="6">Show 6</option>
+							<option value="9">show 9</option>
+							<option value="12">show 12</option>
 						</select>
 					</div>
-					 -->
+				
 					<div>
 						<div class="input-group filter-bar-search">
 							<input type="text" placeholder="Search" id="searchdo">
@@ -236,8 +241,10 @@ let userId = "${sessionScope.userId}"
 			</div>
 		</div>
 	</div>
+	<div >
 	<div id="page" class="pagination" >
 	<p>---------------------------여기---------------------------</p>
+	</div>
 	</div>
 </section>
 
