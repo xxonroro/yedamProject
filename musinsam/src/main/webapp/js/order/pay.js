@@ -2,8 +2,6 @@
  * 
  */
 
- console.log('start');
- 
  Number.prototype.formatNumber = function() {
 	if (this == 0)
 		return 0;
@@ -27,7 +25,7 @@
 		 let dis = 0;
 		 
 		 pvc.cartList(no, function(result){ //본문
-			 console.log(result);
+			 //console.log(result);
 			 
 			 result.forEach(pay =>{				
 				let temp = payment.makeList(pay);				
@@ -52,7 +50,7 @@
 			 
 			 
 			 pvc.userInfo(userId, function(result){ //주문자 정보
-				 console.log(result);
+				 //console.log(result);
 				 
 				 result.forEach(user => {
 					 $('#name').val(user.name);
@@ -142,7 +140,7 @@
 			alert('배송지 정보를 입력해주세요.');
 			return;
 		}
-        let buyer_cnt = parseInt($('.pay_order span').text());
+        let buyer_cnt = parseInt($('.pay_order span').text().replaceAll(",",""));
 		
 		if(userId != ''){
 			
@@ -164,7 +162,7 @@
 				},
 				function(rsp) {
 					if (rsp.success) { //결제 성공시
-                    	console.log(rsp);
+                    	//console.log(rsp);
 						var cno = new Array();
 						var cnt = new Array();
 						var prc = new Array();
@@ -179,7 +177,7 @@
 							no.push($('[cloth_id]:eq("' + i +'")').attr('basket_id'));
 						}
 						
-						let del = 1;
+						let del = '배송중';
 						let rec = $('#order_name').val();
 						let phn = $('#order_number').val();
 						let adr = $('#address').val();

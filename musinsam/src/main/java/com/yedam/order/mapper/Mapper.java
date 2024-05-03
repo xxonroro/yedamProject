@@ -17,12 +17,12 @@ public interface Mapper {
 	public int removeCart(int no);
 	public List<Map<String, Object>> csizeList(int no);
 	
-	public List<Map<String, Object>> likeList(@Param("userId") String uid, @Param("page") int page, @Param("maxPg") int maxPg);
+	public List<Map<String, Object>> likeList(@Param("userId") String uid, @Param("bigCategory") String bigCategory, @Param("page") int page, @Param("maxPg") int maxPg);
 	public int removeLike(LikeVO lvo);
 	public int insertLike(LikeVO lvo);
 	public int insertCartIcon(BasketVO bvo);
 	public int removeCartIcon(BasketVO bvo);
-	public int CountLike(String uid);
+	public int CountLike(@Param("userId") String uid, @Param("bigCategory") String bigCategory);
 	
 	public List<Map<String, Object>> payList(@Param("basketNo") int no);
 	public List<UserVO> userInfo(String uid);

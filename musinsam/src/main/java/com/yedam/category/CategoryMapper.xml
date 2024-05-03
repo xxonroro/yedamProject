@@ -46,34 +46,32 @@
 		 
 		</select>
 	   -->
-	  <select id="clothList" parameterType="com.yedam.category.ClothesVO">
-	  select *
-	  from clothes
-	  order by cloth_no desc
-	  </select>
-	  
-	  <select id="clothListpants" parameterType="com.yedam.category.ClothesVO">
-		select *
-		from clothes left outer join category
-		on clothes.small_category = category.small_category
-		where big_category = '바지'
-	  </select>
-	  
-	  <select id="categoryList" parameterType="com.yedam.category.ClothesVO">
-		select *
-		from clothes left outer join category
-		on clothes.small_category = category.small_category
-		where big_category = #{cate}
-	  </select>
-	  
+
 	  
 	  <select id="searchList" parameterType="com.yedam.category.ClothesVO">
-	  	select *
-		from clothes
-		where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%'
-		order by ${orderby}
-	  </select>
+		select * from(select rownum rs, a.* from
+		(select * from clothes 
+		where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%' 
+		<choose>
+			<when test = "orderby != null and orderby != ''">
+				order by ${orderby}
+			</when>
+			
+			<otherwise>
+				order by cloth_no desc
+			</otherwise>
+		</choose>
+		) a  where rownum <![CDATA[<= ]]> (#{page}) * (#{prod}) <!-- (#{page}-1) * 12 -->
 
+		)where rs > (#{page}-1) * (#{prod})<!-- (#{page} * 12) -->
+	  </select>
+	 
+	 <select id="searchCount" parameterType="string" resultType="int">
+		select count(*)
+		from clothes
+		where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%' 
+	  </select>
+	
 	  
 	 <select id="categoryCount" parameterType="string" resultType="int">
 		select count(*)
@@ -134,9 +132,9 @@
 				order by cloth_no desc
 			</otherwise>
 		</choose>
-		) a  where rownum <![CDATA[<= ]]> (#{page}) * 12 <!-- (#{page}-1) * 12 -->
+		) a  where rownum <![CDATA[<= ]]> (#{page}) * (#{prod}) <!-- (#{page}-1) * 12 -->
 
-		)where rs > (#{page}-1) * 12<!-- (#{page} * 12) -->
+		)where rs > (#{page}-1) *  (#{prod})<!-- (#{page} * 12) -->
 
 	 </select>
 	 

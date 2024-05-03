@@ -44,11 +44,11 @@
 							    
 							   <c:choose>
 								   <c:when test="${sessionScope.authority == 1 }">
-								  	 <a class="button cart-btn" href="http://localhost:8080/musinsam/setProd.do?clothNo=${pinfo.clothNo}&clothName=${pinfo.clothName}" >상품 관리</a></li>   
+								  	 <a class="button cart-btn" href="setProd.do?clothNo=${pinfo.clothNo}&clothName=${pinfo.clothName}" >상품 관리</a></li>   
 								   </c:when>
 								   <c:otherwise>
 								   	<a class="button price-ptn" href="#">구매하기</a></li>
-							  		<a class="button cart-btn" href="#">장바구니 담기 </a></li>
+							  		<a class="button cart-btn" href="javascript:void(0)">장바구니 담기 </a></li>
 								   </c:otherwise>
 							   </c:choose>
 	          

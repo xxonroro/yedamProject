@@ -12,8 +12,9 @@ public interface CategoryMapper {
 	public List<ClothesVO> clothList();
 	public List<ClothesVO> clothListpants();
 	
-	public List<ClothesVO> searchList(@Param("searchword")String searchword, @Param("orderby")String orderby);
-	public List<ClothesVO> categoryList(String cate);
+	public List<ClothesVO> searchList(@Param("searchword")String searchword, @Param("orderby")String orderby,  @Param("page")int page, @Param("prod")int prod);
+	public int searchCount(String searchword); //검색 개수
+	
 	
 	public int categoryCount(String cate);
 	public int productCount();
@@ -27,7 +28,7 @@ public interface CategoryMapper {
 	
 	public List<ClothesVO> clothListsort(String cate);
 	public List<ClothesVO> clothListsort2(@Param("bigCategory")String bigCategory, @Param("orderby")String orderby, 
-									@Param("searchword")String searchword, @Param("page")int page);
+									@Param("searchword")String searchword, @Param("page")int page,  @Param("prod")int prod);
 
 	
 
