@@ -48,7 +48,7 @@
 								   </c:when>
 								   <c:otherwise>
 								   	<a class="button price-ptn" href="#">구매하기</a></li>
-							  		<a class="button cart-btn" href="#">장바구니 담기 </a></li>
+							  		<a class="button cart-btn" href="javascript:void(0)">장바구니 담기 </a></li>
 								   </c:otherwise>
 							   </c:choose>
 	          
@@ -56,8 +56,8 @@
 						</div>
 					</div>
 					<div class="card_area d-flex align-items-center">
-						<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
-						<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+						<a class="icon_btn" href="javascript:void(0)"><i class="lnr lnr lnr-diamond"></i></a>
+						<a class="icon_btn" href="javascript:void(0)"><i class="lnr lnr lnr-heart"></i></a>
 					</div>
 				</div>
 			</div>
@@ -94,16 +94,16 @@
 								<div class="box_total">
 									<h5>별점 평균</h5>
 									<h4>
-										<span class="avg"></span>
+										<span id="grade_avg"></span>
 									</h4>
-									<!-- 평균 입력 -->
-									<h6>(nn개의 리뷰)</h6>
+									<!-- 평균 입력 -->     <!-- 리뷰 개수랑 평균은 sql 함수 이용 -->
+									<h6>( <span id="grade_count"></span> 개의 리뷰)</h6>  
 									<!-- 리뷰 개수 입력 -->
 								</div>
 							</div>
 							<div class="review_list"></div>
 						</div>
-						<body>
+
 							<div class="modal" id="modal">
 								<div class="modal_body" id="mb">
 									<h2>모달창 제목</h2>
@@ -111,7 +111,7 @@
 								</div>
 							</div>
 							<button class="btn-open-modal">modal 열기</button>
-						</body>
+	
 						<div class="col-lg-6">
 							<div class="review_box">
 								<h4>리뷰 등록</h4>
@@ -126,7 +126,7 @@
 								</ul>
 								<form action="#/" class="form-contact form-review mt-3">
 									<div class="form-group">
-										<input class="form-control" id="cNo" type="hidden"
+										<input class="form-control" id="clothNo" type="hidden"
 											placeholder="옷번호" value="${param.clothNo }" required>
 									</div>
 									<div class="form-group">

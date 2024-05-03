@@ -4,11 +4,11 @@
  //리뷰 등록
  const svc = {
 	 //get 방식 
-	 addReview(vo ={cNo,uid,detail,grade},successCall, errorCall){
+	 addReview(vo ={clothNo,uid,detail,grade},successCall, errorCall){
 		 fetch('addReview.do',{
 			 method:'post',
 			 headers:{'Content-Type':'application/x-www-form-urlencoded'},
-			 body:'cNo='+ vo.cNo + '&uid=' + vo.uid +'&detail=' + vo.detail + '&grade=' + vo.grade
+			 body:'clothNo='+ vo.clothNo + '&uid=' + vo.uid +'&detail=' + vo.detail + '&grade=' + vo.grade
 		 })
 		 .then(result => result.json())
 		 .then(successCall)
@@ -16,19 +16,27 @@
 	 },
 	 
 	 //post 방식
-	 reviewList(cNo,successCall){
-		 let url = 'reviewList.do?cNo=' + cNo;
+	 reviewList(clothNo,successCall){
+		 let url = 'reviewList.do?clothNo=' + clothNo;
 		 fetch(url)
 		 .then(result =>result.json())
 		 .then(successCall)
 		 .catch(err => console.error(err));
-	 }
+	 },
+	 
+	  getGrade(clothNo,successCall){
+		 let url = 'setGrade.do?clothNo=' + clothNo;
+		 fetch(url)
+		 .then(result =>result.json())
+		 .then(successCall)
+		 .catch(err => console.error(err));
+ 	 }
  }
  
  document.getElementById('addReview').addEventListener('click',function(e){
 	 console.log('yes');
-	 let cNo = document.getElementById('cNo').value;
-	  console.log(cNo);
+	 let clothNo = document.getElementById('clothNo').value;
+	  console.log(clothNo);
 	 let uid = document.getElementById('uid').value;
 	  console.log(uid);
 	 let detail = document.getElementById('textarea').value;
@@ -39,7 +47,7 @@
 	  console.log(starCount);
 
 	 let vo = {
-		 cNo:cNo,
+		 clothNo:clothNo,
 		 uid:uid,
 		 detail:detail,
 		 grade:starCount
@@ -78,9 +86,10 @@
  }
 
 executeRating(ratingStars);
-
-let cNo = document.getElementById('cNo').value;
-svc.reviewList(cNo,function(result){
+ //리뷰 조회 
+let clothNo = document.getElementById('clothNo').value;
+svc.reviewList(clothNo,function(result){
+	let gradSum =
 	result.forEach(elem =>{
 		let grade = "";
 		console.log(elem.grade);
@@ -109,6 +118,30 @@ svc.reviewList(cNo,function(result){
 	})
 
 })
+
+svc.getGrade(clothNo,function(result){
+	
+	console.log(result.AVG)
+	  $('#grade_avg').text(result.AVG);
+	  $('#grade_count').text(result.CNT);
+	  //document.getElementById('grade_count').value;
+	})
+
+
+//평균 평점 가져오기 
+
+//평균을 가져와서 ajax로 넘기기 방법 (등록X ,클릭 이벤트X ,화면에 들어가면 뜨도록)
+/*$.ajax({
+	url:'setAvg.do',
+	data: {clothNo:clothNo, gradAvg:$().val()},
+	method:'get',
+	dataType : 'json'
+})
+.done(function(result)){
+	$('#avg').text(result.)
+})*/
+
+
 
 
 /*let btnOpenModal = document.querySelector('.btn-open-modal');
