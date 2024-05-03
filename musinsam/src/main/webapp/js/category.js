@@ -33,8 +33,18 @@ function makeprod(page) {
 			temp2.find('div #img1').attr('src', 'img/cloth/' + cloth.clothName + '.jpg')
 			temp2.find('div #p1').text(cloth.brand);
 			temp2.find('div #name1').text(cloth.clothName);
-			temp2.find('div #p2').text((cloth.price.toLocaleString()) + "원");
+			temp2.attr('cloth_id', cloth.clothNo);
+			
+			if (cloth.discountRate > 0) {
+				temp2.find('.card-body p:eq(1)').text((cloth.price).toLocaleString() + ' 원');
+			}
+			temp2.find('.card-body p:eq(2)').text(Math.round((cloth.price * (1 - cloth.discountRate) / 10) * 10).toLocaleString() + '원');
+			//temp2.find('div #p2').text((cloth.price.toLocaleString()) + "원");
+
 			temp2.find('#div3 li a').attr('href', 'getProduct.do?clothNo=' + cloth.clothNo);
+			temp2.find('.ti-shopping-cart').parent().attr('onclick', 'javascript:wish.clickCart(' + cloth.clothNo + ');');
+			temp2.find('.ti-heart').parent().css('background', 'red');
+			temp2.find('.ti-heart').parent().attr('onclick', 'javascript:wish.clickLike(' + cloth.clothNo + ');');
 
 			temp2.appendTo('#section1');
 		})
@@ -44,7 +54,7 @@ function makeprod(page) {
 
 		let paging = clothes.pg; //onclick="movepage(${paging.startpage-1})
 		if (paging.prev) {
-			pagetag = '<a href ="#" onclick="makeprod(' + (paging.startPage-1) + ')">&laquo;</a>';
+			pagetag = '<a href ="#" onclick="makeprod(' + (paging.startPage - 1) + ')">&laquo;</a>';
 		}
 
 		for (let p = paging.startPage; p <= paging.endPage; p++) {
@@ -57,7 +67,7 @@ function makeprod(page) {
 
 		}
 		if (paging.next) {
-			pagetag += '<a href ="#" onclick="makeprod(' + (paging.endPage+1) + ')">&raquo;</a>'
+			pagetag += '<a href ="#" onclick="makeprod(' + (paging.endPage + 1) + ')">&raquo;</a>'
 		}
 
 
@@ -97,8 +107,18 @@ function makeprod2(page) {
 			temp2.find('div #img1').attr('src', 'img/cloth/' + cloth.clothName + '.jpg')
 			temp2.find('div #p1').text(cloth.brand);
 			temp2.find('div #name1').text(cloth.clothName);
-			temp2.find('div #p2').text((cloth.price.toLocaleString()) + "원");
+
+			if (cloth.discountRate > 0) {
+				temp2.find('.card-body p:eq(1)').text((cloth.price).toLocaleString() + ' 원');
+			}
+			temp2.find('.card-body p:eq(2)').text(Math.round((cloth.price * (1 - cloth.discountRate) / 10) * 10).toLocaleString() + '원');
+			//temp2.find('div #p2').text((cloth.price.toLocaleString()) + "원");
+			temp2.attr('cloth_id', cloth.clothNo);
 			temp2.find('#div3 li a').attr('href', 'getProduct.do?clothNo=' + cloth.clothNo);
+			
+			temp2.find('.ti-shopping-cart').parent().attr('onclick', 'javascript:wish.clickCart(' + cloth.clothNo + ');');
+			temp2.find('.ti-heart').parent().css('background', 'red');
+			temp2.find('.ti-heart').parent().attr('onclick', 'javascript:wish.clickLike(' + cloth.clothNo + ');');
 
 			temp2.appendTo('#section1');
 		})
@@ -108,7 +128,7 @@ function makeprod2(page) {
 
 		let paging = clothes.pg; //onclick="movepage(${paging.startpage-1})
 		if (paging.prev) {
-			pagetag = '<a href ="#" onclick="makeprod2(' + (paging.startPage-1) + ')">&laquo;</a>';
+			pagetag = '<a href ="#" onclick="makeprod2(' + (paging.startPage - 1) + ')">&laquo;</a>';
 		}
 
 		for (let p = paging.startPage; p <= paging.endPage; p++) {
@@ -121,7 +141,7 @@ function makeprod2(page) {
 
 		}
 		if (paging.next) {
-			pagetag += '<a href ="#" onclick="makeprod2(' + (paging.endPage+1) + ')">&raquo;</a>'
+			pagetag += '<a href ="#" onclick="makeprod2(' + (paging.endPage + 1) + ')">&raquo;</a>'
 		}
 
 
@@ -199,14 +219,14 @@ $(document).ready(function() {
 		}),
 		//정렬
 		$("#selectsort").on("change", function() {
-			
+
 			let bigCategory = $("input:radio[name=cate]:checked").length > 0 ? $("input:radio[name=cate]:checked").val() : '' // 상의 바지 아우터 신발
-			if(bigCategory != ''){
+			if (bigCategory != '') {
 				makeprod2(1)
-			}else{
-				makeprod(1);	
+			} else {
+				makeprod(1);
 			}
-			
+
 
 
 		})
