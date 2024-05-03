@@ -6,12 +6,11 @@ import java.util.List;
 
 public interface CategoryService {
 	
-	public List<ClothesVO> clothesList();
-	public List<ClothesVO> clothesListPants();
+
 
 	
-	public List<ClothesVO> searchList(String searchword, String orderby);
-	public List<ClothesVO> cateList(String cate);
+	public List<ClothesVO> searchList(String searchword, String orderby, int page, int prod);
+	public int searchCount(String searchword);
 	
 	public int categoryCount(String cate);
 	public int productCount();
@@ -24,7 +23,7 @@ public interface CategoryService {
 	
 	
 	public List<ClothesVO> clothesListSort(String cate);
-	public List<ClothesVO> clothesListSort2(String bigCategory, String orderby, String searchword, int page);
+	public List<ClothesVO> clothesListSort2(String bigCategory, String orderby, String searchword, int page, int prod);
 
 
 }

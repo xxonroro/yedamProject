@@ -4,7 +4,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
 <script src ="//cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
-   
+<script>
+let userId = "${sessionScope.userId}"
+</script>
+<script type="text/javascript" src="js/order/likeService.js"></script>
+<script type="text/javascript" src="js/order/cartService.js"></script>
+<script type="text/javascript" src="js/order/like.js"></script>
    <!--================ Hero Carousel start =================-->
    <section class="section-margin mt-0" id="sectionMain1">
     
@@ -66,8 +71,8 @@
                 <img class="card-img" src="img/product/product1.png" alt="">
                 <ul class="card-product__imgOverlay">
                   <li><a><button><i class="ti-search"></i></button></a></li>
-                  <li><button><i class="ti-shopping-cart"></i></button></li>
-                  <li><button><i class="ti-heart"></i></button></li>
+                  <!--   <li><button><i class="ti-shopping-cart"></i></button></li>
+                  <li><button><i class="ti-heart"></i></button></li>-->
                 </ul>
               </div>
               <div class="card-body">
@@ -93,8 +98,8 @@
               <img  src="img/product/product1.png" alt="사진없음" height="200px">
               <ul class="card-product__imgOverlay" id="ul1">
                 <li><a><button><i class="ti-search"></i></button></a></li>
-                <li><button><i class="ti-shopping-cart"></i></button></li>
-                <li><button><i class="ti-heart"></i></button></li>
+                <!-- <li><button><i class="ti-shopping-cart"></i></button></li>
+                <li><button><i class="ti-heart"></i></button></li> -->
               </ul>
             </div>
             <div class="card-body" id="content">
