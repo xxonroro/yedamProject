@@ -142,7 +142,7 @@
 			alert('배송지 정보를 입력해주세요.');
 			return;
 		}
-        let buyer_cnt = parseInt($('.pay_order span').text());
+        let buyer_cnt = parseInt($('.pay_order span').text().replaceAll(",",""));
 		
 		if(userId != ''){
 			
@@ -179,7 +179,7 @@
 							no.push($('[cloth_id]:eq("' + i +'")').attr('basket_id'));
 						}
 						
-						let del = 1;
+						let del = '배송중';
 						let rec = $('#order_name').val();
 						let phn = $('#order_number').val();
 						let adr = $('#address').val();
