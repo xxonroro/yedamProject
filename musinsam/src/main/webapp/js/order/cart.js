@@ -70,6 +70,8 @@ const basket = {
 	makeCart : function(cart){ //본문
 		let temp = $('tbody tr:eq(0)').clone();
 		let prc = cart.PRICE * (1 - cart.DISCOUNT_RATE);
+		let prc_ = Math.round(prc / 100) * 100;
+		let tprc_ = Math.round(prc * cart.BASKET_CNT / 100) * 100;
 		
 		temp.attr('basket_id', cart.BASKET_NO);
 		temp.attr('data-id', cart.CLOTH_NO);
@@ -81,7 +83,7 @@ const basket = {
 		if(cart.DISCOUNT_RATE > 0){
 			temp.find('td h5:eq(0)').before('<s><i>' + cart.PRICE +'원 </i></s>');
 		}
-		temp.find('td h5:eq(0)').text(Math.round((prc / 10) * 10).formatNumber() + '원');
+		temp.find('td h5:eq(0)').text(prc_.formatNumber() + '원');
 		temp.find('td h5:eq(0)').attr('class', 'price' + cart.BASKET_NO);
 		
 		temp.find('.current').text(" ");
@@ -91,13 +93,14 @@ const basket = {
 		
 		temp.find('.product_count input').attr('class', 'qty' + cart.BASKET_NO);
 		temp.find('div.product_count button').click(() => basket.changePNum(cart.BASKET_NO));
-		temp.find('td h5:eq(1)').text(Math.round((prc * cart.BASKET_CNT / 10) * 10).formatNumber() + '원');
+		temp.find('td h5:eq(1)').text(tprc_.formatNumber() + '원');
 		temp.find('td h5:eq(1)').attr('class', 't_price' + cart.BASKET_NO);
 		return temp;
 	}
 	,
 	reCalc() { //총 결제 예상금액 계산
-		$('.s_price').text(Math.round((basket.cartTotal / 10) * 10).formatNumber() + '원');
+		let cal = Math.round(basket.cartTotal / 100) * 100;
+		$('.s_price').text(cal.formatNumber() + '원');
 	},
 	
 	changePNum(no) { //수량

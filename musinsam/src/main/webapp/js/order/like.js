@@ -14,8 +14,9 @@ Number.prototype.formatNumber = function() {
 	return nstr;
 };
 
-const wish = {
+let lastClickTime = 0;
 
+const wish = {
 	list : function(){
 		let page = 1;
 		let maxPg = 8;
@@ -51,6 +52,7 @@ const wish = {
 	makeLike : function(like){ //본문
 	
 		let temp = $('.row:eq(1) div:eq(0)').clone();
+		let prc_ = Math.round(like.PRICE * (1 - like.DISCOUNT_RATE) / 100) * 100;
 
 		temp.attr('cloth_id', like.CLOTH_NO);
 		temp.removeAttr('style');
@@ -66,7 +68,7 @@ const wish = {
 		if (like.DISCOUNT_RATE > 0) {
 			temp.find('.card-body p:eq(1)').before('<s><i>' + like.PRICE + '원 </i></s>');
 		}
-		temp.find('.card-body p:eq(1)').text(Math.round((like.PRICE * (1 - like.DISCOUNT_RATE) / 10) * 10).formatNumber() + '원');
+		temp.find('.card-body p:eq(1)').text(prc_.formatNumber() + '원');
 
 		temp.find('.card-product__title a').attr('onclick', 'javascript:wish.clickProduct(' + like.CLOTH_NO + ');');
 		temp.find('.ti-search').parent().attr('onclick', 'javascript:wish.clickProduct(' + like.CLOTH_NO + ');');
@@ -286,6 +288,17 @@ const wish = {
 	},
 	
 	clickCart(no){ // 장바구니 아이콘 클릭
+		
+		let currentTime = new Date().getTime();
+		let timeDiff = currentTime - lastClickTime;
+	
+		if(timeDiff < 500){
+			e.preventDefault();
+			return;
+		}
+		
+		lastClickTime = currentTime;
+		
 		if($('[cloth_id="'+no+'"] .ti-shopping-cart').parent().attr('style') != 'background: red;'){
 			let cnt = 1;
 			let bvo = {cnt, userId, no}
@@ -307,6 +320,17 @@ const wish = {
 	},
 	
 	clickLike(no){ // 찜목록 아이콘 클릭
+	
+		let currentTime = new Date().getTime();
+		let timeDiff = currentTime - lastClickTime;
+	
+		if(timeDiff < 500){
+			e.preventDefault();
+			return;
+		}
+		
+		lastClickTime = currentTime;
+	
 		if($('[cloth_id="'+no+'"] .ti-heart').parent().attr('style') != 'background: red;'){
 			
 			let lvo={userId, no};

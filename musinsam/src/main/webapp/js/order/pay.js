@@ -46,9 +46,9 @@
 				 pay += pc * cnt;
 				 dis += (pc - dispc) * cnt;			  
 			 }
-			 $('.pay_sum span').text(pay + '원');
-			 $('.pay_discount span').text('-' +  dis + '원');
-			 $('.pay_order span').text(pay - dis + '원');
+			 $('.pay_sum span').text(pay.formatNumber() + '원');
+			 $('.pay_discount span').text('-' +  dis.formatNumber() + '원');
+			 $('.pay_order span').text((pay - dis).formatNumber() + '원');
 			 
 			 
 			 pvc.userInfo(userId, function(result){ //주문자 정보
@@ -67,6 +67,8 @@
 	makeList : function(pay){ //본문
 		let temp = $('tbody tr:eq(0)').clone();
 		let prc = pay.PRICE * (1 - pay.DISCOUNT_RATE);
+		let prc_ = Math.round(prc / 100) * 100;
+		let tprc_ = Math.round(prc * pay.BASKET_CNT / 100) * 100;
 		
 		temp.attr('basket_id', pay.BASKET_NO);
 		temp.attr('cloth_id', pay.CLOTH_NO);
@@ -76,14 +78,14 @@
 		temp.find('.media-body a').attr('onclick','javascript:payment.clickProduct('+pay.CLOTH_NO+');');
 		
 		temp.find('td h5:eq(0)').before('<s><i>' + pay.PRICE +'원 </i></s>');
-		temp.find('td h5:eq(0)').text(Math.round((prc / 10) * 10).formatNumber() + '원');
+		temp.find('td h5:eq(0)').text(prc_.formatNumber() + '원');
 		temp.find('td h5:eq(0)').attr('class', 'price' + pay.BASKET_NO);
 		if(pay.DISCOUNT_RATE == 0){
 			temp.find('td s').css('display', 'none');
 		}
 		
 		temp.find('.product_count h4').text(pay.BASKET_CNT);
-		temp.find('td h5:eq(1)').text(Math.round((prc * pay.BASKET_CNT / 10) * 10).formatNumber() + '원');
+		temp.find('td h5:eq(1)').text(tprc_.formatNumber() + '원');
 		temp.find('td h5:eq(1)').attr('class', 't_price' + pay.BASKET_NO);
 		return temp;
 	},
@@ -140,7 +142,7 @@
 			alert('배송지 정보를 입력해주세요.');
 			return;
 		}
-        let buyer_cnt = parseInt($('.pay_order span').text());
+        let buyer_cnt = parseInt($('.pay_order span').text().replaceAll(",",""));
 		
 		if(userId != ''){
 			
@@ -177,7 +179,7 @@
 							no.push($('[cloth_id]:eq("' + i +'")').attr('basket_id'));
 						}
 						
-						let del = 1;
+						let del = '배송중';
 						let rec = $('#order_name').val();
 						let phn = $('#order_number').val();
 						let adr = $('#address').val();

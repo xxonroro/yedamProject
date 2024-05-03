@@ -73,7 +73,9 @@
               <div class="card-body">
                 <p>Accessories</p>
                 <h4 class="card-product__title"><a href="single-product.html">Quartz Belt Watch</a></h4>
-                <p class="card-product__price">$150.00</p>
+                <p id="p2" style="text-decoration:line-through">원</p>
+                <p>$150.00</p>
+                
               </div>
               
             </div>
