@@ -48,7 +48,7 @@
 								   </c:when>
 								   <c:otherwise>
 								   	<a class="button price-ptn" href="#">구매하기</a></li>
-							  		<a class="button cart-btn" href="#">장바구니 담기 </a></li>
+							  		<a class="button cart-btn" href="javascript:void(0)">장바구니 담기 </a></li>
 								   </c:otherwise>
 							   </c:choose>
 	          
@@ -56,8 +56,8 @@
 						</div>
 					</div>
 					<div class="card_area d-flex align-items-center">
-						<a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
-						<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a>
+						<a class="icon_btn" href="javascript:void(0)"><i class="lnr lnr lnr-diamond"></i></a>
+						<a class="icon_btn" href="javascript:void(0)"><i class="lnr lnr lnr-heart"></i></a>
 					</div>
 				</div>
 			</div>

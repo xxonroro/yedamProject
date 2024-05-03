@@ -32,7 +32,7 @@
                           <tr align="center">
                               <th scope="col" width="65"><input type="checkbox" onclick="javascript:basket.changeChkAll();">&nbsp;</th>
                               <th scope="col"><b>상품명</b></th>
-                              <th scope="col" ><b>판매가</b></th>
+                              <th scope="col" width="130"><b>판매가</b></th>
                               <th scope="col" width="98"><b>사이즈</b></th>
                               <th scope="col" width="148"><b>수량</b></th>
                               <th scope="col" width="130"><b>주문금액</b></th>

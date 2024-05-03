@@ -18,7 +18,7 @@ let lastClickTime = 0;
 const prod = {
 		
 list : function(){ //값 받기
-		console.log(userId);
+		//console.log(userId);
 		let prc = parseInt($('.s_product_text h2').text());
 		$('.s_product_text h2').text(prc.formatNumber() + ' 원');
 		$('.s_product_text h2').css('margin-bottom', '20px');

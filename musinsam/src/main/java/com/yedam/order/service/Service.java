@@ -15,12 +15,12 @@ public interface Service {
 	public boolean removeCart(String st);
 	public List<Map<String, Object>> csizeList(int no);
 	
-	public List<Map<String, Object>> likeList(String uid, int page, int maxPg);
+	public List<Map<String, Object>> likeList(String uid, String bigCategory, int page, int maxPg);
 	public boolean removeLike(LikeVO lvo);
 	public boolean insertLike(LikeVO lvo);
 	public boolean insertCartIcon(BasketVO bvo);
 	public boolean removeCartIcon(BasketVO bvo);
-	public int CountLike(String uid);
+	public int CountLike(String uid, String bigCategory);
 	
 	public List<Map<String, Object>> payList(int no);
 	public List<UserVO> userInfo(String uid);

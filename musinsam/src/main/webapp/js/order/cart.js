@@ -1,7 +1,6 @@
 /**
  * 
  */
-console.log('start');
 
 Number.prototype.formatNumber = function() {
 	if (this == 0)
@@ -20,7 +19,7 @@ const basket = {
 	list : function(){
 
 		svc.cartList(userId, function(result){
-			console.log(result);
+			//console.log(result);
 			
 			//cartList
 			result.forEach(cart =>{				
