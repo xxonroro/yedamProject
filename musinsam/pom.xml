@@ -98,10 +98,6 @@
 					<source>11</source>
 					<target>11</target>
 					<encoding>UTF-8</encoding>
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'main' of https://github.com/xxonroro/yedamProject.git
 				</configuration>
 			</plugin>
 			<plugin>
