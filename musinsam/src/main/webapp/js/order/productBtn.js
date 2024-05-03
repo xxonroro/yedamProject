@@ -13,10 +13,12 @@ Number.prototype.formatNumber = function() {
 	return nstr;
 }; 
  
+let lastClickTime = 0; 
+
 const prod = {
-
+		
 list : function(){ //값 받기
-
+		console.log(userId);
 		let prc = parseInt($('.s_product_text h2').text());
 		$('.s_product_text h2').text(prc.formatNumber() + ' 원');
 		$('.s_product_text h2').css('margin-bottom', '20px');
@@ -41,6 +43,22 @@ list : function(){ //값 받기
 		 
 	},
 	clickProductCart(no){
+		
+		if(userId.value == null){
+			alert('로그인 해주세요');
+			return;
+		}
+		
+		let currentTime = new Date().getTime();
+		let timeDiff = currentTime - lastClickTime;
+	
+		if(timeDiff < 500){
+			e.preventDefault();
+			return;
+		}
+		
+		lastClickTime = currentTime;
+		
 		if($('.button.cart-btn').attr('style') != 'background: #DC143C; border: white;'){
 			let cnt = 1;
 			let bvo = {cnt, userId, no}
@@ -60,6 +78,22 @@ list : function(){ //값 받기
 		}
 	},
 	clickProductLike(no){
+		
+		if(userId.value == null){
+			alert('로그인 해주세요');
+			return;
+		}
+		
+		let currentTime = new Date().getTime();
+		let timeDiff = currentTime - lastClickTime;
+	
+		if(timeDiff < 500){
+			e.preventDefault();
+			return;
+		}
+		
+		lastClickTime = currentTime;
+		
 		if($('.icon_btn:eq(1)').attr('style') != 'background: red; color:white;'){
 			let lvo = {userId, no}
 

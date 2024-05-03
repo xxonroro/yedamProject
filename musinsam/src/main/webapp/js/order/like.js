@@ -14,8 +14,9 @@ Number.prototype.formatNumber = function() {
 	return nstr;
 };
 
-const wish = {
+let lastClickTime = 0;
 
+const wish = {
 	list : function(){
 		let page = 1;
 		let maxPg = 8;
@@ -287,6 +288,17 @@ const wish = {
 	},
 	
 	clickCart(no){ // 장바구니 아이콘 클릭
+		
+		let currentTime = new Date().getTime();
+		let timeDiff = currentTime - lastClickTime;
+	
+		if(timeDiff < 500){
+			e.preventDefault();
+			return;
+		}
+		
+		lastClickTime = currentTime;
+		
 		if($('[cloth_id="'+no+'"] .ti-shopping-cart').parent().attr('style') != 'background: red;'){
 			let cnt = 1;
 			let bvo = {cnt, userId, no}
@@ -308,6 +320,17 @@ const wish = {
 	},
 	
 	clickLike(no){ // 찜목록 아이콘 클릭
+	
+		let currentTime = new Date().getTime();
+		let timeDiff = currentTime - lastClickTime;
+	
+		if(timeDiff < 500){
+			e.preventDefault();
+			return;
+		}
+		
+		lastClickTime = currentTime;
+	
 		if($('[cloth_id="'+no+'"] .ti-heart').parent().attr('style') != 'background: red;'){
 			
 			let lvo={userId, no};
