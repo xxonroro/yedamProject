@@ -203,7 +203,7 @@ function makeprod3(page) {
 			temp2.appendTo('#section1');
 			//document.getElementById('searchdo').value = ''; //초기화
 		})
-	}
+	
 			//페이지 호출
 		let pagetag = "";
 
@@ -227,6 +227,7 @@ function makeprod3(page) {
 
 
 		$('#page').html(pagetag);
+		}
 }
 
 
