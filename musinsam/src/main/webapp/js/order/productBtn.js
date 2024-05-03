@@ -44,7 +44,7 @@ list : function(){ //값 받기
 	},
 	clickProductCart(no){
 		
-		if(userId.value == null){
+		if(userId == ''){
 			alert('로그인 해주세요');
 			return;
 		}
@@ -79,7 +79,7 @@ list : function(){ //값 받기
 	},
 	clickProductLike(no){
 		
-		if(userId.value == null){
+		if(userId == ''){
 			alert('로그인 해주세요');
 			return;
 		}
