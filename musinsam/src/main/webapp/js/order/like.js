@@ -51,6 +51,7 @@ const wish = {
 	makeLike : function(like){ //본문
 	
 		let temp = $('.row:eq(1) div:eq(0)').clone();
+		let prc_ = Math.round(like.PRICE * (1 - like.DISCOUNT_RATE) / 100) * 100;
 
 		temp.attr('cloth_id', like.CLOTH_NO);
 		temp.removeAttr('style');
@@ -66,7 +67,7 @@ const wish = {
 		if (like.DISCOUNT_RATE > 0) {
 			temp.find('.card-body p:eq(1)').before('<s><i>' + like.PRICE + '원 </i></s>');
 		}
-		temp.find('.card-body p:eq(1)').text(Math.round((like.PRICE * (1 - like.DISCOUNT_RATE) / 100)).formatNumber() * 100 + '원');
+		temp.find('.card-body p:eq(1)').text(prc_.formatNumber() + '원');
 
 		temp.find('.card-product__title a').attr('onclick', 'javascript:wish.clickProduct(' + like.CLOTH_NO + ');');
 		temp.find('.ti-search').parent().attr('onclick', 'javascript:wish.clickProduct(' + like.CLOTH_NO + ');');
