@@ -1,6 +1,7 @@
 package com.yedam.product;
 
 import java.util.List;
+import java.util.Map;
 
 import com.yedam.common.DataSource;
 import com.yedam.vo.ReviewVO;
@@ -19,4 +20,10 @@ public class ReviewServiceImpl implements ReviewService {
 		return mapper.reviewList(clothNo);
 	}
 
+	@Override
+	public Map<String,Double> getGrade(int clothNo) {
+		return mapper.getGrade(clothNo);
+	}
+
+	
 }
