@@ -73,11 +73,11 @@ $('.saleBtn').click(function(e){
 		 method : 'get',
 		 dataType : 'json'
 	 })
-	 .done(function(result){
-		$('#salePercent').text(' ('+ (result.sale * 100) + '%)')
-	 })
-	 .fail(function(err){
-		 console.log(err)
+	 	.done(function(result){
+			$('#salePercent').text(' ('+ (result.sale * 100) + '%)')
+	 	})
+	 	.fail(function(err){
+			 console.log(err)
 		 alert('할인율에러')
 	 })
 	 })

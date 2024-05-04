@@ -15,10 +15,11 @@ from review
 where cloth_no = ${clothNo}
 </select>
 
-<select id="selectGrade" parameterType="int" resultType="double">
-select grade
-from review
-where cloth_no = ${clothNo}
+<select id="getGrade" parameterType="int" resultType="map">
+SELECT COUNT(grade) cnt ,round( AVG(grade),2) avg
+FROM review
+WHERE cloth_no = ${clothNo}
+
 </select>
 
  </mapper>

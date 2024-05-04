@@ -39,7 +39,13 @@
 				select rownum rn, l.user_id, c.*
 				from likegather l INNER JOIN clothes c
 				on l.cloth_no = c.cloth_no
-				where l.user_id = #{userId})
+				JOIN category g
+                on c.small_category = g.small_category
+				where l.user_id = #{userId}
+				<if test="bigCategory != null  and bigCategory !=''.toString()">               
+				and g.big_category = #{bigCategory}
+				</if>
+				)
 		<![CDATA[
 		where rn <= (#{page} * #{maxPg})
 		]]>
@@ -66,10 +72,16 @@
   		where user_id = #{userId} and cloth_no = #{clothNo}
   	</delete>
 	
-	<select id="CountLike" parameterType="String" resultType="int">
+	<select id="CountLike" resultType="int">
 		select count(1)
-		from likegather
-		where user_id = #{userId}
+		from likegather l INNER JOIN clothes c
+        on l.cloth_no = c.cloth_no
+        JOIN category g
+        on c.small_category = g.small_category 
+		where l.user_id = #{userId}
+		<if test="bigCategory != null  and bigCategory !=''.toString()">               
+		and g.big_category = #{bigCategory}
+		</if>
 	</select>
 	
 	

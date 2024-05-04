@@ -24,12 +24,9 @@ import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
 import com.yedam.category.BestSeller;
 import com.yedam.category.CateCount;
-import com.yedam.category.CateList;
 import com.yedam.category.CateSort;
 import com.yedam.category.CateSort2;
 import com.yedam.category.Cateform;
-import com.yedam.category.CategoryList;
-import com.yedam.category.CategoryListPants;
 import com.yedam.category.RandomMain;
 import com.yedam.category.RandomMain8;
 import com.yedam.category.SearchCate;
@@ -71,8 +68,8 @@ import com.yedam.order.control.UpDownCount;
 import com.yedam.order.control.UserInfo;
 import com.yedam.product.AddReview;
 import com.yedam.product.GetProductControl;
-import com.yedam.product.GradeCal;
 import com.yedam.product.ReviewList;
+import com.yedam.product.GetGrade;
 import com.yedam.question.QuestionControl;
 import com.yedam.question.QuestionList;
 import com.yedam.question.QuestionSearch;
@@ -162,10 +159,8 @@ public class FrontControl extends HttpServlet {
 
 		//한승민
 		map.put("/cateform.do", new Cateform()); //페이지 이동
-		map.put("/category.do", new CategoryList());
-		map.put("/categorypants.do", new CategoryListPants());// x
 
-		map.put("/catelist.do", new CateList());
+
 		map.put("/searchcate.do", new SearchCate()); //검색   
 		map.put("/cateCount.do", new CateCount()); //항목별 개수
 		map.put("/cateSort.do", new CateSort()); //정렬		
@@ -211,21 +206,10 @@ public class FrontControl extends HttpServlet {
 
 
 
-
 		
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-
-    
 		
 		
 		
@@ -234,7 +218,9 @@ public class FrontControl extends HttpServlet {
 		map.put("/getProduct.do", new GetProductControl());  
 		map.put("/addReview.do", new AddReview());	
 		map.put("/reviewList.do", new ReviewList());  
-		map.put("/gradeCal.do", new GradeCal());    
+		map.put("/setGrade.do", new GetGrade());
+
+    
     
     
     

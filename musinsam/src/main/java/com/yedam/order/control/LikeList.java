@@ -21,11 +21,12 @@ public class LikeList implements Control {
 		response.setContentType("text/json;charset=utf-8");
 		
 		String uid = request.getParameter("uid");
+		String bct = request.getParameter("bct");
 		int page = Integer.parseInt(request.getParameter("page"));
 		int maxPg = Integer.parseInt(request.getParameter("maxPg"));
 		
 		Service svc = new ServiceImpl();
-		List<Map<String, Object>> list = svc.likeList(uid, page, maxPg);
+		List<Map<String, Object>> list = svc.likeList(uid, bct, page, maxPg);
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);

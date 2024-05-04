@@ -28,13 +28,17 @@ public class CateSort2 implements Control {
 		page = page == null ? "1" : page;
 		int page2 = Integer.parseInt(page);
 		
+		String prod = request.getParameter("prod");
+		prod = prod == null ? "6" : prod;
+		int prod2 = Integer.parseInt(prod);
+		
 		CategoryService csv = new CategoryServiceImpl();
 		
-		List<ClothesVO> list = csv.clothesListSort2(bigCategory, orderby, searchword, page2);
+		List<ClothesVO> list = csv.clothesListSort2(bigCategory, orderby, searchword, page2, prod2);
 		
 		int a = csv.productCount();
 		
-		PageDTO pg = new PageDTO(page2, a);
+		PageDTO pg = new PageDTO(page2, a, prod2);
 		
 		//map형태로 변환해서 pagedto 같이 넣어줘야됨
 		Map<String, Object> map = new HashMap<>();
