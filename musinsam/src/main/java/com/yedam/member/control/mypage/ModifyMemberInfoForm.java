@@ -1,4 +1,4 @@
-package com.yedam.member;
+package com.yedam.member.control.mypage;
 
 import java.io.IOException;
 
@@ -8,13 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
 
-public class FindUserPassForm implements Control {
+public class ModifyMemberInfoForm implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("member/findUserPassForm.tiles").forward(request, response);
-		
-
+		request.getRequestDispatcher("member/modifyMemberInfoForm.tiles").forward(request, response);
 	}
 
 }

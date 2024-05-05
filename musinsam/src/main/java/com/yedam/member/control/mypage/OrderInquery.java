@@ -1,4 +1,4 @@
-package com.yedam.member;
+package com.yedam.member.control.mypage;
 
 import java.io.IOException;
 import java.util.List;
@@ -10,8 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
+import com.yedam.member.OrderClothVO;
+import com.yedam.member.service.MemberService;
+import com.yedam.member.service.MemberServiceImpl;
 
-public class OrderInqueryList implements Control {
+public class OrderInquery implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,7 +23,9 @@ public class OrderInqueryList implements Control {
 		String id = request.getParameter("id");
 		
 		MemberService service = new MemberServiceImpl();
-		List<OrderVO> list = service.selectOrderList(id);
+		List<OrderClothVO> list = service.selectOrderList(id);
+		System.out.println(list);
+		
 		
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);

@@ -1116,7 +1116,7 @@ a {
   let fileds = ["orderDate", "clothName", "orderNo", "orderPrice"];
   let tbody = document.querySelector(".site-blocks-table tbody");
 
-  fetch("orderInqueryList.do", {
+  fetch("orderInquery.do", {
     method: "post",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: "id=" + userId
@@ -1148,10 +1148,7 @@ a {
         let img = document.createElement("img");
         img.setAttribute("src", "img/cloth/" + order[field] + ".jpg");
         img.style.height = "100px";
-
         img.style.width = "100px";
-
-
 
         img.style.margin = "0 20px 0 50px";
         td.appendChild(img);
@@ -1165,9 +1162,15 @@ a {
         div.appendChild(a);
         td.appendChild(div);
       }
-      else {
-        td.innerText = order[field];
+      else if(field == "orderNo") {
+		let a = document.createElement("a");
+		a.setAttribute("href", "orderDetailForm.do?orderNo=" + order["orderNo"]);
+		a.innerText = order[field];
+        td.appendChild(a);
       }
+	  else {
+		td.innerText = order[field];
+	  }
       tr.appendChild(td);
     });
 
