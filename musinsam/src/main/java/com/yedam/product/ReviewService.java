@@ -8,6 +8,7 @@ import com.yedam.vo.ReviewVO;
 public interface ReviewService {
   boolean insertReview (ReviewVO vo);
   List<ReviewVO> reviewList(int clothNo);
+
   Map<String,Double> getGrade(int clothNo);
   }
   
