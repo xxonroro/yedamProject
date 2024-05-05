@@ -56,12 +56,53 @@
 	 svc.addReview(vo, function(result){
 	if(result.retCode == 'Success'){
 		alert('등록이 완료되었습니다');
-	}else{
+		 
+		svc.reviewList(clothNo,function(result){	
+			$('.review_list').empty();	
+		 grade ="";			
+			result.forEach(elem =>{
+			let grade = "";
+			for (i=0; i<elem.grade; i++){
+				grade+='<i class="fas fa-star"></i>';
+			}
+			for (i=0; i<5-elem.grade; i++){
+				grade+='<i class="far fa-star"></i>';
+			}
+		
+			let temp =`	<div class="review_item">
+							<div class="media">
+								<div class="d-flex">
+								</div>
+								<div class="media-body">
+									<h4>${elem.userId}</h4>
+									${grade}
+								</div>
+							</div>
+							<p>${elem.detail}</p>
+						</div>`
+						
+						$('.review_list').append(temp);	
+			 grade ="";			
+						
+		})
+
+	}),
+	 //리뷰를 등록하면 평점과 평균 새로고침 
+	 svc.getGrade(clothNo,function(result){
+	 $('#grade_avg').text(result.AVG);
+	 $('#grade_count').text(result.CNT);
+		
+	})
+		
+		// $(".review_list").load(location.href+' #reviewid');
+
+  }else{
 		alert('등록 중 에러가 발생했습니다');
 	}
 });
  });
  
+
  //별점 리뷰 -> 별 개수 띄우기
  
  const ratingStars = [...document.getElementsByClassName("rating__star")];
@@ -88,8 +129,9 @@
 executeRating(ratingStars);
  //리뷰 조회 
 let clothNo = document.getElementById('clothNo').value;
+
 svc.reviewList(clothNo,function(result){
-	let gradSum =
+		$('.review_list').empty();	
 	result.forEach(elem =>{
 		let grade = "";
 		console.log(elem.grade);
@@ -118,14 +160,23 @@ svc.reviewList(clothNo,function(result){
 	})
 
 })
-
 svc.getGrade(clothNo,function(result){
 	
 	console.log(result.AVG)
 	  $('#grade_avg').text(result.AVG);
 	  $('#grade_count').text(result.CNT);
 	  //document.getElementById('grade_count').value;
-	})
+})
+
+//구매하기 버튼 누르면 장바구니로 이동 
+function clickPriceBtn(){
+	$("<a>").prop({
+		target:"_blank",
+		href:"/musinsam/cart.do"
+	})[0].click();
+}
+//$('.price-ptn').attr('onclick','clickPriceBtn');
+$('.price-ptn').click(clickPriceBtn);
 
 
 //평균 평점 가져오기 
