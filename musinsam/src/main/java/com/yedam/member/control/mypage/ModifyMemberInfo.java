@@ -1,4 +1,4 @@
-package com.yedam.member;
+package com.yedam.member.control.mypage;
 
 import java.io.IOException;
 
@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.yedam.common.Control;
+import com.yedam.member.UserVO;
+import com.yedam.member.service.MemberService;
+import com.yedam.member.service.MemberServiceImpl;
 
 public class ModifyMemberInfo implements Control {
 

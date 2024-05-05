@@ -1,7 +1,12 @@
-package com.yedam.member;
+package com.yedam.member.mapper;
 
 import java.util.List;
 import java.util.Map;
+
+import com.yedam.member.OrderClothVO;
+import com.yedam.member.OrderDetailVO;
+import com.yedam.member.OrderQuery;
+import com.yedam.member.UserVO;
 
 public interface MemberMapper {
 	public int memberInsert(UserVO vo);
@@ -11,6 +16,7 @@ public interface MemberMapper {
 	public String findUserId(UserVO vo);
 	public String findUserPass(Map<String, String> map);
 	public int updateMemberInfo(UserVO vo);
-	public List<OrderVO> selectOrderList(String id);
+	public List<OrderClothVO> selectOrderList(String id);
 	public int userPassChange(UserVO vo);
+	public OrderDetailVO selectDetailOrder(OrderQuery orderQuery);
 }

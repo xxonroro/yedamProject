@@ -1,4 +1,4 @@
-package com.yedam.member;
+package com.yedam.member.control.mypage;
 
 import java.io.IOException;
 
@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
 
-public class LoginForm implements Control {
+public class OrderInqueryForm implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.getRequestDispatcher("member/login.tiles").forward(request, response);
+		request.getRequestDispatcher("member/orderInquery.tiles").forward(request, response);
+
 	}
 
 }
