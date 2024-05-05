@@ -39,8 +39,9 @@
 	const loginId = document.querySelector(".form-control[name='loginId']");
 	const loginPass = document.querySelector(".form-control[name='loginPass']")
 	const loginCheck = document.querySelector("input[name='selector']");
-
-
+	
+	console.log(loginCheck);
+	console.log(loginCheck.value);
 	// 로그인 이벤트
 	loginBtn.addEventListener("click", function(event) {
 	    event.preventDefault();
@@ -49,7 +50,7 @@
 	        fetch("login.do", {
 	            method: "post",
 	            headers: {"Content-Type": "application/x-www-form-urlencoded"},
-	            body: "loginId=" + loginId.value + "&loginPass=" + loginPass.value + "&selector=" + loginCheck.value
+	            body: "loginId=" + loginId.value + "&loginPass=" + loginPass.value + "&selector=" + (loginCheck.checked ? 'on' : 'off')
 	        })
 	        .then(response => response.json())
 	        .then(result => {       

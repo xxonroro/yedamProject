@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="format"%>
 <style>
   .order-container {
     background: white;
@@ -67,7 +68,9 @@
           <div class="product-info">
             <p class="product-name">${requestScope.ovo.clothName}</p>
             <p style="padding-left: 5px;">[Size] ${requestScope.ovo.csize}</p>
-            <p class="product-price">${requestScope.ovo.orderPrice}원 | 수량 ${requestScope.ovo.orderCnt}개</p>
+	        <p class="product-price">
+	        	<format:formatNumber value="${requestScope.ovo.orderPrice  / requestScope.ovo.orderCnt}"/>원 | 수량 ${requestScope.ovo.orderCnt}개
+	        </p>
           </div>
         </td>
         <td>${requestScope.ovo.deliveryState}</td>

@@ -17,6 +17,8 @@ public class Login implements Control {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	    response.setContentType("application/json;charset=UTF-8");
+	    
 		String userId = request.getParameter("loginId");
 		String userPass = request.getParameter("loginPass");
 		String selector = request.getParameter("selector");
@@ -24,7 +26,8 @@ public class Login implements Control {
 		UserVO vo = new UserVO();
 		vo.setUserId(userId);
 		vo.setPassword(userPass);
-
+		
+		System.out.println(selector);
 
 		MemberService service = new MemberServiceImpl();
 		vo = service.loginCheck(vo);
@@ -41,12 +44,11 @@ public class Login implements Control {
 			session.setAttribute("birthday", vo.getBirthdate());
 			session.setAttribute("authority", vo.getAuthority());
 
-			if (selector != null) {
+			if ("on".equals(selector)) {
 				Cookie cookie = new Cookie("JSESSIONID", session.getId());
-				cookie.setMaxAge(3600);
+				cookie.setMaxAge(3600 * 3600);
 				response.addCookie(cookie);
 			}
-		    response.setContentType("application/json;charset=UTF-8");
 		    
 		    response.getWriter().print("{\"login\": \"Success\", \"redirectUrl\": \"main.do\" }");
 		} else {
