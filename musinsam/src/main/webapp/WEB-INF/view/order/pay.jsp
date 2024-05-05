@@ -9,8 +9,9 @@
 					<h1>주문서 작성</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+              <li class="breadcrumb-item"><a href="/musinsam/like.do">찜목록</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="/musinsam/cart.do">장바구니</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="/musinsam/orderInqueryForm.do">주문/배송조회</a></li>
             </ol>
           </nav>
 				</div>
@@ -130,14 +131,14 @@
 								<span class="placeholder" data-placeholder="order_number"></span>
 						</div>
                        
-                        <div class="col-md-6 form-group p_star">
+                        <div class="col-md-6 form-group p_star" style="display:none">
                             <select class="country_select">
                                 <option value="1">District</option>
                                 <option value="2">District</option>
                                 <option value="4">District</option>
                             </select>
                         </div>
-                        <div class="col-md-6 form-group p_star">
+                        <div class="col-md-6 form-group p_star" style="display:none">
                             <select class="country_select">
                                 <option value="1">District</option>
                                 <option value="2">District</option>
@@ -151,7 +152,7 @@
                        
                         <div class="col-md-12 form-group mb-0">
                             <div class="creat_account">
-                                <p>주문건 관련하여 요청사항 있으실 경우 게시판에 꼭! 남겨주세요:)</p>
+                                <p>주문건 관련하여 궁금한 점이 있으실 경우 문의게시판을 찾아주세요:)</p>
                             </div>
                         </div>
                     </form>

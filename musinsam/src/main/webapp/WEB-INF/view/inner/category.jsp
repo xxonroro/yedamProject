@@ -7,42 +7,27 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
 <script src ="//cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+<script>
+let userId = "${sessionScope.userId}"
+</script>
+<script type="text/javascript" src="js/order/likeService.js"></script>
+<script type="text/javascript" src="js/order/cartService.js"></script>
+<script type="text/javascript" src="js/order/like.js"></script>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <style>
-.pagination {
-  --bs-pagination-padding-x: 0.75rem;
-  --bs-pagination-padding-y: 0.375rem;
-  --bs-pagination-font-size: 1rem;
-  --bs-pagination-color: var(--bs-link-color);
-  --bs-pagination-bg: #fff;
-  --bs-pagination-border-width: 1px;
-  --bs-pagination-border-color: #dee2e6;
-  --bs-pagination-border-radius: 0.375rem;
-  --bs-pagination-hover-color: var(--bs-link-hover-color);
-  --bs-pagination-hover-bg: #e9ecef;
-  --bs-pagination-hover-border-color: #dee2e6;
-  --bs-pagination-focus-color: var(--bs-link-hover-color);
-  --bs-pagination-focus-bg: #e9ecef;
-  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-  --bs-pagination-active-color: #fff;
-  --bs-pagination-active-bg: #0d6efd;
-  --bs-pagination-active-border-color: #0d6efd;
-  --bs-pagination-disabled-color: #6c757d;
-  --bs-pagination-disabled-bg: #fff;
-  --bs-pagination-disabled-border-color: #dee2e6;
-  display: flex;
-  padding-left: 0;
-  list-style: none;
-  margin: 0 auto;
-  
+#page{
+	text-align:center;
 }
+
 .pagination {
   display: inline-block;
+  text-align:center;
+  padding-left :50%;
 }
 
 .pagination a {
   color: black;
-  float: left;
+
   padding: 8px 16px;
   text-decoration: none;
   transition: background-color .3s;
@@ -191,15 +176,15 @@
 							<option value="cnt">구매적은순</option>
 						</select>
 					</div>
-					<!-- 
-					<div class="sorting mr-auto">
-						<select>
-							<option value="1">show all</option>
-							<option value="1">show all</option>
-							<option value="1">show all</option>
+				
+					<div class="sorting">
+						<select id="selectsort2">
+							<option value="6">Show 6</option>
+							<option value="9">show 9</option>
+							<option value="12">show 12</option>
 						</select>
 					</div>
-					 -->
+				
 					<div>
 						<div class="input-group filter-bar-search">
 							<input type="text" placeholder="Search" id="searchdo">
@@ -242,7 +227,8 @@
 									<h4 class="card-product__title">
 										<a href="#" id="name1"></a>
 									</h4>
-									<p id="p2" class="card-product__price">원</p>
+									<p id="p2" style="text-decoration:line-through">원</p>
+									<P class="card-product__price"></P>
 								</div>
 							</div>
 						</div>
@@ -255,10 +241,14 @@
 			</div>
 		</div>
 	</div>
+	<div >
 	<div id="page" class="pagination" >
 	<p>---------------------------여기---------------------------</p>
 	</div>
+	</div>
 </section>
+
+
 <script src="js/category.js"></script>
 <!-- ================ category section end ================= -->
 

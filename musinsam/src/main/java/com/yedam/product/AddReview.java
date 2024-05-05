@@ -15,12 +15,12 @@ public class AddReview implements Control {
 	public void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		ReviewVO vo = new ReviewVO();
-		String cNo = req.getParameter("cNo");
+		String clothNo = req.getParameter("clothNo");
 		String uid = req.getParameter("uid");
 		String detail = req.getParameter("detail");
 		String grade = req.getParameter("grade");
 		
-		vo.setClothNo(Integer.parseInt(cNo));
+		vo.setClothNo(Integer.parseInt(clothNo));
 		vo.setUserId(uid);
 		vo.setDetail(detail);
 		vo.setGrade(Integer.parseInt(grade));

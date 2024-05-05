@@ -136,6 +136,17 @@ $(document).ready(function() {
 			temp.find('div h4').text(cloth.clothName);
 			temp.find('div p:eq(0)').text(cloth.smallCategory);
 			temp.find('div p:eq(1)').text((cloth.price).toLocaleString() + "원");
+			temp.find('div p:eq(1)').text((cloth.price).toLocaleString() + "원");
+			if (cloth.discountRate != 0) {
+				temp.find('div p:eq(1)').text((cloth.price).toLocaleString() + ' 원');
+				temp.find('div p:eq(2)').text(Math.round((cloth.price * (1 - cloth.discountRate) / 10) * 10).toLocaleString() + '원');
+			}else {
+				temp.find('#p2').text(' ');
+				temp.find('.card-body p:eq(2)').text((cloth.price).toLocaleString() + '원');
+			}
+			
+			
+			
 			temp.appendTo('#divbody');
 
 		})

@@ -2,8 +2,8 @@
  * 
  */
 const lvc = {
-	likeList(userId, page=1, maxPg=8, successCall, errorCall) {
-		fetch('likeList.do?uid=' + userId + '&page=' + page + '&maxPg=' + maxPg)
+	likeList(userId, bct='', page=1, maxPg=8, successCall, errorCall) {
+		fetch('likeList.do?uid=' + userId + '&bct='+ bct + '&page=' + page + '&maxPg=' + maxPg)
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);
@@ -48,8 +48,8 @@ const lvc = {
 			.then(successCall)
 			.catch(errorCall);
 	},
-	likeCount(userId, successCall, errorCall) {
-		fetch('countLike.do?uid=' + userId )
+	likeCount(userId, bct='', successCall, errorCall) {
+		fetch('countLike.do?uid=' + userId + '&bct='+ bct)
 			.then(resolve => resolve.json())
 			.then(successCall)
 			.catch(errorCall);

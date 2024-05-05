@@ -10,8 +10,9 @@
 					<h1>찜목록</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+              <li class="breadcrumb-item"><a href="/musinsam/like.do">찜목록</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="/musinsam/cart.do">장바구니</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="/musinsam/orderInqueryForm.do">주문/배송조회</a></li>
             </ol>
           </nav>
 				</div>
@@ -42,23 +43,17 @@
             </div>
            
             <div >
-              <div class="sorting mr-auto">
+              <div class="sorting mr-auto" search-id="C">
               	<select>
-                <option value="1">Default sorting</option>
-                <option value="1">Default sorting</option>
-                <option value="1">Default sorting</option>
+                <option value="1">전체</option>
+                <option value="1">상의</option>
+                <option value="1">하의</option>
+                <option value="1">아우터</option>
+                <option value="1">신발</option>
               	</select>
               </div>
             </div>
-            <div class="sorting">
-              <div>
-              	<select>
-                <option value="1">Default sorting</option>
-                <option value="1">Default sorting</option>
-                <option value="1">Default sorting</option>
-              	</select>
-              </div>
-            </div>
+            
             
             
           </div>
@@ -96,7 +91,7 @@
 								class="lnr lnr-chevron-left"></span>
 						</span>
 					</a></li>
-					<li class="page-item active" style="display:none"><a href="javascript:void(0)" class="page-link" aria-label="Num">01</a></li>
+					<li class="page-item active" style="display:none"><a href="javascript:void(0)" class="page-link" aria-label="Num">1</a></li>
 					<li class="page-item" style="display:none"><a href="javascript:void(0)" class="page-link"
 						aria-label="Next"> <span aria-hidden="true"> <span
 								class="lnr lnr-chevron-right"></span>

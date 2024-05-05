@@ -42,8 +42,8 @@ public class ServiceImpl implements Service{
 	
 	
 	@Override
-	public List<Map<String, Object>> likeList(String uid, int page, int maxPg) {
-		return mapper.likeList(uid, page, maxPg);
+	public List<Map<String, Object>> likeList(String uid, String bigCategory, int page, int maxPg) {
+		return mapper.likeList(uid, bigCategory, page, maxPg);
 	}
 	
 	@Override
@@ -67,8 +67,8 @@ public class ServiceImpl implements Service{
 	}
 	
 	@Override
-	public int CountLike(String uid) {
-		return mapper.CountLike(uid);
+	public int CountLike(String uid, String bct) {
+		return mapper.CountLike(uid, bct);
 	}
 	
 	
