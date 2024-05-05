@@ -13,4 +13,5 @@ public interface ReviewMapper {
 
 	public Map<String,Double> getGrade (int clothNo);
 	
+
 }

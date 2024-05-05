@@ -19,6 +19,7 @@ where cloth_no = ${clothNo}
 SELECT COUNT(grade) cnt ,round( AVG(grade),2) avg
 FROM review
 WHERE cloth_no = ${clothNo}
+
 </select>
 
  </mapper>
