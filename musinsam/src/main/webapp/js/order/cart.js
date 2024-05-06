@@ -19,7 +19,7 @@ const basket = {
 	list : function(){
 
 		svc.cartList(userId, function(result){
-			//console.log(result);
+			console.log(result);
 			
 			//cartList
 			result.forEach(cart =>{				
@@ -45,6 +45,13 @@ const basket = {
 			$('.orderBtn').css('padding', '0px 0px 50px');
 			
 			basket.reCalc();
+			
+			for (let i = 0; i < $('[data-id]').length; i++) {
+				if ($('[data-id]:eq(' + i + ') ul.list li').length == 0) {
+					$('[data-id]:eq(' + i + ') .media-body a').after('<i style="color:red"> 품절 </i>');
+				}
+			}
+			
 			
 			}, function(err){
 				console.log(err);

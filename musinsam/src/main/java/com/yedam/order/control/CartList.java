@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.startup.Bootstrap;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
@@ -29,7 +31,7 @@ public class CartList implements Control {
 		List<Map<String, Object>> list = svc.cartList(uid);
 		
 		for(Map map : list) {
-			List<Map<String, Object>> sizeList = svc.csizeList(((BigDecimal)map.get("CLOTH_NO")).intValue());
+			List<Map<String, Object>> sizeList = svc.csizeList(((BigDecimal)map.get("CLOTH_NO")).intValue(), uid);
 			map.put("sizeList", sizeList);
 		}
 		

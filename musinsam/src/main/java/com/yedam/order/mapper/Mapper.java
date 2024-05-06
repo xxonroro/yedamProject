@@ -15,7 +15,7 @@ public interface Mapper {
 	public List<Map<String, Object>> cartList(@Param("userId") String uid);
 	public int updownCount(BasketVO bvo);
 	public int removeCart(int no);
-	public List<Map<String, Object>> csizeList(int no);
+	public List<Map<String, Object>> csizeList(@Param("clothNo") int no, @Param("userId") String uid);
 	
 	public List<Map<String, Object>> likeList(@Param("userId") String uid, @Param("bigCategory") String bigCategory, @Param("page") int page, @Param("maxPg") int maxPg);
 	public int removeLike(LikeVO lvo);

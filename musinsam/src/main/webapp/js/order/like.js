@@ -209,12 +209,11 @@ const wish = {
 		lvc.likeRemove(userId, delNo, (result) => {
 			if (result.retCode == "Success") {
 				
-				let lng = $('[cloth_id]').length;
-				for(let i =0; i < lng ; i++){
-					$('.row:eq(1) [cloth_id]:eq(0)').remove();
-				}
+				delNo.forEach(num => {
+					$('.row:eq(1) [cloth_id='+num+']').remove();
+				})		
+				
 				$('.like_chkAll :checkbox').prop('checked', false);
-				$('.page-item [data-page]').parent().remove();
 				
 				if (bct == '하의') {
 					bct = '바지';
@@ -222,20 +221,12 @@ const wish = {
 				if (bct == '전체') {
 					bct = '';
 				}
-				lvc.likeList(userId, bct, page, maxPg, function(result) {
-					//likeList
-					result.forEach(like => {
-						let temp = wish.makeLike(like);
-						temp.appendTo('.row:eq(1)');
-
-					}, function(err) {
-						console.log(err);
-					})
-				})
 				
 				if ($('[cloth_id]').length == 0) {
 					page = page > 1 ? (page - 1) : 1
-
+					
+					$('.page-item [data-page]').parent().remove();
+					
 					lvc.likeList(userId, bct, page, maxPg, function(result) {
 						//likeList
 						result.forEach(like => {
@@ -246,21 +237,21 @@ const wish = {
 							console.log(err);
 						})
 					})
-				}
 
-				lvc.likeCount(userId, bct, function(result) { //페이징
-					wish.makePage(result, page);
-				})
-
-				svc.cartList(userId, function(result) { //장바구니 아이콘 활성화
-					result.forEach(basket => {
-						for (let i = 0; i < $('[cloth_id]').length; i++) {
-							if ($('[cloth_id]:eq(' + i + ')').attr('cloth_id') == basket.CLOTH_NO) {
-								$('[cloth_id]:eq(' + i + ') .ti-shopping-cart').parent().css('background', 'red');
-							}
-						}
+					lvc.likeCount(userId, bct, function(result) { //페이징
+						wish.makePage(result, page);
 					})
-				})
+
+					svc.cartList(userId, function(result) { //장바구니 아이콘 활성화
+						result.forEach(basket => {
+							for (let i = 0; i < $('[cloth_id]').length; i++) {
+								if ($('[cloth_id]:eq(' + i + ')').attr('cloth_id') == basket.CLOTH_NO) {
+									$('[cloth_id]:eq(' + i + ') .ti-shopping-cart').parent().css('background', 'red');
+								}
+							}
+						})
+					})
+				}
 			}
 		},
 		(err) => { })
