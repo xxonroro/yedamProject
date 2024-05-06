@@ -105,6 +105,7 @@ let userId = "${sessionScope.userId}"
             <div class="card-body" id="content">
               <p>이건가</p>
               <h4 class="card-product__title"><a href="getProduct.do?clothNo=1">Watch</a></h4>
+              <p style="text-decoration:line-through">$150.00</p>
               <p class="card-product__price">$150.00</p>
             </div>
      

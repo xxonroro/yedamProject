@@ -16,8 +16,9 @@ public interface CategoryMapper {
 	public int searchCount(String searchword); //검색 개수
 	
 	
-	public int categoryCount(String cate);
-	public int productCount();
+	public int categoryCount(String cate); //카테고리개수
+	public int productCount(); // 상품개수
+	public int brandCount(String brand); // 브랜드별개수
 	
 	public int selectCount(SearchVO search);
 	
@@ -29,7 +30,9 @@ public interface CategoryMapper {
 	public List<ClothesVO> clothListsort(String cate);
 	public List<ClothesVO> clothListsort2(@Param("bigCategory")String bigCategory, @Param("orderby")String orderby, 
 									@Param("searchword")String searchword, @Param("page")int page,  @Param("prod")int prod);
-
 	
+	public List<ClothesVO> brandsort(@Param("brand")String brand, @Param("orderby")String orderby, 
+			@Param("searchword")String searchword, @Param("page")int page,  @Param("prod")int prod);
+
 
 }
