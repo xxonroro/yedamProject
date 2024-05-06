@@ -5,49 +5,8 @@
   
   
   <mapper namespace="com.yedam.category.CategoryMapper">
-  <!-- 
-	  <sql id="searchCond">
-		<where>
-		    <choose>
-		    	<when test="searchCondition == 'T'.toString()">
-		    	title like '%'||#{keyword}||'%'
-		    	</when>
-		    	<when test="searchCondition == 'W'.toString()">
-		    	writer like '%'||#{keyword}||'%'
-		    	</when>
-		    	<when test="searchCondition == 'TW'.toString()">
-		    	(writer like '%'||#{keyword}||'%' or title like '%'||#{keyword}||'%')
-		    	</when>
-		    	<otherwise>
-		    	1 = 1
-		    	</otherwise> 
-		    </choose>
-		    </where>
-	</sql>
-	
-	
-	  <select id="clothList" parameterType="com.yedam.category.SearchVO" resultType="com.yedam.category.ClothesVO">
-		
-		select *
-		from(select rownum rn, b.*
-	    from clothes b
-	    <include refid="searchCond"></include>
-	    order by cloth_no desc) a
-		where rn > (#{page} - 1)* 12 
-		<![CDATA[
-		and rn <= (#{page} * 12)
-		]]>
-	  </select>
-	  
-	  	   <select id="selectCount" parameterType="com.yedam.category.SearchVO" resultType="int">
-		 select count(1)
-		 from clothes
-		<include refid="searchCond"></include>
-		 
-		</select>
-	   -->
 
-	  
+
 	  <select id="searchList" parameterType="com.yedam.category.ClothesVO">
 		select * from(select rownum rs, a.* from
 		(select * from clothes 
@@ -143,6 +102,36 @@
 		from (select * from clothes order by cnt desc)
 		where rownum  <![CDATA[<= 7]]> 
 	 </select>
+	 
+	 <select id="brandsort" parameterType="com.yedam.category.ClothesVO">
+		select * from(select rownum rs, a.* from
+		(select * from clothes 
+        <if test="brand != null  and brand !=''.toString()">               
+			where brand = #{brand} 
+		</if>
+		<if test="searchword != null  and searchword !=''">               
+			where cloth_name like '%'||#{searchword}||'%' or small_category like '%'||#{searchword}||'%' or brand like '%'||#{searchword}||'%' 
+		</if>
+		<choose>
+			<when test = "orderby != null and orderby != ''">
+				order by ${orderby}
+			</when>
+			
+			<otherwise>
+				order by cloth_no desc
+			</otherwise>
+		</choose>
+		) a  where rownum <![CDATA[<= ]]> (#{page}) * (#{prod}) <!-- (#{page}-1) * 12 -->
+
+		)where rs > (#{page}-1) *  (#{prod})<!-- (#{page} * 12) -->
+
+	 	</select>
+	 
+	   <select id="brandCount" parameterType="string" resultType="int">
+		select count(*)
+		from clothes 
+		where brand = #{brand}
+	  </select>
 
   
   

@@ -23,6 +23,7 @@ import com.yedam.admin.selSale;
 import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
 import com.yedam.category.BestSeller;
+import com.yedam.category.BrandSort;
 import com.yedam.category.CateCount;
 import com.yedam.category.CateSort;
 import com.yedam.category.CateSort2;
@@ -164,6 +165,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/cateCount.do", new CateCount()); //항목별 개수
 		map.put("/cateSort.do", new CateSort()); //정렬		
 		map.put("/cateSort2.do", new CateSort2()); //정렬	main	
+		map.put("/brandSort.do", new BrandSort()); //정렬	brand
 	
     		
 		map.put("/randomMain.do", new RandomMain());

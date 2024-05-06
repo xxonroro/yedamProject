@@ -69,7 +69,7 @@ let userId = "${sessionScope.userId}"
 		<div class="row">
 			<div class="col-xl-3 col-lg-4 col-md-5">
 				<div class="sidebar-categories">
-					<div class="head">Browse Categories</div>
+					<div class="head">Product Categories</div>
 					<ul class="main-categories">
 						<li class="common-filter">
 							<form action="#">
@@ -79,16 +79,13 @@ let userId = "${sessionScope.userId}"
 									for="men">상의</label><span></span></li>
 									<li class="filter-list">
 									<input class="pixel-radio"
-										type="radio" id="women" name="cate" value="바지"><label
-										for="women">하의</label><span></span></li>
+										type="radio" id="women" name="cate" value="바지"><label>하의</label><span></span></li>
 									<li class="filter-list">
 									<input class="pixel-radio"
-										type="radio" id="accessories" name="cate" value="아우터"><label
-										for="accessories">아우터<span></span></label></li>
+										type="radio" id="accessories" name="cate" value="아우터"><label>아우터<span></span></label></li>
 									<li class="filter-list">
 									<input class="pixel-radio"
-										type="radio" id="footwear" name="cate" value="신발"><label
-										for="footwear">신발<span></span></label></li>
+										type="radio" id="footwear" name="cate" value="신발"><label>신발<span></span></label></li>
 								<!--  		
 									<li class="filter-list"><input class="pixel-radio"
 										type="radio" id="bayItem" name="brand"><label
@@ -104,62 +101,30 @@ let userId = "${sessionScope.userId}"
 						</li>
 					</ul>
 				</div>
+				
 				<div class="sidebar-filter">
 					<div class="top-filter-head">Product Filters</div>
 					<div class="common-filter">
 						<div class="head">Brands</div>
 						<form action="#">
 							<ul>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="apple" name="brand"><label for="apple">Apple<span>(29)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="asus" name="brand"><label for="asus">Asus<span>(29)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="gionee" name="brand"><label
-									for="gionee">Gionee<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="micromax" name="brand"><label
-									for="micromax">Micromax<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="samsung" name="brand"><label
-									for="samsung">Samsung<span>(19)</span></label></li>
+								<li class="filter-list">
+								<input class="pixel-radio"
+									type="radio" name="brand" value="나이키"><label>나이키<span></span></label></li>
+								<li class="filter-list">
+								<input class="pixel-radio"type="radio" name="brand" value="아디다스"><label>아디다스<span></span></label></li>
+								<li class="filter-list">
+								<input class="pixel-radio"type="radio"name="brand" value="수아레"><label>수아레<span></span></label></li>
+								<li class="filter-list">
+								<input class="pixel-radio"type="radio" name="brand" value="에잇세컨즈"><label>에잇세컨즈<span></span></label></li>
+								<li class="filter-list">
+								<input class="pixel-radio"type="radio"  name="brand" value="스투시"><label>스투시<span></span></label></li>
 							</ul>
 						</form>
 					</div>
-					<div class="common-filter">
-						<div class="head">Color</div>
-						<form action="#">
-							<ul>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="black" name="color"><label for="black">Black<span>(29)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="balckleather" name="color"><label
-									for="balckleather">Black Leather<span>(29)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="blackred" name="color"><label
-									for="blackred">Black with red<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="gold" name="color"><label for="gold">Gold<span>(19)</span></label></li>
-								<li class="filter-list"><input class="pixel-radio"
-									type="radio" id="spacegrey" name="color"><label
-									for="spacegrey">Spacegrey<span>(19)</span></label></li>
-							</ul>
-						</form>
-					</div>
-					<div class="common-filter">
-						<div class="head">Price</div>
-						<div class="price-range-area">
-							<div id="price-range"></div>
-							<div class="value-wrapper d-flex">
-								<div class="price">Price:</div>
-								<span>$</span>
-								<div id="lower-value"></div>
-								<div class="to">to</div>
-								<span>$</span>
-								<div id="upper-value"></div>
-							</div>
-						</div>
-					</div>
+					
+
+
 				</div>
 			</div>
 			<div class="col-xl-9 col-lg-8 col-md-7">
@@ -168,7 +133,7 @@ let userId = "${sessionScope.userId}"
 					<div class="sorting">
 						<select id="selectsort">
 							<option value="">정렬</option>
-							<option value="price desc">가격높은순</option>
+							<option value="(price-price*discount_rate) desc">가격높은순</option>
 							<option value="price">가격낮은순</option>
 							<option value="discount_rate desc">할인율높은순</option>
 							<option value="discount_rate">할인율낮은순</option>

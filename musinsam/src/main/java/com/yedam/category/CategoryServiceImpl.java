@@ -79,4 +79,20 @@ public class CategoryServiceImpl implements CategoryService {
 
 
 
+	@Override
+	public List<ClothesVO> brandsort(String brand, String orderby, String searchword, int page, int prod) {
+		
+		return mapper.brandsort(brand, orderby, searchword, page, prod);
+	}
+
+
+
+	@Override
+	public int brandCount(String brand) {
+		
+		return mapper.brandCount(brand);
+	}
+
+
+
 }
