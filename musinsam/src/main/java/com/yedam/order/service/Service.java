@@ -13,7 +13,7 @@ public interface Service {
 	public List<Map<String, Object>> cartList(String uid);
 	public boolean updownCount(BasketVO bvo);
 	public boolean removeCart(String st);
-	public List<Map<String, Object>> csizeList(int no);
+	public List<Map<String, Object>> csizeList(int no, String uid);
 	
 	public List<Map<String, Object>> likeList(String uid, String bigCategory, int page, int maxPg);
 	public boolean removeLike(LikeVO lvo);

@@ -35,8 +35,8 @@ public class ServiceImpl implements Service{
 	}
 	
 	@Override
-	public List<Map<String, Object>> csizeList(int no) {
-		return mapper.csizeList(no);
+	public List<Map<String, Object>> csizeList(int no, String uid) {
+		return mapper.csizeList(no, uid);
 	}
 	
 	
