@@ -24,11 +24,11 @@
   		where basket_no = #{basketNo}
   	</delete>
   	
-  	<select id="csizeList" resultType="map" parameterType="int">
+  	<select id="csizeList" resultType="map">
 		select b.cloth_no, s.quantity, s.csize
 		from basket b inner join stock s
 		on b.cloth_no = s.cloth_no
-		where b.cloth_no = #{clothNo}
+		where b.cloth_no = #{clothNo} and b.user_id = #{userId}
 	</select>
 	
 	

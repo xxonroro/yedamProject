@@ -1,4 +1,4 @@
-package com.yedam.member;
+package com.yedam.member.control.register;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
+import com.yedam.member.UserVO;
+import com.yedam.member.service.MemberService;
+import com.yedam.member.service.MemberServiceImpl;
 
 public class MemberRegistration implements Control {
 

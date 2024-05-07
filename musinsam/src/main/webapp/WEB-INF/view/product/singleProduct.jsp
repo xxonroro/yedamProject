@@ -47,7 +47,7 @@
 								  	 <a class="button cart-btn" href="setProd.do?clothNo=${pinfo.clothNo}&clothName=${pinfo.clothName}" >상품 관리</a></li>   
 								   </c:when>
 								   <c:otherwise>
-								   	<a class="button price-ptn" href="#">구매하기</a></li>
+								   	<a class="button price-ptn" href="javascript:void(0)">구매하기</a></li>
 							  		<a class="button cart-btn" href="javascript:void(0)">장바구니 담기 </a></li>
 								   </c:otherwise>
 							   </c:choose>
@@ -57,7 +57,7 @@
 					</div>
 					<div class="card_area d-flex align-items-center">
 						<a class="icon_btn" href="javascript:void(0)"><i class="lnr lnr lnr-diamond"></i></a>
-						<a class="icon_btn" href="javascript:void(0)"><i class="lnr lnr lnr-heart"></i></a>
+						<a class="icon_btn" href="javascript:void(0"><i class="lnr lnr lnr-heart"></i></a>
 					</div>
 				</div>
 			</div>
@@ -101,7 +101,8 @@
 									<!-- 리뷰 개수 입력 -->
 								</div>
 							</div>
-							<div class="review_list"></div>
+							<div class="review_list"  id="reviewid">
+							</div>
 						</div>
 
 							<div class="modal" id="modal">

@@ -23,6 +23,7 @@ import com.yedam.admin.selSale;
 import com.yedam.board.TodayCoodiControl;
 import com.yedam.board.TodayCoodiList;
 import com.yedam.category.BestSeller;
+import com.yedam.category.BrandSort;
 import com.yedam.category.CateCount;
 import com.yedam.category.CateSort;
 import com.yedam.category.CateSort2;
@@ -32,22 +33,23 @@ import com.yedam.category.RandomMain8;
 import com.yedam.category.SearchCate;
 import com.yedam.category.UserinfoForm;
 import com.yedam.main.MainControl;
-import com.yedam.member.FindUserId;
-import com.yedam.member.FindUserIdForm;
-import com.yedam.member.FindUserPass;
-import com.yedam.member.FindUserPassForm;
-import com.yedam.member.IdCheck;
-import com.yedam.member.Login;
-import com.yedam.member.LoginForm;
-import com.yedam.member.Logout;
-import com.yedam.member.MemberRegisterForm;
-import com.yedam.member.MemberRegistration;
-import com.yedam.member.ModifyMemberInfo;
-import com.yedam.member.ModifyMemberInfoForm;
-import com.yedam.member.ModifyUserPass;
-import com.yedam.member.OrderInquery;
-import com.yedam.member.OrderInqueryList;
-import com.yedam.member.PhoneCheck;
+import com.yedam.member.control.find.FindUserId;
+import com.yedam.member.control.find.FindUserIdForm;
+import com.yedam.member.control.find.FindUserPass;
+import com.yedam.member.control.find.FindUserPassForm;
+import com.yedam.member.control.find.ModifyUserPass;
+import com.yedam.member.control.login.Login;
+import com.yedam.member.control.login.LoginForm;
+import com.yedam.member.control.login.Logout;
+import com.yedam.member.control.mypage.ModifyMemberInfo;
+import com.yedam.member.control.mypage.ModifyMemberInfoForm;
+import com.yedam.member.control.mypage.OrderDetailForm;
+import com.yedam.member.control.mypage.OrderInquery;
+import com.yedam.member.control.mypage.OrderInqueryForm;
+import com.yedam.member.control.register.IdCheck;
+import com.yedam.member.control.register.MemberRegisterForm;
+import com.yedam.member.control.register.MemberRegistration;
+import com.yedam.member.control.register.PhoneCheck;
 import com.yedam.order.control.Cart;
 import com.yedam.order.control.CartList;
 import com.yedam.order.control.CartProduct;
@@ -107,11 +109,9 @@ public class FrontControl extends HttpServlet {
 		map.put("/modifyMemberInfoForm.do", new ModifyMemberInfoForm());
 		map.put("/modifyMemberInfo.do", new ModifyMemberInfo());
 		// 주문 조회
-		map.put("/orderInqueryForm.do", new OrderInquery());
-		map.put("/orderInqueryList.do", new OrderInqueryList());
-
-    
-    
+		map.put("/orderInqueryForm.do", new OrderInqueryForm());
+		map.put("/orderInquery.do", new OrderInquery());
+		map.put("/orderDetailForm.do", new OrderDetailForm());
 		
 		
 		
@@ -165,6 +165,7 @@ public class FrontControl extends HttpServlet {
 		map.put("/cateCount.do", new CateCount()); //항목별 개수
 		map.put("/cateSort.do", new CateSort()); //정렬		
 		map.put("/cateSort2.do", new CateSort2()); //정렬	main	
+		map.put("/brandSort.do", new BrandSort()); //정렬	brand
 	
     		
 		map.put("/randomMain.do", new RandomMain());
@@ -229,16 +230,13 @@ public class FrontControl extends HttpServlet {
 }
 
 	@Override
-	protected void service(HttpServletRequest reqeust, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void service(HttpServletRequest reqeust, HttpServletResponse response) throws ServletException, IOException {
 		reqeust.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 
 		String uri = reqeust.getRequestURI();
 		String context = reqeust.getContextPath();
 		String path = uri.substring(context.length());
-
-		System.out.println();
 
 		Control control = map.get(path);
 		control.execute(reqeust, response);

@@ -1,4 +1,4 @@
-package com.yedam.member;
+package com.yedam.member.control.find;
 
 import java.io.IOException;
 

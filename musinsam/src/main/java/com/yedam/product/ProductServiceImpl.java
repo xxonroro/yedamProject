@@ -3,6 +3,7 @@ package com.yedam.product;
 import org.apache.ibatis.session.SqlSession;
 
 import com.yedam.common.DataSource;
+import com.yedam.vo.ReviewVO;
 
 public class ProductServiceImpl implements ProductService {
 	
@@ -14,6 +15,9 @@ public class ProductServiceImpl implements ProductService {
 	public ClothesVO getProduct(int clothNo) {
 		return mapper.getCloth(clothNo);
 	}
+
+
+
 
 
 }

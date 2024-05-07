@@ -90,7 +90,7 @@ $(document).ready(function() {
 		$('#divimg4 h3').text(members[3].clothName);
 		$('#divimg4 p').text(members[3].smallCategory);
 		$('#divimg4 a').attr('href', 'getProduct.do?clothNo=' + members[3].clothNo);
-		
+
 		/*
 		members.forEach(member => {
 			
@@ -133,26 +133,26 @@ $(document).ready(function() {
 			temp.find('div img').attr('src', 'img/cloth/' + cloth.clothName + '.jpg')
 			temp.find('div img').attr('height', '200px')
 			temp.find('li a').attr('href', 'getProduct.do?clothNo=' + cloth.clothNo);
-			temp.find('div h4').text(cloth.clothName);
+			temp.find('div h4').text(cloth.clothName);	
 			temp.find('div p:eq(0)').text(cloth.smallCategory);
 			temp.find('div p:eq(1)').text((cloth.price).toLocaleString() + "원");
 			temp.find('div p:eq(1)').text((cloth.price).toLocaleString() + "원");
 			if (cloth.discountRate != 0) {
 				temp.find('div p:eq(1)').text((cloth.price).toLocaleString() + ' 원');
 				temp.find('div p:eq(2)').text(Math.round((cloth.price * (1 - cloth.discountRate) / 10) * 10).toLocaleString() + '원');
-			}else {
+			} else {
 				temp.find('#p2').text(' ');
 				temp.find('.card-body p:eq(2)').text((cloth.price).toLocaleString() + '원');
 			}
-			
-			
-			
+
+
+
 			temp.appendTo('#divbody');
 
 		})
 
 	};
-		
+
 
 	let ahtp = new XMLHttpRequest();
 	ahtp.open('get', 'bestproduct.do');
@@ -162,16 +162,29 @@ $(document).ready(function() {
 		let ttry = JSON.parse(ahtp.response);
 		console.log(ttry);
 		$('#this').hide();
-		ttry.forEach(pro =>{
-			let bestseller =  $('#this').clone();
+		ttry.forEach(pro => {
+			let bestseller = $('#this').clone();
 			bestseller.css('display', 'flex');
-	
+
 			bestseller.find('div img').attr('src', 'img/cloth/' + pro.clothName + '.jpg')
 			bestseller.find('div li a').attr('href', 'getProduct.do?clothNo=' + pro.clothNo)
 			bestseller.find('div p:eq(0)').text(pro.smallCategory);
-			bestseller.find('div p:eq(1)').text(pro.price.toLocaleString() + "원");
+	
+			if (pro.discountRate != 0) {
+				bestseller.find('div p:eq(1)').text(pro.price.toLocaleString() + "원");
+			bestseller.find('div p:eq(2)').text(Math.round((pro.price * (1 - pro.discountRate) / 10) * 10).toLocaleString() + '원');
+			} else {
+				bestseller.find('div p:eq(1)').text(' ');
+				bestseller.find('div p:eq(2)').text(pro.price.toLocaleString() + "원");
+			}
+
+
+			//bestseller.find('div p:eq(1)').text(pro.price.toLocaleString() + "원");
+			//bestseller.find('div p:eq(2)').text(Math.round((pro.price * (1 - pro.discountRate) / 10) * 10).toLocaleString() + '원');
+
+
 			bestseller.find('div h4').text(pro.clothName);
-			
+
 			$('#bestSellerCarousel').trigger('add.owl.carousel', bestseller);
 			$('#bestSellerCarousel').trigger('refresh.owl.carousel'); //api 새로고침
 		})

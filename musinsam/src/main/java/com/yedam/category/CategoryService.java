@@ -15,6 +15,8 @@ public interface CategoryService {
 	public int categoryCount(String cate);
 	public int productCount();
 	
+	public int brandCount(String brand);
+	
 	public int getCount(SearchVO search); //전체 건수 가져오기
 	
 	public List<ClothesVO> randomCloth();
@@ -24,6 +26,8 @@ public interface CategoryService {
 	
 	public List<ClothesVO> clothesListSort(String cate);
 	public List<ClothesVO> clothesListSort2(String bigCategory, String orderby, String searchword, int page, int prod);
+	
+	public List<ClothesVO> brandsort(String bigCategory, String orderby, String searchword, int page, int prod);
 
 
 }
