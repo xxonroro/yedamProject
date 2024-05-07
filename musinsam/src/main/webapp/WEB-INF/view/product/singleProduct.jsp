@@ -104,15 +104,7 @@
 							<div class="review_list"  id="reviewid">
 							</div>
 						</div>
-
-							<div class="modal" id="modal">
-								<div class="modal_body" id="mb">
-									<h2>모달창 제목</h2>
-									<p>모달창 내용</p>
-								</div>
-							</div>
-							<button class="btn-open-modal">modal 열기</button>
-	
+		</div>
 						<div class="col-lg-6">
 							<div class="review_box">
 								<h4>리뷰 등록</h4>
@@ -147,7 +139,7 @@
 									</div>
 								</form>
 							</div>
-						</div>
+					
 					</div>
 				</div>
 				<!-- ================ end of review ================== -->
