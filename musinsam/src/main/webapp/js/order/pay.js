@@ -177,7 +177,7 @@
 							no.push($('[cloth_id]:eq("' + i +'")').attr('basket_id'));
 						}
 						
-						let del = '배송중';
+						let del = '배송 완료';
 						let rec = $('#order_name').val();
 						let phn = $('#order_number').val();
 						let adr = $('#address').val();
