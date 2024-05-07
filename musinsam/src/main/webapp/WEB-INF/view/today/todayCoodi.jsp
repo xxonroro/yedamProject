@@ -23,10 +23,10 @@
             <div class="toprow">
             <h3 style="margin:100px 0px;text-align:center">ha</h3>
               <div class="col-md-3 col-lg-2" id = "singleCoodi">
-                <div class="card text-center card-product">
+                <div class="card text-center card-product" style = "text-align:center">
                   <div class="card-product__img" >
                     <img class="card-img" src="img/product/product1.png" alt="">
-                    <ul class="card-product__imgOverlay" style ="width:200px">
+                    <ul class="card-product__imgOverlay" style ="width:200px; text-align:center">
                       <li><a target='_blank'><button><i class="ti-search" ></i></button></a></li>
                       <li><a target='_blank'><button><i class="ti-shopping-cart"></i></button></a></li>
                       <li><a target='_blank'><button><i class="ti-heart"></i></button></a></li>

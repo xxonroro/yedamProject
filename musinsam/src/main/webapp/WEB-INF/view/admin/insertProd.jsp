@@ -10,13 +10,13 @@
 						<form action ="insProd.do" id="insertForm" method = "post" enctype ="multipart/form-data">
 						<table class="table insertProd">
 						
-							<h3>제품 등록</h3>
+							<h3>상품 등록</h3>
 							<tr>
-								<th>제품 이미지 등록</th> 
+								<th>상품 이미지 등록</th> 
 								<td><input class="form-control" type = "file" name = "insertImg" ></td>
 							</tr>
 							<tr>
-								<th>제품 설명 등록</th> 
+								<th>상품 설명 등록</th> 
 								<td><input class="form-control" type = "file" name = "insertDescImg" ></td>
 							</tr>
 							<tr>
